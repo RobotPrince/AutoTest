@@ -1,0 +1,9 @@
+2018-08-08 17:36:50  [ main:3822 ] - [ ERROR ]  Element can't click for[[FirefoxDriver: firefox on WINDOWS (9766474e-e942-4980-bfc4-0e7d59c3c43f)] -> css selector: #submitBtn] in com.yss.method.Login
+2018-08-08 17:36:50  [ main:3823 ] - [ ERROR ]  Click element of [[FirefoxDriver: firefox on WINDOWS (9766474e-e942-4980-bfc4-0e7d59c3c43f)] -> css selector: #submitBtn] failed
+2018-08-08 18:31:19  [ main:3388 ] - [ ERROR ]  Element can't click for[[FirefoxDriver: firefox on WINDOWS (552c32c5-a8b2-44f2-acdc-9410a530afd2)] -> css selector: #submitBtn] in com.yss.method.Login
+2018-08-08 18:31:19  [ main:3388 ] - [ ERROR ]  Click element of [[FirefoxDriver: firefox on WINDOWS (552c32c5-a8b2-44f2-acdc-9410a530afd2)] -> css selector: #submitBtn] failed
+2018-08-08 18:32:43  [ main:2990 ] - [ ERROR ]  WebElement name error,not supproted for user yet
+2018-08-08 18:49:48  [ main:3342 ] - [ ERROR ]  Element can't click for[[FirefoxDriver: firefox on WINDOWS (d92fcf24-c67b-47a4-bc1d-3aea5e1df6f0)] -> css selector: #submitBtn] in com.yss.method.Login
+2018-08-08 18:49:48  [ main:3343 ] - [ ERROR ]  Click element of [[FirefoxDriver: firefox on WINDOWS (d92fcf24-c67b-47a4-bc1d-3aea5e1df6f0)] -> css selector: #submitBtn] failed
+2018-08-08 18:49:51  [ main:5993 ] - [ ERROR ]  Element can't click for[[FirefoxDriver: firefox on WINDOWS (9baa1997-83e0-4a7b-ac33-b4b1a22173ba)] -> css selector: #submitBtn] in com.yss.method.Login
+2018-08-08 18:49:51  [ main:5993 ] - [ ERROR ]  Click element of [[FirefoxDriver: firefox on WINDOWS (9baa1997-83e0-4a7b-ac33-b4b1a22173ba)] -> css selector: #submitBtn] failed

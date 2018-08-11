@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [test sofa]">
+  <test name="score1(failed)">
+    <classes>
+      <class name="com.yss.suit.scenario1">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+          <include name="test2"/>
+        </methods>
+      </class> <!-- com.yss.suit.scenario1 -->
+    </classes>
+  </test> <!-- score1(failed) -->
+</suite> <!-- Failed suite [test sofa] -->

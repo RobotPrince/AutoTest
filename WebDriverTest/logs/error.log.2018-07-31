@@ -1,0 +1,5 @@
+2018-07-31 10:58:16  [ main:68424 ] - [ ERROR ]  Element can't setParameter for[[FirefoxDriver: firefox on WINDOWS (25c8a276-c70c-42d5-8f10-eab753173299)] -> xpath: .//*[@id="username"]]
+2018-07-31 14:08:35  [ main:3403 ] - [ ERROR ]  Element can't click for[[FirefoxDriver: firefox on WINDOWS (f8837520-6201-4eb7-9c7a-4471842f7318)] -> css selector: #submitBtn] incom.yss.method.Login
+2018-07-31 14:08:35  [ main:3404 ] - [ ERROR ]  Click element of [[FirefoxDriver: firefox on WINDOWS (f8837520-6201-4eb7-9c7a-4471842f7318)] -> css selector: #submitBtn] failed
+2018-07-31 14:09:18  [ main:3490 ] - [ ERROR ]  Element can't click for[[FirefoxDriver: firefox on WINDOWS (99503f53-4a74-411e-8424-740e831d14d0)] -> css selector: #submitBtn] in com.yss.method.Login
+2018-07-31 14:09:18  [ main:3491 ] - [ ERROR ]  Click element of [[FirefoxDriver: firefox on WINDOWS (99503f53-4a74-411e-8424-740e831d14d0)] -> css selector: #submitBtn] failed

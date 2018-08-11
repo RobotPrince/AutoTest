@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="test sofa">
+	<test name="score1" enabled="true">
+		<classes>
+			<!-- 截图 -->
+<!-- 			<class name="com.yss.common.screenshot"/> -->
+			<!-- 测试流 -->
+			<class name="com.yss.suit.scenario1"/>
+		</classes>
+	</test>
+</suite>
