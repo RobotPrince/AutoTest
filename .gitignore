@@ -1,0 +1,7 @@
+/.metadata/
+/WebDriverTest/test-output/
+WebDriverTest/logs/
+/WebDriverTest/logs/
+WebDriverTest/logs/error.log
+/WebDriverTest/.settings/
+/WebDriverTest/target/
