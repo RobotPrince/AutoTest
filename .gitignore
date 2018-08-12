@@ -1,5 +1,7 @@
 /.metadata/
 /WebDriverTest/test-output/
+/test_output
+WebDriverTest/test_output/
 WebDriverTest/logs/
 /WebDriverTest/logs/
 WebDriverTest/logs/error.log
