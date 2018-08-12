@@ -1,23 +1,18 @@
 package com.yss.method;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
 
+import com.yss.common.AllElementEnum;
 import com.yss.common.Common;
 import com.yss.common.ElementEnum;
+import com.yss.common.MyResponse;
 import com.yss.common.PageEnum;
 import com.yss.common.ReadFromExcel;
-
 public class CheckMenu {
 
-	private  final  String[]  ELEMENT_NAME = {
-		"richangyunying_1",
-		"richangyunying_2",
-		"chanpinjingzhi_2"
-	};
 	public boolean checkTAMenuText() {
 		Common.logInfo("checkTAMenuText");
 
@@ -26,31 +21,16 @@ public class CheckMenu {
 		Common.getWebElement(TATabList.get(1), TATabList.get(0)).click();
 
 		// 获取页面元素
-		List<String> list = new ArrayList<String>();
+		//方案一和方案二
+//		Common.getElementData(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,"richangyunying_1");
+		MyResponse response = Common.getElementData2(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,CheckMenuElement.RICHANGYUNYING_1);
 		
-		list = getElementData("richangyunying_1");
-		WebElement richangyunying1Ele = Common.getWebElement(list.get(1),
-				list.get(0));
-		richangyunying1Ele.getAttribute("ext:tree-node-id");
+//		WebElement richangyunying1Ele = Common.getWebElement(list.get(1),
+//				list.get(0));
+//		richangyunying1Ele.getAttribute("ext:tree-node-id");
 		return true;
 	}
 
-	public List<String> getElementData(String key) {
-
-		HashMap<String, List<String>> hashMap = ReadFromExcel.hashMapOfExcel
-				.get(PageEnum.TA_MENU);
-		List<String> list = new ArrayList<String>();
-
-		try{
-//			Element.valueOf(key);
-		}
-		catch(Exception e){
-			Common.logError("ElementName not in excel");
-			return null;
-		}
-		list = hashMap.get(key);
-		return list;
-	}
 	
 	public enum CheckMenuElement implements ElementEnum{
 		

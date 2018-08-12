@@ -2,7 +2,6 @@ package com.yss.common;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,8 +17,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import com.yss.method.CheckMenu.Element;
 
 public class Common {
 	public static WebDriver driver;
@@ -211,25 +208,50 @@ public class Common {
 		return findElement;
 	}
 	
-	public List<String> getElementData(PageEnum pageEnum,ElementEnum elementEnum,String elementString) {
+	public static MyResponse getElementData(PageEnum pageEnum,AllElementEnum elementEnum,String elementString) {
 
 		List<String> list = new ArrayList<String>();
 		boolean isContains = false;
 		HashMap<String, List<String>> hashMap = ReadFromExcel.hashMapOfExcel
 				.get(pageEnum);
 		//取出该页面对应的所有元素的名称
-		String[] str = AllElementEnum.CHECKMENUELEMENT.valueToString();
+		String[] str = AllElementEnum.valueOf(elementEnum.toString()).valueToString();
 		for(String s : str){
-			if(elementString.equals(elementString)){
+			if(s.equals(elementString.toUpperCase())){
 				isContains = true;
+				break;
 			}
 		}
 		//若elementString不存在于所有元素名称则报错
 		if(isContains == false){
 			Common.logError("ElementName not in excel");
+			return new MyResponse().failed("ElementName not in excel");
 		}
 
-		list = hashMap.get(key);
-		return list;
+		list = hashMap.get(elementString);
+		return new MyResponse().successWithData("list", list);
 	}
+
+public static MyResponse getElementData2(PageEnum pageEnum,AllElementEnum allElementEnum,ElementEnum elementEnum) {
+	
+	List<String> list = new ArrayList<String>();
+	boolean isContains = false;
+	HashMap<String, List<String>> hashMap = ReadFromExcel.hashMapOfExcel
+			.get(pageEnum);
+	//取出该页面对应的所有元素的名称
+	String[] str = AllElementEnum.valueOf(allElementEnum.toString()).valueToString();
+	for(String s : str){
+		if(s.equals(elementEnum.toString())){
+			isContains = true;
+		}
+	}
+	//若elementString不存在于所有元素名称则报错
+	if(isContains == false){
+		Common.logError("ElementName not in excel");
+		return new MyResponse().failed("ElementName not in excel");
+	}
+	
+	list = hashMap.get(elementEnum.toString().toLowerCase());
+	return new MyResponse().successWithData("list", list);
+}
 }

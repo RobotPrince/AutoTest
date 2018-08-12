@@ -1,0 +1,35 @@
+/.metadata/
+/WebDriverTest/test-output/
+/test_output
+WebDriverTest/test_output/
+WebDriverTest/logs/
+/WebDriverTest/logs/
+WebDriverTest/logs/error.log
+/WebDriverTest/.settings/
+/WebDriverTest/target/
+logs/
+WebDriverTest/test-output/junitreports/TEST-com.yss.suit.scenario1.xml
+WebDriverTest/logs/error.log
+WebDriverTest/logs/error.log.2018-08-09
+WebDriverTest/logs/info.log
+WebDriverTest/logs/info.log.2018-32
+WebDriverTest/logs/log.log
+WebDriverTest/logs/log.log.2018-08-10
+WebDriverTest/logs/log.log.2018-08-11
+WebDriverTest/src/main/java/com/yss/common/AllElementEnum.java
+WebDriverTest/src/main/java/com/yss/common/MyResponse.java
+WebDriverTest/target/classes/log4j.properties
+WebDriverTest/target/classes/com/yss/common/AllElementEnum.class
+WebDriverTest/target/classes/com/yss/common/Common.class
+WebDriverTest/target/classes/com/yss/method/CheckMenu.class
+WebDriverTest/target/classes/com/yss/method/CheckMenu$CheckMenuElement.class
+WebDriverTest/target/classes/com/yss/method/Login.class
+WebDriverTest/test-output/emailable-report.html
+WebDriverTest/test-output/index.html
+WebDriverTest/test-output/testng-results.xml
+WebDriverTest/test-output/old/index.html
+WebDriverTest/test-output/old/test sofa/methods.html
+WebDriverTest/test-output/old/test sofa/methods-alphabetical.html
+WebDriverTest/test-output/old/test sofa/toc.html
+WebDriverTest/test-output/test sofa/score1.html
+WebDriverTest/test-output/test sofa/score1.xml
