@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-test_sofa">
-              <span class="suite-name border-passed">test sofa</span>
+              <span class="suite-name border-failed">test sofa</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-test_sofa">
-                    <span>E:\workspace\WebDriverTest\testng.xml</span>
+                    <span>E:\gitworkspace\WebDriverTest\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-test_sofa" class="hide-methods failed suite-test_sofa"> (hide)</a> <!-- hide-methods failed suite-test_sofa -->
+                      <a href="#" panel-name="suite-test_sofa" class="show-methods failed suite-test_sofa"> (show)</a> <!-- show-methods failed suite-test_sofa -->
+                    </span>
+                    <div class="method-list-content failed suite-test_sofa">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-test_sofa" title="com.yss.suit.scenario1" hash-for-method="test2">test2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-test_sofa -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,11 +117,6 @@
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-test_sofa" title="com.yss.suit.scenario1" hash-for-method="test1">test1</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-test_sofa" title="com.yss.suit.scenario1" hash-for-method="test2">test2</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-test_sofa -->
@@ -122,6 +131,37 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-test_sofa" class="panel test_sofa">
+          <div class="suite-test_sofa-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.yss.suit.scenario1</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test2">
+                  </a> <!-- test2 -->
+                  <span class="method-name">test2</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: Element is not clickable at point (268.8000030517578, 68). Other element would receive the click: &lt;div id=&quot;loading&quot; style=&quot;z-index: 9999; position: absolute; width: 1920px; height: 970px; background-color: rgb(8, 58, 99);&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 250 milliseconds
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;LAPTOP-T9UGMIK5&apos;, ip: &apos;192.168.199.184&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.7.0_80&apos;
+Session ID: 0682d136-c250-4c9e-b79f-fd754e2c4bd7
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=45.0.2}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
+	at com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:19)
+	at com.yss.suit.scenario1.test2(scenario1.java:28)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-test_sofa-class-failed -->
           <div class="suite-test_sofa-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -135,19 +175,12 @@
                   <span class="method-name">test1</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="test2">
-                  </a> <!-- test2 -->
-                  <span class="method-name">test2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-test_sofa-class-passed -->
         </div> <!-- panel test_sofa -->
         <div panel-name="test-xml-test_sofa" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">E:\workspace\WebDriverTest\testng.xml</span>
+            <span class="header-content">E:\gitworkspace\WebDriverTest\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -198,18 +231,18 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'test2')
+data.setCell(0, 1, 'test1')
 data.setCell(0, 2, 'com.yss.suit.scenario1')
-data.setCell(0, 3, 79238);
+data.setCell(0, 3, 1842);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'test1')
+data.setCell(1, 1, 'test2')
 data.setCell(1, 2, 'com.yss.suit.scenario1')
-data.setCell(1, 3, 13186);
+data.setCell(1, 3, 312);
 window.suiteTableData['test_sofa']= { tableData: data, tableDiv: 'times-div-test_sofa'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
               <div id="times-div-test_sofa">
               </div> <!-- times-div-test_sofa -->
             </div> <!-- times-div -->
@@ -242,15 +275,17 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">test1</span>
-                <span class="method-start">3383 ms</span>
+                <span class="method-start">3673 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">test2</span>
-                <span class="method-start">16573 ms</span>
+                <span class="method-start">5519 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">95814 ms</span>
+                <span class="method-start">5854 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

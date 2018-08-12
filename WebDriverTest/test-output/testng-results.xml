@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="1" ignored="0" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="test sofa" duration-ms="95827" started-at="2018-08-09T11:25:16Z" finished-at="2018-08-09T11:26:51Z">
+  <suite name="test sofa" duration-ms="5873" started-at="2018-08-12T06:09:17Z" finished-at="2018-08-12T06:09:23Z">
     <groups>
     </groups>
-    <test name="score1" duration-ms="95827" started-at="2018-08-09T11:25:16Z" finished-at="2018-08-09T11:26:51Z">
+    <test name="score1" duration-ms="5873" started-at="2018-08-12T06:09:17Z" finished-at="2018-08-12T06:09:23Z">
       <class name="com.yss.suit.scenario1">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.yss.suit.scenario1@3c716932]" name="beforeClass" is-config="true" duration-ms="3364" started-at="2018-08-09T19:25:16Z" finished-at="2018-08-09T19:25:19Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.yss.suit.scenario1@451094e7]" name="beforeClass" is-config="true" duration-ms="3651" started-at="2018-08-12T14:09:17Z" finished-at="2018-08-12T14:09:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="test1()[pri:0, instance:com.yss.suit.scenario1@3c716932]" name="test1" duration-ms="13186" started-at="2018-08-09T19:25:19Z" finished-at="2018-08-09T19:25:32Z">
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.yss.suit.scenario1@451094e7]" name="test1" duration-ms="1842" started-at="2018-08-12T14:09:21Z" finished-at="2018-08-12T14:09:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
-        <test-method status="PASS" signature="test2()[pri:0, instance:com.yss.suit.scenario1@3c716932]" name="test2" duration-ms="79238" started-at="2018-08-09T19:25:32Z" finished-at="2018-08-09T19:26:51Z">
+        <test-method status="FAIL" signature="test2()[pri:0, instance:com.yss.suit.scenario1@451094e7]" name="test2" duration-ms="312" started-at="2018-08-12T14:09:23Z" finished-at="2018-08-12T14:09:23Z">
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[Element is not clickable at point (268.8000030517578, 68). Other element would receive the click: <div id="loading" style="z-index: 9999; position: absolute; width: 1920px; height: 970px; background-color: rgb(8, 58, 99);"></div>Command duration or timeout: 250 millisecondsBuild info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'System info: host: 'LAPTOP-T9UGMIK5', ip: '192.168.199.184', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_80'Session ID: 0682d136-c250-4c9e-b79f-fd754e2c4bd7Driver info: org.openqa.selenium.firefox.FirefoxDriverCapabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=45.0.2}]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: Element is not clickable at point (268.8000030517578, 68). Other element would receive the click: <div id="loading" style="z-index: 9999; position: absolute; width: 1920px; height: 970px; background-color: rgb(8, 58, 99);"></div>Command duration or timeout: 250 millisecondsBuild info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'System info: host: 'LAPTOP-T9UGMIK5', ip: '192.168.199.184', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_80'Session ID: 0682d136-c250-4c9e-b79f-fd754e2c4bd7Driver info: org.openqa.selenium.firefox.FirefoxDriverCapabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=45.0.2}]at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)at java.lang.reflect.Constructor.newInstance(Constructor.java:526)at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)at com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:19)at com.yss.suit.scenario1.test2(scenario1.java:28)at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)at java.lang.reflect.Method.invoke(Method.java:606)at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)at org.testng.internal.Invoker.invokeMethod(Invoker.java:571)at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)at org.testng.TestRunner.privateRun(TestRunner.java:648)at org.testng.TestRunner.run(TestRunner.java:505)at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)at org.testng.SuiteRunner.run(SuiteRunner.java:364)at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)at org.testng.TestNG.runSuites(TestNG.java:1028)at org.testng.TestNG.run(TestNG.java:996)at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test2 -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.yss.suit.scenario1@3c716932]" name="afterClass" is-config="true" duration-ms="1" started-at="2018-08-09T19:26:51Z" finished-at="2018-08-09T19:26:51Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.yss.suit.scenario1@451094e7]" name="afterClass" is-config="true" duration-ms="7" started-at="2018-08-12T14:09:23Z" finished-at="2018-08-12T14:09:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

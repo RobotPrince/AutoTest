@@ -5,3 +5,4 @@ WebDriverTest/logs/
 WebDriverTest/logs/error.log
 /WebDriverTest/.settings/
 /WebDriverTest/target/
+logs/
