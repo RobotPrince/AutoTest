@@ -31,9 +31,8 @@ public class CopyOfReadFromExcel {
 	 */
 	@SuppressWarnings("unused")
 	public boolean readForWebElements() {
-		Common.logInfo("readExc");
+		Common.logInfo("readForWebElements");
 		try {
-			
 			Workbook book = Workbook.getWorkbook(new File(
 					"./testcase/WebElements.xls"));
 			// 获得第一个工作表对象
@@ -93,12 +92,6 @@ public class CopyOfReadFromExcel {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return true;
-	}
-	public boolean readForTestData(){
-		Common.logInfo("readForTestData");
-		
-		
 		return true;
 	}
 }
