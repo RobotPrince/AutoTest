@@ -17,13 +17,13 @@ public class CheckMenu {
 		Common.logInfo("checkTAMenuText");
 
 		// 点击TAB
-		List<String> TATabList = ReadFromExcel.hashMapOfExcel.get(PageEnum.TAB_MENU).get("TAdengjiguohu");
+		List<String> TATabList = ReadFromExcel.elementsFromExcel.get(PageEnum.TAB_MENU).get("TAdengjiguohu");
 		Common.getWebElement(TATabList.get(1), TATabList.get(0)).click();
 
 		// 获取页面元素
 		//方案一和方案二
 //		Common.getElementData(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,"richangyunying_1");
-		MyResponse response = Common.getElementData2(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,CheckMenuElement.RICHANGYUNYING_1);
+		MyResponse response = Common.getElementData(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,CheckMenuElement.RICHANGYUNYING_1);
 		
 //		WebElement richangyunying1Ele = Common.getWebElement(list.get(1),
 //				list.get(0));

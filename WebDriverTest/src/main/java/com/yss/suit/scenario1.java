@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import com.yss.common.Common;
 import com.yss.common.ReadFromExcel;
 import com.yss.method.CheckMenu;
+import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
 
 public class scenario1 {
@@ -25,7 +26,13 @@ public class scenario1 {
 	@Test
 	public void test2() {
 	
-		new CheckMenu().checkTAMenuText();
+		new HeSuanJiGouXinXi().addOne();
+		new HeSuanJiGouXinXi().addOne();
+		new HeSuanJiGouXinXi().addOne();
+		new HeSuanJiGouXinXi().addOne();
+		new HeSuanJiGouXinXi().review();
+		new HeSuanJiGouXinXi().unreviewed();
+		new HeSuanJiGouXinXi().delete();
 	}
 
 	public void test3() {

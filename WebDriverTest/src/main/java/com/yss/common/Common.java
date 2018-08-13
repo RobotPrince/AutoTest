@@ -207,19 +207,24 @@ public class Common {
 		}
 		return findElement;
 	}
-	
-	public static MyResponse getElementData(PageEnum pageEnum,AllElementEnum elementEnum,String elementString) {
-
+	/**
+	 * getElementDate(pageEnum,allElementEnum,elementEnum)
+	 * @param pageEnum
+	 * @param allElementEnum
+	 * @param elementEnum
+	 * @return
+	 */
+	public static MyResponse getElementData(PageEnum pageEnum,AllElementEnum allElementEnum,ElementEnum elementEnum) {
+		
 		List<String> list = new ArrayList<String>();
 		boolean isContains = false;
-		HashMap<String, List<String>> hashMap = ReadFromExcel.hashMapOfExcel
+		HashMap<String, List<String>> hashMap = ReadFromExcel.elementsFromExcel
 				.get(pageEnum);
 		//取出该页面对应的所有元素的名称
-		String[] str = AllElementEnum.valueOf(elementEnum.toString()).valueToString();
+		String[] str = AllElementEnum.valueOf(allElementEnum.toString()).valueToString();
 		for(String s : str){
-			if(s.equals(elementString.toUpperCase())){
+			if(s.equals(elementEnum.toString())){
 				isContains = true;
-				break;
 			}
 		}
 		//若elementString不存在于所有元素名称则报错
@@ -227,31 +232,8 @@ public class Common {
 			Common.logError("ElementName not in excel");
 			return new MyResponse().failed("ElementName not in excel");
 		}
-
-		list = hashMap.get(elementString);
+		
+		list = hashMap.get(elementEnum.toString().toLowerCase());
 		return new MyResponse().successWithData("list", list);
 	}
-
-public static MyResponse getElementData2(PageEnum pageEnum,AllElementEnum allElementEnum,ElementEnum elementEnum) {
-	
-	List<String> list = new ArrayList<String>();
-	boolean isContains = false;
-	HashMap<String, List<String>> hashMap = ReadFromExcel.hashMapOfExcel
-			.get(pageEnum);
-	//取出该页面对应的所有元素的名称
-	String[] str = AllElementEnum.valueOf(allElementEnum.toString()).valueToString();
-	for(String s : str){
-		if(s.equals(elementEnum.toString())){
-			isContains = true;
-		}
-	}
-	//若elementString不存在于所有元素名称则报错
-	if(isContains == false){
-		Common.logError("ElementName not in excel");
-		return new MyResponse().failed("ElementName not in excel");
-	}
-	
-	list = hashMap.get(elementEnum.toString().toLowerCase());
-	return new MyResponse().successWithData("list", list);
-}
 }

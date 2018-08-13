@@ -9,9 +9,34 @@ import java.util.List;
  */
 public interface BaseInterface {
 
+	/**
+	 * 审核
+	 * @return
+	 */
 	boolean review();
+	/**
+	 * 审核
+	 * @return
+	 */
+	boolean reviewAFew();
+	/**
+	 * 反审核
+	 * @return
+	 */
 	boolean unreviewed();
-	boolean add();
+	/**
+	 * 新增一个
+	 * @return
+	 */
+	boolean addOne();
+	/**
+	 * 新增数个
+	 * @return
+	 */
+	boolean addAFew();
+	/**
+	 * 删除
+	 * @return
+	 */
 	boolean delete();
-	List<String> getElementData(String key);
 }
