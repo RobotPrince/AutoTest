@@ -26,12 +26,13 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		// 点击TAB
 		List<String> TATabList = ReadFromExcel.elementsFromExcel.get(PageEnum.TAB_MENU).get("TAdengjiguohu");
 		Common.getWebElement(TATabList.get(1), TATabList.get(0)).click();
-		Thread.sleep(1000l);
+		Thread.sleep(2000l);
 		//双击机构参数
 		MyResponse jiGouCanShuElementData = Common.getElementData(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.JIGOUCANSHU_1);
 	    Actions actions=new Actions(Common.driver);
 	    actions.doubleClick(Common.getWebElement(((List<String>)jiGouCanShuElementData.get("list")).get(1), ((List<String>)jiGouCanShuElementData.get("list")).get(0))).perform();
-		//点击核算机构信息
+		Thread.sleep(2000l);
+	    //点击核算机构信息
 	    MyResponse heSuanJiGouXinXiElementData = Common.getElementData(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.HESUANJIGOUXINXI_2);
 		Common.getWebElement(((List<String>)heSuanJiGouXinXiElementData.get("list")).get(1), ((List<String>)heSuanJiGouXinXiElementData.get("list")).get(0)).click();
 	}
@@ -46,7 +47,12 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		
 		if(1 == (int)(jiGouDaiMaElementData.get(MyResponse.STATUS))){
 			List<String> list = (List)jiGouDaiMaElementData.get("list");
-			WebElement webElement = Common.getWebElement(list.get(1), list.get(0));
+			//
+			Common.driver.switchTo().frame(Common.getWebElement(".//div[@class='x-panel-bwrap']//iframe[@name]", "xpath"));
+			Common.driver.switchTo().frame(Common.getWebElement(".//iframe", "xpath"));
+			WebElement webElement = Common.getWebElement(".//*[@id='vcOrgCode']", list.get(0));
+			
+
 			webElement.sendKeys(hashMap.get(HeSuanJiGouXinXiEnum.JIGOUDAIMA));
 		}
 //		MyResponse jiGouMingChengElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIGOUMINGCHENG);
