@@ -6,7 +6,9 @@
 			<!-- 截图 -->
 <!-- 			<class name="com.yss.common.screenshot"/> -->
 			<!-- 测试流 -->
-			<class name="com.yss.suit.scenario1"/>
+			<class name="com.yss.common.ReadFromExcel"/>
+				
+<!-- 			<class name="com.yss.suit.scenario1"/> -->
 		</classes>
 	</test>
 </suite>

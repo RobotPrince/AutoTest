@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 import com.yss.common.Common;
 import com.yss.common.ReadFromExcel;
-import com.yss.method.CheckMenu;
 import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
 
@@ -24,15 +23,15 @@ public class scenario1 {
 		new Login().login();
 	}
 	@Test
-	public void test2() {
+	public void test2() throws InterruptedException {
 	
 		new HeSuanJiGouXinXi().addOne();
-		new HeSuanJiGouXinXi().addOne();
-		new HeSuanJiGouXinXi().addOne();
-		new HeSuanJiGouXinXi().addOne();
-		new HeSuanJiGouXinXi().review();
-		new HeSuanJiGouXinXi().unreviewed();
-		new HeSuanJiGouXinXi().delete();
+//		new HeSuanJiGouXinXi().addOne();
+//		new HeSuanJiGouXinXi().addOne();
+//		new HeSuanJiGouXinXi().addOne();
+//		new HeSuanJiGouXinXi().review();
+//		new HeSuanJiGouXinXi().unreviewed();
+//		new HeSuanJiGouXinXi().delete();
 	}
 
 	public void test3() {

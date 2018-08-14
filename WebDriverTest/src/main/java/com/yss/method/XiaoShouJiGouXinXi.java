@@ -14,7 +14,11 @@ import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
 
 public class XiaoShouJiGouXinXi implements BaseInterface {
 
-	
+	@Override
+	public boolean reviewAFew() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	@Override
 	public boolean review() {

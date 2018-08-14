@@ -1,6 +1,5 @@
 package com.yss.common;
 
-import java.util.List;
 
 /**
  * 关于页面的新增，删除，审核，反审核，获取Excel中元素值的接口
@@ -13,11 +12,13 @@ public interface BaseInterface {
 	 * 审核
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	boolean review();
 	/**
-	 * 审核
+	 * 审核数个
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	boolean reviewAFew();
 	/**
 	 * 反审核
