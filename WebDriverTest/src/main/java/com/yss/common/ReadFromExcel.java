@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -29,11 +32,25 @@ public class ReadFromExcel {
 	public static List<HashMap<HeSuanJiGouXinXiEnum, String>> dataForHeSuanJiGouFromExcel = new ArrayList<HashMap<HeSuanJiGouXinXiEnum, String>>();
 
 	/**
+	 * !!!!!!!!!!!!!!!!!
+	 * 这个需要维护
+	 */
+	@Test
+	public void allReadMethod(){
+		if(Common.driver == null){
+			Common.getFFDriver();
+		}
+		Common.logInfo("allReadMethod");
+		
+		readForWebElements();
+		readForHeSuanJiGouXinXi();
+		readForLoginPage();
+	}
+	/**
 	 * HashMap(PageEnum, HashMap(String, List(String))) hashMapOfExcel-所有页面元素
 	 * 
 	 * @author tanglonglong
 	 */
-	@SuppressWarnings("unused")
 	public boolean readForWebElements() {
 		Common.logInfo("readExc");
 		try {

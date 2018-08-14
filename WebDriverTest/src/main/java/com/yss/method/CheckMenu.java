@@ -134,6 +134,15 @@ public class CheckMenu {
 		 * 业务申请一级
 		 */
 		YEWUSHENQING_1,
+		//FIXME:以下为临时增加
+		/**
+		 * 机构参数
+		 */
+		JIGOUCANSHU_1,
+		/**
+		 * 核算机构信息
+		 */
+		HESUANJIGOUXINXI_2
 //FIXME:下面的暂时用不上，格式设置同上。 一对一
 //		基金账户开户
 //		增开交易账户

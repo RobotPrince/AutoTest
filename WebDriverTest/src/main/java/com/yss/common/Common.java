@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -32,11 +33,7 @@ public class Common {
 
 		String SCREEN_SHOT_NAME = String.valueOf(new Date().getTime()) + ".jpg";
 		try {
-			FileUtils
-					.copyFile(((TakesScreenshot) driver)
-							.getScreenshotAs(OutputType.FILE), new File(
-							"./test-output/screen-shot" + "/"
-									+ SCREEN_SHOT_NAME));
+			FileUtils.copyFile(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE), new File(screenShotDir + "/"+ SCREEN_SHOT_NAME));
 			logWarn("the screenshot saved in " + "./test-output/screen-shot"
 					+ " screenshot name : " + SCREEN_SHOT_NAME);
 
@@ -209,6 +206,7 @@ public class Common {
 	}
 	/**
 	 * getElementDate(pageEnum,allElementEnum,elementEnum)
+	 * 获取元素定位的相关数据
 	 * @param pageEnum
 	 * @param allElementEnum
 	 * @param elementEnum
