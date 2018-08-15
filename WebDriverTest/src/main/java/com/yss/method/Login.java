@@ -24,43 +24,48 @@ public class Login {
 		//打开网址
 		driver.get(url);
 		//获取页面元素
-		MyResponse responseUser = Common.getElementData(PageEnum.LOGIN_PAGE,AllElementEnum.LoginElement,LoginEnum.USER);
-		if( responseUser.get(MyResponse.STATUS).equals(MyResponse.FAILED)){
+		MyResponse userResponse = Common.getWebElement(PageEnum.LOGIN_PAGE,AllElementEnum.LoginElement,LoginEnum.USER);
+		if( userResponse.get(MyResponse.STATUS).equals(MyResponse.FAILED)){
 			Common.logError("Get User Name failed");
 			return false;
 		}
-		List<String> userList = (List<String>)responseUser.get("list");
-		WebElement findElement1 = Common.getWebElement(userList.get(1), userList.get(0));
+		WebElement userElement = (WebElement)userResponse.get("ele");
+//		List<String> userList = (List<String>)responseUser.get("list");
+//		WebElement findElement1 = (WebElement)Common.getWebElementOld(userList.get(1), userList.get(0)).get("ele");
 		
-		MyResponse responsePwd = Common.getElementData(PageEnum.LOGIN_PAGE,AllElementEnum.LoginElement,LoginEnum.PWD);
-		if( responsePwd.get(MyResponse.STATUS).equals(MyResponse.FAILED)){
+		MyResponse pwdResponse = Common.getWebElement(PageEnum.LOGIN_PAGE,AllElementEnum.LoginElement,LoginEnum.PWD);
+		if( pwdResponse.get(MyResponse.STATUS).equals(MyResponse.FAILED)){
 			Common.logError("Get pwd failed");
 			return false;
 		}
-		List<String> pwdList = (List<String>)responsePwd.get("list");
-		WebElement findElement2 = Common.getWebElement(pwdList.get(1), pwdList.get(0));
+		WebElement pwdElement = (WebElement)pwdResponse.get("ele");
+		
+//		
+//		List<String> pwdList = (List<String>)responsePwd.get("list");
+//		WebElement findElement2 = Common.getWebElement(pwdList.get(1), pwdList.get(0));
 	
-		MyResponse responseLogin = Common.getElementData(PageEnum.LOGIN_PAGE,AllElementEnum.LoginElement,LoginEnum.LOGIN);
-		if( responseLogin.get(MyResponse.STATUS).equals(MyResponse.FAILED)){
+		MyResponse loginResponse = Common.getWebElement(PageEnum.LOGIN_PAGE,AllElementEnum.LoginElement,LoginEnum.LOGIN);
+		if( loginResponse.get(MyResponse.STATUS).equals(MyResponse.FAILED)){
 			Common.logError("Get login failed");
 			return false;
 		}
-		List<String> loginList = (List<String>)responseLogin.get("list");
-		WebElement findElement3 = Common.getWebElement(loginList.get(1), loginList.get(0));
+		WebElement loginElement = (WebElement)loginResponse.get("ele");
+//		List<String> loginList = (List<String>)responseLogin.get("list");
+//		WebElement findElement3 = Common.getWebElement(loginList.get(1), loginList.get(0));
 
 		//获取用户名和密码
 		List<HashMap<LoginEnum, String>> dataForLoginPageFromExcel = ReadFromExcel.dataForLoginPageFromExcel;
 		//填写值，点击
-		if( !Common.setParameter(findElement1, dataForLoginPageFromExcel.get(0).get(LoginEnum.USER)) ){
-			Common.logError("Set parameter "+ findElement1+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.USER)+" failed");
+		if( !Common.setParameter(userElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.USER)) ){
+			Common.logError("Set parameter "+ userElement+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.USER)+" failed");
 			return false;
 		}
-		if( !Common.setParameter(findElement2, dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD)) ){
-			Common.logError("Set parameter "+ findElement2+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD)+" failed");
+		if( !Common.setParameter(pwdElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD)) ){
+			Common.logError("Set parameter "+ pwdElement+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD)+" failed");
 			return false;
 		}
-		if( !Common.click(findElement3) ){
-			Common.logError("Click element of "+findElement3+" failed");
+		if( !Common.click(loginElement) ){
+			Common.logError("Click element of "+loginElement+" failed");
 			return false;
 		}
 		return true;
