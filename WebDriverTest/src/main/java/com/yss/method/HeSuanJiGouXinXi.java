@@ -23,10 +23,10 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 
 	@Override
 	public boolean before() {
-		Common.logInfo("HeSuanJiGouXinXi");
+		Common.logInfo("before");
 		
 		try {
-			Thread.sleep(2000l);
+			Thread.sleep(Common.SLEEP_TIME);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,31 +63,8 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 	public boolean addOne() {
 		Common.logInfo("addOne");
 
-		// 切换driver到top
-		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
-		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("get element data of iframe1 failed");
-			return false;
-		}
-		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
 		//点击新增
-		MyResponse addTopResponse = Common.getWebElement(PageEnum.COMMON,AllElementEnum.CommonElementEnum, CommonElementEnum.ADD_TOP);
-		if ((int) addTopResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
-			Common.logError("get element data of top response failed");
-			return false;
-		}
-		MyResponse clickAddTopResponse = Common.click((WebElement)addTopResponse.get("ele"));
-		if(((int)clickAddTopResponse.get(MyResponse.STATUS))==MyResponse.FAILED){
-			Common.logError("click element of add top failed");
-			return false;
-		}
-		//切换driver到add
-		MyResponse iframe2Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
-		if( (int)iframe2Response.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("get element data of iframe1 failed");
-			return false;
-		}
-		Common.driver.switchTo().frame((WebElement)iframe2Response.get("ele"));
+		Common.clickTopAdd();
 		//获取第一条数据
 		HashMap<HeSuanJiGouXinXiEnum, String> data = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(0);
 		Set<HeSuanJiGouXinXiEnum> set = data.keySet();
@@ -110,17 +87,19 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 				return false;
 			}
 		}
+		//点击提交
 		MyResponse commitResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.COMMIT);
 		if((int)commitResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
 			Common.logError("get Elemnent of "+commitResponse.get("ele")+" failed");
 			return false;
 		}
-		
 		MyResponse clickCommitResponse = Common.click((WebElement)commitResponse.get("ele"));
 		if((int)clickCommitResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
 			Common.logError("click Elemnent of "+clickCommitResponse.get("ele")+" failed");
 			return false;
 		}
+		//点击确定
+		Common.clickYES();
 		return true;
 	}
 
