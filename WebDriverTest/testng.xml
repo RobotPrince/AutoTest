@@ -3,7 +3,7 @@
 <suite name="test sofa">
 	<test name="score1" enabled="true">
 		<classes>
-			<!-- 截图 -->
+			<!-- 截图测试 -->
 <!-- 			<class name="com.yss.common.screenshot"/> -->
 			<!-- 测试流 -->
 			<class name="com.yss.suit.scenario1"/>
