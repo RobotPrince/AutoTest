@@ -7,7 +7,10 @@ package com.yss.common;
  *
  */
 public interface BaseInterface {
-
+	/**
+	 * 预先操作
+	 */
+	boolean before();
 	/**
 	 * 审核
 	 * @return
@@ -40,4 +43,8 @@ public interface BaseInterface {
 	 * @return
 	 */
 	boolean delete();
+	/**
+	 * 收尾操作
+	 */
+	Boolean after();
 }
