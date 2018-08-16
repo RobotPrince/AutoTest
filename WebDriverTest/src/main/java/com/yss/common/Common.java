@@ -490,37 +490,66 @@ public class Common {
 		myResponse.successWithData("rem", remarkEnum);
 		return myResponse.successWithData("ele", findElement);
 	}
-//	/**
-//	 * getElementDate(pageEnum,allElementEnum,elementEnum)
-//	 * 获取元素定位的相关数据
-//	 * @param pageEnum
-//	 * @param allElementEnum
-//	 * @param elementEnum
-//	 * @return <"list",（type,value）>
-//	 */
-//	public static MyResponse getWebElement(PageEnum pageEnum,AllElementEnum allElementEnum,ElementEnum elementEnum) {
-//		
-//		List<String> list = new ArrayList<String>();
-//		boolean isContains = false;
-//		HashMap<String, List<String>> hashMap = ReadFromExcel.elementsFromExcel
-//				.get(pageEnum);
-//		//取出该页面对应的所有元素的名称
-//		String[] str = AllElementEnum.valueOf(allElementEnum.toString()).valueToString();
-//		for(String s : str){
-//			if(s.equals(elementEnum.toString())){
-//				isContains = true;
-//			}
-//		}
-//		//若elementString不存在于所有元素名称则报错
-//		if(isContains == false){
-//			Common.logError("ElementName not in excel");
-//			return new MyResponse().failed("ElementName not in excel");
-//		}
-//		
-//		list = hashMap.get(elementEnum.toString().toLowerCase());
-//		return new MyResponse().successWithData("list", list);
-//	}
-	
+	/**
+	 * @author tanglonglong
+	 * @return
+	 */
+	public static MyResponse clickTopAdd(){
+		logInfo("clickAdd");
+		//切换driver到default
+		Common.driver.switchTo().defaultContent();
+		// 切换driver到top
+		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get element data of iframe1 failed");
+			return iframe1Response.failed("get element data of iframe1 failed");
+		}
+		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+		//点击新增
+		MyResponse addTopResponse = Common.getWebElement(PageEnum.COMMON,AllElementEnum.CommonElementEnum, CommonElementEnum.ADD_TOP);
+		if ((int) addTopResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
+			Common.logError("get element data of top response failed");
+			return addTopResponse.failed("get element data of top response failed");
+		}
+		MyResponse clickAddTopResponse = Common.click((WebElement)addTopResponse.get("ele"));
+		if(((int)clickAddTopResponse.get(MyResponse.STATUS))==MyResponse.FAILED){
+			Common.logError("click element of add top failed");
+			return clickAddTopResponse.failed("click element of add top failed");
+		}
+		//切换driver到add
+		MyResponse iframe2Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
+		if( (int)iframe2Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get element data of iframe1 failed");
+			return iframe2Response.failed("get element data of iframe1 failed");
+		}
+		Common.driver.switchTo().frame((WebElement)iframe2Response.get("ele"));
+		return new MyResponse().success();
+	}
+	/**
+	 * 点击确定
+	 * @return
+	 */
+	public  static  MyResponse clickYES(){
+
+		logInfo("clickYES");
+		//切换driver
+		Common.driver.switchTo().defaultContent();
+		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get element data of iframe1 failed");
+			return iframe1Response.failed("get element data of iframe1 failed");
+			}
+		
+		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+		
+		MyResponse webOKElement = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_OK);
+		MyResponse clickYesResponse = Common.click((WebElement)webOKElement.get("ele"));
+		if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			logError("click button of"+webOKElement.get("ele")+"failed");
+			return clickYesResponse.failed("click button of"+webOKElement.get("ele")+"failed");
+		}
+		return new MyResponse().success();
+	}
 	/**
 	 *  
 	 * @param by
