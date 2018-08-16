@@ -24,7 +24,7 @@ public class scenario1 {
 	}
 	@Test
 	public void test2() throws InterruptedException {
-	
+		new HeSuanJiGouXinXi().before();
 		new HeSuanJiGouXinXi().addOne();
 //		new HeSuanJiGouXinXi().addOne();
 //		new HeSuanJiGouXinXi().addOne();
@@ -42,15 +42,14 @@ public class scenario1 {
 	public void beforeClass() {
 
 		logger.info("beforeClass");
-		new ReadFromExcel().readForWebElements();
 		logger.info("--------------------------------------------------");
 		logger.info("----------   "+scenario1.class+"    ----------------");
-		Common.getFFDriver();
 	}
 
 	@AfterClass
 	public void afterClass() {
 		System.out.println("afterClass");
+		Common.driver.quit();
         logger.info("----------   "+"测试用例执行结束"+"    ----------------");        
         logger.info("----------------------------------------------------");
 	}

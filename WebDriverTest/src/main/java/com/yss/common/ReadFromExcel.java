@@ -4,13 +4,13 @@ package com.yss.common;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
-
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import jxl.Sheet;
 import jxl.Workbook;
+
+import org.testng.annotations.Test;
 
 import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
 import com.yss.method.Login.LoginEnum;
@@ -142,7 +142,7 @@ public class ReadFromExcel {
 			int rows = sheet.getRows();
 
 			for (int r = 2; r < rows; r++) {
-				HashMap<HeSuanJiGouXinXiEnum, String> hashMap = new HashMap<HeSuanJiGouXinXiEnum, String>();
+				LinkedHashMap<HeSuanJiGouXinXiEnum, String> linkedHashMap = new LinkedHashMap<HeSuanJiGouXinXiEnum, String>();
 				// 取出第一行数据的所有数据
 				String jigoudaima = sheet.getCell(1, r).getContents();
 				String jigoumingcheng = sheet.getCell(2, r).getContents();
@@ -153,17 +153,17 @@ public class ReadFromExcel {
 				String wangzhi = sheet.getCell(7, r).getContents();
 				String daorulujing = sheet.getCell(8, r).getContents();
 				String daochulujing = sheet.getCell(9, r).getContents();
-				hashMap.put(HeSuanJiGouXinXiEnum.JIGOUDAIMA, jigoudaima);
-				hashMap.put(HeSuanJiGouXinXiEnum.JIGOUMINGCHENG, jigoumingcheng);
-				hashMap.put(HeSuanJiGouXinXiEnum.JIGOUZHUANGTAI, jigouzhuangtai);
-				hashMap.put(HeSuanJiGouXinXiEnum.DIANHUA, dianhua);
-				hashMap.put(HeSuanJiGouXinXiEnum.JIEKOUBANBEN, jiekoubanben);
-				hashMap.put(HeSuanJiGouXinXiEnum.DIZHI, dizhi);
-				hashMap.put(HeSuanJiGouXinXiEnum.WANGZHI, wangzhi);
-				hashMap.put(HeSuanJiGouXinXiEnum.DAORULUJING, daorulujing);
-				hashMap.put(HeSuanJiGouXinXiEnum.DAOCHULUJING, daochulujing);
+				linkedHashMap.put(HeSuanJiGouXinXiEnum.JIGOUDAIMA, jigoudaima);
+				linkedHashMap.put(HeSuanJiGouXinXiEnum.JIGOUMINGCHENG, jigoumingcheng);
+				linkedHashMap.put(HeSuanJiGouXinXiEnum.JIGOUZHUANGTAI, jigouzhuangtai);
+				linkedHashMap.put(HeSuanJiGouXinXiEnum.DIANHUA, dianhua);
+				linkedHashMap.put(HeSuanJiGouXinXiEnum.JIEKOUBANBEN, jiekoubanben);
+				linkedHashMap.put(HeSuanJiGouXinXiEnum.DIZHI, dizhi);
+				linkedHashMap.put(HeSuanJiGouXinXiEnum.WANGZHI, wangzhi);
+				linkedHashMap.put(HeSuanJiGouXinXiEnum.DAORULUJING, daorulujing);
+				linkedHashMap.put(HeSuanJiGouXinXiEnum.DAOCHULUJING, daochulujing);
 				// 放入全局变量dataForLoginPageFromExcel中
-				dataForHeSuanJiGouFromExcel.add(hashMap);
+				dataForHeSuanJiGouFromExcel.add(linkedHashMap);
 			}
 
 		} catch (Exception e) {

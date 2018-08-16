@@ -1,8 +1,10 @@
 package com.yss.method;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import com.yss.common.AllElementEnum;
 import com.yss.common.BaseInterface;
 import com.yss.common.Common;
+import com.yss.common.Common.CommonElementEnum;
 import com.yss.common.ElementEnum;
 import com.yss.common.MyResponse;
 import com.yss.common.PageEnum;
@@ -17,111 +20,204 @@ import com.yss.common.ReadFromExcel;
 import com.yss.method.CheckMenu.CheckMenuElement;
 
 public class HeSuanJiGouXinXi implements BaseInterface {
-	
-	@SuppressWarnings("unchecked")
-	public HeSuanJiGouXinXi() throws InterruptedException{
+
+	@Override
+	public boolean before() {
 		Common.logInfo("HeSuanJiGouXinXi");
-		Thread.sleep(2000l);
 		
+		try {
+			Thread.sleep(2000l);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// 点击TAB
 		List<String> TATabList = ReadFromExcel.elementsFromExcel.get(PageEnum.TAB_MENU).get("TAdengjiguohu");
-		Common.getWebElement(TATabList.get(1), TATabList.get(0)).click();
-		Thread.sleep(2000l);
-		//双击机构参数
-		MyResponse jiGouCanShuElementData = Common.getElementData(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.JIGOUCANSHU_1);
-	    Actions actions=new Actions(Common.driver);
-	    actions.doubleClick(Common.getWebElement(((List<String>)jiGouCanShuElementData.get("list")).get(1), ((List<String>)jiGouCanShuElementData.get("list")).get(0))).perform();
-		Thread.sleep(2000l);
+		MyResponse TAdengjiguohuResponse = Common.getWebElementOld(TATabList.get(1), TATabList.get(0));
+		if( (int)TAdengjiguohuResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("Click TAdengjiguohu failed");
+			return false;
+		}
+		Common.click((WebElement)TAdengjiguohuResponse.get("ele"));
+		//点击机构参数
+		MyResponse jiGouCanShuResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.JIGOUCANSHU_1);
+		if((int) jiGouCanShuResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("Double click of jigoucanshu1 failed");
+			return false;
+		}
+		Common.click((WebElement)jiGouCanShuResponse.get("ele"));
 	    //点击核算机构信息
-	    MyResponse heSuanJiGouXinXiElementData = Common.getElementData(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.HESUANJIGOUXINXI_2);
-		Common.getWebElement(((List<String>)heSuanJiGouXinXiElementData.get("list")).get(1), ((List<String>)heSuanJiGouXinXiElementData.get("list")).get(0)).click();
+	    MyResponse heSuanJiGouXinXiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.HESUANJIGOUXINXI_2);
+		if((int) heSuanJiGouXinXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("Double click of heSuanJigougingiResponse failed");
+			return false;
+		}
+		Common.click((WebElement)heSuanJiGouXinXiResponse.get("ele"));
+	
+		
+		return false;
 	}
+
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean addOne() {
 		Common.logInfo("addOne");
-		
-		//获取元素 --可如下写也可以写入for循环中
-		MyResponse jiGouDaiMaElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIGOUDAIMA);
-		List<HashMap<HeSuanJiGouXinXiEnum, String>> dataForHeSuanJiGouFromExcel = ReadFromExcel.dataForHeSuanJiGouFromExcel;
-		HashMap<HeSuanJiGouXinXiEnum, String> hashMap = dataForHeSuanJiGouFromExcel.get(0);
-		
-		if(1 == (int)(jiGouDaiMaElementData.get(MyResponse.STATUS))){
-			List<String> list = (List)jiGouDaiMaElementData.get("list");
-			//
-			Common.driver.switchTo().frame(Common.getWebElement(".//div[@class='x-panel-bwrap']//iframe[@name]", "xpath"));
-			Common.driver.switchTo().frame(Common.getWebElement(".//iframe", "xpath"));
-			WebElement webElement = Common.getWebElement(".//*[@id='vcOrgCode']", list.get(0));
-			
 
-			webElement.sendKeys(hashMap.get(HeSuanJiGouXinXiEnum.JIGOUDAIMA));
+		// 切换driver到top
+		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get element data of iframe1 failed");
+			return false;
 		}
-//		MyResponse jiGouMingChengElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIGOUMINGCHENG);
-//		MyResponse jiGouZhuangTaiElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIGOUZHUANGTAI);
-//		MyResponse zhuXiaoElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.ZHUXIAO);
-//		MyResponse tingYongElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.TINGYONG);
-//		MyResponse dianHuaElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.DIANHUA);
-//		MyResponse jiKouBanBenElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIEKOUBANBEN);
-//		MyResponse jieKou263ElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIEKOU_2_6_3);
-//		MyResponse jieKou265ElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIEKOU_2_6_5);
-//		MyResponse diZhiElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.DIZHI);
-//		MyResponse wangZhiElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.WANGZHI);
-//		MyResponse daoRuLuJingElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.DAORULUJING);
-//		MyResponse daiChuLuJingElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.DAOCHULUJING);
-//		
-//		//获取值
-//		elementData.get(key);
+		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+		//点击新增
+		MyResponse addTopResponse = Common.getWebElement(PageEnum.COMMON,AllElementEnum.CommonElementEnum, CommonElementEnum.ADD_TOP);
+		if ((int) addTopResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
+			Common.logError("get element data of top response failed");
+			return false;
+		}
+		MyResponse clickAddTopResponse = Common.click((WebElement)addTopResponse.get("ele"));
+		if(((int)clickAddTopResponse.get(MyResponse.STATUS))==MyResponse.FAILED){
+			Common.logError("click element of add top failed");
+			return false;
+		}
+		//切换driver到add
+		MyResponse iframe2Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
+		if( (int)iframe2Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get element data of iframe1 failed");
+			return false;
+		}
+		Common.driver.switchTo().frame((WebElement)iframe2Response.get("ele"));
+		//获取第一条数据
+		HashMap<HeSuanJiGouXinXiEnum, String> data = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(0);
+		Set<HeSuanJiGouXinXiEnum> set = data.keySet();
+		Iterator<HeSuanJiGouXinXiEnum> iterator = set.iterator();
+		while( iterator.hasNext() ){
+			HeSuanJiGouXinXiEnum eunm = iterator.next();
+			//获取所有add需要的元素
+			MyResponse heSuanJiGouXinXiResponse = Common.getWebElement(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement,eunm);
+			if ((int) heSuanJiGouXinXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
+				Common.logError("get element data of heSuanJiGouXinXiResponse failed");
+				return false;
+			}
+			//processTable
+			//将第一条数据填到表单中
+			WebElement ele = (WebElement)heSuanJiGouXinXiResponse.get("ele");
+			String remark = heSuanJiGouXinXiResponse.get("rem").toString();
+			MyResponse setHeSuanJiGouXinXiREsponse = Common.proccessTable(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement, eunm, ele, data.get(eunm),  remark );
+			if( (int)setHeSuanJiGouXinXiREsponse.get(MyResponse.STATUS) == MyResponse.FAILED ){		
+				Common.logError("set parameter of"+eunm+"failed");
+				return false;
+			}
+		}
+		MyResponse commitResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.COMMIT);
+		if((int)commitResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get Elemnent of "+commitResponse.get("ele")+" failed");
+			return false;
+		}
+		
+		MyResponse clickCommitResponse = Common.click((WebElement)commitResponse.get("ele"));
+		if((int)clickCommitResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("click Elemnent of "+clickCommitResponse.get("ele")+" failed");
+			return false;
+		}
 		return true;
 	}
+
 	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean addAFew() {
 		Common.logInfo("addAFew");
-		
-//		获取元素 --可如下写也可以写入for循环中
-		MyResponse jiGouDaiMaElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIGOUDAIMA);
-		MyResponse jiGouMingChengElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIGOUMINGCHENG);
-		MyResponse jiGouZhuangTaiElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIGOUZHUANGTAI);
-		MyResponse zhuXiaoElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.ZHUXIAO);
-		MyResponse tingYongElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.TINGYONG);
-		MyResponse dianHuaElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.DIANHUA);
-		MyResponse jiKouBanBenElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIEKOUBANBEN);
-		MyResponse jieKou263ElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIEKOU_2_6_3);
-		MyResponse jieKou265ElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIEKOU_2_6_5);
-		MyResponse diZhiElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.DIZHI);
-		MyResponse wangZhiElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.WANGZHI);
-		MyResponse daoRuLuJingElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.DAORULUJING);
-		MyResponse daiChuLuJingElementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.DAOCHULUJING);
-		
-		Map<HeSuanJiGouXinXiEnum, String> mapOfElementsData = new HashMap<HeSuanJiGouXinXiEnum,String>();
-		for(HeSuanJiGouXinXiEnum heSuanJiGouXinXiEnum : HeSuanJiGouXinXiEnum.values()){
-			MyResponse elementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, heSuanJiGouXinXiEnum);
-			String s = (String)elementData.get(MyResponse.STATUS);
-			if("0".equals((String)elementData.get(MyResponse.STATUS))){
-				
+
+		// 获取元素 --可如下写也可以写入for循环中
+		MyResponse jiGouDaiMaElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.JIGOUDAIMA);
+		MyResponse jiGouMingChengElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.JIGOUMINGCHENG);
+		MyResponse jiGouZhuangTaiElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.JIGOUZHUANGTAI);
+		MyResponse zhuXiaoElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.ZHUXIAO);
+		MyResponse tingYongElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.TINGYONG);
+		MyResponse dianHuaElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.DIANHUA);
+		MyResponse jiKouBanBenElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.JIEKOUBANBEN);
+		MyResponse jieKou263ElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.JIEKOU_2_6_3);
+		MyResponse jieKou265ElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.JIEKOU_2_6_5);
+		MyResponse diZhiElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.DIZHI);
+		MyResponse wangZhiElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.WANGZHI);
+		MyResponse daoRuLuJingElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.DAORULUJING);
+		MyResponse daiChuLuJingElementData = Common.getWebElement(
+				PageEnum.HESUANJIGOUXINXI,
+				AllElementEnum.HeSuanJiGouXinXiElement,
+				HeSuanJiGouXinXiEnum.DAOCHULUJING);
+
+		Map<HeSuanJiGouXinXiEnum, String> mapOfElementsData = new HashMap<HeSuanJiGouXinXiEnum, String>();
+		for (HeSuanJiGouXinXiEnum heSuanJiGouXinXiEnum : HeSuanJiGouXinXiEnum
+				.values()) {
+			MyResponse elementData = Common.getWebElement(
+					PageEnum.HESUANJIGOUXINXI,
+					AllElementEnum.HeSuanJiGouXinXiElement,
+					heSuanJiGouXinXiEnum);
+			String s = (String) elementData.get(MyResponse.STATUS);
+			if ("0".equals((String) elementData.get(MyResponse.STATUS))) {
+
 			}
 		}
 		Map<HeSuanJiGouXinXiEnum, List> mapOfValues = new HashMap<HeSuanJiGouXinXiEnum, List>();
-		///从Excel 取值
+		// /从Excel 取值
 		List<HashMap<HeSuanJiGouXinXiEnum, String>> dataForHeSuanJiGouFromExcel = ReadFromExcel.dataForHeSuanJiGouFromExcel;
-		//循环取出每一行数据的值
-		for(HashMap<HeSuanJiGouXinXiEnum, String> hashMap : dataForHeSuanJiGouFromExcel){
-			//循环取出该行数据的值
-			for( int j = 0; j < HeSuanJiGouXinXiEnum.values().length; j++){
-				String strOfValue = hashMap.get(HeSuanJiGouXinXiEnum.values()[j]);
-				MyResponse elementData = Common.getElementData(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.values()[j]);
+		// 循环取出每一行数据的值
+		for (HashMap<HeSuanJiGouXinXiEnum, String> hashMap : dataForHeSuanJiGouFromExcel) {
+			// 循环取出该行数据的值
+			for (int j = 0; j < HeSuanJiGouXinXiEnum.values().length; j++) {
+				String strOfValue = hashMap
+						.get(HeSuanJiGouXinXiEnum.values()[j]);
+				MyResponse elementData = Common.getWebElement(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement,HeSuanJiGouXinXiEnum.values()[j]);
 				List list = (List) elementData.get("list");
 			}
 		}
-//		dataForHeSuanJiGouFromExcel.size();
-		//Excel 第一行
-		HashMap<HeSuanJiGouXinXiEnum, String> hashMap = dataForHeSuanJiGouFromExcel.get(0);
-		//Excel 机构代码
+		// dataForHeSuanJiGouFromExcel.size();
+		// Excel 第一行
+		HashMap<HeSuanJiGouXinXiEnum, String> hashMap = dataForHeSuanJiGouFromExcel
+				.get(0);
+		// Excel 机构代码
 		String string = hashMap.get(HeSuanJiGouXinXiEnum.JIGOUDAIMA);
-		
-		
+
 		return false;
 	}
-	
+
 	@Override
 	public boolean review() {
 		return false;
@@ -132,7 +228,7 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	@Override
 	public boolean unreviewed() {
 		return false;
@@ -142,8 +238,14 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 	public boolean delete() {
 		return false;
 	}
-	
-	public enum HeSuanJiGouXinXiEnum implements ElementEnum{
+
+	@Override
+	public Boolean after() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public enum HeSuanJiGouXinXiEnum implements ElementEnum {
 		/**
 		 * 机构代码
 		 */
@@ -201,4 +303,5 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		 */
 		DAOCHULUJING
 	}
+
 }

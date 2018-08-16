@@ -12,6 +12,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -22,10 +23,25 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Common {
 	public static WebDriver driver;
+	public static final long SLEEP_TIME = 2000l;
+	/**
+	 * sleep 用来等待页面加载
+	 */
+	public static void loading(){
+		Common.logInfo("loading");
+		
+		try {
+			Thread.sleep(SLEEP_TIME);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * shot
 	 * 
@@ -104,19 +120,25 @@ public class Common {
 	 * @author tanglonglong
 	 */
 
-	public static boolean click(WebElement element) {
+	public static MyResponse click(WebElement element) {
 
 		logInfo("click");
+		MyResponse myResponse = new MyResponse();
 		if (!element.isDisplayed()) {
 			logError("Element can't click for" + element + " in "
 					+ Thread.currentThread().getStackTrace()[2].getClassName());
-			return false;
+			return myResponse.failed("Click element of "+element+" failed");
 		}
 		element.click();
 		Common.logWarn("Click "+element+" Success");
-		return true;
+		return myResponse.success("Click element of "+ element+" successed");
 	}
-	
+	/**
+	 * 双击，此方法不稳定
+	 * @param element
+	 * @return
+	 */
+	@Deprecated
 	public static boolean doubleClick(WebElement element) {
 		
 		logInfo("doubleClick");
@@ -133,25 +155,131 @@ public class Common {
 	    }
 	    return true;
 	}
+	/**
+	 * 
+	 * @param element
+	 * @param elementEnum
+	 * @param val
+	 * @return
+	 */
+	public static MyResponse select(PageEnum pageEnum, AllElementEnum allElementEnum, ElementEnum elementEnum, WebElement element, String val){
+		
+		logInfo("select");
+		MyResponse myResponse = new MyResponse();
+//		
+//		if(!val.equals( elementEnum.toString()) ){
+//			logWarn(val+" is not "+elementEnum.toString()+" can't select");
+//			return myResponse.success();
+//		}
+		//点击进入到select列表
+		myResponse = click(element);
+		if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
+			logError("get Webelement of"+element +"failed");
+			return myResponse.failed("getWebElement failed");
+		}
+		//选择下拉列表，点击
+		 ElementEnum[] enumConstants=elementEnum.getClass().getEnumConstants();
+		 for(ElementEnum eEnum : enumConstants){
+			 if(val.toLowerCase().equals(eEnum.toString().toLowerCase())){
+				 //获取要点击的元素
+				 myResponse= getWebElement(pageEnum, allElementEnum, eEnum);
+				
+				if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
+					logError("get Webelement of"+eEnum +"failed");
+					return myResponse.failed("getWebElement failed");
+				}
+				//点击
+				myResponse = Common.click( (WebElement)myResponse.get("ele") );
+				break;
+			 }
+		 }
+		return myResponse.success();
+	}
+	/**
+	 * 
+	 * @param element
+	 * @param param
+	 * @param remarkEnum
+	 * @return
+	 */
+	
+	public static MyResponse proccessTable( PageEnum pageEnum,AllElementEnum allElementEnum, ElementEnum elementEnum, WebElement element, String param, Object remarkEnum){
+		
+		logInfo("proccessTable");
+		MyResponse myRespnose = new MyResponse();
+		if (!element.isDisplayed()) {
+			logError("Element can't setParameter for" + element + " in "
+					+ Thread.currentThread().getStackTrace()[2].getClassName());
+			return myRespnose.failed("Element of "+element+" not displayed");
+		}
+		if( RemarkEnum.valueOf(String.valueOf(remarkEnum) ) == null){
+			logError("cast remrkEnum"+remarkEnum+" faild, param error");
+			return myRespnose.failed( "cast remrkEnum"+remarkEnum+" faild, param error" );
+		}
+		switch(RemarkEnum.valueOf((String)remarkEnum)){
+		case READABLE:
+			//TODO:
+			MyResponse readResponse = read(element);
+			break;
+		case WRITABLE: 
+			MyResponse writeResponse = setParameter(element, param);
+			if( ( (int)writeResponse.get(MyResponse.STATUS) == (MyResponse.FAILED)) ){
+				logError("setParamenter of "+element+" failed");
+				return myRespnose.failed("setParamenter of "+element+" failed");
+			}
+			break;
+		case CLICKABLE:
+			MyResponse clickResponse = click(element);
+			if( ( (( (int)clickResponse.get(MyResponse.STATUS) ))==(MyResponse.FAILED)) ){
+				logError("click element of "+element+" failed");
+				return myRespnose.failed("clickResponse of "+element+" failed");
+			}
+			break;
+		case SELECTABLE:
+			MyResponse selectResponse = select(pageEnum, allElementEnum, elementEnum,element, param);
+			if( ( (int)selectResponse.get(MyResponse.STATUS) == (MyResponse.FAILED)) ){
+				logError("select element of"+element +"failed");
+				return myRespnose.failed("select element of"+element +"failed");
+			}
+			break;
+		case ALLABLE:
+			//TODO:
+			break;
+		case NONE:
+			//TODO:
+			break;
+		default:logError(remarkEnum+"not supported yet");
+		return myRespnose.failed(remarkEnum+"not supported yet");
+		}
+		
+		return myRespnose.success();
+		
+		
+	}
+	//TODO:
+	public static MyResponse read(WebElement webElement){
+		return new MyResponse();
+	}
 
 	/**
-	 * setParameter
+	 * 键入值
 	 * 
 	 * @param element
 	 * @param param
 	 * @return boolean
 	 * @author tanglonglong
 	 */
-	public static boolean setParameter(WebElement element, String param) {
+	public static MyResponse setParameter(WebElement element, String param) {
 
 		logInfo("setParameter");
+		MyResponse myResponse = new MyResponse();
 		if (!element.isDisplayed()) {
 			logError("Element can't setParameter for" + element + " in "
 					+ Thread.currentThread().getStackTrace()[2].getClassName());
-			return false;
+			return myResponse.failed("Element of "+element+" not displayed");
 		}
 		element.sendKeys(param);
-		return true;
+		return myResponse.success();
 	}
 
 	/**
@@ -163,7 +291,7 @@ public class Common {
 	 */
 	public static String getText(WebElement element) {
 
-		logInfo("setParameter");
+		logInfo("getText");
 		if (!element.isDisplayed()) {
 			logError("Element of" + element + " cant getText in "
 					+ Thread.currentThread().getStackTrace()[2].getClassName());
@@ -181,6 +309,7 @@ public class Common {
 	 * @author tanglonglong
 	 * @return MyResponse<"ele",WebElement>
 	 */
+	@Deprecated
 	//FIXME:删除掉
 	@SuppressWarnings("finally")
 	public static MyResponse getWebElementOld(String locatorVal, String locatorType) {
@@ -258,6 +387,7 @@ public class Common {
 	@SuppressWarnings("finally")
 	public static MyResponse getWebElement(PageEnum pageEnum,AllElementEnum allElementEnum,ElementEnum elementEnum) {
 		Common.logInfo("getWebElement");
+		
 		MyResponse myResponse = new MyResponse();
 		List<String> list = new ArrayList<String>();
 		boolean isContains = false;
@@ -281,6 +411,8 @@ public class Common {
 		WebElement findElement = null;
 		String locatorType = list.get(0);
 		String locatorVal = list.get(1);
+		String locatorRemark = list.get(2);
+		
 		LocatorTypeEnum type = LocatorTypeEnum.valueOf(locatorType
 				.toUpperCase());
 		
@@ -339,8 +471,23 @@ public class Common {
 			}
 		default:
 			logError("Not supported for " + type + " yet");
-			myResponse.failed("Not supported for " + type + " yet");
+			return myResponse.failed("Not supported for " + type + " yet");
 		}
+		
+		RemarkEnum remarkEnum = null;
+		
+		switch(locatorRemark){
+		case "C":remarkEnum = RemarkEnum.CLICKABLE;break;
+		case "R":remarkEnum = RemarkEnum.READABLE;break;
+		case "W":remarkEnum = RemarkEnum.WRITABLE;break;
+		case "A":remarkEnum = RemarkEnum.ALLABLE;break;
+		case "N":remarkEnum = RemarkEnum.NONE;break;
+		case "S":remarkEnum = RemarkEnum.SELECTABLE;break;
+		default:
+			logError("Not support for "+locatorRemark+" yet!");
+			return myResponse.failed("Not support for "+locatorRemark+" yet!");
+		}
+		myResponse.successWithData("rem", remarkEnum);
 		return myResponse.successWithData("ele", findElement);
 	}
 //	/**
@@ -380,22 +527,41 @@ public class Common {
 	 * @return
 	 */
 	public static boolean waitForElement( final By elementLocator) {
-
+		Common.logInfo("waitForElement");
         try {
             WebDriverWait driverWait = (WebDriverWait) new WebDriverWait(driver, 30, 500).ignoring(StaleElementReferenceException.class).withMessage("元素在10秒内没有出现!");
             return driverWait.until(new ExpectedCondition<Boolean>() {
 
                 public Boolean apply(WebDriver driver) {
+                	System.out.println("apply in");
                     try {
+                    	WebElement webElement;
                     	By elementLocator_N = elementLocator;
-                    	Common.logError(elementLocator_N.toString());
-                         if (!driver.findElement(elementLocator_N).isDisplayed()) {
-                        	 Common.logWarn("Not find e");
-                            return false;
-                        }
+                         if ((webElement = driver.findElement(elementLocator_N))==null) {
+                        	 return false;
+                         }
+                    	  if(!waitForElementVisible(elementLocator_N,10)){
+                    		  Common.logWarn("Not find e");
+                    		  return false;
+                    	  }else{
+                    		  
+                    		  System.out.println("isVisible");
+                    	  }
+//                    	  if(!webElement.isDisplayed()){
+//                    		  Common.logWarn("Not find e");
+//                    		  return false;
+//                    	  }else{
+//                    		  
+//                    		  System.out.println("isDisplayed");
+//                    	  }
                     } catch (IndexOutOfBoundsException e) {
+                    	Common.logError("waitForElement"+elementLocator+" failed, Some errors in code");
+                    	return false;
                     } catch (NoSuchElementException e) {
+                    	Common.logError("waitForElement"+elementLocator+" failed, NO Such Element");
+                    	return false;
                     }
+                    Common.shot();
                     Common.logInfo("wait for elementLocator "+elementLocator.toString()+" successed");
 ////try {
 ////	Thread.sleep(2000l);
@@ -412,7 +578,24 @@ public class Common {
         }
 
     }
-	
+    /**
+     * 判断元素在指定时间是否显示
+     * 元素是否在指定时间内显示（存在dom结构且属性为显示）马上返回true
+     * 如果到指定时间仍未显示（不存在与dom结构 或者存在于dom结构但属性为‘隐藏’）则返回false
+     * 适用于ajax
+     * 
+     * @param by 元素
+     * @param seconds 指定秒数
+     * @return 出现返回true 否则返回false
+     */
+    public static boolean waitForElementVisible(final By by, int seconds) {
+        try {
+            new WebDriverWait(driver, seconds).until(ExpectedConditions.visibilityOfElementLocated(by));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 	/**
 	 * 定义所有的共有元素
 	 * @author tanglonglong

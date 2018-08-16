@@ -56,15 +56,18 @@ public class Login {
 		//获取用户名和密码
 		List<HashMap<LoginEnum, String>> dataForLoginPageFromExcel = ReadFromExcel.dataForLoginPageFromExcel;
 		//填写值，点击
-		if( !Common.setParameter(userElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.USER)) ){
+		MyResponse setUserResponse = Common.setParameter(userElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.USER));
+		if( (int)setUserResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
 			Common.logError("Set parameter "+ userElement+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.USER)+" failed");
 			return false;
 		}
-		if( !Common.setParameter(pwdElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD)) ){
+		MyResponse setPwdResponse = Common.setParameter(pwdElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD));
+		if( (int)setPwdResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
 			Common.logError("Set parameter "+ pwdElement+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD)+" failed");
 			return false;
 		}
-		if( !Common.click(loginElement) ){
+		MyResponse clickLoginResponse = Common.click(loginElement) ;
+		if( (int)clickLoginResponse.get(MyResponse.STATUS)== MyResponse.FAILED ){
 			Common.logError("Click element of "+loginElement+" failed");
 			return false;
 		}

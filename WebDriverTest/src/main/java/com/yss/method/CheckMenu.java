@@ -18,7 +18,13 @@ public class CheckMenu {
 
 		// 点击TAB
 		List<String> TATabList = ReadFromExcel.elementsFromExcel.get(PageEnum.TAB_MENU).get("TAdengjiguohu");
-		Common.getWebElement(TATabList.get(1), TATabList.get(0)).click();
+//		Common.getWebElement(TATabList.get(1), TATabList.get(0)).click();
+		
+		MyResponse myResponse = Common.getWebElement(TATabList.get(1), TATabList.get(0));
+		if( (int)myResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("Get Element failed");
+		}
+		((WebElement)myResponse.get("ele")).click();
 
 		// 获取页面元素
 		//方案一和方案二
