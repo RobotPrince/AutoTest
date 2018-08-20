@@ -153,6 +153,7 @@ public class ReadFromExcel {
 				String wangzhi = sheet.getCell(7, r).getContents();
 				String daorulujing = sheet.getCell(8, r).getContents();
 				String daochulujing = sheet.getCell(9, r).getContents();
+				String ischecked = sheet.getCell(10, r).getContents();
 				linkedHashMap.put(HeSuanJiGouXinXiEnum.JIGOUDAIMA, jigoudaima);
 				linkedHashMap.put(HeSuanJiGouXinXiEnum.JIGOUMINGCHENG, jigoumingcheng);
 				linkedHashMap.put(HeSuanJiGouXinXiEnum.JIGOUZHUANGTAI, jigouzhuangtai);
@@ -162,6 +163,7 @@ public class ReadFromExcel {
 				linkedHashMap.put(HeSuanJiGouXinXiEnum.WANGZHI, wangzhi);
 				linkedHashMap.put(HeSuanJiGouXinXiEnum.DAORULUJING, daorulujing);
 				linkedHashMap.put(HeSuanJiGouXinXiEnum.DAOCHULUJING, daochulujing);
+				linkedHashMap.put(HeSuanJiGouXinXiEnum.ISCHECKED, ischecked);
 				// 放入全局变量dataForLoginPageFromExcel中
 				dataForHeSuanJiGouFromExcel.add(linkedHashMap);
 			}
