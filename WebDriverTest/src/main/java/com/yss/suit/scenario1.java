@@ -24,9 +24,10 @@ public class scenario1 {
 	}
 	@Test
 	public void test2() throws InterruptedException {
+		
 		new HeSuanJiGouXinXi().before();
-		new HeSuanJiGouXinXi().addAFew();
-		new HeSuanJiGouXinXi().reviewAFew();
+		new HeSuanJiGouXinXi().add();
+		new HeSuanJiGouXinXi().review();
 //		new HeSuanJiGouXinXi().addOne();
 //		new HeSuanJiGouXinXi().addOne();
 //		new HeSuanJiGouXinXi().addOne();

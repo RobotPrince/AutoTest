@@ -17,27 +17,31 @@ public interface BaseInterface {
 	 */
 	@SuppressWarnings("unchecked")
 	boolean review();
-	/**
-	 * 审核数个
-	 * @return
-	 */
-	@SuppressWarnings("rawtypes")
-	boolean reviewAFew();
+//	/**
+//	 * 审核数个
+//	 * @return
+//	 */
+//	@SuppressWarnings("rawtypes")
+//	boolean reviewAFew();
 	/**
 	 * 反审核
 	 * @return
 	 */
 	boolean unreviewed();
-	/**
-	 * 新增一个
-	 * @return
-	 */
-	boolean addOne();
+//	/**
+//	 * 新增一个
+//	 * @return
+//	 */
+//	boolean addOne();
+//	/**
+//	 * 新增数个
+//	 * @return
+//	 */
+//	boolean addAFew();
 	/**
 	 * 新增数个
-	 * @return
 	 */
-	boolean addAFew();
+	boolean add();
 	/**
 	 * 删除
 	 * @return
