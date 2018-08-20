@@ -491,6 +491,120 @@ public class Common {
 		return myResponse.successWithData("ele", findElement);
 	}
 	/**
+	 * getElemenstDate(pageEnum,allElementEnum,elementEnum)
+	 * 获取元素定位的相关数据
+	 * @param pageEnum
+	 * @param allElementEnum
+	 * @param elementEnum
+	 * @return MyResponse<"ele",WebElement>
+	 */
+	@SuppressWarnings("finally")
+	public static MyResponse getWebElements(PageEnum pageEnum,AllElementEnum allElementEnum,ElementEnum elementEnum) {
+		Common.logInfo("getWebElements");
+		
+		MyResponse myResponse = new MyResponse();
+		List<String> list = new ArrayList<String>();
+		boolean isContains = false;
+		HashMap<String, List<String>> hashMap = ReadFromExcel.elementsFromExcel
+				.get(pageEnum);
+		//取出该页面对应的所有元素的名称
+		String[] str = AllElementEnum.valueOf(allElementEnum.toString()).valueToString();
+		for(String s : str){
+			if(s.equals(elementEnum.toString())){
+				isContains = true;
+			}
+		}
+		//若elementString不存在于所有元素名称则报错
+		if(isContains == false){
+			Common.logError("ElementName not in excel");
+			return myResponse.failed("ElementName not in excel");
+		}
+		
+		list = hashMap.get(elementEnum.toString().toLowerCase());
+		
+		List<WebElement> findElements = null;
+		String locatorType = list.get(0);
+		String locatorVal = list.get(1);
+		String locatorRemark = list.get(2);
+		
+		LocatorTypeEnum type = LocatorTypeEnum.valueOf(locatorType
+				.toUpperCase());
+		
+		switch (type) {
+		case XPATH:
+			if(!Common.waitForElement(By.xpath(locatorVal))){
+				Common.logError("Element of " + locatorVal + " can't find");
+				myResponse.failed("Element of " + locatorVal + " can't find");
+				return myResponse;
+			}
+			try {
+				findElements = driver.findElements(By.xpath(locatorVal));
+			} 
+			catch (org.openqa.selenium.NoSuchElementException ex) {
+				Common.logError("findElement is "+findElements);
+				Common.logError("Element of " + locatorVal + " can't find,Some errors in code");
+				myResponse.failed("Element of " + locatorVal + " can't find,Some errors in code");
+				return myResponse;
+			}
+			finally{
+				break;
+			}
+		case CSS:
+			if(!Common.waitForElement(By.cssSelector(locatorVal))){
+				Common.logError("Element of " + locatorVal + " can't find");
+				myResponse.failed("Element of " + locatorVal + " can't find");
+				return myResponse;
+			}
+			try {
+				findElements = driver.findElements(By.cssSelector(locatorVal));
+			}
+			catch (org.openqa.selenium.NoSuchElementException ex) {
+				Common.logError("Element of " + locatorVal + " can't find,Some errors in code");
+				myResponse.failed("Element of " + locatorVal + " can't find,Some errors in code");
+				return myResponse;
+			}
+			finally{
+				break;
+			}
+		case ID:
+			if(!Common.waitForElement(By.id(locatorVal))){
+				Common.logError("Element of " + locatorVal + " can't find");
+				myResponse.failed("Element of " + locatorVal + " can't find");
+				return myResponse;
+			}
+			try {
+				findElements = driver.findElements(By.id(locatorVal));
+			}
+			catch (org.openqa.selenium.NoSuchElementException ex) {
+				Common.logError("Element of " + locatorVal + " can't find,Some errors in code");
+				myResponse.failed("Element of " + locatorVal + " can't find,Some errors in code");
+				return myResponse;
+			}
+			finally{
+				break;
+			}
+		default:
+			logError("Not supported for " + type + " yet");
+			return myResponse.failed("Not supported for " + type + " yet");
+		}
+		
+		RemarkEnum remarkEnum = null;
+		
+		switch(locatorRemark){
+		case "C":remarkEnum = RemarkEnum.CLICKABLE;break;
+		case "R":remarkEnum = RemarkEnum.READABLE;break;
+		case "W":remarkEnum = RemarkEnum.WRITABLE;break;
+		case "A":remarkEnum = RemarkEnum.ALLABLE;break;
+		case "N":remarkEnum = RemarkEnum.NONE;break;
+		case "S":remarkEnum = RemarkEnum.SELECTABLE;break;
+		default:
+			logError("Not support for "+locatorRemark+" yet!");
+			return myResponse.failed("Not support for "+locatorRemark+" yet!");
+		}
+		myResponse.successWithData("rem", remarkEnum);
+		return myResponse.successWithData("ele", findElements);
+	}
+	/**
 	 * @author tanglonglong
 	 * @return
 	 */
@@ -543,6 +657,10 @@ public class Common {
 		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
 		
 		MyResponse webOKElement = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_OK);
+		if((int)webOKElement.get(MyResponse.STATUS)==MyResponse.FAILED){
+			logError("click button of"+webOKElement.get("ele")+"failed");
+			return webOKElement.failed("click button of"+webOKElement.get("ele")+"failed");
+		}
 		MyResponse clickYesResponse = Common.click((WebElement)webOKElement.get("ele"));
 		if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
 			logError("click button of"+webOKElement.get("ele")+"failed");
@@ -558,7 +676,7 @@ public class Common {
 	public static boolean waitForElement( final By elementLocator) {
 		Common.logInfo("waitForElement");
         try {
-            WebDriverWait driverWait = (WebDriverWait) new WebDriverWait(driver, 30, 500).ignoring(StaleElementReferenceException.class).withMessage("元素在10秒内没有出现!");
+            WebDriverWait driverWait = (WebDriverWait) new WebDriverWait(driver, 5, 500).ignoring(StaleElementReferenceException.class).withMessage("元素在10秒内没有出现!");
             return driverWait.until(new ExpectedCondition<Boolean>() {
 
                 public Boolean apply(WebDriver driver) {
@@ -651,6 +769,10 @@ public class Common {
 		 * 辅助定位页面
 		 */
 		IFRAM1,
+		/**
+		 * 点击复选框选中项目
+		 */
+		ITEM_CHECKBOX,
 		/**
 		 * 编辑
 		 */

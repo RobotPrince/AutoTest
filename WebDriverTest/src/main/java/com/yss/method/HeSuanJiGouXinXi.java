@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import com.yss.common.AllElementEnum;
 import com.yss.common.BaseInterface;
@@ -108,104 +107,189 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 	public boolean addAFew() {
 		Common.logInfo("addAFew");
 
-		// 获取元素 --可如下写也可以写入for循环中
-		MyResponse jiGouDaiMaElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.JIGOUDAIMA);
-		MyResponse jiGouMingChengElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.JIGOUMINGCHENG);
-		MyResponse jiGouZhuangTaiElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.JIGOUZHUANGTAI);
-		MyResponse zhuXiaoElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.ZHUXIAO);
-		MyResponse tingYongElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.TINGYONG);
-		MyResponse dianHuaElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.DIANHUA);
-		MyResponse jiKouBanBenElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.JIEKOUBANBEN);
-		MyResponse jieKou263ElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.JIEKOU_2_6_3);
-		MyResponse jieKou265ElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.JIEKOU_2_6_5);
-		MyResponse diZhiElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.DIZHI);
-		MyResponse wangZhiElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.WANGZHI);
-		MyResponse daoRuLuJingElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.DAORULUJING);
-		MyResponse daiChuLuJingElementData = Common.getWebElement(
-				PageEnum.HESUANJIGOUXINXI,
-				AllElementEnum.HeSuanJiGouXinXiElement,
-				HeSuanJiGouXinXiEnum.DAOCHULUJING);
-
-		Map<HeSuanJiGouXinXiEnum, String> mapOfElementsData = new HashMap<HeSuanJiGouXinXiEnum, String>();
-		for (HeSuanJiGouXinXiEnum heSuanJiGouXinXiEnum : HeSuanJiGouXinXiEnum
-				.values()) {
-			MyResponse elementData = Common.getWebElement(
-					PageEnum.HESUANJIGOUXINXI,
-					AllElementEnum.HeSuanJiGouXinXiElement,
-					heSuanJiGouXinXiEnum);
-			String s = (String) elementData.get(MyResponse.STATUS);
-			if ("0".equals((String) elementData.get(MyResponse.STATUS))) {
-
+		//循环所有数据-这是与AddOne的唯一不同之处
+		int sizeOfData = ReadFromExcel.dataForHeSuanJiGouFromExcel.size();
+		for(int i = 0; i < sizeOfData; i++){
+			//点击新增
+			Common.clickTopAdd();
+			HashMap<HeSuanJiGouXinXiEnum, String> data = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(i);
+			Set<HeSuanJiGouXinXiEnum> set = data.keySet();
+			Iterator<HeSuanJiGouXinXiEnum> iterator = set.iterator();
+			while( iterator.hasNext() ){
+				//isChecked在这里不需要做任何操作
+				HeSuanJiGouXinXiEnum eunm = iterator.next();
+				if(eunm.equals(HeSuanJiGouXinXiEnum.ISCHECKED)){
+					continue;
+				}
+				//获取add需要的元素
+				MyResponse heSuanJiGouXinXiResponse = Common.getWebElement(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement,eunm);
+				if ((int) heSuanJiGouXinXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
+					Common.logError("get element data of heSuanJiGouXinXiResponse failed");
+					return false;
+				}
+				//processTable
+				//将第一条数据填到表单中
+				WebElement ele = (WebElement)heSuanJiGouXinXiResponse.get("ele");
+				String remark = heSuanJiGouXinXiResponse.get("rem").toString();
+				MyResponse setHeSuanJiGouXinXiREsponse = Common.proccessTable(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement, eunm, ele, data.get(eunm),  remark );
+				if( (int)setHeSuanJiGouXinXiREsponse.get(MyResponse.STATUS) == MyResponse.FAILED ){		
+					Common.logError("set parameter of"+eunm+"failed");
+					return false;
+				}
 			}
-		}
-		Map<HeSuanJiGouXinXiEnum, List> mapOfValues = new HashMap<HeSuanJiGouXinXiEnum, List>();
-		// /从Excel 取值
-		List<HashMap<HeSuanJiGouXinXiEnum, String>> dataForHeSuanJiGouFromExcel = ReadFromExcel.dataForHeSuanJiGouFromExcel;
-		// 循环取出每一行数据的值
-		for (HashMap<HeSuanJiGouXinXiEnum, String> hashMap : dataForHeSuanJiGouFromExcel) {
-			// 循环取出该行数据的值
-			for (int j = 0; j < HeSuanJiGouXinXiEnum.values().length; j++) {
-				String strOfValue = hashMap
-						.get(HeSuanJiGouXinXiEnum.values()[j]);
-				MyResponse elementData = Common.getWebElement(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement,HeSuanJiGouXinXiEnum.values()[j]);
-				List list = (List) elementData.get("list");
+			//点击提交
+			MyResponse commitResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.COMMIT);
+			if((int)commitResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+				Common.logError("get Elemnent of "+commitResponse.get("ele")+" failed");
+				return false;
 			}
+			MyResponse clickCommitResponse = Common.click((WebElement)commitResponse.get("ele"));
+			if((int)clickCommitResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+				Common.logError("click Elemnent of "+clickCommitResponse.get("ele")+" failed");
+				return false;
+			}
+			//点击确定
+			Common.clickYES();
 		}
-		// dataForHeSuanJiGouFromExcel.size();
-		// Excel 第一行
-		HashMap<HeSuanJiGouXinXiEnum, String> hashMap = dataForHeSuanJiGouFromExcel
-				.get(0);
-		// Excel 机构代码
-		String string = hashMap.get(HeSuanJiGouXinXiEnum.JIGOUDAIMA);
-
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean review() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean reviewAFew() {
-		// TODO Auto-generated method stub
-		return false;
+		Common.logInfo("reviewAFew");
+		
+		//切换driver到default
+		Common.driver.switchTo().defaultContent();
+		// 切换driver到top
+		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get element data of iframe1 failed");
+			return false;
+		}
+		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+		//获取页面所有复选框数目
+		MyResponse itemCheckBoxResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ITEM_CHECKBOX);
+		if((int)itemCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("get Elements of"+CommonElementEnum.ITEM_CHECKBOX+"failed");
+			return false;
+		}
+		//第一步应是把所有项目变成反审核的状态
+		List<WebElement> itemList = (List<WebElement>)itemCheckBoxResponse.get("ele");
+		for(WebElement webElement : itemList){
+			MyResponse clickCheckBoxResponse = Common.click(webElement);
+			if((int)clickCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click checkbox of"+webElement+"failed");
+				return false;			
+			}
+		}
+		MyResponse unreviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.UNREVIEW_TOP);
+		if((int)unreviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("get element of unreivewtop failed");
+			return false;			
+		}
+		MyResponse clickUnreviewTopResponse = Common.click((WebElement)unreviewTopResponse.get("ele"));
+		if((int)unreviewTopResponse.get(clickUnreviewTopResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("Click checkbox of UnreviewTop failed");
+			return false;			
+		}
+
+		//点击确定
+		 MyResponse clickYesResponse = Common.clickYES();
+		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			//点击是
+			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("get element of popup yes failed");
+				return false;
+			}
+			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
+			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click element of popup yes failed");
+				return false;
+			}
+			//点击确定
+			MyResponse clickYesRes = Common.clickYES();
+			if((int)clickYesRes.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click Yes failed");
+				return false;
+			}
+		 }
+		 //去掉所有被勾上的复选框
+		itemCheckBoxResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ITEM_CHECKBOX);
+		itemList = (List<WebElement>)itemCheckBoxResponse.get("ele");
+		for(WebElement webElement : itemList){
+			MyResponse clickCheckBoxResponse = Common.click(webElement);
+			if((int)clickCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click checkbox of"+webElement+"failed");
+				return false;			
+			}
+		}
+	 
+		//循环所有数据
+		int sizeOfData = ReadFromExcel.dataForHeSuanJiGouFromExcel.size();
+		for(int i = 0; i < sizeOfData; i++){
+			HashMap<HeSuanJiGouXinXiEnum, String> data = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(i);
+			if("Y".equalsIgnoreCase(data.get(HeSuanJiGouXinXiEnum.ISCHECKED))){
+				//点击复选框
+				MyResponse clickResponse = Common.click(itemList.get(i));
+				 if((int)clickResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+					 Common.logError("Click checkbox of "+itemList.get(i)+" failed");
+					 return false;
+				 }
+			}
+		}
+		//点击顶部的review
+		MyResponse reviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.REVIEW_TOP);
+		if( (int)reviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("get element of reviewTop failed");
+			return false;
+		}
+		MyResponse clickReviewTopResponse = Common.click((WebElement)reviewTopResponse.get("ele"));
+		if( (int)clickReviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("Click element of ReviewTop failed");
+			return false;
+		}
+		//点击确定
+		clickYesResponse = Common.clickYES();
+		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				//点击是
+			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("get element of popup yes failed");
+				return false;
+			}
+			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
+			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click element of popup yes failed");
+				return false;
+			}
+			//点击确定
+			MyResponse clickYesResponse2 = Common.clickYES();
+			if((int)clickYesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click yes failed");
+				return false;
+			}
+		 }
+		//去掉所有被勾上的复选框
+		itemCheckBoxResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ITEM_CHECKBOX);
+		itemList = (List<WebElement>)itemCheckBoxResponse.get("ele");
+		for(int i = 0; i < sizeOfData; i++){
+			HashMap<HeSuanJiGouXinXiEnum, String> data = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(i);
+			if("Y".equalsIgnoreCase(data.get(HeSuanJiGouXinXiEnum.ISCHECKED))){
+				//点击复选框
+				MyResponse clickResponse = Common.click(itemList.get(i));
+				 if((int)clickResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+					 Common.logError("Click checkbox of "+itemList.get(i)+" failed");
+					 return false;
+				 }
+			}
+		}
+		return true;
 	}
 
 	@Override
@@ -280,7 +364,11 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		/**
 		 * 接口导出路径
 		 */
-		DAOCHULUJING
+		DAOCHULUJING,
+		/**
+		 * 是否需要审核
+		 */
+		ISCHECKED
 	}
 
 }
