@@ -473,7 +473,15 @@ public class Common {
 			logError("Not supported for " + type + " yet");
 			return myResponse.failed("Not supported for " + type + " yet");
 		}
-		
+		//闪烁一下当前找到的元素
+		((JavascriptExecutor)driver).executeScript("arguments[0].style.border = '2px solid red'", findElement);
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		((JavascriptExecutor)driver).executeScript("arguments[0].style.border = 'none'", findElement);
 		RemarkEnum remarkEnum = null;
 		
 		switch(locatorRemark){

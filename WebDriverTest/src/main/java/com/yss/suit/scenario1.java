@@ -1,8 +1,10 @@
 package com.yss.suit;
 
 import org.apache.log4j.Logger;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
@@ -12,22 +14,26 @@ import com.yss.method.Login;
 
 public class scenario1 {
 	public static Logger logger = Logger.getLogger(scenario1.class);
-
-	/*
+	@BeforeTest
+	public void getData(){
+		new com.yss.common.ReadFromExcel().allReadMethod();
+	}
+		/*
 	 * 将这条测试流所用到的方法写在这里
 	 * 如：1.登陆 2.开户 3.申购
 	 */
-	@Test
-	public void test1() {
+	@Test(priority = 0)
+	public void login() {
 
 		new Login().login();
+		Reporter.log("登录成功");
 	}
-	@Test
-	public void test2() throws InterruptedException {
+	@Test(priority = 1)
+	public void HeSuanJiGouXinXiAdd() throws InterruptedException {
 		
 		new HeSuanJiGouXinXi().before();
 		new HeSuanJiGouXinXi().add();
-		new HeSuanJiGouXinXi().review();
+		Reporter.log("核算机构信息-新增成功");
 //		new HeSuanJiGouXinXi().addOne();
 //		new HeSuanJiGouXinXi().addOne();
 //		new HeSuanJiGouXinXi().addOne();
@@ -35,10 +41,18 @@ public class scenario1 {
 //		new HeSuanJiGouXinXi().unreviewed();
 //		new HeSuanJiGouXinXi().delete();
 	}
+	@Test(priority = 2)
+	public void HeSuanJiGouXinXiReview() throws InterruptedException {
+		
 
-	public void test3() {
-	
-		new Login().login();
+		new HeSuanJiGouXinXi().review();
+		Reporter.log("核算机构信息-审核成功");
+//		new HeSuanJiGouXinXi().addOne();
+//		new HeSuanJiGouXinXi().addOne();
+//		new HeSuanJiGouXinXi().addOne();
+//		new HeSuanJiGouXinXi().review();
+//		new HeSuanJiGouXinXi().unreviewed();
+//		new HeSuanJiGouXinXi().delete();
 	}
 	@BeforeClass
 	public void beforeClass() {
