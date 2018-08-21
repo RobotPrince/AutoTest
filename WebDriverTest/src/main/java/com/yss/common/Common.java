@@ -688,7 +688,6 @@ public class Common {
             return driverWait.until(new ExpectedCondition<Boolean>() {
 
                 public Boolean apply(WebDriver driver) {
-                	System.out.println("apply in");
                     try {
                     	WebElement webElement;
                     	By elementLocator_N = elementLocator;
@@ -700,7 +699,7 @@ public class Common {
                     		  return false;
                     	  }else{
                     		  
-                    		  System.out.println("isVisible");
+                    		 Common.logInfo("isVisible");
                     	  }
 //                    	  if(!webElement.isDisplayed()){
 //                    		  Common.logWarn("Not find e");
@@ -716,6 +715,7 @@ public class Common {
                     	Common.logError("waitForElement"+elementLocator+" failed, NO Such Element");
                     	return false;
                     }
+                    //FIXME:在这里会生成大量截图，考虑是否去掉
                     Common.shot();
                     Common.logInfo("wait for elementLocator "+elementLocator.toString()+" successed");
 ////try {
