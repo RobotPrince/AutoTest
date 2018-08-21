@@ -1,2 +1,0 @@
-2018-08-05 13:58:52  [ main:4473 ] - [ ERROR ]  Element can't click for[[FirefoxDriver: firefox on WINDOWS (8646cea1-b13d-4f73-af81-8a5d11b7dda7)] -> css selector: #submitBtn] in com.yss.method.Login
-2018-08-05 13:58:52  [ main:4474 ] - [ ERROR ]  Click element of [[FirefoxDriver: firefox on WINDOWS (8646cea1-b13d-4f73-af81-8a5d11b7dda7)] -> css selector: #submitBtn] failed

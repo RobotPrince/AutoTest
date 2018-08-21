@@ -67,7 +67,6 @@ public class scenario1 {
 		System.out.println("afterClass");
 		Common.driver.quit();
         logger.info("----------   "+"测试用例执行结束"+"    ----------------");        
-        logger.info("----------------------------------------------------");
 	}
 
 }
