@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
-import com.yss.common.ReadFromExcel;
 import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
 
@@ -34,12 +33,6 @@ public class scenario1 {
 		new HeSuanJiGouXinXi().before();
 		new HeSuanJiGouXinXi().add();
 		Reporter.log("核算机构信息-新增成功");
-//		new HeSuanJiGouXinXi().addOne();
-//		new HeSuanJiGouXinXi().addOne();
-//		new HeSuanJiGouXinXi().addOne();
-//		new HeSuanJiGouXinXi().review();
-//		new HeSuanJiGouXinXi().unreviewed();
-//		new HeSuanJiGouXinXi().delete();
 	}
 	@Test(priority = 2)
 	public void HeSuanJiGouXinXiReview() throws InterruptedException {
@@ -47,12 +40,6 @@ public class scenario1 {
 
 		new HeSuanJiGouXinXi().review();
 		Reporter.log("核算机构信息-审核成功");
-//		new HeSuanJiGouXinXi().addOne();
-//		new HeSuanJiGouXinXi().addOne();
-//		new HeSuanJiGouXinXi().addOne();
-//		new HeSuanJiGouXinXi().review();
-//		new HeSuanJiGouXinXi().unreviewed();
-//		new HeSuanJiGouXinXi().delete();
 	}
 	@BeforeClass
 	public void beforeClass() {
