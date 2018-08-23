@@ -30,7 +30,6 @@ public class TestDemo {
 
 	public static void main(String args[]) throws IOException
 	{
-		
 		SimpleDateFormat sdf  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		File dir = new File("E://T_TA_ACKTRADEBLOTTER/");
 		//获取文件夹下所有文件名称
@@ -39,9 +38,9 @@ public class TestDemo {
 		for(int i = 0; i< fileList.length; i++){
 			try {
 				//将文件名称中的时间转换成long类型
-				fileTimeList[i] = sdf.parse(fileList[i].split("-|\\.")[1]).getTime();
+				fileTimeList[i] = sdf.parse(fileList[i].split("-")[1]).getTime();
 			} catch (ParseException e) {
-//				Common.logError("文件格式不正确"+fileTimeList[i]);
+				System.out.println("文件格式不正确"+fileTimeList[i]);
 			}
 		}
 		//按照文件名称的时间排序
@@ -52,7 +51,7 @@ public class TestDemo {
 		// 把date类型的时间转换为string
 		String oldTime = sdf.format(dateOld);
 		String newTime = sdf.format(dateNew);
-		//获取最新的两个文件
+		
 		File oldFile = new File("E://T_TA_ACKTRADEBLOTTER/T_TA_ACKTRADEBLOTTER-"+oldTime+".json");
 		File newFile = new File("E://T_TA_ACKTRADEBLOTTER/T_TA_ACKTRADEBLOTTER-"+newTime+".json");
 		try {
@@ -63,22 +62,103 @@ public class TestDemo {
 			//读入到String中
 			int oldLength = fileReaderOld.read(charOld);
 			int newLength = fileReaderNew.read(charNew);
+			
+			if(new String(charOld).equals(new String(charNew))){
+				
+				System.out.println("一模一样");
+			}
 			String oldString = new String(charOld,0,oldLength);
 			String newString = new String(charNew,0,newLength);
-			
+			//按照换行分割
 			String oldStringArray[] = oldString.split("\n");
 			String newStringArray[] = newString.split("\n");
+			//判断交易笔数
 			if(oldStringArray.length != newStringArray.length){
 				
+				System.out.println("交易总笔数不同!");
 			}
-			for(int i = 0; i < oldStringArray)
-			if(new String(charOld).equals(new String(charNew))){;
-			System.out.println("一模一样");
-			}
-			
+			//获取最大的交易笔数
+			int stringLength = oldStringArray.length >= newStringArray.length ?oldStringArray.length : newStringArray.length;
+			for(int i = 0; i < stringLength; i++){
+				int stringSplitLength = 0;
+				//按照,分割表中字段
+				//判断交易的总笔数
+				if(newStringArray.length==i){
+					System.out.println("新交易清算中没有第"+(i+1)+"笔交易!");
+				}
+				//判断交易的总笔数
+				if(oldStringArray.length==i){
+					System.out.println("旧交易清算中没有第"+(i+1)+"笔交易!");
+				}
+				String[] newStringSplitArray = newStringArray[i].split(",");
+				String[] oldStringSplitArray = oldStringArray[i].split(",");
+				//判断表中的字段数目
+				if(newStringSplitArray.length != oldStringSplitArray.length ){
+					System.out.println("第"+(i+1)+"笔交易发生错误，缺啥!");
+				}
+				//获取最大的字段数目
+				stringSplitLength = newStringSplitArray.length <= oldStringSplitArray.length ? newStringSplitArray.length : oldStringSplitArray.length;
+				//判断字段是否全部相同
+				for(int j = 0; j < stringSplitLength; j++){
+					
+					if( !newStringSplitArray[j].equals(oldStringSplitArray[j]) ){
+						System.out.println("第"+(i+1)+"笔交易的字段"+newStringSplitArray[j]+"发生了错误");
+						}
+					}
+				}
+
 		} catch (Exception e) {
 //			Common.logError("获取文件失败"+oldFile.getName()+" or "+newFile.getName());
-		}}
+		}
+	}
+//		SimpleDateFormat sdf  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+//		File dir = new File("E://T_TA_ACKTRADEBLOTTER/");
+//		//获取文件夹下所有文件名称
+//		String[] fileList = dir.list();
+//		long[] fileTimeList = new long[fileList.length];
+//		for(int i = 0; i< fileList.length; i++){
+//			try {
+//				//将文件名称中的时间转换成long类型
+//				fileTimeList[i] = sdf.parse(fileList[i].split("-|\\.")[1]).getTime();
+//			} catch (ParseException e) {
+////				Common.logError("文件格式不正确"+fileTimeList[i]);
+//			}
+//		}
+//		//按照文件名称的时间排序
+//		Arrays.sort(fileTimeList);
+//		// 根据long类型的毫秒数生命一个date类型的时间
+//		Date dateNew = new Date(fileTimeList[fileList.length-1]);
+//		Date dateOld = new Date(fileTimeList[fileList.length-2]);
+//		// 把date类型的时间转换为string
+//		String oldTime = sdf.format(dateOld);
+//		String newTime = sdf.format(dateNew);
+//		//获取最新的两个文件
+//		File oldFile = new File("E://T_TA_ACKTRADEBLOTTER/T_TA_ACKTRADEBLOTTER-"+oldTime+".json");
+//		File newFile = new File("E://T_TA_ACKTRADEBLOTTER/T_TA_ACKTRADEBLOTTER-"+newTime+".json");
+//		try {
+//			char[] charOld = new char[1024*1024*5];
+//			char[] charNew = new char[1024*1024*5];
+//			FileReader fileReaderOld = new FileReader(oldFile);
+//			FileReader fileReaderNew = new FileReader(newFile);
+//			//读入到String中
+//			int oldLength = fileReaderOld.read(charOld);
+//			int newLength = fileReaderNew.read(charNew);
+//			String oldString = new String(charOld,0,oldLength);
+//			String newString = new String(charNew,0,newLength);
+//			
+//			String oldStringArray[] = oldString.split("\n");
+//			String newStringArray[] = newString.split("\n");
+//			if(oldStringArray.length != newStringArray.length){
+//				
+//			}
+//			for(int i = 0; i < oldStringArray)
+//			if(new String(charOld).equals(new String(charNew))){;
+//			System.out.println("一模一样");
+//			}
+//			
+//		} catch (Exception e) {
+////			Common.logError("获取文件失败"+oldFile.getName()+" or "+newFile.getName());
+//		}}
 		
 //		//开始一个事务
 //		SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
