@@ -20,5 +20,9 @@ public enum PageEnum {
 	/**
 	 * 核算机构信息
 	 */
-	HESUANJIGOUXINXI
+	HESUANJIGOUXINXI,
+	/**
+	 * 日常运营清算
+	 */
+	RICHANGYUNYINGQINGSUAN
 }

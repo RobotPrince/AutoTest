@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="test sofa">
+		<listeners>
+			<listener class-name="org.uncommons.reportng.HTMLReporter" />
+			<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		</listeners>
+	<test name="yss_auto_test" enabled="true" >
+		<classes >
+<!-- 			<class name="com.yss.suit.scenario1" /> -->
+			<class name="com.yss.suit.scenario2" />
+		</classes>
+	</test>
+</suite>	

@@ -5,16 +5,16 @@
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
   </listeners>
-  <test name="score1(failed)">
+  <test name="yss_auto_test(failed)">
     <classes>
-      <class name="com.yss.suit.scenario1">
+      <class name="com.yss.suit.scenario2">
         <methods>
           <include name="beforeClass"/>
-          <include name="getData"/>
           <include name="afterClass"/>
-          <include name="HeSuanJiGouXinXi"/>
+          <include name="HeSuanJiGouXinXiAdd"/>
+          <include name="getData"/>
         </methods>
-      </class> <!-- com.yss.suit.scenario1 -->
+      </class> <!-- com.yss.suit.scenario2 -->
     </classes>
-  </test> <!-- score1(failed) -->
+  </test> <!-- yss_auto_test(failed) -->
 </suite> <!-- Failed suite [test sofa] -->
