@@ -17,13 +17,19 @@ public class CheckMenu {
 		Common.logInfo("checkTAMenuText");
 
 		// 点击TAB
-		List<String> TATabList = ReadFromExcel.hashMapOfExcel.get(PageEnum.TAB_MENU).get("TAdengjiguohu");
-		Common.getWebElement(TATabList.get(1), TATabList.get(0)).click();
+		List<String> TATabList = ReadFromExcel.elementsFromExcel.get(PageEnum.TAB_MENU).get("TAdengjiguohu");
+//		Common.getWebElement(TATabList.get(1), TATabList.get(0)).click();
+		
+		MyResponse myResponse = Common.getWebElement(TATabList.get(1), TATabList.get(0));
+		if( (int)myResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("Get Element failed");
+		}
+		((WebElement)myResponse.get("ele")).click();
 
 		// 获取页面元素
 		//方案一和方案二
 //		Common.getElementData(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,"richangyunying_1");
-		MyResponse response = Common.getElementData2(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,CheckMenuElement.RICHANGYUNYING_1);
+		MyResponse response = Common.getElementData(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,CheckMenuElement.RICHANGYUNYING_1);
 		
 //		WebElement richangyunying1Ele = Common.getWebElement(list.get(1),
 //				list.get(0));
@@ -134,6 +140,15 @@ public class CheckMenu {
 		 * 业务申请一级
 		 */
 		YEWUSHENQING_1,
+		//FIXME:以下为临时增加
+		/**
+		 * 机构参数
+		 */
+		JIGOUCANSHU_1,
+		/**
+		 * 核算机构信息
+		 */
+		HESUANJIGOUXINXI_2
 //FIXME:下面的暂时用不上，格式设置同上。 一对一
 //		基金账户开户
 //		增开交易账户

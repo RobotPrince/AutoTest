@@ -9,15 +9,15 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">test sofa</th></tr>
-<tr><td><a href="#t0">score1</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">5,873</td><td></td><td></td></tr>
+<tr><td><a href="#t0">score1</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">27,943</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">test sofa</th></tr></tbody><tbody id="t0"><tr><th colspan="4">score1 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.yss.suit.scenario1</td><td><a href="#m0">test2</a></td><td rowspan="1">1534054163117</td><td rowspan="1">312</td></tr><tr><th colspan="4">score1 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.yss.suit.scenario1</td><td><a href="#m1">test1</a></td><td rowspan="1">1534054161271</td><td rowspan="1">1842</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">test sofa</th></tr></tbody><tbody id="t0"><tr><th colspan="4">score1 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.yss.suit.scenario1</td><td><a href="#m0">HeSuanJiGouXinXi</a></td><td rowspan="1">1534814281680</td><td rowspan="1">20803</td></tr><tr><th colspan="4">score1 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.yss.suit.scenario1</td><td><a href="#m1">login</a></td><td rowspan="1">1534814278592</td><td rowspan="1">3080</td></tr></tbody>
 </table>
-<h2>score1</h2><h3 id="m0">com.yss.suit.scenario1#test2</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: Element is not clickable at point (268.8000030517578, 68). Other element would receive the click: &lt;div id=&quot;loading&quot; style=&quot;z-index: 9999; position: absolute; width: 1920px; height: 970px; background-color: rgb(8, 58, 99);&quot;&gt;&lt;/div&gt;
-Command duration or timeout: 250 milliseconds
+<h2>score1</h2><h3 id="m0">com.yss.suit.scenario1#HeSuanJiGouXinXi</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: Element is not clickable at point (738.7000122070312, 14.800003051757812). Other element would receive the click: &lt;div style=&quot;display: block; width: 1198px; height: 680px; z-index: 9010;&quot; id=&quot;ext-gen191&quot; class=&quot;ext-el-mask&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 79 milliseconds
 Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
-System info: host: &apos;LAPTOP-T9UGMIK5&apos;, ip: &apos;192.168.199.184&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.7.0_80&apos;
-Session ID: 0682d136-c250-4c9e-b79f-fd754e2c4bd7
+System info: host: &apos;LAPTOP-T9UGMIK5&apos;, ip: &apos;192.168.103.133&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.7.0_80&apos;
+Session ID: b0bbec21-5f0a-4d8a-bc24-e0eb0cffa9fc
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
 Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=45.0.2}]
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
@@ -25,9 +25,11 @@ Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cs
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:19)
-	at com.yss.suit.scenario1.test2(scenario1.java:28)
+	at com.yss.common.Common.click(Common.java:132)
+	at com.yss.common.Common.clickTopAdd(Common.java:636)
+	at com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+	at com.yss.suit.scenario1.HeSuanJiGouXinXi(scenario1.java:33)
 ... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.yss.suit.scenario1#test1</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.yss.suit.scenario1#login</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

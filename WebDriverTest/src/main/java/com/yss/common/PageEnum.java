@@ -2,6 +2,10 @@ package com.yss.common;
 
 public enum PageEnum {
 	/**
+	 * 共有元素
+	 */
+	COMMON,
+	/**
 	 * Login page
 	 */
 	LOGIN_PAGE,

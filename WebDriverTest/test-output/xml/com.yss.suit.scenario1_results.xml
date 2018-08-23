@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="yss_auto_test"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="55.901">
+  <properties />
+  
+  
+            <testcase name="HeSuanJiGouXinXiAdd" time="34.736" classname="com.yss.suit.scenario1" />
+                <testcase name="HeSuanJiGouXinXiReview" time="17.521" classname="com.yss.suit.scenario1" />
+                <testcase name="login" time="3.644" classname="com.yss.suit.scenario1" />
+      
+</testsuite>

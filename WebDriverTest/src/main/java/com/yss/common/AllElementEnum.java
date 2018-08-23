@@ -1,6 +1,8 @@
 package com.yss.common;
+import com.yss.common.Common.CommonElementEnum;
 import com.yss.method.CheckMenu.CheckMenuElement;
-import com.yss.method.Login.LoginElement;
+import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
+import com.yss.method.Login.LoginEnum;
 
 
 /**
@@ -11,7 +13,9 @@ import com.yss.method.Login.LoginElement;
 public enum AllElementEnum{
 	
 	CheckMenuElement(CheckMenuElement.class),
-	LoginElement(LoginElement.class);
+	LoginElement(LoginEnum.class),
+	HeSuanJiGouXinXiElement(HeSuanJiGouXinXiEnum.class),
+	CommonElementEnum(CommonElementEnum.class);
 	
 	private ElementEnum[] elementEnums;
 	private AllElementEnum( Class<? extends ElementEnum> e){

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [test sofa]">
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  </listeners>
   <test name="score1(failed)">
     <classes>
       <class name="com.yss.suit.scenario1">
         <methods>
           <include name="beforeClass"/>
+          <include name="getData"/>
           <include name="afterClass"/>
-          <include name="test2"/>
+          <include name="HeSuanJiGouXinXi"/>
         </methods>
       </class> <!-- com.yss.suit.scenario1 -->
     </classes>
