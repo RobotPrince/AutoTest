@@ -1,84 +1,1486 @@
-2018-08-12 14:09:17  [ main:0 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:38)
-beforeClass
-2018-08-12 14:09:17  [ main:8 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:34)
+2018-08-21 14:02:15  [ main:2154 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.allReadMethod(ReadFromExcel.java:43)
+allReadMethod
+2018-08-21 14:02:15  [ main:2156 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:55)
 readExc
-2018-08-12 14:09:17  [ main:146 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:40)
+2018-08-21 14:02:16  [ main:3152 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForHeSuanJiGouXinXi(ReadFromExcel.java:124)
+readForHeSuanJiGouXinXi
+2018-08-21 14:02:16  [ main:3409 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForLoginPage(ReadFromExcel.java:183)
+readForLoginPage
+2018-08-21 14:02:17  [ main:3647 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:60)
+beforeClass
+2018-08-21 14:02:17  [ main:3648 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:61)
 --------------------------------------------------
-2018-08-12 14:09:17  [ main:147 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:41)
+2018-08-21 14:02:17  [ main:3649 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:62)
 ----------   class com.yss.suit.scenario1    ----------------
-2018-08-12 14:09:21  [ main:3674 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:18)
+2018-08-21 14:02:17  [ main:3765 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:20)
 login
-2018-08-12 14:09:21  [ main:4149 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:49)
+2018-08-21 14:02:23  [ main:10258 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+getWebElement
+2018-08-21 14:02:23  [ main:10299 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+waitForElement
+2018-08-21 14:02:26  [ main:12465 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831344463.jpg
+2018-08-21 14:02:26  [ main:12465 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+wait for elementLocator By.xpath: .//*[@id="username"] successed
+2018-08-21 14:02:26  [ main:12865 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+getWebElement
+2018-08-21 14:02:26  [ main:12866 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+waitForElement
+2018-08-21 14:02:26  [ main:13166 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:36)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831346511.jpg
+2018-08-21 14:02:26  [ main:13166 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+wait for elementLocator By.cssSelector: #password successed
+2018-08-21 14:02:27  [ main:13888 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+getWebElement
+2018-08-21 14:02:27  [ main:13888 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+waitForElement
+2018-08-21 14:02:27  [ main:14329 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:47)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831347618.jpg
+2018-08-21 14:02:27  [ main:14330 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+wait for elementLocator By.cssSelector: #submitBtn successed
+2018-08-21 14:02:28  [ main:14524 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:59)
 setParameter
-2018-08-12 14:09:21  [ main:4225 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:53)
+2018-08-21 14:02:28  [ main:14942 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:64)
 setParameter
-2018-08-12 14:09:21  [ main:4297 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:57)
+2018-08-21 14:04:22  [ main:396 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.allReadMethod(ReadFromExcel.java:43)
+allReadMethod
+2018-08-21 14:04:22  [ main:398 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:55)
+readExc
+2018-08-21 14:04:22  [ main:582 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForHeSuanJiGouXinXi(ReadFromExcel.java:124)
+readForHeSuanJiGouXinXi
+2018-08-21 14:04:22  [ main:631 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForLoginPage(ReadFromExcel.java:183)
+readForLoginPage
+2018-08-21 14:04:22  [ main:709 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:60)
+beforeClass
+2018-08-21 14:04:22  [ main:710 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:61)
+--------------------------------------------------
+2018-08-21 14:04:22  [ main:710 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:62)
+----------   class com.yss.suit.scenario1    ----------------
+2018-08-21 14:04:22  [ main:762 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:20)
+login
+2018-08-21 14:04:23  [ main:1829 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+getWebElement
+2018-08-21 14:04:23  [ main:1955 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+waitForElement
+2018-08-21 14:04:25  [ main:3297 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831464716.jpg
+2018-08-21 14:04:25  [ main:3297 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+wait for elementLocator By.xpath: .//*[@id="username"] successed
+2018-08-21 14:04:25  [ main:3448 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+getWebElement
+2018-08-21 14:04:25  [ main:3448 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+waitForElement
+2018-08-21 14:04:26  [ main:4364 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:36)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831466140.jpg
+2018-08-21 14:04:26  [ main:4365 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+wait for elementLocator By.cssSelector: #password successed
+2018-08-21 14:04:26  [ main:4493 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+getWebElement
+2018-08-21 14:04:26  [ main:4494 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+waitForElement
+2018-08-21 14:04:26  [ main:4751 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:47)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831466556.jpg
+2018-08-21 14:04:26  [ main:4752 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+wait for elementLocator By.cssSelector: #submitBtn successed
+2018-08-21 14:04:26  [ main:4895 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:59)
+setParameter
+2018-08-21 14:04:27  [ main:5146 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:64)
+setParameter
+2018-08-21 14:04:28  [ main:6453 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:69)
 click
-2018-08-12 14:09:23  [ main:5512 ] - [ INFO ]  method:com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:15)
-checkTAMenuText
-2018-08-12 14:09:23  [ main:5846 ] - [ INFO ]  method:com.yss.suit.scenario1.afterClass(scenario1.java:48)
+2018-08-21 14:04:30  [ main:8528 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:69)
+Click [[FirefoxDriver: firefox on WINDOWS (5b2ac1fa-af03-445a-a9ec-a9e146ccf7b5)] -> css selector: #submitBtn] Success
+2018-08-21 14:04:30  [ main:8535 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:24)
+before
+2018-08-21 14:04:32  [ main:10536 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+waitForElement
+2018-08-21 14:04:32  [ main:10949 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831472725.jpg
+2018-08-21 14:04:32  [ main:10949 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+waitForElementBy.id: app-toolbar-item-17051716185547476548 failed, NO Such Element
+2018-08-21 14:04:33  [ main:11718 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831473518.jpg
+2018-08-21 14:04:33  [ main:11718 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+waitForElementBy.id: app-toolbar-item-17051716185547476548 failed, NO Such Element
+2018-08-21 14:04:34  [ main:12518 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831474312.jpg
+2018-08-21 14:04:34  [ main:12518 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+waitForElementBy.id: app-toolbar-item-17051716185547476548 failed, NO Such Element
+2018-08-21 14:04:35  [ main:13298 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831475081.jpg
+2018-08-21 14:04:35  [ main:13298 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+waitForElementBy.id: app-toolbar-item-17051716185547476548 failed, NO Such Element
+2018-08-21 14:04:36  [ main:14126 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831475861.jpg
+2018-08-21 14:04:36  [ main:14126 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+waitForElementBy.id: app-toolbar-item-17051716185547476548 failed, NO Such Element
+2018-08-21 14:04:36  [ main:14899 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831476693.jpg
+2018-08-21 14:04:36  [ main:14900 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+waitForElementBy.id: app-toolbar-item-17051716185547476548 failed, NO Such Element
+2018-08-21 14:04:37  [ main:15823 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831477476.jpg
+2018-08-21 14:04:37  [ main:15824 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+waitForElementBy.id: app-toolbar-item-17051716185547476548 failed, NO Such Element
+2018-08-21 14:04:38  [ main:16045 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831477860.jpg
+2018-08-21 14:04:38  [ main:16045 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+Element of app-toolbar-item-17051716185547476548 can't find
+2018-08-21 14:04:38  [ main:16045 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:39)
+click
+2018-08-21 14:04:38  [ main:16051 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:209)
+reviewAFew
+2018-08-21 14:04:38  [ main:16181 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+getWebElement
+2018-08-21 14:04:38  [ main:16182 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+waitForElement
+2018-08-21 14:04:38  [ main:16451 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831478244.jpg
+2018-08-21 14:04:38  [ main:16452 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-21 14:04:39  [ main:17353 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831479005.jpg
+2018-08-21 14:04:39  [ main:17353 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-21 14:04:40  [ main:18126 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831479917.jpg
+2018-08-21 14:04:40  [ main:18126 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-21 14:04:40  [ main:18900 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831480692.jpg
+2018-08-21 14:04:40  [ main:18900 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-21 14:04:41  [ main:19885 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831481621.jpg
+2018-08-21 14:04:41  [ main:19886 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-21 14:04:42  [ main:20685 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831482460.jpg
+2018-08-21 14:04:42  [ main:20685 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-21 14:04:43  [ main:21473 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831483273.jpg
+2018-08-21 14:04:43  [ main:21473 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-21 14:04:43  [ main:21693 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831483510.jpg
+2018-08-21 14:04:43  [ main:21693 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+Element of .//div[@class='x-panel-bwrap']//iframe[@name] can't find
+2018-08-21 14:04:43  [ main:21913 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:216)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831483729.jpg
+2018-08-21 14:04:43  [ main:21913 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:216)
+get element data of iframe1 failed
+2018-08-21 14:04:46  [ main:23966 ] - [ INFO ]  method:com.yss.suit.scenario1.afterClass(scenario1.java:69)
 ----------   测试用例执行结束    ----------------
-2018-08-12 14:09:23  [ main:5849 ] - [ INFO ]  method:com.yss.suit.scenario1.afterClass(scenario1.java:49)
+2018-08-21 14:04:46  [ main:23966 ] - [ INFO ]  method:com.yss.suit.scenario1.afterClass(scenario1.java:70)
 ----------------------------------------------------
-2018-08-12 14:10:39  [ main:0 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:38)
-beforeClass
-2018-08-12 14:10:39  [ main:8 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:34)
+2018-08-21 14:05:50  [ main:477 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.allReadMethod(ReadFromExcel.java:43)
+allReadMethod
+2018-08-21 14:05:50  [ main:505 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:55)
 readExc
-2018-08-12 14:10:39  [ main:151 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:40)
---------------------------------------------------
-2018-08-12 14:10:39  [ main:152 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:41)
-----------   class com.yss.suit.scenario1    ----------------
-2018-08-12 14:10:42  [ main:3578 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:18)
-login
-2018-08-12 14:10:43  [ main:4049 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:49)
-setParameter
-2018-08-12 14:10:43  [ main:4137 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:53)
-setParameter
-2018-08-12 14:10:43  [ main:4300 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:57)
-click
-2018-08-12 14:10:44  [ main:5365 ] - [ INFO ]  method:com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:15)
-checkTAMenuText
-2018-08-12 21:07:51  [ main:25032263 ] - [ WARN ]  method:com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:26)
-the screenshot saved in ./test-output/screen-shot screenshot name : 1534079270916.jpg
-2018-08-12 21:07:51  [ main:25032266 ] - [ ERROR ]  method:com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:26)
-ElementName not in excel
-2018-08-12 21:08:40  [ main:25081812 ] - [ INFO ]  method:com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:15)
-checkTAMenuText
-2018-08-12 21:11:39  [ main:25259948 ] - [ INFO ]  method:com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:15)
-checkTAMenuText
-2018-08-12 21:58:19  [ main:0 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:38)
+2018-08-21 14:05:50  [ main:725 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForHeSuanJiGouXinXi(ReadFromExcel.java:124)
+readForHeSuanJiGouXinXi
+2018-08-21 14:05:50  [ main:776 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForLoginPage(ReadFromExcel.java:183)
+readForLoginPage
+2018-08-21 14:05:50  [ main:824 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:60)
 beforeClass
-2018-08-12 21:58:19  [ main:9 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:34)
-readExc
-2018-08-12 21:58:20  [ main:158 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:40)
+2018-08-21 14:05:50  [ main:824 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:61)
 --------------------------------------------------
-2018-08-12 21:58:20  [ main:159 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:41)
+2018-08-21 14:05:50  [ main:825 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:62)
 ----------   class com.yss.suit.scenario1    ----------------
-2018-08-12 21:58:23  [ main:3476 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:18)
+2018-08-21 14:05:50  [ main:835 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:20)
 login
-2018-08-12 21:58:23  [ main:3933 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:50)
+2018-08-21 14:05:51  [ main:1802 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+getWebElement
+2018-08-21 14:05:51  [ main:1805 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+waitForElement
+2018-08-21 14:05:51  [ main:2263 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831551538.jpg
+2018-08-21 14:05:51  [ main:2263 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+wait for elementLocator By.xpath: .//*[@id="username"] successed
+2018-08-21 14:05:51  [ main:2425 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+getWebElement
+2018-08-21 14:05:51  [ main:2425 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+waitForElement
+2018-08-21 14:05:52  [ main:2693 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:36)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831552022.jpg
+2018-08-21 14:05:52  [ main:2694 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+wait for elementLocator By.cssSelector: #password successed
+2018-08-21 14:05:52  [ main:3065 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+getWebElement
+2018-08-21 14:05:52  [ main:3065 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+waitForElement
+2018-08-21 14:05:52  [ main:3327 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:47)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831552662.jpg
+2018-08-21 14:05:52  [ main:3328 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+wait for elementLocator By.cssSelector: #submitBtn successed
+2018-08-21 14:05:53  [ main:3468 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:59)
 setParameter
-2018-08-12 21:58:23  [ main:4028 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:54)
+2018-08-21 14:05:53  [ main:3553 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:64)
 setParameter
-2018-08-12 21:58:23  [ main:4091 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:58)
+2018-08-21 14:05:53  [ main:3593 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:69)
 click
-2018-08-12 21:58:25  [ main:5147 ] - [ INFO ]  method:com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:17)
-checkTAMenuText
-2018-08-12 21:58:55  [ main:0 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:38)
+2018-08-21 14:06:05  [ main:16375 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:69)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> css selector: #submitBtn] Success
+2018-08-21 14:06:05  [ main:16385 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:24)
+before
+2018-08-21 14:06:07  [ main:18386 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+waitForElement
+2018-08-21 14:06:08  [ main:18871 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831568116.jpg
+2018-08-21 14:06:08  [ main:18872 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:34)
+wait for elementLocator By.id: app-toolbar-item-17051716185547476548 successed
+2018-08-21 14:06:08  [ main:18880 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:39)
+click
+2018-08-21 14:06:08  [ main:19052 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:39)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> id: app-toolbar-item-17051716185547476548] Success
+2018-08-21 14:06:08  [ main:19053 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:41)
+getWebElement
+2018-08-21 14:06:08  [ main:19053 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:41)
+waitForElement
+2018-08-21 14:06:08  [ main:19344 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:41)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831568836.jpg
+2018-08-21 14:06:08  [ main:19344 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:41)
+waitForElementBy.cssSelector: [title='机构参数']>span:nth-child(2) failed, NO Such Element
+2018-08-21 14:06:09  [ main:20107 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:41)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831569546.jpg
+2018-08-21 14:06:09  [ main:20107 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:41)
+wait for elementLocator By.cssSelector: [title='机构参数']>span:nth-child(2) successed
+2018-08-21 14:06:09  [ main:20233 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:46)
+click
+2018-08-21 14:06:09  [ main:20313 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:46)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> css selector: [title='机构参数']>span:nth-child(2)] Success
+2018-08-21 14:06:09  [ main:20313 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:48)
+getWebElement
+2018-08-21 14:06:09  [ main:20313 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:48)
+waitForElement
+2018-08-21 14:06:10  [ main:21126 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:48)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831570608.jpg
+2018-08-21 14:06:10  [ main:21127 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:48)
+wait for elementLocator By.xpath: .//*[text()='核算机构信息'] successed
+2018-08-21 14:06:10  [ main:21357 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:53)
+click
+2018-08-21 14:06:11  [ main:21619 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.before(HeSuanJiGouXinXi.java:53)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[text()='核算机构信息']] Success
+2018-08-21 14:06:11  [ main:21619 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:62)
+addA
+2018-08-21 14:06:11  [ main:21620 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+clickAdd
+2018-08-21 14:06:11  [ main:21730 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+getWebElement
+2018-08-21 14:06:11  [ main:21731 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+waitForElement
+2018-08-21 14:06:11  [ main:21914 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831571331.jpg
+2018-08-21 14:06:11  [ main:21914 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+wait for elementLocator By.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] successed
+2018-08-21 14:06:12  [ main:22557 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+getWebElement
+2018-08-21 14:06:12  [ main:22558 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+waitForElement
+2018-08-21 14:06:13  [ main:23441 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831572147.jpg
+2018-08-21 14:06:13  [ main:23441 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+waitForElementBy.cssSelector: #ext-gen126 failed, NO Such Element
+2018-08-21 14:06:13  [ main:24326 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831573802.jpg
+2018-08-21 14:06:13  [ main:24326 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+wait for elementLocator By.cssSelector: #ext-gen126 successed
+2018-08-21 14:06:14  [ main:24458 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+click
+2018-08-21 14:06:14  [ main:24755 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> css selector: #ext-gen126] Success
+2018-08-21 14:06:14  [ main:24755 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+getWebElement
+2018-08-21 14:06:14  [ main:24755 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+waitForElement
+2018-08-21 14:06:15  [ main:25594 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831575073.jpg
+2018-08-21 14:06:15  [ main:25594 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+wait for elementLocator By.xpath: .//iframe successed
+2018-08-21 14:06:15  [ main:25727 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:15  [ main:25727 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:15  [ main:25847 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831575327.jpg
+2018-08-21 14:06:15  [ main:25848 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgCode'] successed
+2018-08-21 14:06:15  [ main:25971 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:15  [ main:25981 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:15  [ main:26088 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:15  [ main:26088 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:15  [ main:26199 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831575679.jpg
+2018-08-21 14:06:15  [ main:26199 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgName'] successed
+2018-08-21 14:06:15  [ main:26356 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:15  [ main:26366 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:16  [ main:26523 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:16  [ main:26524 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:16  [ main:26679 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831576118.jpg
+2018-08-21 14:06:16  [ main:26679 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgState'] successed
+2018-08-21 14:06:16  [ main:26812 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:16  [ main:26848 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+select
+2018-08-21 14:06:16  [ main:26849 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:16  [ main:27159 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgState']] Success
+2018-08-21 14:06:16  [ main:27159 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+getWebElement
+2018-08-21 14:06:16  [ main:27159 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+waitForElement
+2018-08-21 14:06:17  [ main:27448 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831576735.jpg
+2018-08-21 14:06:17  [ main:27448 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+waitForElementBy.xpath: .//*[text()='D - 注销'] failed, NO Such Element
+2018-08-21 14:06:17  [ main:28094 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831577568.jpg
+2018-08-21 14:06:17  [ main:28095 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+wait for elementLocator By.xpath: .//*[text()='D - 注销'] successed
+2018-08-21 14:06:17  [ main:28243 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:18  [ main:28436 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[text()='D - 注销']] Success
+2018-08-21 14:06:18  [ main:28436 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:18  [ main:28437 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:18  [ main:28568 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831578036.jpg
+2018-08-21 14:06:18  [ main:28569 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-gen11']//*[@id='ext-comp-1004']//*[@id='vcTel'] successed
+2018-08-21 14:06:18  [ main:28699 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:18  [ main:28715 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:18  [ main:28772 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:18  [ main:28773 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:18  [ main:28905 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831578371.jpg
+2018-08-21 14:06:18  [ main:28905 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-gen11']//*[@id='ext-comp-1004']//*[@id='interfaceConfigVersion'] successed
+2018-08-21 14:06:18  [ main:29079 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:18  [ main:29089 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+select
+2018-08-21 14:06:18  [ main:29089 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:18  [ main:29191 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@id='ext-gen11']//*[@id='ext-comp-1004']//*[@id='interfaceConfigVersion']] Success
+2018-08-21 14:06:18  [ main:29191 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+getWebElement
+2018-08-21 14:06:18  [ main:29191 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+waitForElement
+2018-08-21 14:06:18  [ main:29348 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831578794.jpg
+2018-08-21 14:06:18  [ main:29348 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+wait for elementLocator By.xpath: .//*[text()='2.65'] successed
+2018-08-21 14:06:19  [ main:29475 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:19  [ main:29544 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[text()='2.65']] Success
+2018-08-21 14:06:19  [ main:29544 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:19  [ main:29544 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:19  [ main:29657 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831579133.jpg
+2018-08-21 14:06:19  [ main:29658 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='vcAddress'] successed
+2018-08-21 14:06:19  [ main:29919 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:19  [ main:29929 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:19  [ main:29987 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:19  [ main:29987 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:19  [ main:30119 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831579584.jpg
+2018-08-21 14:06:19  [ main:30120 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='vcUrl'] successed
+2018-08-21 14:06:19  [ main:30259 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:19  [ main:30274 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:19  [ main:30341 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:19  [ main:30342 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:20  [ main:30496 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831579952.jpg
+2018-08-21 14:06:20  [ main:30496 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='interfaceConfigIntoPath'] successed
+2018-08-21 14:06:20  [ main:30628 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:20  [ main:30639 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:20  [ main:30707 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:20  [ main:30707 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:20  [ main:30824 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831580295.jpg
+2018-08-21 14:06:20  [ main:30824 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.id: interfaceConfigOutPath successed
+2018-08-21 14:06:20  [ main:30966 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:20  [ main:30995 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:20  [ main:31060 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+getWebElement
+2018-08-21 14:06:20  [ main:31060 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+waitForElement
+2018-08-21 14:06:20  [ main:31168 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831580647.jpg
+2018-08-21 14:06:20  [ main:31168 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+wait for elementLocator By.id: ext-gen18 successed
+2018-08-21 14:06:20  [ main:31291 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:100)
+click
+2018-08-21 14:06:21  [ main:31585 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:100)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> id: ext-gen18] Success
+2018-08-21 14:06:21  [ main:31585 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+clickYES
+2018-08-21 14:06:21  [ main:31592 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+getWebElement
+2018-08-21 14:06:21  [ main:31592 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+waitForElement
+2018-08-21 14:06:21  [ main:31769 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831581200.jpg
+2018-08-21 14:06:21  [ main:31770 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+wait for elementLocator By.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] successed
+2018-08-21 14:06:21  [ main:31919 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+getWebElement
+2018-08-21 14:06:21  [ main:31919 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+waitForElement
+2018-08-21 14:06:21  [ main:32027 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831581498.jpg
+2018-08-21 14:06:21  [ main:32028 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+waitForElementBy.xpath: .//button[text()='确定'] failed, NO Such Element
+2018-08-21 14:06:22  [ main:32671 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831582135.jpg
+2018-08-21 14:06:22  [ main:32672 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+wait for elementLocator By.xpath: .//button[text()='确定'] successed
+2018-08-21 14:06:22  [ main:32813 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+click
+2018-08-21 14:06:22  [ main:32927 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//button[text()='确定']] Success
+2018-08-21 14:06:22  [ main:32927 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+clickAdd
+2018-08-21 14:06:22  [ main:32939 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+getWebElement
+2018-08-21 14:06:22  [ main:32939 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+waitForElement
+2018-08-21 14:06:22  [ main:33080 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831582555.jpg
+2018-08-21 14:06:22  [ main:33081 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+wait for elementLocator By.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] successed
+2018-08-21 14:06:22  [ main:33272 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+getWebElement
+2018-08-21 14:06:22  [ main:33272 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+waitForElement
+2018-08-21 14:06:22  [ main:33405 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831582877.jpg
+2018-08-21 14:06:22  [ main:33405 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+wait for elementLocator By.cssSelector: #ext-gen126 successed
+2018-08-21 14:06:23  [ main:33528 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+click
+2018-08-21 14:06:23  [ main:33880 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> css selector: #ext-gen126] Success
+2018-08-21 14:06:23  [ main:33880 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+getWebElement
+2018-08-21 14:06:23  [ main:33880 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+waitForElement
+2018-08-21 14:06:23  [ main:34380 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831583846.jpg
+2018-08-21 14:06:23  [ main:34381 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+wait for elementLocator By.xpath: .//iframe successed
+2018-08-21 14:06:24  [ main:34544 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:24  [ main:34545 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:24  [ main:34688 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831584156.jpg
+2018-08-21 14:06:24  [ main:34689 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgCode'] successed
+2018-08-21 14:06:24  [ main:34820 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:24  [ main:34864 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:24  [ main:34914 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:24  [ main:34914 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:24  [ main:35094 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831584512.jpg
+2018-08-21 14:06:24  [ main:35095 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgName'] successed
+2018-08-21 14:06:24  [ main:35251 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:24  [ main:35284 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:24  [ main:35331 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:24  [ main:35331 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:25  [ main:35458 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831584929.jpg
+2018-08-21 14:06:25  [ main:35458 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgState'] successed
+2018-08-21 14:06:25  [ main:35592 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:25  [ main:35633 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+select
+2018-08-21 14:06:25  [ main:35634 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:25  [ main:35746 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgState']] Success
+2018-08-21 14:06:25  [ main:35747 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+getWebElement
+2018-08-21 14:06:25  [ main:35747 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+waitForElement
+2018-08-21 14:06:25  [ main:35871 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831585323.jpg
+2018-08-21 14:06:25  [ main:35871 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+waitForElementBy.xpath: .//*[text()='D - 注销'] failed, NO Such Element
+2018-08-21 14:06:26  [ main:36589 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831586008.jpg
+2018-08-21 14:06:26  [ main:36590 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+wait for elementLocator By.xpath: .//*[text()='D - 注销'] successed
+2018-08-21 14:06:26  [ main:36852 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:26  [ main:36982 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[text()='D - 注销']] Success
+2018-08-21 14:06:26  [ main:36982 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:26  [ main:36982 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:26  [ main:37104 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831586579.jpg
+2018-08-21 14:06:26  [ main:37104 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-gen11']//*[@id='ext-comp-1004']//*[@id='vcTel'] successed
+2018-08-21 14:06:26  [ main:37232 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:26  [ main:37254 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:26  [ main:37317 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:26  [ main:37317 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:27  [ main:37457 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831586916.jpg
+2018-08-21 14:06:27  [ main:37457 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-gen11']//*[@id='ext-comp-1004']//*[@id='interfaceConfigVersion'] successed
+2018-08-21 14:06:27  [ main:37597 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:27  [ main:37612 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+select
+2018-08-21 14:06:27  [ main:37613 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:27  [ main:37703 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@id='ext-gen11']//*[@id='ext-comp-1004']//*[@id='interfaceConfigVersion']] Success
+2018-08-21 14:06:27  [ main:37703 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+getWebElement
+2018-08-21 14:06:27  [ main:37703 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+waitForElement
+2018-08-21 14:06:27  [ main:37855 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831587302.jpg
+2018-08-21 14:06:27  [ main:37855 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+wait for elementLocator By.xpath: .//*[text()='2.65'] successed
+2018-08-21 14:06:27  [ main:37997 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:27  [ main:38067 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[text()='2.65']] Success
+2018-08-21 14:06:27  [ main:38068 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:27  [ main:38068 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:27  [ main:38190 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831587663.jpg
+2018-08-21 14:06:27  [ main:38190 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='vcAddress'] successed
+2018-08-21 14:06:27  [ main:38318 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:27  [ main:38335 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:27  [ main:38404 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:27  [ main:38405 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:28  [ main:38538 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831587996.jpg
+2018-08-21 14:06:28  [ main:38539 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='vcUrl'] successed
+2018-08-21 14:06:28  [ main:38673 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:28  [ main:38690 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:28  [ main:38766 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:28  [ main:38766 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:28  [ main:38904 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831588368.jpg
+2018-08-21 14:06:28  [ main:38904 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='interfaceConfigIntoPath'] successed
+2018-08-21 14:06:28  [ main:39051 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:28  [ main:39064 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:28  [ main:39124 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:28  [ main:39125 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:28  [ main:39231 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831588710.jpg
+2018-08-21 14:06:28  [ main:39231 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.id: interfaceConfigOutPath successed
+2018-08-21 14:06:28  [ main:39354 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:28  [ main:39370 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:28  [ main:39426 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+getWebElement
+2018-08-21 14:06:28  [ main:39426 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+waitForElement
+2018-08-21 14:06:29  [ main:39540 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831589013.jpg
+2018-08-21 14:06:29  [ main:39540 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+wait for elementLocator By.id: ext-gen18 successed
+2018-08-21 14:06:29  [ main:39670 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:100)
+click
+2018-08-21 14:06:29  [ main:39802 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:100)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> id: ext-gen18] Success
+2018-08-21 14:06:29  [ main:39803 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+clickYES
+2018-08-21 14:06:29  [ main:39816 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+getWebElement
+2018-08-21 14:06:29  [ main:39816 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+waitForElement
+2018-08-21 14:06:29  [ main:39949 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831589414.jpg
+2018-08-21 14:06:29  [ main:39949 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+wait for elementLocator By.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] successed
+2018-08-21 14:06:29  [ main:40394 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+getWebElement
+2018-08-21 14:06:29  [ main:40395 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+waitForElement
+2018-08-21 14:06:30  [ main:40594 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831590055.jpg
+2018-08-21 14:06:30  [ main:40594 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+wait for elementLocator By.xpath: .//button[text()='确定'] successed
+2018-08-21 14:06:30  [ main:40737 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+click
+2018-08-21 14:06:30  [ main:40842 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//button[text()='确定']] Success
+2018-08-21 14:06:30  [ main:40843 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+clickAdd
+2018-08-21 14:06:30  [ main:40857 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+getWebElement
+2018-08-21 14:06:30  [ main:40857 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+waitForElement
+2018-08-21 14:06:30  [ main:41008 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831590472.jpg
+2018-08-21 14:06:30  [ main:41008 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+wait for elementLocator By.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] successed
+2018-08-21 14:06:30  [ main:41176 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+getWebElement
+2018-08-21 14:06:30  [ main:41176 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+waitForElement
+2018-08-21 14:06:30  [ main:41297 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831590773.jpg
+2018-08-21 14:06:30  [ main:41297 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+wait for elementLocator By.cssSelector: #ext-gen126 successed
+2018-08-21 14:06:30  [ main:41427 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+click
+2018-08-21 14:06:31  [ main:41541 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> css selector: #ext-gen126] Success
+2018-08-21 14:06:31  [ main:41541 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+getWebElement
+2018-08-21 14:06:31  [ main:41541 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+waitForElement
+2018-08-21 14:06:31  [ main:42012 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831591487.jpg
+2018-08-21 14:06:31  [ main:42013 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
+wait for elementLocator By.xpath: .//iframe successed
+2018-08-21 14:06:31  [ main:42180 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:31  [ main:42180 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:31  [ main:42304 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831591780.jpg
+2018-08-21 14:06:31  [ main:42305 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgCode'] successed
+2018-08-21 14:06:32  [ main:42439 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:32  [ main:42456 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:32  [ main:42494 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:32  [ main:42494 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:32  [ main:42610 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831592089.jpg
+2018-08-21 14:06:32  [ main:42610 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgName'] successed
+2018-08-21 14:06:32  [ main:42761 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:32  [ main:42798 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:32  [ main:42861 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:32  [ main:42861 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:32  [ main:42989 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831592453.jpg
+2018-08-21 14:06:32  [ main:42989 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgState'] successed
+2018-08-21 14:06:32  [ main:43120 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:32  [ main:43152 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+select
+2018-08-21 14:06:32  [ main:43152 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:32  [ main:43251 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@id='ext-comp-1004']//*[@id='vcOrgState']] Success
+2018-08-21 14:06:32  [ main:43251 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+getWebElement
+2018-08-21 14:06:32  [ main:43251 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+waitForElement
+2018-08-21 14:06:32  [ main:43373 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831592825.jpg
+2018-08-21 14:06:32  [ main:43373 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+waitForElementBy.xpath: .//*[text()='D - 注销'] failed, NO Such Element
+2018-08-21 14:06:33  [ main:44065 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831593517.jpg
+2018-08-21 14:06:33  [ main:44065 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+wait for elementLocator By.xpath: .//*[text()='D - 注销'] successed
+2018-08-21 14:06:33  [ main:44195 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:33  [ main:44268 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[text()='D - 注销']] Success
+2018-08-21 14:06:33  [ main:44269 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:33  [ main:44269 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:33  [ main:44384 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831593856.jpg
+2018-08-21 14:06:33  [ main:44384 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-gen11']//*[@id='ext-comp-1004']//*[@id='vcTel'] successed
+2018-08-21 14:06:34  [ main:44507 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:34  [ main:44518 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:34  [ main:44576 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:34  [ main:44576 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:34  [ main:44730 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831594176.jpg
+2018-08-21 14:06:34  [ main:44730 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='ext-gen11']//*[@id='ext-comp-1004']//*[@id='interfaceConfigVersion'] successed
+2018-08-21 14:06:34  [ main:44912 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:34  [ main:44930 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+select
+2018-08-21 14:06:34  [ main:44930 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:34  [ main:45016 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@id='ext-gen11']//*[@id='ext-comp-1004']//*[@id='interfaceConfigVersion']] Success
+2018-08-21 14:06:34  [ main:45017 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+getWebElement
+2018-08-21 14:06:34  [ main:45017 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+waitForElement
+2018-08-21 14:06:34  [ main:45165 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831594617.jpg
+2018-08-21 14:06:34  [ main:45166 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+wait for elementLocator By.xpath: .//*[text()='2.65'] successed
+2018-08-21 14:06:34  [ main:45301 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+click
+2018-08-21 14:06:34  [ main:45367 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[text()='2.65']] Success
+2018-08-21 14:06:34  [ main:45368 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:34  [ main:45368 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:35  [ main:45505 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831594959.jpg
+2018-08-21 14:06:35  [ main:45505 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='vcAddress'] successed
+2018-08-21 14:06:35  [ main:45632 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:35  [ main:45647 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:35  [ main:45717 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:35  [ main:45717 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:35  [ main:45841 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831595311.jpg
+2018-08-21 14:06:35  [ main:45841 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='vcUrl'] successed
+2018-08-21 14:06:35  [ main:45968 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:35  [ main:45984 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:35  [ main:46049 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:35  [ main:46049 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:35  [ main:46190 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831595651.jpg
+2018-08-21 14:06:35  [ main:46191 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.xpath: .//*[@id='interfaceConfigIntoPath'] successed
+2018-08-21 14:06:35  [ main:46393 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:35  [ main:46403 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:36  [ main:46527 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+getWebElement
+2018-08-21 14:06:36  [ main:46527 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+waitForElement
+2018-08-21 14:06:36  [ main:46647 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831596119.jpg
+2018-08-21 14:06:36  [ main:46647 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:79)
+wait for elementLocator By.id: interfaceConfigOutPath successed
+2018-08-21 14:06:36  [ main:46771 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+proccessTable
+2018-08-21 14:06:36  [ main:46782 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:88)
+setParameter
+2018-08-21 14:06:36  [ main:46858 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+getWebElement
+2018-08-21 14:06:36  [ main:46858 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+waitForElement
+2018-08-21 14:06:36  [ main:46969 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831596449.jpg
+2018-08-21 14:06:36  [ main:46969 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:95)
+wait for elementLocator By.id: ext-gen18 successed
+2018-08-21 14:06:36  [ main:47099 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:100)
+click
+2018-08-21 14:06:36  [ main:47263 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:100)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> id: ext-gen18] Success
+2018-08-21 14:06:36  [ main:47263 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+clickYES
+2018-08-21 14:06:36  [ main:47271 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+getWebElement
+2018-08-21 14:06:36  [ main:47271 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+waitForElement
+2018-08-21 14:06:36  [ main:47410 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831596872.jpg
+2018-08-21 14:06:36  [ main:47411 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+wait for elementLocator By.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] successed
+2018-08-21 14:06:37  [ main:47637 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+getWebElement
+2018-08-21 14:06:37  [ main:47637 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+waitForElement
+2018-08-21 14:06:37  [ main:47861 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831597290.jpg
+2018-08-21 14:06:37  [ main:47861 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+wait for elementLocator By.xpath: .//button[text()='确定'] successed
+2018-08-21 14:06:37  [ main:48017 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+click
+2018-08-21 14:06:37  [ main:48107 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:106)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//button[text()='确定']] Success
+2018-08-21 14:06:37  [ main:48112 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:209)
+reviewAFew
+2018-08-21 14:06:37  [ main:48120 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+getWebElement
+2018-08-21 14:06:37  [ main:48120 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+waitForElement
+2018-08-21 14:06:37  [ main:48309 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831597750.jpg
+2018-08-21 14:06:37  [ main:48310 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:214)
+wait for elementLocator By.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] successed
+2018-08-21 14:06:38  [ main:48482 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:221)
+getWebElements
+2018-08-21 14:06:38  [ main:48482 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:221)
+waitForElement
+2018-08-21 14:06:38  [ main:48655 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:221)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831598104.jpg
+2018-08-21 14:06:38  [ main:48656 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:221)
+wait for elementLocator By.xpath: .//*[@class='x-grid3-row-checker'] successed
+2018-08-21 14:06:38  [ main:48872 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:229)
+click
+2018-08-21 14:06:38  [ main:48951 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:229)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@class='x-grid3-row-checker']] Success
+2018-08-21 14:06:38  [ main:48951 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:229)
+click
+2018-08-21 14:06:38  [ main:49026 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:229)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@class='x-grid3-row-checker']] Success
+2018-08-21 14:06:38  [ main:49026 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:229)
+click
+2018-08-21 14:06:38  [ main:49096 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:229)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@class='x-grid3-row-checker']] Success
+2018-08-21 14:06:38  [ main:49097 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:229)
+click
+2018-08-21 14:06:38  [ main:49171 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:229)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@class='x-grid3-row-checker']] Success
+2018-08-21 14:06:38  [ main:49171 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:235)
+getWebElement
+2018-08-21 14:06:38  [ main:49171 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:235)
+waitForElement
+2018-08-21 14:06:38  [ main:49280 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:235)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831598760.jpg
+2018-08-21 14:06:38  [ main:49281 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:235)
+wait for elementLocator By.id: ext-gen134 successed
+2018-08-21 14:06:38  [ main:49403 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:240)
+click
+2018-08-21 14:06:39  [ main:49501 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:240)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> id: ext-gen134] Success
+2018-08-21 14:06:39  [ main:49501 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+clickYES
+2018-08-21 14:06:39  [ main:49507 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+getWebElement
+2018-08-21 14:06:39  [ main:49507 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+waitForElement
+2018-08-21 14:06:39  [ main:49648 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831599115.jpg
+2018-08-21 14:06:39  [ main:49649 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+wait for elementLocator By.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] successed
+2018-08-21 14:06:39  [ main:49826 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+getWebElement
+2018-08-21 14:06:39  [ main:49826 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+waitForElement
+2018-08-21 14:06:39  [ main:50003 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831599455.jpg
+2018-08-21 14:06:39  [ main:50003 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+wait for elementLocator By.xpath: .//button[text()='确定'] successed
+2018-08-21 14:06:39  [ main:50131 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+click
+2018-08-21 14:06:39  [ main:50217 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:247)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//button[text()='确定']] Success
+2018-08-21 14:06:39  [ main:50217 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:268)
+getWebElements
+2018-08-21 14:06:39  [ main:50218 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:268)
+waitForElement
+2018-08-21 14:06:39  [ main:50337 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:268)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831599814.jpg
+2018-08-21 14:06:39  [ main:50337 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:268)
+wait for elementLocator By.xpath: .//*[@class='x-grid3-row-checker'] successed
+2018-08-21 14:06:39  [ main:50350 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:271)
+click
+2018-08-21 14:06:39  [ main:50420 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:271)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@class='x-grid3-row-checker']] Success
+2018-08-21 14:06:39  [ main:50421 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:271)
+click
+2018-08-21 14:06:40  [ main:50491 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:271)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@class='x-grid3-row-checker']] Success
+2018-08-21 14:06:40  [ main:50492 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:271)
+click
+2018-08-21 14:06:40  [ main:50566 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:271)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@class='x-grid3-row-checker']] Success
+2018-08-21 14:06:40  [ main:50566 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:271)
+click
+2018-08-21 14:06:40  [ main:50658 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:271)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@class='x-grid3-row-checker']] Success
+2018-08-21 14:06:40  [ main:50658 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:284)
+click
+2018-08-21 14:06:40  [ main:50729 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:284)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@class='x-grid3-row-checker']] Success
+2018-08-21 14:06:40  [ main:50730 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:292)
+getWebElement
+2018-08-21 14:06:40  [ main:50730 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:292)
+waitForElement
+2018-08-21 14:06:40  [ main:50836 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:292)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831600316.jpg
+2018-08-21 14:06:40  [ main:50836 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:292)
+wait for elementLocator By.id: ext-gen130 successed
+2018-08-21 14:06:40  [ main:50992 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:297)
+click
+2018-08-21 14:06:40  [ main:51144 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:297)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> id: ext-gen130] Success
+2018-08-21 14:06:40  [ main:51144 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+clickYES
+2018-08-21 14:06:40  [ main:51159 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+getWebElement
+2018-08-21 14:06:40  [ main:51159 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+waitForElement
+2018-08-21 14:06:40  [ main:51284 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831600756.jpg
+2018-08-21 14:06:40  [ main:51284 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+wait for elementLocator By.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] successed
+2018-08-21 14:06:40  [ main:51421 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+getWebElement
+2018-08-21 14:06:40  [ main:51421 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+waitForElement
+2018-08-21 14:06:51  [ main:61828 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+Not find e
+2018-08-21 14:06:51  [ main:61935 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831611394.jpg
+2018-08-21 14:06:51  [ main:61936 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+Element of .//button[text()='确定'] can't find
+2018-08-21 14:06:51  [ main:62025 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831611501.jpg
+2018-08-21 14:06:51  [ main:62025 ] - [ ERROR ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:303)
+click button ofnullfailed
+2018-08-21 14:06:51  [ main:62025 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:306)
+getWebElement
+2018-08-21 14:06:51  [ main:62026 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:306)
+waitForElement
+2018-08-21 14:06:51  [ main:62276 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:306)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831611623.jpg
+2018-08-21 14:06:51  [ main:62276 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:306)
+wait for elementLocator By.xpath: .//button[text()='是'] successed
+2018-08-21 14:06:52  [ main:62464 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:311)
+click
+2018-08-21 14:06:52  [ main:62562 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:311)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//button[text()='是']] Success
+2018-08-21 14:06:52  [ main:62562 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+clickYES
+2018-08-21 14:06:52  [ main:62631 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+getWebElement
+2018-08-21 14:06:52  [ main:62631 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+waitForElement
+2018-08-21 14:06:52  [ main:62760 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831612237.jpg
+2018-08-21 14:06:52  [ main:62761 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+wait for elementLocator By.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] successed
+2018-08-21 14:06:52  [ main:62940 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+getWebElement
+2018-08-21 14:06:52  [ main:62940 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+waitForElement
+2018-08-21 14:06:53  [ main:63600 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831613070.jpg
+2018-08-21 14:06:53  [ main:63601 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+wait for elementLocator By.xpath: .//button[text()='确定'] successed
+2018-08-21 14:06:53  [ main:63742 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+click
+2018-08-21 14:06:53  [ main:64051 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:317)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//button[text()='确定']] Success
+2018-08-21 14:06:53  [ main:64051 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:324)
+getWebElements
+2018-08-21 14:06:53  [ main:64052 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:324)
+waitForElement
+2018-08-21 14:06:54  [ main:64850 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:324)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1534831614316.jpg
+2018-08-21 14:06:54  [ main:64851 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:324)
+wait for elementLocator By.xpath: .//*[@class='x-grid3-row-checker'] successed
+2018-08-21 14:06:54  [ main:64868 ] - [ INFO ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:330)
+click
+2018-08-21 14:06:54  [ main:64946 ] - [ WARN ]  method:com.yss.method.HeSuanJiGouXinXi.review(HeSuanJiGouXinXi.java:330)
+Click [[FirefoxDriver: firefox on WINDOWS (c62b66e1-de37-48c8-b7c1-94d44aff04c8)] -> xpath: .//*[@class='x-grid3-row-checker']] Success
+2018-08-21 14:06:55  [ main:65969 ] - [ INFO ]  method:com.yss.suit.scenario1.afterClass(scenario1.java:69)
+----------   测试用例执行结束    ----------------
+2018-08-21 14:06:55  [ main:65970 ] - [ INFO ]  method:com.yss.suit.scenario1.afterClass(scenario1.java:70)
+----------------------------------------------------
+2018-08-23 16:51:53  [ main:146 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.allReadMethod(ReadFromExcel.java:45)
+allReadMethod
+2018-08-23 16:51:53  [ main:175 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:57)
+readExc
+2018-08-23 16:51:53  [ main:402 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForHeSuanJiGouXinXi(ReadFromExcel.java:126)
+readForHeSuanJiGouXinXi
+2018-08-23 16:51:53  [ main:491 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForLoginPage(ReadFromExcel.java:185)
+readForLoginPage
+2018-08-23 16:51:54  [ main:571 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:61)
 beforeClass
-2018-08-12 21:58:55  [ main:5 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:34)
-readExc
-2018-08-12 21:58:55  [ main:158 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:40)
+2018-08-23 16:51:54  [ main:571 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:62)
 --------------------------------------------------
-2018-08-12 21:58:55  [ main:158 ] - [ INFO ]  method:com.yss.suit.scenario1.beforeClass(scenario1.java:41)
-----------   class com.yss.suit.scenario1    ----------------
-2018-08-12 21:58:58  [ main:3460 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:18)
+2018-08-23 16:51:54  [ main:572 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:63)
+----------   class com.yss.suit.scenario2    ----------------
+2018-08-23 16:51:54  [ main:589 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:20)
 login
-2018-08-12 21:58:59  [ main:3812 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:50)
+2018-08-23 16:51:55  [ main:1642 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+getWebElement
+2018-08-23 16:51:55  [ main:1647 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+waitForElement
+2018-08-23 16:51:55  [ main:2074 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014315236.jpg
+2018-08-23 16:51:55  [ main:2075 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+wait for elementLocator By.xpath: .//*[@id="username"] successed
+2018-08-23 16:51:55  [ main:2215 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+getWebElement
+2018-08-23 16:51:55  [ main:2216 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+waitForElement
+2018-08-23 16:51:55  [ main:2486 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:36)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014315730.jpg
+2018-08-23 16:51:55  [ main:2486 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+wait for elementLocator By.cssSelector: #password successed
+2018-08-23 16:51:56  [ main:2675 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+getWebElement
+2018-08-23 16:51:56  [ main:2675 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+waitForElement
+2018-08-23 16:51:56  [ main:2928 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:47)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014316180.jpg
+2018-08-23 16:51:56  [ main:2928 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+wait for elementLocator By.cssSelector: #submitBtn successed
+2018-08-23 16:51:56  [ main:3052 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:59)
 setParameter
-2018-08-12 21:58:59  [ main:3916 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:54)
+2018-08-23 16:51:57  [ main:3595 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:64)
 setParameter
-2018-08-12 21:58:59  [ main:4043 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:58)
+2018-08-23 16:51:57  [ main:3656 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:69)
 click
-2018-08-12 21:59:00  [ main:5008 ] - [ INFO ]  method:com.yss.method.CheckMenu.checkTAMenuText(CheckMenu.java:17)
-checkTAMenuText
+2018-08-23 16:51:58  [ main:4936 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:69)
+Click [[FirefoxDriver: firefox on WINDOWS (760a3008-fe45-40fc-bb6d-85926fba1d4e)] -> css selector: #submitBtn] Success
+2018-08-23 16:51:58  [ main:4943 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:18)
+before
+2018-08-23 16:52:00  [ main:6943 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+waitForElement
+2018-08-23 16:52:00  [ main:7299 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014320493.jpg
+2018-08-23 16:52:00  [ main:7299 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+wait for elementLocator By.id: app-toolbar-item-17051716185547476548 successed
+2018-08-23 16:52:00  [ main:7307 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:32)
+click
+2018-08-23 16:52:00  [ main:7389 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:32)
+Click [[FirefoxDriver: firefox on WINDOWS (760a3008-fe45-40fc-bb6d-85926fba1d4e)] -> id: app-toolbar-item-17051716185547476548] Success
+2018-08-23 16:52:00  [ main:7390 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+getWebElement
+2018-08-23 16:52:00  [ main:7390 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+waitForElement
+2018-08-23 16:52:11  [ main:17812 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+Not find e
+2018-08-23 16:52:11  [ main:17901 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014331289.jpg
+2018-08-23 16:52:11  [ main:17901 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+Element of extdd-15 can't find
+2018-08-23 16:52:11  [ main:17992 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:36)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014331379.jpg
+2018-08-23 16:52:11  [ main:17992 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:36)
+Double click of richangyunyingsupervisor failed
+2018-08-23 16:52:11  [ main:17992 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:55)
+shenqingshujudaoru
+2018-08-23 16:52:11  [ main:18039 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+getWebElement
+2018-08-23 16:52:11  [ main:18039 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElement
+2018-08-23 16:52:11  [ main:18184 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014331559.jpg
+2018-08-23 16:52:11  [ main:18184 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 16:52:12  [ main:18799 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014332191.jpg
+2018-08-23 16:52:12  [ main:18799 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 16:52:12  [ main:19476 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014332824.jpg
+2018-08-23 16:52:12  [ main:19476 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 16:52:13  [ main:20109 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014333490.jpg
+2018-08-23 16:52:13  [ main:20110 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 16:52:14  [ main:20760 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014334124.jpg
+2018-08-23 16:52:14  [ main:20761 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 16:52:14  [ main:21367 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014334758.jpg
+2018-08-23 16:52:14  [ main:21368 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 16:52:15  [ main:22022 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014335382.jpg
+2018-08-23 16:52:15  [ main:22022 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 16:52:16  [ main:22639 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014336032.jpg
+2018-08-23 16:52:16  [ main:22639 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 16:52:16  [ main:23303 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014336666.jpg
+2018-08-23 16:52:16  [ main:23304 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 16:52:16  [ main:23409 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014336781.jpg
+2018-08-23 16:52:16  [ main:23409 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+Element of .//div[@class='x-panel-bwrap']//iframe[@name] can't find
+2018-08-23 16:52:16  [ main:23487 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:62)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014336885.jpg
+2018-08-23 16:52:16  [ main:23487 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:62)
+get element data of iframe1 failed
+2018-08-23 16:52:17  [ main:24242 ] - [ INFO ]  method:com.yss.suit.scenario2.afterClass(scenario2.java:70)
+----------   测试用例执行结束    ----------------
+2018-08-23 16:52:17  [ main:24242 ] - [ INFO ]  method:com.yss.suit.scenario2.afterClass(scenario2.java:71)
+----------------------------------------------------
+2018-08-23 17:01:41  [ main:352 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.allReadMethod(ReadFromExcel.java:45)
+allReadMethod
+2018-08-23 17:01:41  [ main:354 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:57)
+readExc
+2018-08-23 17:01:41  [ main:496 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForHeSuanJiGouXinXi(ReadFromExcel.java:126)
+readForHeSuanJiGouXinXi
+2018-08-23 17:01:41  [ main:631 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForLoginPage(ReadFromExcel.java:185)
+readForLoginPage
+2018-08-23 17:01:41  [ main:688 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:61)
+beforeClass
+2018-08-23 17:01:41  [ main:688 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:62)
+--------------------------------------------------
+2018-08-23 17:01:41  [ main:688 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:63)
+----------   class com.yss.suit.scenario2    ----------------
+2018-08-23 17:01:41  [ main:700 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:20)
+login
+2018-08-23 17:01:42  [ main:1357 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+getWebElement
+2018-08-23 17:01:42  [ main:1367 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+waitForElement
+2018-08-23 17:01:42  [ main:1705 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014902643.jpg
+2018-08-23 17:01:42  [ main:1706 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+wait for elementLocator By.xpath: .//*[@id="username"] successed
+2018-08-23 17:01:43  [ main:1852 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+getWebElement
+2018-08-23 17:01:43  [ main:1853 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+waitForElement
+2018-08-23 17:01:43  [ main:2127 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:36)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014903085.jpg
+2018-08-23 17:01:43  [ main:2127 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+wait for elementLocator By.cssSelector: #password successed
+2018-08-23 17:01:43  [ main:2258 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+getWebElement
+2018-08-23 17:01:43  [ main:2258 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+waitForElement
+2018-08-23 17:01:43  [ main:2517 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:47)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014903484.jpg
+2018-08-23 17:01:43  [ main:2518 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+wait for elementLocator By.cssSelector: #submitBtn successed
+2018-08-23 17:01:43  [ main:2657 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:59)
+setParameter
+2018-08-23 17:01:43  [ main:2741 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:64)
+setParameter
+2018-08-23 17:01:43  [ main:2795 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:69)
+click
+2018-08-23 17:01:45  [ main:3890 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:69)
+Click [[FirefoxDriver: firefox on WINDOWS (968ede0f-9115-4551-80b1-46649f9432f2)] -> css selector: #submitBtn] Success
+2018-08-23 17:01:45  [ main:3933 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:18)
+before
+2018-08-23 17:01:47  [ main:5934 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+waitForElement
+2018-08-23 17:01:47  [ main:6316 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014907219.jpg
+2018-08-23 17:01:47  [ main:6317 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+wait for elementLocator By.id: app-toolbar-item-17051716185547476548 successed
+2018-08-23 17:01:47  [ main:6324 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:32)
+click
+2018-08-23 17:01:47  [ main:6413 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:32)
+Click [[FirefoxDriver: firefox on WINDOWS (968ede0f-9115-4551-80b1-46649f9432f2)] -> id: app-toolbar-item-17051716185547476548] Success
+2018-08-23 17:01:47  [ main:6413 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+getWebElement
+2018-08-23 17:01:47  [ main:6414 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+waitForElement
+2018-08-23 17:01:57  [ main:16694 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+Not find e
+2018-08-23 17:01:57  [ main:16779 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014917894.jpg
+2018-08-23 17:01:57  [ main:16780 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+Element of extdd-15 can't find
+2018-08-23 17:01:58  [ main:16856 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:36)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014917979.jpg
+2018-08-23 17:01:58  [ main:16856 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:36)
+Double click of richangyunyingsupervisor failed
+2018-08-23 17:01:58  [ main:16856 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:55)
+shenqingshujudaoru
+2018-08-23 17:01:58  [ main:16865 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+getWebElement
+2018-08-23 17:01:58  [ main:16865 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElement
+2018-08-23 17:01:58  [ main:16960 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014918082.jpg
+2018-08-23 17:01:58  [ main:16961 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 17:01:58  [ main:17613 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014918705.jpg
+2018-08-23 17:01:58  [ main:17613 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 17:01:59  [ main:18244 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014919354.jpg
+2018-08-23 17:01:59  [ main:18244 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 17:02:00  [ main:18909 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014919983.jpg
+2018-08-23 17:02:00  [ main:18909 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 17:02:00  [ main:19527 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014920628.jpg
+2018-08-23 17:02:00  [ main:19527 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 17:02:01  [ main:20178 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014921274.jpg
+2018-08-23 17:02:01  [ main:20178 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 17:02:01  [ main:20771 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014921891.jpg
+2018-08-23 17:02:01  [ main:20772 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 17:02:02  [ main:21366 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014922487.jpg
+2018-08-23 17:02:02  [ main:21366 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 17:02:03  [ main:22047 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014923109.jpg
+2018-08-23 17:02:03  [ main:22048 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+waitForElementBy.xpath: .//div[@class='x-panel-bwrap']//iframe[@name] failed, NO Such Element
+2018-08-23 17:02:03  [ main:22128 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014923247.jpg
+2018-08-23 17:02:03  [ main:22129 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:60)
+Element of .//div[@class='x-panel-bwrap']//iframe[@name] can't find
+2018-08-23 17:02:03  [ main:22205 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:62)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535014923328.jpg
+2018-08-23 17:02:03  [ main:22206 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.shenqingshujudaoru(RiChangYunYingQingSuan.java:62)
+get element data of iframe1 failed
+2018-08-23 17:02:04  [ main:22807 ] - [ INFO ]  method:com.yss.suit.scenario2.afterClass(scenario2.java:70)
+----------   测试用例执行结束    ----------------
+2018-08-23 17:02:04  [ main:22808 ] - [ INFO ]  method:com.yss.suit.scenario2.afterClass(scenario2.java:71)
+----------------------------------------------------
+2018-08-23 17:09:17  [ main:122 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.allReadMethod(ReadFromExcel.java:45)
+allReadMethod
+2018-08-23 17:09:17  [ main:124 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:57)
+readExc
+2018-08-23 17:09:17  [ main:275 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForHeSuanJiGouXinXi(ReadFromExcel.java:126)
+readForHeSuanJiGouXinXi
+2018-08-23 17:09:17  [ main:350 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForLoginPage(ReadFromExcel.java:185)
+readForLoginPage
+2018-08-23 17:09:17  [ main:401 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:61)
+beforeClass
+2018-08-23 17:09:17  [ main:402 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:62)
+--------------------------------------------------
+2018-08-23 17:09:17  [ main:402 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:63)
+----------   class com.yss.suit.scenario2    ----------------
+2018-08-23 17:09:17  [ main:416 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:20)
+login
+2018-08-23 17:09:18  [ main:1041 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+getWebElement
+2018-08-23 17:09:18  [ main:1052 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+waitForElement
+2018-08-23 17:09:18  [ main:1406 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535015358459.jpg
+2018-08-23 17:09:18  [ main:1406 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+wait for elementLocator By.xpath: .//*[@id="username"] successed
+2018-08-23 17:09:18  [ main:1561 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+getWebElement
+2018-08-23 17:09:18  [ main:1562 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+waitForElement
+2018-08-23 17:09:19  [ main:1838 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:36)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535015358912.jpg
+2018-08-23 17:09:19  [ main:1839 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+wait for elementLocator By.cssSelector: #password successed
+2018-08-23 17:09:19  [ main:1966 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+getWebElement
+2018-08-23 17:09:19  [ main:1967 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+waitForElement
+2018-08-23 17:09:19  [ main:2288 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:47)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535015359362.jpg
+2018-08-23 17:09:19  [ main:2288 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+wait for elementLocator By.cssSelector: #submitBtn successed
+2018-08-23 17:09:19  [ main:2412 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:59)
+setParameter
+2018-08-23 17:09:19  [ main:2459 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:64)
+setParameter
+2018-08-23 17:09:19  [ main:2511 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:69)
+click
+2018-08-23 17:09:21  [ main:3713 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:69)
+Click [[FirefoxDriver: firefox on WINDOWS (295c03dd-17f7-4cfa-896d-b6804e6eaa6d)] -> css selector: #submitBtn] Success
+2018-08-23 17:09:21  [ main:3773 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:18)
+before
+2018-08-23 17:09:23  [ main:5774 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+waitForElement
+2018-08-23 17:09:23  [ main:6137 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535015363175.jpg
+2018-08-23 17:09:23  [ main:6138 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+wait for elementLocator By.id: app-toolbar-item-17051716185547476548 successed
+2018-08-23 17:09:23  [ main:6147 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:32)
+click
+2018-08-23 17:09:23  [ main:6221 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:32)
+Click [[FirefoxDriver: firefox on WINDOWS (295c03dd-17f7-4cfa-896d-b6804e6eaa6d)] -> id: app-toolbar-item-17051716185547476548] Success
+2018-08-23 17:10:02  [ main:44723 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+getWebElement
+2018-08-23 17:10:24  [ main:66785 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+waitForElement
+2018-08-23 17:10:34  [ main:77200 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+Not find e
+2018-08-23 17:12:19  [ main:279 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.allReadMethod(ReadFromExcel.java:45)
+allReadMethod
+2018-08-23 17:12:19  [ main:283 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForWebElements(ReadFromExcel.java:57)
+readExc
+2018-08-23 17:12:20  [ main:432 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForHeSuanJiGouXinXi(ReadFromExcel.java:126)
+readForHeSuanJiGouXinXi
+2018-08-23 17:12:20  [ main:509 ] - [ INFO ]  method:com.yss.common.ReadFromExcel.readForLoginPage(ReadFromExcel.java:185)
+readForLoginPage
+2018-08-23 17:12:20  [ main:562 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:61)
+beforeClass
+2018-08-23 17:12:20  [ main:563 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:62)
+--------------------------------------------------
+2018-08-23 17:12:20  [ main:563 ] - [ INFO ]  method:com.yss.suit.scenario2.beforeClass(scenario2.java:63)
+----------   class com.yss.suit.scenario2    ----------------
+2018-08-23 17:12:20  [ main:575 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:20)
+login
+2018-08-23 17:12:20  [ main:1219 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+getWebElement
+2018-08-23 17:12:20  [ main:1223 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+waitForElement
+2018-08-23 17:12:21  [ main:1553 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535015540913.jpg
+2018-08-23 17:12:21  [ main:1553 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:27)
+wait for elementLocator By.xpath: .//*[@id="username"] successed
+2018-08-23 17:12:21  [ main:1682 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+getWebElement
+2018-08-23 17:12:21  [ main:1682 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+waitForElement
+2018-08-23 17:12:21  [ main:1933 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:36)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535015541330.jpg
+2018-08-23 17:12:21  [ main:1933 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:36)
+wait for elementLocator By.cssSelector: #password successed
+2018-08-23 17:12:21  [ main:2062 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+getWebElement
+2018-08-23 17:12:21  [ main:2062 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+waitForElement
+2018-08-23 17:12:22  [ main:2401 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:47)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535015541716.jpg
+2018-08-23 17:12:22  [ main:2401 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:47)
+wait for elementLocator By.cssSelector: #submitBtn successed
+2018-08-23 17:12:22  [ main:2525 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:59)
+setParameter
+2018-08-23 17:12:22  [ main:2567 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:64)
+setParameter
+2018-08-23 17:12:22  [ main:2616 ] - [ INFO ]  method:com.yss.method.Login.login(Login.java:69)
+click
+2018-08-23 17:12:23  [ main:3718 ] - [ WARN ]  method:com.yss.method.Login.login(Login.java:69)
+Click [[FirefoxDriver: firefox on WINDOWS (467d80a0-458f-49f1-9bec-f52148c10240)] -> css selector: #submitBtn] Success
+2018-08-23 17:12:23  [ main:3730 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:18)
+before
+2018-08-23 17:12:25  [ main:5730 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+waitForElement
+2018-08-23 17:12:25  [ main:6101 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535015545407.jpg
+2018-08-23 17:12:25  [ main:6101 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+wait for elementLocator By.id: app-toolbar-item-17051716185547476548 successed
+2018-08-23 17:12:25  [ main:6111 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:32)
+click
+2018-08-23 17:12:25  [ main:6184 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:32)
+Click [[FirefoxDriver: firefox on WINDOWS (467d80a0-458f-49f1-9bec-f52148c10240)] -> id: app-toolbar-item-17051716185547476548] Success
+2018-08-23 17:12:43  [ main:23812 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+getWebElement
+2018-08-23 17:12:43  [ main:23821 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+waitForElement
+2018-08-23 17:12:54  [ main:34401 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+Not find e
+2018-08-23 17:12:54  [ main:34753 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535015574026.jpg
+2018-08-23 17:12:54  [ main:34755 ] - [ ERROR ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+Element of extdd-15 can't find
+2018-08-23 17:13:38  [ main:78644 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:18)
+before
+2018-08-23 17:13:40  [ main:80645 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+waitForElement
+2018-08-23 17:13:40  [ main:80847 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+the screenshot saved in ./test-output/screen-shot screenshot name : 1535015620373.jpg
+2018-08-23 17:13:40  [ main:80847 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:27)
+wait for elementLocator By.id: app-toolbar-item-17051716185547476548 successed
+2018-08-23 17:13:40  [ main:80854 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:32)
+click
+2018-08-23 17:13:40  [ main:80927 ] - [ WARN ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:32)
+Click [[FirefoxDriver: firefox on WINDOWS (467d80a0-458f-49f1-9bec-f52148c10240)] -> id: app-toolbar-item-17051716185547476548] Success
+2018-08-23 17:13:48  [ main:88736 ] - [ INFO ]  method:com.yss.method.RiChangYunYingQingSuan.before(RiChangYunYingQingSuan.java:34)
+getWebElement
