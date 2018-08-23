@@ -1,0 +1,17 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+ 
+<hibernate-mapping>
+    <class name="com.yss.db.Db_t_ta_acktradeblotter_Id" table="T_TA_ACKTRADEBLOTTER">
+		<composite-id name="id" class="com.yss.db.Db_t_ta_acktradeblotter">
+	        <key-property name="fackno" column="FACKNO"  type="java.lang.String" length="20" />
+	    </composite-id>
+    </class>
+</hibernate-mapping>
+        <!--  在User里面 id 的set 和 get 方法里 也要设置为Integer类型的，不然会报错 -->
+<!--         <id name="fackno" column="FACKNO" type="java.lang.String"> -->
+<!--             <generator class="native"/> -->
+<!--         </id> -->
+<!--         <property name="fackno" column="FACKNO"  type="java.lang.String" length="20" /> -->
+<!--         <property name="password" column="password"  type="java.lang.String" length="20"/> -->

@@ -29,6 +29,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Common {
 	public static WebDriver driver;
 	public static final long SLEEP_TIME = 2000l;
+	
+	/**
+	 * getFireFoxDriver
+	 * 
+	 * @return
+	 * @author tanglonglong
+	 */
+	public static WebDriver getFFDriver() {
+		String browserPath = "C:/Program Files/Mozilla Firefox/firefox.exe";
+		System.setProperty("webdriver.firefox.bin", browserPath);
+		driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		return driver;
+	}
+	
 	/**
 	 * sleep 用来等待页面加载
 	 */
@@ -96,20 +111,6 @@ public class Common {
 		Logger logger = Logger.getLogger(stack[1].getClassName());
 		shot();
 		logger.log(Common.class.getName(), Level.ERROR, str, null);
-	}
-
-	/**
-	 * getFireFoxDriver
-	 * 
-	 * @return
-	 * @author tanglonglong
-	 */
-	public static WebDriver getFFDriver() {
-		String browserPath = "C:/Program Files/Mozilla Firefox/firefox.exe";
-		System.setProperty("webdriver.firefox.bin", browserPath);
-		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		return driver;
 	}
 
 	/**
