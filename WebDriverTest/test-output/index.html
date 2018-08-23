@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-test_sofa">
-              <span class="suite-name border-failed">test sofa</span>
+              <span class="suite-name border-passed">test sofa</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-test_sofa">
-                    <span>E:\gitworkspace\WebDriverTest\testng.xml</span>
+                    <span>F:\Git\AutoTest\WebDriverTest\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,21 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-test_sofa" class="hide-methods failed suite-test_sofa"> (hide)</a> <!-- hide-methods failed suite-test_sofa -->
-                      <a href="#" panel-name="suite-test_sofa" class="show-methods failed suite-test_sofa"> (show)</a> <!-- show-methods failed suite-test_sofa -->
-                    </span>
-                    <div class="method-list-content failed suite-test_sofa">
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-test_sofa" title="com.yss.suit.scenario1" hash-for-method="HeSuanJiGouXinXi">HeSuanJiGouXinXi</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-test_sofa -->
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -116,7 +102,12 @@
                     <div class="method-list-content passed suite-test_sofa">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-test_sofa" title="com.yss.suit.scenario1" hash-for-method="login">login</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-test_sofa" title="com.yss.suit.scenario2" hash-for-method="HeSuanJiGouXinXiAdd">HeSuanJiGouXinXiAdd</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-test_sofa" title="com.yss.suit.scenario2" hash-for-method="login">login</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-test_sofa -->
@@ -131,45 +122,19 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-test_sofa" class="panel test_sofa">
-          <div class="suite-test_sofa-class-failed">
+          <div class="suite-test_sofa-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">com.yss.suit.scenario1</span>
+              <img src="passed.png"/>
+              <span class="class-name">com.yss.suit.scenario2</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="HeSuanJiGouXinXi">
-                  </a> <!-- HeSuanJiGouXinXi -->
-                  <span class="method-name">HeSuanJiGouXinXi</span>
-                  <div class="stack-trace">org.openqa.selenium.WebDriverException: Element is not clickable at point (738.7000122070312, 14.800003051757812). Other element would receive the click: &lt;div style=&quot;display: block; width: 1198px; height: 680px; z-index: 9010;&quot; id=&quot;ext-gen191&quot; class=&quot;ext-el-mask&quot;&gt;&lt;/div&gt;
-Command duration or timeout: 79 milliseconds
-Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
-System info: host: &apos;LAPTOP-T9UGMIK5&apos;, ip: &apos;192.168.103.133&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.7.0_80&apos;
-Session ID: b0bbec21-5f0a-4d8a-bc24-e0eb0cffa9fc
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=45.0.2}]
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at com.yss.common.Common.click(Common.java:132)
-	at com.yss.common.Common.clickTopAdd(Common.java:636)
-	at com.yss.method.HeSuanJiGouXinXi.add(HeSuanJiGouXinXi.java:68)
-	at com.yss.suit.scenario1.HeSuanJiGouXinXi(scenario1.java:33)
-... Removed 29 stack frames
-</div> <!-- stack-trace -->
+                  <a name="HeSuanJiGouXinXiAdd">
+                  </a> <!-- HeSuanJiGouXinXiAdd -->
+                  <span class="method-name">HeSuanJiGouXinXiAdd</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-test_sofa-class-failed -->
-          <div class="suite-test_sofa-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.yss.suit.scenario1</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="login">
@@ -182,7 +147,7 @@ Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cs
         </div> <!-- panel test_sofa -->
         <div panel-name="test-xml-test_sofa" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">E:\gitworkspace\WebDriverTest\testng.xml</span>
+            <span class="header-content">F:\Git\AutoTest\WebDriverTest\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -193,11 +158,11 @@ Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cs
     &lt;listener class-name=&quot;org.uncommons.reportng.HTMLReporter&quot;/&gt;
     &lt;listener class-name=&quot;org.uncommons.reportng.JUnitXMLReporter&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test name=&quot;score1&quot;&gt;
+  &lt;test name=&quot;yss_auto_test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.yss.suit.scenario1&quot;/&gt;
+      &lt;class name=&quot;com.yss.suit.scenario2&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- score1 --&gt;
+  &lt;/test&gt; &lt;!-- yss_auto_test --&gt;
 &lt;/suite&gt; &lt;!-- test sofa --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -209,7 +174,7 @@ Capabilities [{platform=WINDOWS, acceptSslCerts=true, javascriptEnabled=true, cs
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">score1 (1 class)</span>
+                <span class="test-name">yss_auto_test (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -237,18 +202,18 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'HeSuanJiGouXinXi')
-data.setCell(0, 2, 'com.yss.suit.scenario1')
-data.setCell(0, 3, 20803);
+data.setCell(0, 1, 'HeSuanJiGouXinXiAdd')
+data.setCell(0, 2, 'com.yss.suit.scenario2')
+data.setCell(0, 3, 10737);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'login')
-data.setCell(1, 2, 'com.yss.suit.scenario1')
-data.setCell(1, 3, 3080);
+data.setCell(1, 2, 'com.yss.suit.scenario2')
+data.setCell(1, 3, 3444);
 window.suiteTableData['test_sofa']= { tableData: data, tableDiv: 'times-div-test_sofa'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 23 seconds</span>
+              <span class="suite-total-time">Total running time: 14 seconds</span>
               <div id="times-div-test_sofa">
               </div> <!-- times-div-test_sofa -->
             </div> <!-- times-div -->
@@ -259,6 +224,18 @@ return data;
             <span class="header-content">Reporter output for test sofa</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">login</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">登录成功</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">HeSuanJiGouXinXiAdd</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">日常运营清算-申请数据导入成功</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-test_sofa" class="panel">
@@ -274,28 +251,26 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.yss.suit.scenario1</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.yss.suit.scenario2</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">getData</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">3503 ms</span>
+                <span class="method-start">5326 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">login</span>
-                <span class="method-start">3511 ms</span>
+                <span class="method-start">5333 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">HeSuanJiGouXinXi</span>
-                <span class="method-start">6599 ms</span>
+                <span class="method-name">HeSuanJiGouXinXiAdd</span>
+                <span class="method-start">8781 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">27411 ms</span>
+                <span class="method-start">19520 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

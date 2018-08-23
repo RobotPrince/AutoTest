@@ -1,33 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
+    <line>
+      <![CDATA[登录成功]]>
+    </line>
+    <line>
+      <![CDATA[日常运营清算-申请数据导入成功]]>
+    </line>
   </reporter-output>
-  <suite name="test sofa" duration-ms="59443" started-at="2018-08-20T10:31:18Z" finished-at="2018-08-20T10:32:17Z">
+  <suite name="test sofa" duration-ms="20274" started-at="2018-08-23T10:08:38Z" finished-at="2018-08-23T10:08:58Z">
     <groups>
     </groups>
-    <test name="score1" duration-ms="59443" started-at="2018-08-20T10:31:18Z" finished-at="2018-08-20T10:32:17Z">
-      <class name="com.yss.suit.scenario1">
-        <test-method status="PASS" signature="getData()[pri:0, instance:com.yss.suit.scenario1@65cb687f]" name="getData" is-config="true" duration-ms="3510" started-at="2018-08-20T18:31:18Z" finished-at="2018-08-20T18:31:21Z">
+    <test name="yss_auto_test" duration-ms="20274" started-at="2018-08-23T10:08:38Z" finished-at="2018-08-23T10:08:58Z">
+      <class name="com.yss.suit.scenario2">
+        <test-method status="PASS" signature="getData()[pri:0, instance:com.yss.suit.scenario2@66f95a5a]" name="getData" is-config="true" duration-ms="5320" started-at="2018-08-23T18:08:38Z" finished-at="2018-08-23T18:08:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getData -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.yss.suit.scenario1@65cb687f]" name="beforeClass" is-config="true" duration-ms="1" started-at="2018-08-20T18:31:21Z" finished-at="2018-08-20T18:31:21Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.yss.suit.scenario2@66f95a5a]" name="beforeClass" is-config="true" duration-ms="1" started-at="2018-08-23T18:08:43Z" finished-at="2018-08-23T18:08:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="login()[pri:0, instance:com.yss.suit.scenario1@65cb687f]" name="login" duration-ms="3142" started-at="2018-08-20T18:31:21Z" finished-at="2018-08-20T18:31:24Z">
+        <test-method status="PASS" signature="login()[pri:0, instance:com.yss.suit.scenario2@66f95a5a]" name="login" duration-ms="3444" started-at="2018-08-23T18:08:43Z" finished-at="2018-08-23T18:08:47Z">
           <reporter-output>
+            <line>
+              <![CDATA[登录成功]]>
+            </line>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method status="PASS" signature="HeSuanJiGouXinXi()[pri:1, instance:com.yss.suit.scenario1@65cb687f]" name="HeSuanJiGouXinXi" duration-ms="52155" started-at="2018-08-20T18:31:24Z" finished-at="2018-08-20T18:32:16Z">
+        <test-method status="PASS" signature="HeSuanJiGouXinXiAdd()[pri:1, instance:com.yss.suit.scenario2@66f95a5a]" name="HeSuanJiGouXinXiAdd" duration-ms="10737" started-at="2018-08-23T18:08:47Z" finished-at="2018-08-23T18:08:57Z">
           <reporter-output>
+            <line>
+              <![CDATA[日常运营清算-申请数据导入成功]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- HeSuanJiGouXinXi -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.yss.suit.scenario1@65cb687f]" name="afterClass" is-config="true" duration-ms="610" started-at="2018-08-20T18:32:16Z" finished-at="2018-08-20T18:32:17Z">
+        </test-method> <!-- HeSuanJiGouXinXiAdd -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.yss.suit.scenario2@66f95a5a]" name="afterClass" is-config="true" duration-ms="751" started-at="2018-08-23T18:08:57Z" finished-at="2018-08-23T18:08:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- com.yss.suit.scenario1 -->
-    </test> <!-- score1 -->
+      </class> <!-- com.yss.suit.scenario2 -->
+    </test> <!-- yss_auto_test -->
   </suite> <!-- test sofa -->
 </testng-results>
