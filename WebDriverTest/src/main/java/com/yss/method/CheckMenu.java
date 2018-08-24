@@ -26,7 +26,7 @@ public class CheckMenu {
 		}
 		((WebElement)myResponse.get("ele")).click();
 
-		// 获取页面元素
+		// 获取页面元素R
 		//方案一和方案二
 //		Common.getElementData(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,"richangyunying_1");
 		MyResponse response = Common.getElementData(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,CheckMenuElement.RICHANGYUNYING_1);

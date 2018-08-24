@@ -4,6 +4,14 @@
            failures="0"
            errors="0"
            skipped="0"
+<<<<<<< HEAD
+           time="17.325">
+  <properties />
+  
+  
+            <testcase name="login" time="5.835" classname="com.yss.suit.scenario2" />
+                <testcase name="HeSuanJiGouXinXiAdd" time="11.490" classname="com.yss.suit.scenario2" />
+=======
            time="9.229">
   <properties />
   
@@ -11,5 +19,6 @@
             <testcase name="zhanghujiancha" time="1.711" classname="com.yss.suit.scenario2" />
                 <testcase name="login" time="3.007" classname="com.yss.suit.scenario2" />
                 <testcase name="biefore" time="4.511" classname="com.yss.suit.scenario2" />
+>>>>>>> dabe8e4e0543cceb0c4ddd8e05d6ef560622276b
       
 </testsuite>
