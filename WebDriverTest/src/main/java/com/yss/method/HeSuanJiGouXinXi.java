@@ -85,7 +85,7 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 				//将第一条数据填到表单中
 				WebElement ele = (WebElement)heSuanJiGouXinXiResponse.get("ele");
 				String remark = heSuanJiGouXinXiResponse.get("rem").toString();
-				MyResponse setHeSuanJiGouXinXiREsponse = Common.proccessTable(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement, eunm, ele, data.get(eunm),  remark );
+				MyResponse setHeSuanJiGouXinXiREsponse = Common.proccessTable( ele, data.get(eunm),  remark );
 				if( (int)setHeSuanJiGouXinXiREsponse.get(MyResponse.STATUS) == MyResponse.FAILED ){		
 					Common.logError("set parameter of"+eunm+"failed");
 					return false;
@@ -108,102 +108,6 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		return true;
 	}
 	
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public boolean addOne() {
-//		Common.logInfo("addOne");
-//
-//		//点击新增
-//		Common.clickTopAdd();
-//		//获取第一条数据
-//		HashMap<HeSuanJiGouXinXiEnum, String> data = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(0);
-//		Set<HeSuanJiGouXinXiEnum> set = data.keySet();
-//		Iterator<HeSuanJiGouXinXiEnum> iterator = set.iterator();
-//		while( iterator.hasNext() ){
-//			HeSuanJiGouXinXiEnum eunm = iterator.next();
-//			//获取所有add需要的元素
-//			MyResponse heSuanJiGouXinXiResponse = Common.getWebElement(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement,eunm);
-//			if ((int) heSuanJiGouXinXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
-//				Common.logError("get element data of heSuanJiGouXinXiResponse failed");
-//				return false;
-//			}
-//			//processTable
-//			//将第一条数据填到表单中
-//			WebElement ele = (WebElement)heSuanJiGouXinXiResponse.get("ele");
-//			String remark = heSuanJiGouXinXiResponse.get("rem").toString();
-//			MyResponse setHeSuanJiGouXinXiREsponse = Common.proccessTable(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement, eunm, ele, data.get(eunm),  remark );
-//			if( (int)setHeSuanJiGouXinXiREsponse.get(MyResponse.STATUS) == MyResponse.FAILED ){		
-//				Common.logError("set parameter of"+eunm+"failed");
-//				return false;
-//			}
-//		}
-//		//点击提交
-//		MyResponse commitResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.COMMIT);
-//		if((int)commitResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-//			Common.logError("get Elemnent of "+commitResponse.get("ele")+" failed");
-//			return false;
-//		}
-//		MyResponse clickCommitResponse = Common.click((WebElement)commitResponse.get("ele"));
-//		if((int)clickCommitResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-//			Common.logError("click Elemnent of "+clickCommitResponse.get("ele")+" failed");
-//			return false;
-//		}
-//		//点击确定
-//		Common.clickYES();
-//		return true;
-//	}
-
-//	@SuppressWarnings("rawtypes")
-//	@Override
-//	public boolean addAFew() {
-//		Common.logInfo("addAFew");
-//
-//		//循环所有数据-这是与AddOne的唯一不同之处
-//		int sizeOfData = ReadFromExcel.dataForHeSuanJiGouFromExcel.size();
-//		for(int i = 0; i < sizeOfData; i++){
-//			//点击新增
-//			Common.clickTopAdd();
-//			HashMap<HeSuanJiGouXinXiEnum, String> data = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(i);
-//			Set<HeSuanJiGouXinXiEnum> set = data.keySet();
-//			Iterator<HeSuanJiGouXinXiEnum> iterator = set.iterator();
-//			while( iterator.hasNext() ){
-//				//isChecked在这里不需要做任何操作
-//				HeSuanJiGouXinXiEnum eunm = iterator.next();
-//				if(eunm.equals(HeSuanJiGouXinXiEnum.ISCHECKED)){
-//					continue;
-//				}
-//				//获取add需要的元素
-//				MyResponse heSuanJiGouXinXiResponse = Common.getWebElement(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement,eunm);
-//				if ((int) heSuanJiGouXinXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
-//					Common.logError("get element data of heSuanJiGouXinXiResponse failed");
-//					return false;
-//				}
-//				//processTable
-//				//将第一条数据填到表单中
-//				WebElement ele = (WebElement)heSuanJiGouXinXiResponse.get("ele");
-//				String remark = heSuanJiGouXinXiResponse.get("rem").toString();
-//				MyResponse setHeSuanJiGouXinXiREsponse = Common.proccessTable(PageEnum.HESUANJIGOUXINXI,AllElementEnum.HeSuanJiGouXinXiElement, eunm, ele, data.get(eunm),  remark );
-//				if( (int)setHeSuanJiGouXinXiREsponse.get(MyResponse.STATUS) == MyResponse.FAILED ){		
-//					Common.logError("set parameter of"+eunm+"failed");
-//					return false;
-//				}
-//			}
-//			//点击提交
-//			MyResponse commitResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.COMMIT);
-//			if((int)commitResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-//				Common.logError("get Elemnent of "+commitResponse.get("ele")+" failed");
-//				return false;
-//			}
-//			MyResponse clickCommitResponse = Common.click((WebElement)commitResponse.get("ele"));
-//			if((int)clickCommitResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-//				Common.logError("click Elemnent of "+clickCommitResponse.get("ele")+" failed");
-//				return false;
-//			}
-//			//点击确定
-//			Common.clickYES();
-//		}
-//		return true;
-//	}
 	@Override
 	public boolean review() {
 		Common.logInfo("reviewAFew");
@@ -367,18 +271,6 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		 */
 		JIGOUZHUANGTAI,
 		/**
-		 * 机构状态——正常
-		 */
-		ZHENGCHANG,
-		/**
-		 * 机构状态——注销
-		 */
-		ZHUXIAO,
-		/**
-		 * 机构状态——停用
-		 */
-		TINGYONG,
-		/**
 		 * 电话
 		 */
 		DIANHUA,
@@ -386,14 +278,6 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		 * 接口版本
 		 */
 		JIEKOUBANBEN,
-		/**
-		 * 接口版本2.63
-		 */
-		JIEKOU_2_6_3,
-		/**
-		 * 接口版本2.65
-		 */
-		JIEKOU_2_6_5,
 		/**
 		 * 地址
 		 */
