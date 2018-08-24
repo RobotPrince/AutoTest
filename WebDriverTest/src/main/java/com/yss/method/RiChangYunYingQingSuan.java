@@ -14,6 +14,10 @@ import com.yss.common.ReadFromExcel;
 import com.yss.method.CheckMenu.CheckMenuElement;
 
 public class RiChangYunYingQingSuan{
+	/**
+	 * 预先操作
+	 * @return
+	 */
 	public boolean before() {
 		Common.logInfo("before");
 		
@@ -77,32 +81,62 @@ public class RiChangYunYingQingSuan{
 			Common.logError("click Element of"+shenQingShuJuDaoRuElementClickResponse+"failed");
 			return false;
 		}
-		//
-		//点击popup‘是’
-		MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
-		if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+		//获取选择导入日期元素
+		MyResponse xuanzedaoruriqiResponse = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, RiChangYunYingQingSuanEnum.XUANZEDAORURIQI);
+		if((int)xuanzedaoruriqiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get Element of"+RiChangYunYingQingSuanEnum.XUANZEDAORURIQI+"failed");
+			return false;
+		}
+		//输入选择导入日期
+		MyResponse xuanzedaoruriqiSetParamResponse = Common.setParameter((WebElement)xuanzedaoruriqiResponse.get("ele"), ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI));
+		if((int)xuanzedaoruriqiSetParamResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get Element of"+RiChangYunYingQingSuanEnum.XUANZEDAORURIQI+"failed");
+			return false;
+		}
+		//获取选择导入销售机构
+		MyResponse xiaoshoujigouResponse = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, RiChangYunYingQingSuanEnum.XUANZEDAORUXIAOSHOUJIGOU);
+		if((int)xiaoshoujigouResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get Element of"+RiChangYunYingQingSuanEnum.XUANZEDAORUXIAOSHOUJIGOU+"failed");
+			return false;
+		}
+		//点击销售机构
+		MyResponse xiaoshoujigouSelectRes = Common.select((WebElement)xiaoshoujigouResponse.get("ele"), ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORUXIAOSHOUJIGOU));
+		if((int)xiaoshoujigouSelectRes.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get Element of"+RiChangYunYingQingSuanEnum.XUANZEDAORUXIAOSHOUJIGOU+"failed");
+			return false;
+		}
+		//获取选择导入方式
+		MyResponse daorufangshiResponse = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, RiChangYunYingQingSuanEnum.DAORUFANGSHI);
+		if((int)daorufangshiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get Element of"+RiChangYunYingQingSuanEnum.DAORUFANGSHI+"failed");
+			return false;
+		}
+		//点击导入方式
+		MyResponse daorufangshiClickRes = Common.select((WebElement)xiaoshoujigouResponse.get("ele"), ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORUXIAOSHOUJIGOU));
+		if((int)daorufangshiClickRes.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get Element of"+RiChangYunYingQingSuanEnum.DAORUFANGSHI+"failed");
+			return false;
+		}
+		//获取导入button
+		MyResponse popupInsertesponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_INSERT);
+		if((int)popupInsertesponse.get(MyResponse.STATUS)==MyResponse.FAILED){
 			Common.logError("get element of popup yes failed");
 			return false;
 		}
-		MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
-		if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("Click element of popup yes failed");
+		//点击导入button
+		MyResponse clickPopupInsert = Common.click((WebElement)popupInsertesponse.get("ele"));
+		if((int)clickPopupInsert.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("Click element of popup insert failed");
 			return false;
 		}
-		
-		
-//		//正常写
-//		for(RiChangYunYingQingSuanEnum enmu:RiChangYunYingQingSuanEnum.values()){
-//			MyResponse jingZhiGuanLResponse = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, enmu);
-//			if((int)jingZhiGuanLResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-//				Common.logError("get Element of"+RiChangYunYingQingSuanEnum.JINGZHIGUANLI+"failed");
-//				return false;
-//			}
-//			WebElement we = (WebElement)jingZhiGuanLiResponse.get("ele");
-//		}
 		return true;
 	}
-	public boolean jizhiguanli(){
+	/**
+	 * 净值管理
+	 * @return
+	 */
+	//TODO:暂时用不到，未完成
+	public boolean jingzhiguanli(){
 		Common.logInfo("jingzhiguanli");
 		
 		//切换driver到default
@@ -155,8 +189,28 @@ public class RiChangYunYingQingSuan{
 			Common.logError("get element data of iframe1 failed");
 			return false;
 		}
-		
 		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+		
+		//获取账户检查元素
+		MyResponse zhanghujianchaResponse = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, RiChangYunYingQingSuanEnum.ZHANGHUJIANCHA);
+		if((int)zhanghujianchaResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get Element of"+RiChangYunYingQingSuanEnum.ZHANGHUJIANCHA+"failed");
+			return false;
+		}
+		//点击元素
+		WebElement zhanghujianchaElement = (WebElement)zhanghujianchaResponse.get("ele");
+		MyResponse zhanghujianchaElementClickResponse = Common.click(zhanghujianchaElement);
+		if((int)zhanghujianchaElementClickResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("click Element of"+zhanghujianchaElementClickResponse+"failed");
+			return false;
+		}
+		
+		//点击popup‘是’
+		MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+		if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("get element of popup yes failed");
+			return false;
+		}
 		return true;
 	}
 	/*
@@ -166,15 +220,35 @@ public class RiChangYunYingQingSuan{
 		Common.logInfo("zhanghujiancha");
 		
 		//切换driver到default
-		Common.driver.switchTo().defaultContent();
-		// 切换driver到top
-		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
-		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("get element data of iframe1 failed");
-			return false;
-		}
-		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
-		return true;
+				Common.driver.switchTo().defaultContent();
+				// 切换driver到top
+				MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+				if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+					Common.logError("get element data of iframe1 failed");
+					return false;
+				}
+				Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+				
+				//获取账户清算元素
+				MyResponse zhanghuqingsuanResponse = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, RiChangYunYingQingSuanEnum.ZHANGHUQINGSUANAN);
+				if((int)zhanghuqingsuanResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+					Common.logError("get Element of"+RiChangYunYingQingSuanEnum.ZHANGHUQINGSUANAN+"failed");
+					return false;
+				}
+				//点击元素
+				WebElement zhanghuqingsuanElement = (WebElement)zhanghuqingsuanResponse.get("ele");
+				MyResponse zhanghuqingsuanElementClickResponse = Common.click(zhanghuqingsuanElement);
+				if((int)zhanghuqingsuanElementClickResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+					Common.logError("click Element of"+zhanghuqingsuanElementClickResponse+"failed");
+					return false;
+				}
+				//点击popup‘是’
+				MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+				if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+					Common.logError("get element of popup yes failed");
+					return false;
+				}
+				return true;
 	}
 	/*
 	 * 交易检查
@@ -227,8 +301,22 @@ public class RiChangYunYingQingSuan{
 		}
 		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
 		return true;
+	}	
+	/**
+	 * 净值导出
+	 */
+	public boolean jingzhidaochu() {
+		// TODO Auto-generated method stub
+		return true;
 	}
-	
+	/**
+	 * 日终确认
+	 * @return
+	 */
+	public boolean rizhongqueren() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	public enum RiChangYunYingQingSuanEnum implements ElementEnum {
 		/**
 		 * 净值管理
@@ -243,6 +331,19 @@ public class RiChangYunYingQingSuan{
 		 */
 		SHENQINGSHUJUDAORU,
 		/**
+		 * 选择导入日期
+		 */
+		XUANZEDAORURIQI,
+		/**
+		 * 选择导入销售机构
+		 */
+		XUANZEDAORUXIAOSHOUJIGOU,
+		/**
+		 * 导入方式
+		 */
+		DAORUFANGSHI,
+		/**
+		 *
 		 * 账户检查
 		 */
 		ZHANGHUJIANCHA,
@@ -268,4 +369,6 @@ public class RiChangYunYingQingSuan{
 		RIZHONGQUEREN,
 		
 	}
+
+
 }

@@ -828,9 +828,13 @@ public class Common {
 		 */
 		POPUP_NO,
 		/**
-		 * 弹出确认框-ok
+		 * 弹出确认框-确定
 		 */
 		POPUP_OK,
+		/**
+		 * 弹出确认框-导入
+		 */
+		POPUP_INSERT,
 		/**
 		 * 辅助定位新增页面
 		 */
