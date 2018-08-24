@@ -74,8 +74,9 @@ public class t_ta_acktradeblotter_compare {
 			String oldStringArray[] = oldString.split("\n");
 			String newStringArray[] = newString.split("\n");
 			//判断交易笔数
+			boolean isNumEqual = true;
 			if(oldStringArray.length != newStringArray.length){
-				
+				isNumEqual = false;
 				Common.logError("交易笔数不同!");
 				myResponse.failed("交易笔数不同!");				
 			}
@@ -98,6 +99,10 @@ public class t_ta_acktradeblotter_compare {
 				String[] oldStringSplitArray = oldStringArray[i].split(",");
 				//判断表中的字段数目
 				if(newStringSplitArray.length != oldStringSplitArray.length ){
+					if(!isNumEqual){
+						Common.logError("没有第"+(i+1)+"笔交易!");
+						return myResponse.failed("没有第"+(i+1)+"笔交易!");
+					}
 					Common.logError("第"+(i+1)+"笔交易发生错误,缺少字段!");
 					myResponse.failed("第"+(i+1)+"笔交易发生错误,缺少字段!");
 				}
@@ -106,6 +111,10 @@ public class t_ta_acktradeblotter_compare {
 				//判断字段是否全部相同
 				for(int j = 0; j < stringSplitLength; j++){
 					if( !newStringSplitArray[j].equals(oldStringSplitArray[j]) ){
+						if(!isNumEqual){
+							Common.logError("没有第"+(i+1)+"笔交易!");
+							return myResponse.failed("没有第"+(i+1)+"笔交易!");
+						}
 						Common.logError("第"+(i+1)+"笔交易的字段"+newStringSplitArray[j]+"发生了错误");
 						myResponse.failed("第"+(i+1)+"笔交易的字段"+newStringSplitArray[j]+"发生了错误");
 						}
