@@ -77,6 +77,9 @@ public class RiChangYunYingQingSuan{
 			Common.logError("click Element of"+shenQingShuJuDaoRuElementClickResponse+"failed");
 			return false;
 		}
+		
+		
+		
 		//点击popup‘是’
 		MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
 		if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){

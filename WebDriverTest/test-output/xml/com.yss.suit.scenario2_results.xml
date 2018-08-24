@@ -4,11 +4,11 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="14.181">
+           time="17.325">
   <properties />
   
   
-            <testcase name="login" time="3.444" classname="com.yss.suit.scenario2" />
-                <testcase name="HeSuanJiGouXinXiAdd" time="10.737" classname="com.yss.suit.scenario2" />
+            <testcase name="login" time="5.835" classname="com.yss.suit.scenario2" />
+                <testcase name="HeSuanJiGouXinXiAdd" time="11.490" classname="com.yss.suit.scenario2" />
       
 </testsuite>

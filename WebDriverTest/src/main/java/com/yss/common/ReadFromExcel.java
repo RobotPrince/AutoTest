@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
 import com.yss.method.Login.LoginEnum;
+import com.yss.method.XiaoShouJiGouXinXi.XiaoShouJiGouXinXiEnum;
 
 /**
  * Read WebElements from Excel
@@ -30,6 +31,7 @@ public class ReadFromExcel {
 	public static HashMap<PageEnum, HashMap<String, List<String>>> elementsFromExcel = new HashMap<PageEnum, HashMap<String, List<String>>>();
 	public static List<HashMap<LoginEnum, String>> dataForLoginPageFromExcel = new ArrayList<HashMap<LoginEnum, String>>();
 	public static List<HashMap<HeSuanJiGouXinXiEnum, String>> dataForHeSuanJiGouFromExcel = new ArrayList<HashMap<HeSuanJiGouXinXiEnum, String>>();
+	public static List<HashMap<XiaoShouJiGouXinXiEnum, String>> dataForXiaoShouJiGouFromExcel = new ArrayList<HashMap<XiaoShouJiGouXinXiEnum, String>>();
 
 	/**
 	 * !!!!!!!!!!!!!!!!!
@@ -218,5 +220,14 @@ public class ReadFromExcel {
 			return false;
 		}
 		return true;
+	}
+	
+	/*
+	 *销售机构信息 
+	 **/
+	public boolean readFromXiaoShouXinXi(){
+		Common.logInfo("readFromXiaoShouXinXi");
+		
+		return false;
 	}
 }
