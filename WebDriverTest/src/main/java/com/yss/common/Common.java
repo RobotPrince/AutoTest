@@ -163,7 +163,7 @@ public class Common {
 	 * @param val
 	 * @return
 	 */
-	public static MyResponse select(PageEnum pageEnum, AllElementEnum allElementEnum, ElementEnum elementEnum, WebElement element, String val){
+	public static MyResponse select( WebElement element, String val ){
 		
 		logInfo("select");
 		MyResponse myResponse = new MyResponse();
@@ -178,22 +178,35 @@ public class Common {
 			logError("get Webelement of"+element +"failed");
 			return myResponse.failed("getWebElement failed");
 		}
-		//选择下拉列表，点击
-		 ElementEnum[] enumConstants=elementEnum.getClass().getEnumConstants();
-		 for(ElementEnum eEnum : enumConstants){
-			 if(val.toLowerCase().equals(eEnum.toString().toLowerCase())){
-				 //获取要点击的元素
-				 myResponse= getWebElement(pageEnum, allElementEnum, eEnum);
-				
-				if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
-					logError("get Webelement of"+eEnum +"failed");
-					return myResponse.failed("getWebElement failed");
-				}
-				//点击
-				myResponse = Common.click( (WebElement)myResponse.get("ele") );
-				break;
-			 }
-		 }
+		//下拉列表点击
+		myResponse = Common.getWebElementOld(".//div[@class='x-combo-list-inner']//*[text()='"+val+"']/..", "Xpath");
+		if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
+			logError("get Webelement of"+".//div[@class='x-combo-list-inner']//*[text()='"+val+"']/.." +"failed");
+			return myResponse.failed("getWebElement failed");
+		}
+		
+		myResponse = Common.click((WebElement)myResponse.get("ele"));
+		if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
+			logError("clilck Webelement of"+".//div[@class='x-combo-list-inner']//*[text()='"+val+"']/.." +"failed");
+			return myResponse.failed("getWebElement failed");
+		}
+		
+//		//选择下拉列表，点击
+//		 ElementEnum[] enumConstants=elementEnum.getClass().getEnumConstants();
+//		 for(ElementEnum eEnum : enumConstants){
+//			 if(val.toLowerCase().equals(eEnum.toString().toLowerCase())){
+//				 //获取要点击的元素
+//				 myResponse= getWebElement(pageEnum, allElementEnum, eEnum);
+//				
+//				if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
+//					logError("get Webelement of"+eEnum +"failed");
+//					return myResponse.failed("getWebElement failed");
+//				}
+//				//点击
+//				myResponse = Common.click( (WebElement)myResponse.get("ele") );
+//				break;
+//			 }
+//		 }
 		return myResponse.success();
 	}
 	/**
@@ -204,7 +217,7 @@ public class Common {
 	 * @return
 	 */
 	
-	public static MyResponse proccessTable( PageEnum pageEnum,AllElementEnum allElementEnum, ElementEnum elementEnum, WebElement element, String param, Object remarkEnum){
+	public static MyResponse proccessTable( WebElement element, String param, Object remarkEnum){
 		
 		logInfo("proccessTable");
 		MyResponse myRespnose = new MyResponse();
@@ -237,7 +250,7 @@ public class Common {
 			}
 			break;
 		case SELECTABLE:
-			MyResponse selectResponse = select(pageEnum, allElementEnum, elementEnum,element, param);
+			MyResponse selectResponse = select(element, param);
 			if( ( (int)selectResponse.get(MyResponse.STATUS) == (MyResponse.FAILED)) ){
 				logError("select element of"+element +"failed");
 				return myRespnose.failed("select element of"+element +"failed");

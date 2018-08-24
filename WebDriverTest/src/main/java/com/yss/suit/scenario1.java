@@ -32,8 +32,8 @@ public class scenario1 {
 	@Test(priority = 1)
 	public void HeSuanJiGouXinXiAdd() throws InterruptedException {
 		
-		new t_ta_acktradeblotter_save().db_save();
-		new t_ta_acktradeblotter_compare().db_compare();
+		new HeSuanJiGouXinXi().before();
+		new HeSuanJiGouXinXi().add();
 		Reporter.log("核算机构信息-新增成功");
 	}
 //	@Test(priority = 2)
