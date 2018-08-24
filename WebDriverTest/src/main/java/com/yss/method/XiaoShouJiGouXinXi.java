@@ -84,7 +84,7 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 				//将第一条数据填到表单中
 				WebElement ele = (WebElement)xiaoShouJiGouXinXiResponse.get("ele");
 				String remark = xiaoShouJiGouXinXiResponse.get("rem").toString();
-				MyResponse setXiaoShouJiGouXinXiREsponse = Common.proccessTable(PageEnum.XIAOSHOUJIGOUXINXI,AllElementEnum.XiaoShouJiGouXinXiElement, eunm, ele, data.get(eunm),  remark );
+				MyResponse setXiaoShouJiGouXinXiREsponse = Common.proccessTable( ele, data.get(eunm),  remark );
 				if( (int)setXiaoShouJiGouXinXiREsponse.get(MyResponse.STATUS) == MyResponse.FAILED ){		
 					Common.logError("set parameter of"+eunm+"failed");
 					return false;
