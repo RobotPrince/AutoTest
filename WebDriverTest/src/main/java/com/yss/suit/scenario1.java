@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
+import com.yss.db.t_ta_acktradeblotter_compare;
+import com.yss.db.t_ta_acktradeblotter_save;
 import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
 
@@ -30,11 +32,11 @@ public class scenario1 {
 	@Test(priority = 1)
 	public void HeSuanJiGouXinXiAdd() throws InterruptedException {
 		
-		new HeSuanJiGouXinXi().before();
-		new HeSuanJiGouXinXi().add();
+		new t_ta_acktradeblotter_save().db_save();
+		new t_ta_acktradeblotter_compare().db_compare();
 		Reporter.log("核算机构信息-新增成功");
 	}
-	@Test(priority = 2)
+//	@Test(priority = 2)
 	public void HeSuanJiGouXinXiReview() throws InterruptedException {
 		
 

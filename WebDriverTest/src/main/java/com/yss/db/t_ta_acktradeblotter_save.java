@@ -34,14 +34,18 @@ public class t_ta_acktradeblotter_save {
 				}
 				String jsonString = new JSONObject(map).toJSONString();
 				allJson.append(jsonString+"\n");
-				System.out.println(jsonString);
+//				System.out.println(jsonString);
 			}
 		} catch (SQLException e) {
 			return myResponse.failed("get data from db failed");
 		}
 		SimpleDateFormat df  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		String time = df.format(new Date());
-		
+		//判断文件夹是否存在
+		File fileDir = new File("E://T_TA_ACKTRADEBLOTTER");
+		if(!fileDir.exists()){
+			fileDir.mkdir();
+		}
 		File file = new File("E://T_TA_ACKTRADEBLOTTER/T_TA_ACKTRADEBLOTTER-"+time+".json");
 		try {
 			String s =allJson.substring(0, allJson.length()-1);

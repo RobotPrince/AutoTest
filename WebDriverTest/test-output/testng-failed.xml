@@ -7,14 +7,14 @@
   </listeners>
   <test name="yss_auto_test(failed)">
     <classes>
-      <class name="com.yss.suit.scenario2">
+      <class name="com.yss.suit.scenario1">
         <methods>
           <include name="beforeClass"/>
-          <include name="afterClass"/>
-          <include name="HeSuanJiGouXinXiAdd"/>
           <include name="getData"/>
+          <include name="afterClass"/>
+          <include name="login"/>
         </methods>
-      </class> <!-- com.yss.suit.scenario2 -->
+      </class> <!-- com.yss.suit.scenario1 -->
     </classes>
   </test> <!-- yss_auto_test(failed) -->
 </suite> <!-- Failed suite [test sofa] -->
