@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+    <line>
+      <![CDATA[登录成功]]>
+    </line>
+    <line>
+      <![CDATA[日常运营清算-申请数据导入成功]]>
+    </line>
+  </reporter-output>
+  <suite name="test sofa" duration-ms="25638" started-at="2018-08-24T06:28:08Z" finished-at="2018-08-24T06:28:33Z">
+    <groups>
+    </groups>
+    <test name="yss_auto_test" duration-ms="25638" started-at="2018-08-24T06:28:08Z" finished-at="2018-08-24T06:28:33Z">
+      <class name="com.yss.suit.scenario2">
+        <test-method status="PASS" signature="getData()[pri:0, instance:com.yss.suit.scenario2@39a66fba]" name="getData" is-config="true" duration-ms="7409" started-at="2018-08-24T14:28:08Z" finished-at="2018-08-24T14:28:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getData -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.yss.suit.scenario2@39a66fba]" name="beforeClass" is-config="true" duration-ms="3" started-at="2018-08-24T14:28:15Z" finished-at="2018-08-24T14:28:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="login()[pri:0, instance:com.yss.suit.scenario2@39a66fba]" name="login" duration-ms="5835" started-at="2018-08-24T14:28:15Z" finished-at="2018-08-24T14:28:21Z">
+          <reporter-output>
+            <line>
+              <![CDATA[登录成功]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="HeSuanJiGouXinXiAdd()[pri:1, instance:com.yss.suit.scenario2@39a66fba]" name="HeSuanJiGouXinXiAdd" duration-ms="11490" started-at="2018-08-24T14:28:21Z" finished-at="2018-08-24T14:28:33Z">
+          <reporter-output>
+            <line>
+              <![CDATA[日常运营清算-申请数据导入成功]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- HeSuanJiGouXinXiAdd -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.yss.suit.scenario2@39a66fba]" name="afterClass" is-config="true" duration-ms="829" started-at="2018-08-24T14:28:33Z" finished-at="2018-08-24T14:28:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.yss.suit.scenario2 -->
+    </test> <!-- yss_auto_test -->
+  </suite> <!-- test sofa -->
+</testng-results>
