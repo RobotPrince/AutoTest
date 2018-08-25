@@ -24,14 +24,14 @@ import com.yss.common.Common;
 import com.yss.common.DBConnect;
 import com.yss.common.MyResponse;
 
-public class t_ta_acktradeblotter_compare {
+public class Compare_T_TA_ACKFDACBLOTTER {
 
-	public MyResponse db_compare(){
-		Common.logInfo("db_compare");
+	public MyResponse compare_T_TA_ACKFDACBLOTTER(){
+		Common.logInfo("compare_T_TA_ACKFDACBLOTTER");
 		
 		MyResponse myResponse = new MyResponse();
 		SimpleDateFormat sdf  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-		File dir = new File("E://T_TA_ACKTRADEBLOTTER/");
+		File dir = new File("E://T_TA_ACKFDACBLOTTER/");
 		//获取文件夹下所有文件名称
 		String[] fileList = dir.list();
 		long[] fileTimeList = new long[fileList.length];
@@ -53,9 +53,10 @@ public class t_ta_acktradeblotter_compare {
 		String oldTime = sdf.format(dateOld);
 		String newTime = sdf.format(dateNew);
 		
-		File oldFile = new File("E://T_TA_ACKTRADEBLOTTER/T_TA_ACKTRADEBLOTTER-"+oldTime+".json");
-		File newFile = new File("E://T_TA_ACKTRADEBLOTTER/T_TA_ACKTRADEBLOTTER-"+newTime+".json");
+		File oldFile = new File("E://T_TA_ACKFDACBLOTTER/T_TA_ACKFDACBLOTTER-"+oldTime+".json");
+		File newFile = new File("E://T_TA_ACKFDACBLOTTER/T_TA_ACKFDACBLOTTER-"+newTime+".json");
 		try {
+			//5M
 			char[] charOld = new char[1024*1024*5];
 			char[] charNew = new char[1024*1024*5];
 			FileReader fileReaderOld = new FileReader(oldFile);
@@ -65,20 +66,25 @@ public class t_ta_acktradeblotter_compare {
 			int newLength = fileReaderNew.read(charNew);
 			if(new String(charOld).equals(new String(charNew))){
 				
-				Common.logInfo("交易清算成功");
+				Common.logInfo("账户清算成功");
 				return myResponse.success();
 			}
 			String oldString = new String(charOld,0,oldLength);
+			oldString = new String(oldString.getBytes(),"GBK");
 			String newString = new String(charNew,0,newLength);
+			newString = new String(newString.getBytes(),"GBK");
 			//按照换行分割
 			String oldStringArray[] = oldString.split("\n");
 			String newStringArray[] = newString.split("\n");
 			//判断交易笔数
 			boolean isNumEqual = true;
+			String strErr = "未知错误";
 			if(oldStringArray.length != newStringArray.length){
 				isNumEqual = false;
-				Common.logError("交易笔数不同!");
-				myResponse.failed("交易笔数不同!");				
+				strErr = oldStringArray.length < newStringArray.length ? "多" : "少" ;
+				int num = oldStringArray.length > newStringArray.length ? (oldStringArray.length - newStringArray.length) : (newStringArray.length - oldStringArray.length);
+				Common.logError("账户申请清算后确认笔数不同!新版"+strErr+num+"笔");
+				myResponse.failed("账户申请清算后确认笔数不同!新版"+strErr+num+"笔");		
 			}
 			//获取最大的交易笔数
 			int stringLength = oldStringArray.length >= newStringArray.length ?oldStringArray.length : newStringArray.length;
@@ -87,24 +93,24 @@ public class t_ta_acktradeblotter_compare {
 				//按照,分割表中字段
 				//判断交易的总笔数
 				if(newStringArray.length==i){
-					Common.logError("新交易清算中没有第"+(i+1)+"笔交易!");
-					myResponse.failed("新交易清算中没有第"+(i+1)+"笔交易!");
+					Common.logError("新账户申请清算后确认数据中没有第"+(i+1)+"笔账户清算确认数据!");
+					return myResponse.failed("新账户申请清算后确认数据中没有第"+(i+1)+"笔账户清算确认数据!");
 				}
 				//判断交易的总笔数
 				if(oldStringArray.length==i){
-					Common.logError("旧交易清算中没有第"+(i+1)+"笔交易!");
-					myResponse.failed("旧交易清算中没有第"+(i+1)+"笔交易!");
+					Common.logError("旧账户申请清算后确认数据中没有第"+(i+1)+"笔账户清算确认数据!");
+					return myResponse.failed("旧账户申请清算后确认数据中没有第"+(i+1)+"笔账户清算确认数据!");
 				}
 				String[] newStringSplitArray = newStringArray[i].split(",");
 				String[] oldStringSplitArray = oldStringArray[i].split(",");
 				//判断表中的字段数目
 				if(newStringSplitArray.length != oldStringSplitArray.length ){
 					if(!isNumEqual){
-						Common.logError("没有第"+(i+1)+"笔交易!");
-						return myResponse.failed("没有第"+(i+1)+"笔交易!");
+						Common.logError("账户清算时第"+(i+1)+"笔账户清算确认"+strErr+"或发生错误!(新)");
+						return myResponse.failed("账户清算时第"+(i+1)+"笔账户清算确认"+strErr+"或发生错误!(新)");
 					}
-					Common.logError("第"+(i+1)+"笔交易发生错误,缺少字段!");
-					myResponse.failed("第"+(i+1)+"笔交易发生错误,缺少字段!");
+					Common.logError("第"+(i+1)+"笔账户清算确认发生错误,缺少字段!");
+					myResponse.failed("第"+(i+1)+"笔账户清算确认发生错误,缺少字段!");
 				}
 				//获取最大的字段数目
 				stringSplitLength = newStringSplitArray.length <= oldStringSplitArray.length ? newStringSplitArray.length : oldStringSplitArray.length;
@@ -112,11 +118,11 @@ public class t_ta_acktradeblotter_compare {
 				for(int j = 0; j < stringSplitLength; j++){
 					if( !newStringSplitArray[j].equals(oldStringSplitArray[j]) ){
 						if(!isNumEqual){
-							Common.logError("没有第"+(i+1)+"笔交易!");
-							return myResponse.failed("没有第"+(i+1)+"笔交易!");
+							Common.logError("不存在或出现错误导致第"+(i+1)+"笔账户清算确认!");
+							return myResponse.failed("不存在或出现错误导致第"+(i+1)+"笔账户清算确认!");
 						}
-						Common.logError("第"+(i+1)+"笔交易的字段"+newStringSplitArray[j]+"发生了错误");
-						myResponse.failed("第"+(i+1)+"笔交易的字段"+newStringSplitArray[j]+"发生了错误");
+						Common.logError("第"+(i+1)+"笔账户清算确认的字段"+newStringSplitArray[j]+"发生了错误(新)");
+						myResponse.failed("第"+(i+1)+"笔账户清算确认的字段"+newStringSplitArray[j]+"发生了错误(新)");
 						}
 					}
 				}
