@@ -56,7 +56,6 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		return false;
 	}
 
-
 	@Override
 	public boolean add() {
 		Common.logInfo("addA");

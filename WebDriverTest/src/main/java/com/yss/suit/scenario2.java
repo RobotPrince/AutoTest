@@ -1,7 +1,6 @@
 package com.yss.suit;
 
 import org.apache.log4j.Logger;
-import org.apache.regexp.REProgram;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -9,7 +8,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
-import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
 import com.yss.method.RiChangYunYingQingSuan;
 

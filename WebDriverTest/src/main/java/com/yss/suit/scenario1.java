@@ -8,10 +8,15 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
-import com.yss.db.t_ta_acktradeblotter_compare;
-import com.yss.db.t_ta_acktradeblotter_save;
+import com.yss.db.Compare_T_TA_ACKFDACBLOTTER;
+import com.yss.db.Compare_T_TA_ACKTRADEBLOTTER;
+import com.yss.db.Compare_T_TA_B_APPFDACBLOTTER;
+import com.yss.db.Compare_T_TA_B_APPTRADEBLOTTER;
+import com.yss.db.Save_T_TA_ACKFDACBLOTTER;
+import com.yss.db.Save_T_TA_ACKTRADEBLOTTER;
+import com.yss.db.Save_T_TA_B_APPFDACBLOTTER;
+import com.yss.db.Save_T_TA_B_APPTRADEBLOTTER;
 import com.yss.method.HeSuanJiGouXinXi;
-import com.yss.method.Login;
 
 public class scenario1 {
 	public static Logger logger = Logger.getLogger(scenario1.class);
@@ -26,10 +31,30 @@ public class scenario1 {
 	@Test(priority = 0)
 	public void login() {
 
-		new Login().login();
+	//	new Login().login();
 		Reporter.log("登录成功");
 	}
 	@Test(priority = 1)
+	public void save_T_TA_ACKFDACBLOTTER() throws InterruptedException {
+		//账户确认表
+		new Save_T_TA_ACKFDACBLOTTER().save_T_TA_ACKFDACBLOTTER();
+		new Compare_T_TA_ACKFDACBLOTTER().compare_T_TA_ACKFDACBLOTTER();
+		
+		//交易确认表
+		new Save_T_TA_ACKTRADEBLOTTER().save_T_TA_ACKTRADEBLOTTER();
+		new Compare_T_TA_ACKTRADEBLOTTER().compare_T_TA_ACKTRADEBLOTTER();
+		
+		//账户申请表
+		new Save_T_TA_B_APPFDACBLOTTER().save_T_TA_B_APPFDACBLOTTER();
+		new Compare_T_TA_B_APPFDACBLOTTER().compare_T_TA_B_APPFDACBLOTTER();
+		
+		//交易申请表
+		new Save_T_TA_B_APPTRADEBLOTTER().save_T_TA_B_APPTRADEBLOTTER();
+		new Compare_T_TA_B_APPTRADEBLOTTER().compare_T_TA_B_APPTRADEBLOTTER();
+		//new HeSuanJiGouXinXi().add();
+		//Reporter.log("核算机构信息-新增成功");
+	}
+	//@Test(priority = 1)
 	public void HeSuanJiGouXinXiAdd() throws InterruptedException {
 		
 		new HeSuanJiGouXinXi().before();
