@@ -44,6 +44,10 @@ public class Compare_T_TA_ACKTRADEBLOTTER {
 				return myResponse.failed("文件格式不正确"+fileTimeList[i]);
 			}
 		}
+		if(fileList.length<2){
+			Common.logError("不存在两个以上文件，无法比较");
+			return myResponse.failed("不存在两个以上文件，无法比较");
+		}
 		//按照文件名称的时间排序
 		Arrays.sort(fileTimeList);
 		// 根据long类型的毫秒数生命一个date类型的时间

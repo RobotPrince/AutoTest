@@ -7,8 +7,8 @@
 		</listeners>
 	<test name="yss_auto_test" enabled="true" >
 		<classes >
-			<class name="com.yss.suit.scenario1" />
-<!-- 			<class name="com.yss.suit.scenario2" /> -->
+<!-- 			<class name="com.yss.suit.scenario1" /> -->
+			<class name="com.yss.suit.scenario2" />
 		</classes>
 	</test>
 </suite>

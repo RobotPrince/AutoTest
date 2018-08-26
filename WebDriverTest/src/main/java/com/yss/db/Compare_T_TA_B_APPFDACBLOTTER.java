@@ -34,6 +34,10 @@ public class Compare_T_TA_B_APPFDACBLOTTER {
 		File dir = new File("E://T_TA_B_APPFDACBLOTTER/");
 		//获取文件夹下所有文件名称
 		String[] fileList = dir.list();
+		if(fileList.length<2){
+			Common.logError("不存在两个以上文件，无法比较");
+			return myResponse.failed("不存在两个以上文件，无法比较");
+		}
 		long[] fileTimeList = new long[fileList.length];
 		for(int i = 0; i< fileList.length; i++){
 			try {
