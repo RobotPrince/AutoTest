@@ -49,6 +49,7 @@ public class ReadFromExcel {
 		readForWebElements();
 		readForHeSuanJiGouXinXi();
 		readForLoginPage();
+		readForRiChangYunYingQingSuan();
 	}
 	/**
 	 * HashMap(PageEnum, HashMap(String, List(String))) hashMapOfExcel-所有页面元素
@@ -170,6 +171,53 @@ public class ReadFromExcel {
 				linkedHashMap.put(HeSuanJiGouXinXiEnum.ISCHECKED, ischecked);
 				// 放入全局变量dataForLoginPageFromExcel中
 				dataForHeSuanJiGouFromExcel.add(linkedHashMap);
+			}
+
+		} catch (Exception e) {
+			Common.logError(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	/**
+	 * readForRiChangYunYingQingSuan-日常运营清算
+	 * @return
+	 */
+	public boolean readForRiChangYunYingQingSuan(){
+		Common.logInfo("readForRiChangYunYingQingSuan");
+		
+		try {
+			Workbook book = Workbook.getWorkbook(new File(
+					"./testcase/TestCase.xls"));
+			// 获得Login_page工作表对象
+			Sheet[] sheets = book.getSheets();
+			Sheet sheet = null;
+			for (Sheet s : sheets) {
+				if ("richangyunyingqingsuan".equals(s.getName())) {
+					sheet = s;
+				}
+			}
+			if (sheet == null) {
+				Common.logError("readForRiChangYunYingQingSuan error,the richangyunyingqingsuan sheet not exit!");
+				return false;
+			}
+			// 获取sheet的所有行数
+			int rows = sheet.getRows();
+
+			for (int r = 2; r < rows; r++) {
+				LinkedHashMap<RiChangYunYingQingSuanEnum, String> linkedHashMap = new LinkedHashMap<RiChangYunYingQingSuanEnum, String>();
+				// 取出第一行数据的所有数据
+				String qingsuanriqi = sheet.getCell(1, r).getContents();
+				String xuanzedaoruriqi = sheet.getCell(2, r).getContents();
+				String xuanzedaoruxiaoshoujigou = sheet.getCell(3, r).getContents();
+				String daorufangshi = sheet.getCell(4, r).getContents();
+				
+				linkedHashMap.put(RiChangYunYingQingSuanEnum.QINGSUANRIQI, qingsuanriqi);
+				linkedHashMap.put(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI, xuanzedaoruriqi);
+				linkedHashMap.put(RiChangYunYingQingSuanEnum.XUANZEDAORUXIAOSHOUJIGOU, xuanzedaoruxiaoshoujigou);
+				linkedHashMap.put(RiChangYunYingQingSuanEnum.DAORUFANGSHI, daorufangshi);
+				// 放入全局变量dataForLoginPageFromExcel中
+				dataForRiChangYunYingFromExcel.add(linkedHashMap);
 			}
 
 		} catch (Exception e) {

@@ -179,16 +179,19 @@ public class Common {
 			return myResponse.failed("getWebElement failed");
 		}
 		//下拉列表点击
-		myResponse = Common.getWebElementOld(".//div[@class='x-combo-list-inner']//*[text()='"+val+"']/..", "Xpath");
-		if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
-			logError("get Webelement of"+".//div[@class='x-combo-list-inner']//*[text()='"+val+"']/.." +"failed");
-			return myResponse.failed("getWebElement failed");
-		}
-		
-		myResponse = Common.click((WebElement)myResponse.get("ele"));
-		if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
-			logError("clilck Webelement of"+".//div[@class='x-combo-list-inner']//*[text()='"+val+"']/.." +"failed");
-			return myResponse.failed("getWebElement failed");
+		String valArray[] = val.split("\\|");
+		for(String str : valArray ){
+			myResponse = Common.getWebElementOld(".//div[@class='x-combo-list-inner']//*[contains(text(),'"+str+"')]/..", "Xpath");
+			if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
+				logError("get Webelement of"+".//div[@class='x-combo-list-inner']//*[contains(text(),'"+str+"')]/.." +"failed");
+				return myResponse.failed("getWebElement failed");
+			}
+			
+			myResponse = Common.click((WebElement)myResponse.get("ele"));
+			if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
+				logError("clilck Webelement of"+".//div[@class='x-combo-list-inner']//*[contains(text(),'"+str+"')]/.." +"failed");
+				return myResponse.failed("getWebElement failed");
+			}
 		}
 		
 //		//选择下拉列表，点击
@@ -287,6 +290,7 @@ public class Common {
 
 		logInfo("setParameter");
 		MyResponse myResponse = new MyResponse();
+		click(element);
 		if (!element.isDisplayed()) {
 			logError("Element can't setParameter for" + element + " in "
 					+ Thread.currentThread().getStackTrace()[2].getClassName());
@@ -795,6 +799,10 @@ public class Common {
 		 * 点击复选框选中项目
 		 */
 		ITEM_CHECKBOX,
+		/**
+		 * 刷新
+		 */
+		REFRESH,
 		/**
 		 * 编辑
 		 */
