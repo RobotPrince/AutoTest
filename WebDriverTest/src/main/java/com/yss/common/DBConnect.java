@@ -25,11 +25,13 @@ public class DBConnect {
 		}
 		//获取数据库连接
 		try {
+//			con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.103.123:1521:orcl", "yss_ta", "yss_ta");
 			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "yss_ta", "yss_ta");
 		} catch (SQLException e) {
 			
 			Logger.getLogger(DBConnect.class).error("连接数据库失败");
 			e.printStackTrace();
+			return null;
 		}
 		Logger.getLogger(DBConnect.class).info("连接数据库成功");
 		return con;
