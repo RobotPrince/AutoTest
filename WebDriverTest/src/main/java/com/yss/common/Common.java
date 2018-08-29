@@ -702,7 +702,7 @@ public class Common {
 	public static boolean waitForElement( final By elementLocator) {
 		Common.logInfo("waitForElement");
         try {
-            WebDriverWait driverWait = (WebDriverWait) new WebDriverWait(driver, 5, 500).ignoring(StaleElementReferenceException.class).withMessage("元素在10秒内没有出现!");
+            WebDriverWait driverWait = (WebDriverWait) new WebDriverWait(driver, 20, 500).ignoring(StaleElementReferenceException.class).withMessage("元素在10秒内没有出现!");
             return driverWait.until(new ExpectedCondition<Boolean>() {
 
                 public Boolean apply(WebDriver driver) {

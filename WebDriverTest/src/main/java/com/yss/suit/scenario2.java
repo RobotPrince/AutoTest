@@ -1,5 +1,7 @@
 package com.yss.suit;
 
+import java.sql.SQLException;
+
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -31,7 +33,7 @@ public class scenario2 {
 	 * 将这条测试流所用到的方法写在这里
 	 * 如：1.登陆 2.开户 3.申购
 	 */
-	@Test(priority = 0)
+//	@Test(priority = 0)
 	public void login() {
 
 		if(!new Login().login()){
@@ -39,7 +41,7 @@ public class scenario2 {
 			Assert.fail("登录失败");
 		}
 	}
-	@Test(priority = 1)
+//	@Test(priority = 1)
 	public void biefore() throws InterruptedException {
 		
 		if( !new RiChangYunYingQingSuan().before() ){
@@ -71,7 +73,7 @@ public class scenario2 {
 			Reporter.log("日常运营清算-净值导出自动化页面程序成功");
 		}
 	}
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	public void shenqingshujudaoru() throws InterruptedException {
 
 		if(!new RiChangYunYingQingSuan().shenqingshujudaoru()){
@@ -82,7 +84,7 @@ public class scenario2 {
 			Reporter.log("日常运营清算-申请数据导入自动化页面程序成功");
 		}
 	}
-	@Test(priority = 5)
+//	@Test(priority = 5)
 	public void zhanghujiancha() throws InterruptedException {
 		
 		if(! new RiChangYunYingQingSuan().zhanghujiancha() ){
@@ -94,7 +96,7 @@ public class scenario2 {
 			Reporter.log("日常运营清算-账户检查自动化页面程序成功");
 		}
 	}
-	@Test(priority = 6)
+//	@Test(priority = 6)
 	public void zhanghuqingsuan() throws InterruptedException {
 		
 		if ( !new RiChangYunYingQingSuan().zhanghuqingsuan() ){
@@ -106,7 +108,7 @@ public class scenario2 {
 		}
 	}
 	
-	@Test(priority = 7)
+	//@Test(priority = 7)
 	public void jiaoyijiancha() throws InterruptedException {
 		
 		if(!new RiChangYunYingQingSuan().jiaoyijiancha()){
@@ -118,7 +120,7 @@ public class scenario2 {
 		}
 	}
 
-	@Test(priority = 8)
+//	@Test(priority = 8)
 	public void jiaoyiqingsuan() throws InterruptedException {
 		
 		
@@ -131,7 +133,7 @@ public class scenario2 {
 			Reporter.log("日常运营清算-交易清算自动化页面程序成功");
 		}
 	}
-	@Test(priority = 9)
+//	@Test(priority = 9)
 	public void querenshujudaochu() throws InterruptedException {
 		
 		
@@ -144,7 +146,7 @@ public class scenario2 {
 			Reporter.log("日常运营清算-确认数据导出自动化页面程序成功");
 		}
 	}
-	@Test(priority = 10)
+	//@Test(priority = 10)
 	public void rizhongqueren() throws InterruptedException {
 		
 		
@@ -157,36 +159,36 @@ public class scenario2 {
 			Reporter.log("日常运营清算-日终确认自动化页面程序成功");
 		}
 	}
-	@Test(priority = 11)
-	public void save() throws InterruptedException{
+//	@Test(priority = 11)
+	public void save() throws InterruptedException, SQLException{
 		String errorMes = null;
-		MyResponse T_TA_B_APPFDACBLOTTERRes = new Save_T_TA_B_APPFDACBLOTTER().save_T_TA_B_APPFDACBLOTTER();
-		if((int)T_TA_B_APPFDACBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
-			
-			Reporter.log("日常运营清算-账户检查数据库读表失败"+T_TA_B_APPFDACBLOTTERRes.getMessage());
-			errorMes = "日常运营清算-账户检查数据库读表失败"+T_TA_B_APPFDACBLOTTERRes.getMessage();
-		}else{
-			
-			Reporter.log("日常运营清算-账户检查数据库读表成功");
-		}
-		MyResponse T_TA_ACKFDACBLOTTERRes =  new Save_T_TA_ACKFDACBLOTTER().save_T_TA_ACKFDACBLOTTER();
-		if((int)T_TA_ACKFDACBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
-			
-			Reporter.log("日常运营清算-账户检查数据库读表失败"+T_TA_ACKFDACBLOTTERRes.getMessage());
-			errorMes += "\n日常运营清算-账户清算数据库读表失败"+T_TA_ACKFDACBLOTTERRes.getMessage();
-		}else{
-			
-			Reporter.log("日常运营清算-账户清算数据库读表成功");
-		}
-		MyResponse T_TA_B_APPTRADEBLOTTERRes= new Save_T_TA_B_APPTRADEBLOTTER().save_T_TA_B_APPTRADEBLOTTER();
-		if((int)T_TA_B_APPTRADEBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
-			
-			Reporter.log("日常运营清算-交易检查数据库读表失败"+T_TA_B_APPTRADEBLOTTERRes.getMessage());
-			errorMes += "\n日常运营清算-交易检查数据库读表失败"+T_TA_B_APPTRADEBLOTTERRes.getMessage();
-		}else{
-			
-			Reporter.log("日常运营清算-交易检查数据库读表成功");
-		}
+//		MyResponse T_TA_B_APPFDACBLOTTERRes = new Save_T_TA_B_APPFDACBLOTTER().save_T_TA_B_APPFDACBLOTTER();
+//		if((int)T_TA_B_APPFDACBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			
+//			Reporter.log("日常运营清算-账户检查数据库读表失败"+T_TA_B_APPFDACBLOTTERRes.getMessage());
+//			errorMes = "日常运营清算-账户检查数据库读表失败"+T_TA_B_APPFDACBLOTTERRes.getMessage();
+//		}else{
+//			
+//			Reporter.log("日常运营清算-账户检查数据库读表成功");
+////		}
+//		MyResponse T_TA_ACKFDACBLOTTERRes =  new Save_T_TA_ACKFDACBLOTTER().save_T_TA_ACKFDACBLOTTER();
+//		if((int)T_TA_ACKFDACBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			
+//			Reporter.log("日常运营清算-账户检查数据库读表失败"+T_TA_ACKFDACBLOTTERRes.getMessage());
+//			errorMes += "\n日常运营清算-账户清算数据库读表失败"+T_TA_ACKFDACBLOTTERRes.getMessage();
+//		}else{
+//			
+//			Reporter.log("日常运营清算-账户清算数据库读表成功");
+//		}
+//		MyResponse T_TA_B_APPTRADEBLOTTERRes= new Save_T_TA_B_APPTRADEBLOTTER().save_T_TA_B_APPTRADEBLOTTER();
+//		if((int)T_TA_B_APPTRADEBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			
+//			Reporter.log("日常运营清算-交易检查数据库读表失败"+T_TA_B_APPTRADEBLOTTERRes.getMessage());
+//			errorMes += "\n日常运营清算-交易检查数据库读表失败"+T_TA_B_APPTRADEBLOTTERRes.getMessage();
+//		}else{
+//			
+//			Reporter.log("日常运营清算-交易检查数据库读表成功");
+//		}
 		MyResponse T_TA_ACKTRADEBLOTTERRes = new Save_T_TA_ACKTRADEBLOTTER().save_T_TA_ACKTRADEBLOTTER();
 		if((int)T_TA_ACKTRADEBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
 			
@@ -203,34 +205,34 @@ public class scenario2 {
 	@Test(priority = 12)
 	public void compare() throws InterruptedException{
 		String errorMes = null;
-		MyResponse T_TA_B_APPFDACBLOTTERRes = new Compare_T_TA_B_APPFDACBLOTTER().compare_T_TA_B_APPFDACBLOTTER();
-		if((int)T_TA_B_APPFDACBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
-			
-			Reporter.log("日常运营清算-账户检查数据库比较失败"+T_TA_B_APPFDACBLOTTERRes.getMessage());
-			errorMes += "日常运营清算-账户检查数据库比较失败"+T_TA_B_APPFDACBLOTTERRes.getMessage();
-		}else{
-			
-			Reporter.log("日常运营清算-账户检查数据库比较成功");
-		}
-		MyResponse T_TA_ACKFDACBLOTTERRes =  new Compare_T_TA_ACKFDACBLOTTER().compare_T_TA_ACKFDACBLOTTER();
-		if((int)T_TA_ACKFDACBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
-			
-			Reporter.log("日常运营清算-账户清算数据库比较失败"+T_TA_ACKFDACBLOTTERRes.getMessage());
-			errorMes += "\n日常运营清算-账户清算数据库比较失败"+T_TA_ACKFDACBLOTTERRes.getMessage();
-		}else{
-			
-			Reporter.log("日常运营清算-账户清算数据库比较成功");
-		}
-		MyResponse T_TA_B_APPTRADEBLOTTERRes= new Compare_T_TA_B_APPTRADEBLOTTER().compare_T_TA_B_APPTRADEBLOTTER();
-		if((int)T_TA_B_APPTRADEBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
-			
-			Reporter.log("日常运营清算-交易检查数据库比较失败"+T_TA_B_APPTRADEBLOTTERRes.getMessage());
-			errorMes += "\n日常运营清算-交易检查数据库比较失败"+T_TA_B_APPTRADEBLOTTERRes.getMessage();
-		}else{
-			
-			Reporter.log("日常运营清算-交易检查数据库比较成功");
-		}
-		MyResponse T_TA_ACKTRADEBLOTTERRes = new Compare_T_TA_ACKTRADEBLOTTER().compare_T_TA_ACKTRADEBLOTTER();
+//		MyResponse T_TA_B_APPFDACBLOTTERRes = new Compare_T_TA_B_APPFDACBLOTTER().compare_T_TA_B_APPFDACBLOTTER();
+//		if((int)T_TA_B_APPFDACBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			
+//			Reporter.log("日常运营清算-账户检查数据库比较失败"+T_TA_B_APPFDACBLOTTERRes.getMessage());
+//			errorMes += "日常运营清算-账户检查数据库比较失败"+T_TA_B_APPFDACBLOTTERRes.getMessage();
+//		}else{
+//			
+//			Reporter.log("日常运营清算-账户检查数据库比较成功");
+//		}
+//		MyResponse T_TA_ACKFDACBLOTTERRes =  new Compare_T_TA_ACKFDACBLOTTER().compare_T_TA_ACKFDACBLOTTER_V2();
+//		if((int)T_TA_ACKFDACBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			
+//			Reporter.log("日常运营清算-账户清算数据库比较失败"+T_TA_ACKFDACBLOTTERRes.getMessage());
+//			errorMes += "\n日常运营清算-账户清算数据库比较失败"+T_TA_ACKFDACBLOTTERRes.getMessage();
+//		}else{
+//			
+//			Reporter.log("日常运营清算-账户清算数据库比较成功");
+//		}
+//		MyResponse T_TA_B_APPTRADEBLOTTERRes= new Compare_T_TA_B_APPTRADEBLOTTER().compare_T_TA_B_APPTRADEBLOTTER();
+//		if((int)T_TA_B_APPTRADEBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			
+//			Reporter.log("日常运营清算-交易检查数据库比较失败"+T_TA_B_APPTRADEBLOTTERRes.getMessage());
+//			errorMes += "\n日常运营清算-交易检查数据库比较失败"+T_TA_B_APPTRADEBLOTTERRes.getMessage();
+//		}else{
+//			
+//			Reporter.log("日常运营清算-交易检查数据库比较成功");
+//		}
+		MyResponse T_TA_ACKTRADEBLOTTERRes = new Compare_T_TA_ACKTRADEBLOTTER().compare_T_TA_ACKTRADEBLOTTER_V2();
 		if((int)T_TA_ACKTRADEBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
 			
 			Reporter.log("日常运营清算-交易清算数据库比较失败"+T_TA_ACKTRADEBLOTTERRes.getMessage());
