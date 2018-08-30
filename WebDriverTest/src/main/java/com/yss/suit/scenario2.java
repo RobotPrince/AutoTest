@@ -152,11 +152,11 @@ public class scenario2 {
 			Reporter.log("日常运营清算-日终确认自动化页面程序成功");
 		}
 	}
-	@Test(priority =11 )
-	public void save(){
-		String errorMes = null;
-		MyResponse myResponse = new SaveTable().saveAllTables();
-	}
+//	@Test(priority =11 )
+//	public void save(){
+//		String errorMes = null;
+//		MyResponse myResponse = new SaveTable().saveAllTables();
+//	}
 
 //	@Test(priority = 11)
 //	public void save() throws InterruptedException, SQLException{

@@ -35,7 +35,7 @@ public class CompareTable {
 	}
 
 	private MyResponse compare(Tables table){ 
-		Common.logInfo("compare");
+		Common.logInfo("compare-"+table);
 		
 		MyResponse myResponse = new MyResponse();
 		String primaryKey = table.getPrimary();
@@ -81,7 +81,7 @@ public class CompareTable {
 			//若两表完全相同，则直接成功退出
 			if(new String(charOld).equals(new String(charNew))){
 				
-				Common.logInfo(table+"成功");
+				Common.logInfo(table+"比较成功");
 				return myResponse.success();
 			}
 			String oldString = new String(charOld,0,oldLength);
@@ -107,7 +107,7 @@ public class CompareTable {
 		    Set<String> newKeySet = newMap.keySet();
 		    List<String> newTempArray = new ArrayList<>(newKeySet);
 		    //缺少的数据的primary key
-		    String missRow = null;
+		    String missRow = new String();
 		    
 		    for(String oldKey : oldKeySet){
 		    	//判断新版本是否少整条数据
@@ -149,6 +149,7 @@ public class CompareTable {
 		    	}
 		    }
 		}catch(Exception e){
+			System.out.println(e);
 			Common.logError("程序发生错误，获取文件失败"+oldFile.getName()+" or "+newFile.getName());
 			myResponse.put("msg",myResponse.get("msg")+"\n程序发生错误，获取文件失败");
 			return myResponse.failed((String)myResponse.get("msg"));
