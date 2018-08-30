@@ -1,7 +1,5 @@
 package com.yss.suit;
 
-import java.sql.SQLException;
-
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -12,15 +10,9 @@ import org.testng.annotations.Test;
 
 import com.yss.common.Common;
 import com.yss.common.MyResponse;
-import com.yss.db.Compare_T_TA_ACKFDACBLOTTER;
+import com.yss.db.CompareTable;
 import com.yss.db.Compare_T_TA_ACKTRADEBLOTTER;
-import com.yss.db.Compare_T_TA_B_APPFDACBLOTTER;
-import com.yss.db.Compare_T_TA_B_APPTRADEBLOTTER;
 import com.yss.db.SaveTable;
-import com.yss.db.Save_T_TA_ACKFDACBLOTTER;
-import com.yss.db.Save_T_TA_ACKTRADEBLOTTER;
-import com.yss.db.Save_T_TA_B_APPFDACBLOTTER;
-import com.yss.db.Save_T_TA_B_APPTRADEBLOTTER;
 import com.yss.method.Login;
 import com.yss.method.RiChangYunYingQingSuan;
 
@@ -163,8 +155,9 @@ public class scenario2 {
 	@Test(priority =11 )
 	public void save(){
 		String errorMes = null;
-		MyResponse T_TA_B_APPFDACBLOTTERRes = new SaveTable().saveAllTables();
+		MyResponse myResponse = new SaveTable().saveAllTables();
 	}
+
 //	@Test(priority = 11)
 //	public void save() throws InterruptedException, SQLException{
 //		String errorMes = null;
@@ -208,9 +201,14 @@ public class scenario2 {
 //			Assert.fail(errorMes);
 //		}
 //	}
-	@Test(priority = 12)
-	public void compare() throws InterruptedException{
-		String errorMes = "";
+	@Test(priority =12 )
+	public void compare(){
+		String errorMes = null;
+		MyResponse myResponse = new CompareTable().compareAllTables();
+	}
+//	@Test(priority = 12)
+//	public void compare() throws InterruptedException{
+//		String errorMes = "";
 //		MyResponse T_TA_B_APPFDACBLOTTERRes = new Compare_T_TA_B_APPFDACBLOTTER().compare_T_TA_B_APPFDACBLOTTER();
 //		if((int)T_TA_B_APPFDACBLOTTERRes.get(MyResponse.STATUS) == MyResponse.FAILED){
 //			
@@ -238,19 +236,19 @@ public class scenario2 {
 //			
 //			Reporter.log("日常运营清算-交易检查数据库比较成功");
 //		}
-		MyResponse T_TA_ACKTRADEBLOTTERRes = new Compare_T_TA_ACKTRADEBLOTTER().compare_T_TA_ACKTRADEBLOTTER();
-		if((String)T_TA_ACKTRADEBLOTTERRes.get("msg") != null){
-			
-			Reporter.log("日常运营清算-交易清算数据库比较失败"+T_TA_ACKTRADEBLOTTERRes.get("msg"));
-			errorMes += "日常运营清算-交易清算数据库比较失败"+T_TA_ACKTRADEBLOTTERRes.get("msg");
-		}else{
-			
-			Reporter.log("日常运营清算-交易清算数据库比较成功");
-		}
-		if(!errorMes.equals("")){
-			Assert.fail(errorMes);
-		}
-	}
+//		MyRESPONSE T_TA_ACKTRADEBLOTTERRES = NEW COMPARE_T_TA_ACKTRADEBLOTTER().COMPARE_T_TA_ACKTRADEBLOTTER();
+//		IF((STRING)T_TA_ACKTRADEBLOTTERRES.GET("MSG") != NULL){
+//			
+//			REPORTER.LOG("日常运营清算-交易清算数据库比较失败"+T_TA_ACKTRADEBLOTTERRES.GET("MSG"));
+//			ERRORMES += "日常运营清算-交易清算数据库比较失败"+T_TA_ACKTRADEBLOTTERRES.GET("MSG");
+//		}ELSE{
+//			
+//			REPORTER.LOG("日常运营清算-交易清算数据库比较成功");
+//		}
+//		IF(!ERRORMES.EQUALS("")){
+//			ASSERT.FAIL(ERRORMES);
+//		}
+//	}
 	@BeforeClass
 	public void beforeClass() {
 
