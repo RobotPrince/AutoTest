@@ -33,7 +33,7 @@ public class SaveTable {
 		return myResponse;
 	}
 	private MyResponse saveTable(Tables t){
-		Common.logInfo("SaveTable");
+		Common.logInfo("SaveTable-"+t);
 		
 		MyResponse myResponse = new MyResponse();
 		//获取数据表名称
