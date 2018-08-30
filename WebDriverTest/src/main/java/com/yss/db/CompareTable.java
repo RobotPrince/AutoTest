@@ -3,14 +3,12 @@ package com.yss.db;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,9 +19,17 @@ import net.sf.json.JSONObject;
 import com.yss.common.Common;
 import com.yss.common.MyResponse;
 
-public class Compare_T_TA_ACKTRADEBLOTTER {
+public class CompareTable {
+	
+	public MyResponse compareAllTables(){
+		MyResponse myResponse = new MyResponse();
+		
+		return myResponse;
+	}
 
-	public MyResponse compare_T_TA_ACKTRADEBLOTTER(){
+	private MyResponse compare(Map<String,String> map){
+		Common.logInfo("compare");
+		
  		MyResponse myResponse = new MyResponse();
 		SimpleDateFormat sdf  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		File dir = new File("E://T_TA_ACKTRADEBLOTTER/");
