@@ -22,17 +22,26 @@ import com.yss.common.MyResponse;
 public class CompareTable {
 	
 	public MyResponse compareAllTables(){
-		MyResponse myResponse = new MyResponse();
+		Common.logInfo("compareAllTables");
 		
+		MyResponse myResponse = new MyResponse();
+		//获取全部数据表
+		Tables[] values = Tables.values();
+		for(Tables t : values){
+			compare(t);
+		}
+		SimpleDateFormat sdf  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		return myResponse;
 	}
 
-	private MyResponse compare(Map<String,String> map){
+	private MyResponse compare(Tables table){ 
 		Common.logInfo("compare");
 		
- 		MyResponse myResponse = new MyResponse();
+		MyResponse myResponse = new MyResponse();
+		String primaryKey = table.getPrimary();
+		List<String> keyList = table.getList();
 		SimpleDateFormat sdf  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-		File dir = new File("E://T_TA_ACKTRADEBLOTTER/");
+		File dir = new File("E://DB_Save/"+table+"/");
 		//获取文件夹下所有文件名称
 		String[] fileList = dir.list();
 		long[] fileTimeList = new long[fileList.length];
@@ -41,8 +50,8 @@ public class CompareTable {
 				//将文件名称中的时间转换成long类型
 				fileTimeList[i] = sdf.parse(fileList[i].split("-")[1]).getTime();
 			} catch (ParseException e) {
-				Common.logError("文件格式不正确"+fileTimeList[i]);
-				return myResponse.failed("文件格式不正确"+fileTimeList[i]);
+				Common.logError("文件名称格式不正确"+fileTimeList[i]);
+				return myResponse.failed("文件名称格式不正确"+fileTimeList[i]);
 			}
 		}
 		if(fileList.length<2){
@@ -58,8 +67,8 @@ public class CompareTable {
 		String oldTime = sdf.format(dateOld);
 		String newTime = sdf.format(dateNew);
 		
-		File oldFile = new File("E://T_TA_ACKTRADEBLOTTER/T_TA_ACKTRADEBLOTTER-"+oldTime+".json");
-		File newFile = new File("E://T_TA_ACKTRADEBLOTTER/T_TA_ACKTRADEBLOTTER-"+newTime+".json");
+		File oldFile = new File("E://DB_Save/"+table+"/"+table+"-"+oldTime+".json");
+		File newFile = new File("E://DB_Save/"+table+"/"+table+"-"+newTime+".json");
 		try {
 			//50M
 			char[] charOld = new char[1024*1024*50];
@@ -69,9 +78,10 @@ public class CompareTable {
 			BufferedReader newReader = new BufferedReader (new InputStreamReader (new FileInputStream (newFile),"utf-8"));
 			int oldLength = oldReader.read(charOld);
 			int newLength = newReader.read(charNew);
+			//若两表完全相同，则直接成功退出
 			if(new String(charOld).equals(new String(charNew))){
 				
-				Common.logInfo("交易清算成功");
+				Common.logInfo(table+"成功");
 				return myResponse.success();
 			}
 			String oldString = new String(charOld,0,oldLength);
@@ -83,7 +93,7 @@ public class CompareTable {
 			//String 转Json
             JSONObject oldJson = JSONObject.fromObject(oldString);
             JSONObject newJson = JSONObject.fromObject(newString);
-            //循环外层Map，取出确认流水号FACKNO对应的交易
+            //循环外层Map，取出Primary对应的交易
             for (Object k : oldJson.keySet()) {
                 Map v = (Map) oldJson.get(k);
                 oldMap.put(k.toString(), v);
@@ -96,47 +106,45 @@ public class CompareTable {
 		    Set<String> oldKeySet = oldMap.keySet();
 		    Set<String> newKeySet = newMap.keySet();
 		    List<String> newTempArray = new ArrayList<>(newKeySet);
-		    //缺少的交易的确认流水号
-		    String missTradeFACKNO = null;
-//		    //多出的交易的确认流水号
-//		    String overTradeFACKNO = null;
+		    //缺少的数据的primary key
+		    String missRow = null;
 		    
 		    for(String oldKey : oldKeySet){
-		    	//判断新版本是否少交易
+		    	//判断新版本是否少整条数据
 		    	if(!newTempArray.contains(oldKey)){
-		    		missTradeFACKNO = oldKey;
-		    		Common.logError("新交易申请清算后确认数据中没有确认流水号FACKNO为"+oldKey+"的交易清算确认数据!");
-		    		myResponse.put("msg","\n新交易申请清算后确认数据中没有确认流水号FACKNO为"+oldKey+"的交易清算确认数据!");
+		    		missRow = oldKey;
+		    		Common.logError(table+"中不存在"+primaryKey+":"+oldKey+"的该条数据!");
+		    		myResponse.put("msg","\n"+table+"中不存在"+primaryKey+":"+oldKey+"的该条数据!");
 		    	}
 		    	else{
-		    		//若在新版中找到该笔交易，则移除
+		    		//若在新版中找到该条数据，则移除
 			    	newTempArray.remove( oldKey);
 		    	}
 		    }
-		    //判断新版本是否多交易
+		    //判断新版本是否多整条数据
 		    if(!newTempArray.isEmpty()){
 		    	for( Object key : newTempArray ){
-		    		Common.logError("新交易申请清算后确认数据中多出确认流水号FACKNO为"+key+"的交易清算确认数据!");
-		    		myResponse.put("msg",myResponse.get("msg")+"\n新交易申请清算后确认数据中多出确认流水号FACKNO为"+key+"的交易清算确认数据!!");
+		    		Common.logError(table+"中多出"+primaryKey+":"+key+"的该条数据!");
+		    		myResponse.put("msg",myResponse.get("msg")+"\n"+table+"中多出"+primaryKey+":"+key+"的该条数据!");
 		    	}
 		    }
 		    //将keyset还原
 		    newKeySet = newMap.keySet();
 
-		    //获取所有交易
+		    //获取全部
 		    for( String set : oldKeySet ){
-		    	//若该笔交易缺失，不必计较
-		    	if( missTradeFACKNO.equals(set) ){
+		    	//若该条数据缺失，不必比较
+		    	if( missRow.equals(set) ){
 		    		continue;
 		    	}
 		    	//获取所有字段
 		    	Map oldItem = (Map)oldMap.get(set);
 		    	Map newItem = (Map)newMap.get(set);
-		    	for(String key: Save_T_TA_ACKFDACBLOTTER.KEY){
+		    	for(String key: keyList){
 		    		//判断新旧两版对应字段的值是否相同
 		    		if( !(oldItem.get(key) == newItem.get(key) || oldItem.get(key).equals(newItem.get(key)))){
-		    			Common.logError("交易申请清算后确认数据中确认流水号FACKNO为"+set+"的字段为"+key+"发生了错误(新"+newItem.get(key)+", 旧"+oldItem.get(key)+")");
-		    			myResponse.put("msg",myResponse.get("msg")+"\n交易申请清算后确认数据中确认流水号FACKNO为"+set+"的字段为"+key+"发生了错误(新"+newItem.get(key)+", 旧"+oldItem.get(key)+")");
+		    			Common.logError(table+"表中"+primaryKey+"为"+set+"的该条数据中字段为"+key+"处发生了错误(新"+newItem.get(key)+", 旧"+oldItem.get(key)+")");
+		    			myResponse.put("msg",table+"表中"+primaryKey+"为"+set+"的该条数据中字段为"+key+"处发生了错误(新"+newItem.get(key)+", 旧"+oldItem.get(key)+")");
 		    		}
 		    	}
 		    }

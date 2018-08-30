@@ -41,7 +41,7 @@ public class SaveTable {
 		//获取所有的字段名称
 		List<String> keyList = t.getList();
 		//获取唯一标识
-		String primaryKey = t.getUnique();
+		String primaryKey = t.getPrimary();
 		
 		Connection con = DBConnect.getConnection();
 		String allJson = new String();

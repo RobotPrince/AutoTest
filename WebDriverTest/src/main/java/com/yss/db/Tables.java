@@ -107,18 +107,22 @@ public enum Tables {
 	*净值导入表,
 	**/
 	T_PD_I_NAV_IN(Keys.T_PD_I_NAV_IN_keys,"FID"),
-	/**
-	*净值导出表,
-	**/
-	T_PD_I_NAV_OUT(Keys.T_PD_I_NAV_OUT_keys,"FID"),
+	
+	//FIXME:数据库里不存在这张表
+//	/**
+//	*净值导出表,
+//	**/
+//	T_PD_I_NAV_OUT(Keys.T_PD_I_NAV_OUT_keys,"FID"),
 	/**
 	*净值补充数据导入表,
 	**/
 	T_PD_I_NAVADD_IN(Keys.T_PD_I_NAVADD_IN_keys,"FID"),
-	/**
-	*净值补充数据导入表,
-	**/
-	T_PD_I_NAVADD_OUT(Keys.T_PD_I_NAVADD_OUT_keys,"FID"),
+	
+	//FIXME:数据库里不存在这张表
+//	/**
+//	*净值补充数据导入表,
+//	**/
+//	T_PD_I_NAVADD_OUT(Keys.T_PD_I_NAVADD_OUT_keys,"FID"),
 	/**
 	*赎回核算数据导出表,
 	**/
@@ -155,10 +159,12 @@ public enum Tables {
 	*申请号确认号对应关系表
 	**/
 	T_TA_APPNOACKNOREF(Keys.T_TA_APPNOACKNOREF_keys,"FID"),
-	/**
-	*余额构成
-	**/
-	T_TA_BALCONS(Keys.T_TA_BALCONS_keys,"FID"),
+	
+	//FIXME:数据库里不存在这张表
+//	/**
+//	*余额构成
+//	**/
+//	T_TA_BALCONS(Keys.T_TA_BALCONS_keys,"FID"),
 	/**
 	*余额构成流水
 	**/
@@ -205,7 +211,7 @@ public enum Tables {
 	public List<String> getList(){
 		return this.list;
 	}
-	public String getUnique(){
+	public String getPrimary(){
 		return this.i;
 	}
 
