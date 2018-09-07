@@ -209,11 +209,13 @@ public class ReadFromExcel {
 				// 取出第一行数据的所有数据
 				String qingsuanriqi = sheet.getCell(1, r).getContents();
 				String xuanzedaoruriqi = sheet.getCell(2, r).getContents();
-				String xuanzedaoruxiaoshoujigou = sheet.getCell(3, r).getContents();
-				String daorufangshi = sheet.getCell(4, r).getContents();
+				String xuanzedaoruhesuanjigou = sheet.getCell(3, r).getContents();
+				String xuanzedaoruxiaoshoujigou = sheet.getCell(4, r).getContents();
+				String daorufangshi = sheet.getCell(5, r).getContents();
 				
 				linkedHashMap.put(RiChangYunYingQingSuanEnum.QINGSUANRIQI, qingsuanriqi);
 				linkedHashMap.put(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI, xuanzedaoruriqi);
+				linkedHashMap.put(RiChangYunYingQingSuanEnum.XUANZEDAORUHESUANJIGOU, xuanzedaoruhesuanjigou);
 				linkedHashMap.put(RiChangYunYingQingSuanEnum.XUANZEDAORUXIAOSHOUJIGOU, xuanzedaoruxiaoshoujigou);
 				linkedHashMap.put(RiChangYunYingQingSuanEnum.DAORUFANGSHI, daorufangshi);
 				// 放入全局变量dataForLoginPageFromExcel中

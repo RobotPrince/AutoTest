@@ -1,4 +1,3 @@
-package com.yss.suit;
 
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -11,7 +10,6 @@ import org.testng.annotations.Test;
 import com.yss.common.Common;
 import com.yss.common.MyResponse;
 import com.yss.db.CompareTable;
-import com.yss.db.Compare_T_TA_ACKTRADEBLOTTER;
 import com.yss.db.SaveTable;
 import com.yss.method.Login;
 import com.yss.method.RiChangYunYingQingSuan;
@@ -35,7 +33,7 @@ public class scenario2 {
 		}
 	}
 //	@Test(priority = 1)
-	public void biefore() throws InterruptedException {
+	public void before() throws InterruptedException {
 		
 		if( !new RiChangYunYingQingSuan().before() ){
 			Reporter.log("日常运营清算-预先操作失败");
@@ -152,11 +150,22 @@ public class scenario2 {
 			Reporter.log("日常运营清算-日终确认自动化页面程序成功");
 		}
 	}
-//	@Test(priority =11 )
-//	public void save(){
-//		String errorMes = null;
-//		MyResponse myResponse = new SaveTable().saveAllTables();
-//	}
+	@Test(priority =11 )
+	public void save(){
+		String errorMes = "";
+		MyResponse myResponse = new SaveTable().saveAllTables();
+		if((int)myResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			
+			Reporter.log("日常运营清算-账户检查数据库读表失败"+myResponse.getMessage());
+			errorMes = "日常运营清算-账户检查数据库读表失败"+myResponse.getMessage();
+		}else{
+			
+			Reporter.log("日常运营清算-账户检查数据库读表成功");
+		}
+		if(!errorMes.equals("")){
+		Assert.fail(errorMes);
+		}
+	}
 
 //	@Test(priority = 11)
 //	public void save() throws InterruptedException, SQLException{
@@ -203,8 +212,19 @@ public class scenario2 {
 //	}
 	@Test(priority =12 )
 	public void compare(){
-		String errorMes = null;
+		String errorMes = "";
 		MyResponse myResponse = new CompareTable().compareAllTables();
+		if((int)myResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+		
+		Reporter.log("日常运营清算-账户检查数据库比较失败"+myResponse.getMessage());
+		errorMes += "日常运营清算-账户检查数据库比较失败"+myResponse.getMessage();
+		}else{
+			
+			Reporter.log("日常运营清算-账户检查数据库比较成功");
+		}
+			if(!errorMes.equals("")){
+			Assert.fail(errorMes);
+		}
 	}
 //	@Test(priority = 12)
 //	public void compare() throws InterruptedException{

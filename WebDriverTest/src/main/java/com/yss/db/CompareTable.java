@@ -3,6 +3,7 @@ package com.yss.db;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,6 +17,8 @@ import java.util.Set;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.yss.common.Common;
 import com.yss.common.MyResponse;
 
@@ -25,20 +28,34 @@ public class CompareTable {
 		Common.logInfo("compareAllTables");
 		
 		MyResponse myResponse = new MyResponse();
-		//获取全部数据表
-		Tables[] values = Tables.values();
-		for(Tables t : values){
-			compare(t);
-		}
-		SimpleDateFormat sdf  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-		return myResponse;
+		 String errorMes = "";
+		 try{
+			 
+			//获取全部数据表
+			Tables[] values = Tables.values();
+			for(Tables t : values){
+				MyResponse compareTableRes = compare(t);
+				 if((int)compareTableRes.get(MyResponse.STATUS)==MyResponse.FAILED){
+					 //获取表的错误信息
+					 errorMes += (String)compareTableRes.getMessage();
+				 }
+			}
+		 }catch(Exception e){
+			 Common.logError("Exception happend in CompareTable");
+		 }finally{
+			 
+			 if(errorMes != ""){
+				 return myResponse.failed(errorMes);
+			 }
+		 }
+		return myResponse.success();
 	}
 
 	private MyResponse compare(Tables table){ 
 		Common.logInfo("compare-"+table);
-		
+		//将String数组拼接成A,B,C的形式
 		MyResponse myResponse = new MyResponse();
-		String primaryKey = table.getPrimary();
+		String primaryKey = StringUtils.join(table.getUnique(), ",");
 		List<String> keyList = table.getList();
 		SimpleDateFormat sdf  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		File dir = new File("E://DB_Save/"+table+"/");
@@ -69,13 +86,16 @@ public class CompareTable {
 		
 		File oldFile = new File("E://DB_Save/"+table+"/"+table+"-"+oldTime+".json");
 		File newFile = new File("E://DB_Save/"+table+"/"+table+"-"+newTime+".json");
+		
+		BufferedReader oldReader = null;
+		BufferedReader newReader = null;
 		try {
 			//50M
 			char[] charOld = new char[1024*1024*50];
 			char[] charNew = new char[1024*1024*50];
 			//读入到String中
-			BufferedReader oldReader = new BufferedReader (new InputStreamReader (new FileInputStream (oldFile),"utf-8"));
-			BufferedReader newReader = new BufferedReader (new InputStreamReader (new FileInputStream (newFile),"utf-8"));
+			oldReader = new BufferedReader (new InputStreamReader (new FileInputStream (oldFile),"utf-8"));
+			newReader = new BufferedReader (new InputStreamReader (new FileInputStream (newFile),"utf-8"));
 			int oldLength = oldReader.read(charOld);
 			int newLength = newReader.read(charNew);
 			//若两表完全相同，则直接成功退出
@@ -144,7 +164,7 @@ public class CompareTable {
 		    		//判断新旧两版对应字段的值是否相同
 		    		if( !(oldItem.get(key) == newItem.get(key) || oldItem.get(key).equals(newItem.get(key)))){
 		    			Common.logError(table+"表中"+primaryKey+"为"+set+"的该条数据中字段为"+key+"处发生了错误(新"+newItem.get(key)+", 旧"+oldItem.get(key)+")");
-		    			myResponse.put("msg",table+"表中"+primaryKey+"为"+set+"的该条数据中字段为"+key+"处发生了错误(新"+newItem.get(key)+", 旧"+oldItem.get(key)+")");
+		    			myResponse.put("msg",myResponse.get("msg")+"\n"+table+"表中"+primaryKey+"为"+set+"的该条数据中字段为"+key+"处发生了错误(新"+newItem.get(key)+", 旧"+oldItem.get(key)+")");
 		    		}
 		    	}
 		    }
@@ -154,6 +174,16 @@ public class CompareTable {
 			myResponse.put("msg",myResponse.get("msg")+"\n程序发生错误，获取文件失败");
 			return myResponse.failed((String)myResponse.get("msg"));
 		}
-		return myResponse;
+		finally{
+			try {
+				oldReader.close();
+				newReader.close();
+			} catch (IOException e) {
+				Common.logError("oldReader close failed");
+				return myResponse.failed((String)myResponse.get("msg")+ "BufferReader close failed");
+			}
+			
+		}
+		return myResponse.success();
 	}
 }
