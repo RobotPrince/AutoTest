@@ -10,10 +10,12 @@ import org.testng.annotations.Test;
 
 import com.yss.common.Common;
 import com.yss.common.MyResponse;
+import com.yss.common.ReadFromExcel;
 import com.yss.db.CompareTable;
 import com.yss.db.SaveTable;
 import com.yss.method.Login;
 import com.yss.method.RiChangYunYingQingSuan;
+import com.yss.method.RiChangYunYingQingSuan.RiChangYunYingQingSuanEnum;
 /**
  * 新版本需要先跑完日常运营清算的全部流程，抓取数据库表，然后和旧版本抓取的表进行比较
  * @author tanglonglong
@@ -24,6 +26,7 @@ public class NewVersionScenario {
 	@BeforeTest
 	public void getData(){
 		new com.yss.common.ReadFromExcel().allReadMethod();
+		
 	}
 
 	@Test(priority = 0)
@@ -40,11 +43,35 @@ public class NewVersionScenario {
 		}
 	}
 	@Test(priority = 1)
-	public void before() throws InterruptedException {
+	public void autoPage(){
+		String qingsuanriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.QINGSUANRIQI);
+		String xuanzedaoruriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI);
+		String qingsuanriqiArr[] = qingsuanriqi.split(",");
+		String xuanzedaoruriqiArr[] = xuanzedaoruriqi.split(",");
+		if(qingsuanriqiArr.length != xuanzedaoruriqiArr.length){
+			Reporter.log("清算日期和选择导入日期个数不匹配");
+			Assert.fail("清算日期和选择导入日期个数不匹配");
+		}
+		for(int i=0; i<qingsuanriqiArr.length;i++){
+			
+			this.before(qingsuanriqiArr[i],xuanzedaoruriqiArr[i]);
+			this.qingsuanriqi();
+			this.jingzhiguanli();
+			this.jingzhidaochu();
+			this.shenqingshujudaoru();
+			this.zhanghujiancha();
+			this.zhanghuqingsuan();
+			this.jiaoyijiancha();
+			this.jiaoyiqingsuan();
+			this.querenshujudaochu();
+			this.rizhongqueren();
+		}
+	}
+	public void before(String qingsuanriqi,String xuanzedaoruriqi){
 		
 		try{
 			
-			if( !new RiChangYunYingQingSuan().before() ){
+			if( !new RiChangYunYingQingSuan().before(qingsuanriqi,xuanzedaoruriqi) ){
 				Reporter.log("日常运营清算-预先操作失败");
 				Assert.fail("日常运营清算-预先操作失败");
 			}else{
@@ -56,7 +83,6 @@ public class NewVersionScenario {
 		}
 		
 	}
-	@Test(priority = 2)
 	public void qingsuanriqi() {
 		
 		try{
@@ -71,7 +97,6 @@ public class NewVersionScenario {
 			Reporter.log("日常运营清算-清算日期自动化页面程序失败");
 		}
 	}
-	@Test(priority = 3)
 	public void jingzhiguanli() {
 		
 		try{
@@ -86,8 +111,7 @@ public class NewVersionScenario {
 			Assert.fail("日常运营清算-净值管理自动化页面程序失败");
 		}
 	}
-	@Test(priority = 4)
-	public void jingzhidaochu() throws InterruptedException {
+	public void jingzhidaochu(){
 		try{
 			
 			if( !new RiChangYunYingQingSuan().jingzhidaochu()){
@@ -102,8 +126,7 @@ public class NewVersionScenario {
 			Assert.fail("日常运营清算-净值导出自动化页面程序失败");
 		}
 	}
-	@Test(priority = 5)
-	public void shenqingshujudaoru() throws InterruptedException {
+	public void shenqingshujudaoru() {
 
 		try{
 			
@@ -119,8 +142,7 @@ public class NewVersionScenario {
 			Assert.fail("日常运营清算-申请数据导入自动化页面程序失败");
 		}
 	}
-	@Test(priority = 6)
-	public void zhanghujiancha() throws InterruptedException {
+	public void zhanghujiancha() {
 		try{
 			
 			if(! new RiChangYunYingQingSuan().zhanghujiancha() ){
@@ -136,8 +158,7 @@ public class NewVersionScenario {
 			Assert.fail("日常运营清算-账户检查自动化页面程序失败");
 		}
 	}
-	@Test(priority = 7)
-	public void zhanghuqingsuan() throws InterruptedException {
+	public void zhanghuqingsuan(){
 		try{
 			
 			if ( !new RiChangYunYingQingSuan().zhanghuqingsuan() ){
@@ -154,8 +175,7 @@ public class NewVersionScenario {
 		}
 	}
 	
-	@Test(priority = 8)
-	public void jiaoyijiancha() throws InterruptedException {
+	public void jiaoyijiancha() {
 		try{
 			
 			if(!new RiChangYunYingQingSuan().jiaoyijiancha()){
@@ -172,8 +192,7 @@ public class NewVersionScenario {
 		}
 	}
 
-	@Test(priority = 9)
-	public void jiaoyiqingsuan() throws InterruptedException {
+	public void jiaoyiqingsuan(){
 		
 		try{
 			
@@ -191,8 +210,7 @@ public class NewVersionScenario {
 			Assert.fail("日常运营清算-交易清算自动化页面程序失败");
 		}
 	}
-	@Test(priority =10)
-	public void querenshujudaochu() throws InterruptedException {
+	public void querenshujudaochu() {
 		
 		try{
 			
@@ -210,8 +228,7 @@ public class NewVersionScenario {
 			Assert.fail("日常运营清算-确认数据导出自动化页面程序失败");
 		}
 	}
-	@Test(priority = 11)
-	public void rizhongqueren() throws InterruptedException {
+	public void rizhongqueren() {
 		
 		try{
 			
@@ -229,7 +246,7 @@ public class NewVersionScenario {
 			Assert.fail("日常运营清算-日终确认自动化页面程序失败");
 		}
 	}
-	@Test(priority = 12 )
+	@Test(priority = 2 )
 	public void save(){
 		String errorMes = "";
 		MyResponse myResponse = new SaveTable().saveAllTables();
@@ -246,7 +263,7 @@ public class NewVersionScenario {
 		}
 	}
 
-	@Test(priority = 13 )
+	@Test(priority = 3 )
 	public void compare(){
 		String errorMes = "";
 		MyResponse myResponse = new CompareTable().compareAllTables();

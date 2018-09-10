@@ -129,15 +129,13 @@ public class Common {
 		logInfo("click");
 		MyResponse myResponse = new MyResponse();
 		try{
-			JavascriptExecutor js=(JavascriptExecutor)driver;
-	        // roll down and keep the element to the center of browser
-	        js.executeScript("arguments[0].scrollIntoView(true)", element);
+		
 			if (!element.isDisplayed()) {
 				logError("Element can't click for" + element + " in "
 						+ Thread.currentThread().getStackTrace()[2].getClassName());
 				return myResponse.failed("Click element of "+element+" failed");
 			}
-			
+		Common.logError("nono");
 			element.click();
 			Common.logWarn("Click "+element+" Success");
 		}catch(Exception e){
@@ -302,13 +300,19 @@ public class Common {
 
 		logInfo("setParameter");
 		MyResponse myResponse = new MyResponse();
+		element.clear();
 		click(element);
+		element.clear();
 		if (!element.isDisplayed()) {
 			logError("Element can't setParameter for" + element + " in "
 					+ Thread.currentThread().getStackTrace()[2].getClassName());
 			return myResponse.failed("Element of "+element+" not displayed");
 		}
 		element.sendKeys(param);
+		//点击下空白处，将刚入力的值保存
+	    Actions actions = new Actions(Common.driver);
+	    actions.moveByOffset(100000000, 100000000).click().build().perform();
+	    
 		return myResponse.success();
 	}
 
@@ -426,9 +430,10 @@ public class Common {
 		//取出该页面对应的所有元素的名称
 		String[] str = AllElementEnum.valueOf(allElementEnum.toString()).valueToString();
 		for(String s : str){
-			if(s.equals(elementEnum.toString())){
-				isContains = true;
+			if(!s.equalsIgnoreCase(elementEnum.toString())){
+				continue;
 			}
+			isContains = true;
 		}
 		//若elementString不存在于所有元素名称则报错
 		if(isContains == false){
@@ -610,6 +615,104 @@ public class Common {
 				myResponse.failed("Element of " + locatorVal + " can't find");
 				return myResponse;
 			}
+			try {
+				findElements = driver.findElements(By.id(locatorVal));
+			}
+			catch (org.openqa.selenium.NoSuchElementException ex) {
+				Common.logError("Element of " + locatorVal + " can't find,Some errors in code");
+				myResponse.failed("Element of " + locatorVal + " can't find,Some errors in code");
+				return myResponse;
+			}
+			finally{
+				break;
+			}
+		default:
+			logError("Not supported for " + type + " yet");
+			return myResponse.failed("Not supported for " + type + " yet");
+		}
+		
+		RemarkEnum remarkEnum = null;
+		
+		switch(locatorRemark){
+		case "C":remarkEnum = RemarkEnum.CLICKABLE;break;
+		case "R":remarkEnum = RemarkEnum.READABLE;break;
+		case "W":remarkEnum = RemarkEnum.WRITABLE;break;
+		case "A":remarkEnum = RemarkEnum.ALLABLE;break;
+		case "N":remarkEnum = RemarkEnum.NONE;break;
+		case "S":remarkEnum = RemarkEnum.SELECTABLE;break;
+		default:
+			logError("Not support for "+locatorRemark+" yet!");
+			return myResponse.failed("Not support for "+locatorRemark+" yet!");
+		}
+		myResponse.successWithData("rem", remarkEnum);
+		return myResponse.successWithData("ele", findElements);
+	}
+	/**
+	 * 获取元素定位的相关数据,滚动以后不能waitElement，否则isVasable会失败
+	 * @param pageEnum
+	 * @param allElementEnum
+	 * @param elementEnum
+	 * @return MyResponse<"ele",WebElement>
+	 */
+	@SuppressWarnings("finally")
+	public static MyResponse getWebElementsAfterScroll(PageEnum pageEnum,AllElementEnum allElementEnum,ElementEnum elementEnum) {
+		Common.logInfo("getWebElementsAfterScroll");
+		
+		MyResponse myResponse = new MyResponse();
+		List<String> list = new ArrayList<String>();
+		boolean isContains = false;
+		HashMap<String, List<String>> hashMap = ReadFromExcel.elementsFromExcel
+				.get(pageEnum);
+		//取出该页面对应的所有元素的名称
+		String[] str = AllElementEnum.valueOf(allElementEnum.toString()).valueToString();
+		for(String s : str){
+			if(s.equals(elementEnum.toString())){
+				isContains = true;
+			}
+		}
+		//若elementString不存在于所有元素名称则报错
+		if(isContains == false){
+			Common.logError("ElementName not in excel");
+			return myResponse.failed("ElementName not in excel");
+		}
+		
+		list = hashMap.get(elementEnum.toString().toLowerCase());
+		
+		List<WebElement> findElements = null;
+		String locatorType = list.get(0);
+		String locatorVal = list.get(1);
+		String locatorRemark = list.get(2);
+		
+		LocatorTypeEnum type = LocatorTypeEnum.valueOf(locatorType
+				.toUpperCase());
+		
+		switch (type) {
+		case XPATH:
+			try {
+				findElements = driver.findElements(By.xpath(locatorVal));
+			} 
+			catch (org.openqa.selenium.NoSuchElementException ex) {
+				Common.logError("findElement is "+findElements);
+				Common.logError("Element of " + locatorVal + " can't find,Some errors in code");
+				myResponse.failed("Element of " + locatorVal + " can't find,Some errors in code");
+				return myResponse;
+			}
+			finally{
+				break;
+			}
+		case CSS:
+			try {
+				findElements = driver.findElements(By.cssSelector(locatorVal));
+			}
+			catch (org.openqa.selenium.NoSuchElementException ex) {
+				Common.logError("Element of " + locatorVal + " can't find,Some errors in code");
+				myResponse.failed("Element of " + locatorVal + " can't find,Some errors in code");
+				return myResponse;
+			}
+			finally{
+				break;
+			}
+		case ID:
 			try {
 				findElements = driver.findElements(By.id(locatorVal));
 			}
@@ -1011,6 +1114,10 @@ public class Common {
 		 * 点击复选框选中项目
 		 */
 		ITEM_CHECKBOX,
+		/**
+		 * 点击复选框全选
+		 */
+		ALLCHECKBOX,
 		/**
 		 * 关闭
 		 */
