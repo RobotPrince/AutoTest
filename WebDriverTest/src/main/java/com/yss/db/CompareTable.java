@@ -35,9 +35,10 @@ public class CompareTable {
 			Tables[] values = Tables.values();
 			for(Tables t : values){
 				MyResponse compareTableRes = compare(t);
-				 if((int)compareTableRes.get(MyResponse.STATUS)==MyResponse.FAILED){
+				//判断该表的比较是否失败
+				 if(compareTableRes.get("msg")!=null && !"".equals(compareTableRes.get("msg"))){
 					 //获取表的错误信息
-					 errorMes += (String)compareTableRes.getMessage();
+					 errorMes += (String)compareTableRes.getMessage()+"/n";
 				 }
 			}
 		 }catch(Exception e){
@@ -171,12 +172,12 @@ public class CompareTable {
 		}catch(Exception e){
 			System.out.println(e);
 			Common.logError("程序发生错误，获取文件失败"+oldFile.getName()+" or "+newFile.getName());
-			myResponse.put("msg",myResponse.get("msg")+"\n程序发生错误，获取文件失败");
+			myResponse.put("msg",myResponse.get("msg")+"\n程序发生错误，获取文件失败"+oldFile.getName()+" or "+newFile.getName());
 			return myResponse.failed((String)myResponse.get("msg"));
 		}
 		finally{
 			try {
-				oldReader.close();
+ 				oldReader.close();
 				newReader.close();
 			} catch (IOException e) {
 				Common.logError("oldReader close failed");

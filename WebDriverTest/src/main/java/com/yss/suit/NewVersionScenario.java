@@ -23,9 +23,24 @@ import com.yss.method.RiChangYunYingQingSuan.RiChangYunYingQingSuanEnum;
  */
 public class NewVersionScenario {
 	public static Logger logger = Logger.getLogger(NewVersionScenario.class);
+	
+	RiChangYunYingQingSuan riChangYunYingQingSuan;
+	String qingsuanriqi;
+	String xuanzedaoruriqi;
+	String qingsuanriqiArr[] ;
+	String xuanzedaoruriqiArr[];
 	@BeforeTest
 	public void getData(){
 		new com.yss.common.ReadFromExcel().allReadMethod();
+		
+		qingsuanriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.QINGSUANRIQI);
+		xuanzedaoruriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI);
+		qingsuanriqiArr = qingsuanriqi.split(",");
+		xuanzedaoruriqiArr = xuanzedaoruriqi.split(",");
+		if(qingsuanriqiArr.length != xuanzedaoruriqiArr.length){
+			Reporter.log("清算日期和选择导入日期个数不匹配");
+			Assert.fail("清算日期和选择导入日期个数不匹配");
+		}
 		
 	}
 
@@ -44,17 +59,13 @@ public class NewVersionScenario {
 	}
 	@Test(priority = 1)
 	public void autoPage(){
-		String qingsuanriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.QINGSUANRIQI);
-		String xuanzedaoruriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI);
-		String qingsuanriqiArr[] = qingsuanriqi.split(",");
-		String xuanzedaoruriqiArr[] = xuanzedaoruriqi.split(",");
-		if(qingsuanriqiArr.length != xuanzedaoruriqiArr.length){
-			Reporter.log("清算日期和选择导入日期个数不匹配");
-			Assert.fail("清算日期和选择导入日期个数不匹配");
-		}
+		
+		
 		for(int i=0; i<qingsuanriqiArr.length;i++){
-			
-			this.before(qingsuanriqiArr[i],xuanzedaoruriqiArr[i]);
+			riChangYunYingQingSuan = new RiChangYunYingQingSuan(qingsuanriqiArr[i],xuanzedaoruriqiArr[i]);
+			if(i==0){
+				this.before();
+			}
 			this.qingsuanriqi();
 			this.jingzhiguanli();
 			this.jingzhidaochu();
@@ -67,11 +78,11 @@ public class NewVersionScenario {
 			this.rizhongqueren();
 		}
 	}
-	public void before(String qingsuanriqi,String xuanzedaoruriqi){
+	public void before(){
 		
 		try{
 			
-			if( !new RiChangYunYingQingSuan().before(qingsuanriqi,xuanzedaoruriqi) ){
+			if( !riChangYunYingQingSuan.before() ){
 				Reporter.log("日常运营清算-预先操作失败");
 				Assert.fail("日常运营清算-预先操作失败");
 			}else{
@@ -86,7 +97,7 @@ public class NewVersionScenario {
 	public void qingsuanriqi() {
 		
 		try{
-			if(! new RiChangYunYingQingSuan().qingsuanriqi()){
+			if(! riChangYunYingQingSuan.qingsuanriqi()){
 				Reporter.log("日常运营清算-清算日期自动化页面程序失败");
 				Assert.fail("日常运营清算-清算日期自动化页面程序失败");
 			}else{
@@ -100,7 +111,7 @@ public class NewVersionScenario {
 	public void jingzhiguanli() {
 		
 		try{
-			if(! new RiChangYunYingQingSuan().jingzhiguanli()){
+			if(! riChangYunYingQingSuan.jingzhiguanli()){
 				Reporter.log("日常运营清算-净值管理自动化页面程序失败");
 				Assert.fail("日常运营清算-净值管理自动化页面程序失败");
 			}else{
@@ -114,7 +125,7 @@ public class NewVersionScenario {
 	public void jingzhidaochu(){
 		try{
 			
-			if( !new RiChangYunYingQingSuan().jingzhidaochu()){
+			if( !riChangYunYingQingSuan.jingzhidaochu()){
 				Reporter.log("日常运营清算-净值导出自动化页面程序失败");
 				Assert.fail("日常运营清算-净值导出自动化页面程序失败");
 			}else{
@@ -130,7 +141,7 @@ public class NewVersionScenario {
 
 		try{
 			
-			if(!new RiChangYunYingQingSuan().shenqingshujudaoru()){
+			if(!riChangYunYingQingSuan.shenqingshujudaoru()){
 				Reporter.log("日常运营清算-申请数据导入自动化页面程序失败");
 				Assert.fail("日常运营清算-申请数据导入自动化页面程序失败");
 			}else{
@@ -145,7 +156,7 @@ public class NewVersionScenario {
 	public void zhanghujiancha() {
 		try{
 			
-			if(! new RiChangYunYingQingSuan().zhanghujiancha() ){
+			if(! riChangYunYingQingSuan.zhanghujiancha() ){
 				
 				Reporter.log("日常运营清算-账户检查自动化页面程序失败");
 				Assert.fail("日常运营清算-账户检查自动化页面程序失败");
@@ -161,7 +172,7 @@ public class NewVersionScenario {
 	public void zhanghuqingsuan(){
 		try{
 			
-			if ( !new RiChangYunYingQingSuan().zhanghuqingsuan() ){
+			if ( !riChangYunYingQingSuan.zhanghuqingsuan() ){
 				Reporter.log("日常运营清算-账户清算自动化页面程序失败");
 				Assert.fail("日常运营清算-账户清算自动化页面程序失败");
 			}else{
@@ -178,7 +189,7 @@ public class NewVersionScenario {
 	public void jiaoyijiancha() {
 		try{
 			
-			if(!new RiChangYunYingQingSuan().jiaoyijiancha()){
+			if(!riChangYunYingQingSuan.jiaoyijiancha()){
 				Reporter.log("日常运营清算-交易检查自动化页面程序失败");
 				Assert.fail("日常运营清算-交易检查自动化页面程序失败");
 			}else{
@@ -196,7 +207,7 @@ public class NewVersionScenario {
 		
 		try{
 			
-			if( !new RiChangYunYingQingSuan().jiaoyiqingsuan()){
+			if( !riChangYunYingQingSuan.jiaoyiqingsuan()){
 				
 				Reporter.log("日常运营清算-交易清算自动化页面程序失败");
 				Assert.fail("日常运营清算-交易清算自动化页面程序失败");
@@ -214,7 +225,7 @@ public class NewVersionScenario {
 		
 		try{
 			
-			if(!new RiChangYunYingQingSuan().querenshujudaochu()){
+			if(!riChangYunYingQingSuan.querenshujudaochu()){
 				
 				Reporter.log("日常运营清算-确认数据导出自动化页面程序失败");
 				Assert.fail("日常运营清算-确认数据导出自动化页面程序失败");
@@ -232,7 +243,7 @@ public class NewVersionScenario {
 		
 		try{
 			
-			if(!new RiChangYunYingQingSuan().rizhongqueren()){
+			if(!riChangYunYingQingSuan.rizhongqueren()){
 				
 				Reporter.log("日常运营清算-日终确认自动化页面程序失败");
 				Assert.fail("日常运营清算-日终确认自动化页面程序失败");

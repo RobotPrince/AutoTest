@@ -10,7 +10,10 @@ import org.testng.annotations.Test;
 
 import com.yss.common.Common;
 import com.yss.common.MyResponse;
+import com.yss.common.ReadFromExcel;
 import com.yss.db.SaveTable;
+import com.yss.method.RiChangYunYingQingSuan;
+import com.yss.method.RiChangYunYingQingSuan.RiChangYunYingQingSuanEnum;
 /**
  * 旧版本需要运行save，抓取数据库表
  * @author tanglonglong
@@ -19,11 +22,26 @@ import com.yss.db.SaveTable;
 public class OldVersionScenario {
 
 	public static Logger logger = Logger.getLogger(NewVersionScenario.class);
+
+	RiChangYunYingQingSuan riChangYunYingQingSuan;
+	String qingsuanriqi;
+	String xuanzedaoruriqi;
+	String qingsuanriqiArr[] ;
+	String xuanzedaoruriqiArr[];
 	@BeforeTest
 	public void getData(){
 		new com.yss.common.ReadFromExcel().allReadMethod();
+		qingsuanriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.QINGSUANRIQI);
+		xuanzedaoruriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI);
+		qingsuanriqiArr = qingsuanriqi.split(",");
+		xuanzedaoruriqiArr = xuanzedaoruriqi.split(",");
+		if(qingsuanriqiArr.length != xuanzedaoruriqiArr.length){
+			Reporter.log("清算日期和选择导入日期个数不匹配");
+			Assert.fail("清算日期和选择导入日期个数不匹配");
+		}
+		
 	}
-	@Test(priority = 0 )
+	@Test(priority = 1 )
 	public void save(){
 		String errorMes = "";
 		MyResponse myResponse = new SaveTable().saveAllTables();

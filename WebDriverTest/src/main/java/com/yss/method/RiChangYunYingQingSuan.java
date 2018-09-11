@@ -3,7 +3,6 @@ package com.yss.method;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import com.yss.common.AllElementEnum;
 import com.yss.common.Common;
@@ -17,20 +16,25 @@ import com.yss.method.CheckMenu.CheckMenuElement;
 public class RiChangYunYingQingSuan{
 	private String qingsuanriqi=null;
 	private String xuanzedaoruriqi=null;
+	
+	public RiChangYunYingQingSuan(String qingsuanriqi,String xuanzedaoruriqi){
+		
+		this.qingsuanriqi=qingsuanriqi;
+		this.xuanzedaoruriqi = xuanzedaoruriqi;
+	}
 	/**
 	 * 预先操作
 	 * @return
 	 */
-	public boolean before(String qingsuanriqi,String xuanzedaoruriqi) {
+	public boolean before() {
 		Common.logInfo("before");
 		
-		this.qingsuanriqi=qingsuanriqi;
-		this.xuanzedaoruriqi = xuanzedaoruriqi;
 		try {
 			Thread.sleep(Common.SLEEP_TIME);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		Common.driver.switchTo().defaultContent();
 		// 点击TAB
 		List<String> TATabList = ReadFromExcel.elementsFromExcel.get(PageEnum.TAB_MENU).get("TAdengjiguohu");
 		MyResponse TAdengjiguohuResponse = Common.getWebElementOld(TATabList.get(1), TATabList.get(0));
@@ -131,7 +135,7 @@ public class RiChangYunYingQingSuan{
 			Common.logError("Get Element of xuanzedaoruriqiRes failed!");
 			return false;
 		}
-		Common.setParameter((WebElement)xuanzedaoruriqiRes.get("ele"), ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI));
+		Common.setParameter((WebElement)xuanzedaoruriqiRes.get("ele"), xuanzedaoruriqi);
 
 		//获取导入button
 		MyResponse popupInsertesponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_INSERT);
@@ -172,6 +176,12 @@ public class RiChangYunYingQingSuan{
 		if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
 			Common.logError("Click element of popup yes failed");
 			return false;
+		}
+		try {
+			Thread.sleep(Common.SLEEP_TIME);
+		} catch (InterruptedException e) {
+			Common.logError("Sleep error happend");
+			e.printStackTrace();
 		}
 		Common.driver.switchTo().defaultContent();
 		// 切换driver到top
@@ -267,7 +277,7 @@ public class RiChangYunYingQingSuan{
 			Common.logError("Get Element of qingusanriqi failed!");
 			return false;
 		}
-		Common.setParameter((WebElement)qingsuanriqiRes.get("ele"),ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.QINGSUANRIQI));
+		Common.setParameter((WebElement)qingsuanriqiRes.get("ele"),qingsuanriqi);
 
 		//点击右侧确定
 		MyResponse querenRes = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, RiChangYunYingQingSuanEnum.QINGSUANRIQIQUEREN);
@@ -326,7 +336,7 @@ public class RiChangYunYingQingSuan{
 			return false;
 		}
 		//输入选择导入日期
-		MyResponse xuanzedaoruriqiSetParamResponse = Common.setParameter((WebElement)xuanzedaoruriqiResponse.get("ele"), ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI));
+		MyResponse xuanzedaoruriqiSetParamResponse = Common.setParameter((WebElement)xuanzedaoruriqiResponse.get("ele"), xuanzedaoruriqi);
 		if((int)xuanzedaoruriqiSetParamResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
 			Common.logError("get Element of"+RiChangYunYingQingSuanEnum.XUANZEDAORURIQI+"failed");
 			return false;

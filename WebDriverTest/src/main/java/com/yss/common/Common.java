@@ -135,7 +135,6 @@ public class Common {
 						+ Thread.currentThread().getStackTrace()[2].getClassName());
 				return myResponse.failed("Click element of "+element+" failed");
 			}
-		Common.logError("nono");
 			element.click();
 			Common.logWarn("Click "+element+" Success");
 		}catch(Exception e){
