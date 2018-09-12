@@ -79,6 +79,8 @@ public class ReadFromExcel {
 
 				// 判断该元素与上一元素是否属于同一画面
 				if (!pageEnumTemp.equals(pageEnum)) {
+					
+					Common.logWarn(pageEnumTemp+":"+hashMapOfPage.size());
 					hashMapOfPage = new HashMap<String, List<String>>();
 					pageEnum = pageEnumTemp;
 				}
@@ -88,7 +90,7 @@ public class ReadFromExcel {
 				String remark = null;
 				// 取出該元素的的element_name,type,value,remark
 				for (int j = 1; j < columns; j++) {
-
+						Common.logInfo(pageEnum+"-i: "+i+" j: "+j);
 					switch (sheet.getCell(j, 0).getContents()) {
 					case ELEMENT_NAME:
 						elementName = sheet.getCell(j, i).getContents();
@@ -112,6 +114,7 @@ public class ReadFromExcel {
 				arrayList.add(value);
 				arrayList.add(remark);
 				hashMapOfPage.put(elementName, arrayList);
+
 				elementsFromExcel.put(pageEnumTemp, hashMapOfPage);
 			}
 		} catch (Exception e) {
@@ -209,11 +212,13 @@ public class ReadFromExcel {
 				// 取出第一行数据的所有数据
 				String qingsuanriqi = sheet.getCell(1, r).getContents();
 				String xuanzedaoruriqi = sheet.getCell(2, r).getContents();
-				String xuanzedaoruxiaoshoujigou = sheet.getCell(3, r).getContents();
-				String daorufangshi = sheet.getCell(4, r).getContents();
+				String xuanzedaoruhesuanjigou = sheet.getCell(3, r).getContents();
+				String xuanzedaoruxiaoshoujigou = sheet.getCell(4, r).getContents();
+				String daorufangshi = sheet.getCell(5, r).getContents();
 				
 				linkedHashMap.put(RiChangYunYingQingSuanEnum.QINGSUANRIQI, qingsuanriqi);
 				linkedHashMap.put(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI, xuanzedaoruriqi);
+				linkedHashMap.put(RiChangYunYingQingSuanEnum.XUANZEDAORUHESUANJIGOU, xuanzedaoruhesuanjigou);
 				linkedHashMap.put(RiChangYunYingQingSuanEnum.XUANZEDAORUXIAOSHOUJIGOU, xuanzedaoruxiaoshoujigou);
 				linkedHashMap.put(RiChangYunYingQingSuanEnum.DAORUFANGSHI, daorufangshi);
 				// 放入全局变量dataForLoginPageFromExcel中

@@ -10,9 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yss.common.Common;
@@ -25,12 +28,28 @@ public class SaveTable {
 		Common.logInfo("SaveAllTables");
 		
 		MyResponse myResponse = new MyResponse();
-		//获取全部数据表
-		Tables[] values = Tables.values();
-		for(Tables t : values){
-			saveTable(t);
+		String errorMes = "";
+		
+		try{
+			
+			//获取全部数据表
+			Tables[] values = Tables.values();
+			for(Tables t : values){
+				MyResponse saveTableRes = saveTable(t);
+				 if((int)saveTableRes.get(MyResponse.STATUS)==MyResponse.FAILED){
+					 //获取表的错误信息
+					 errorMes += (String)saveTableRes.getMessage();
+				 }
+			}
+		}catch(Exception e){
+			Common.logError("Exception happend in SaveTable");
+		}finally{
+			if(errorMes != ""){
+				Common.logError(errorMes);
+				return myResponse.failed(errorMes);
+			}
 		}
-		return myResponse;
+		return myResponse.success();
 	}
 	private MyResponse saveTable(Tables t){
 		Common.logInfo("SaveTable-"+t);
@@ -40,8 +59,8 @@ public class SaveTable {
 		String tableName = t.name();
 		//获取所有的字段名称
 		List<String> keyList = t.getList();
-		//获取唯一标识
-		String primaryKey = t.getPrimary();
+		//获取联合标识
+		String[] uniqueKey = t.getUnique();
 		
 		Connection con = DBConnect.getConnection();
 		String allJson = new String();
@@ -49,16 +68,22 @@ public class SaveTable {
 		try {
 			ResultSet resultSet = con.prepareStatement("select * from "+tableName+" t").executeQuery();
 			while(resultSet.next()){
+				String[] uniqueKeyArr = new String[uniqueKey.length];
 				Map<String, Object> map = new LinkedHashMap<String,Object>();
 				for(String k : keyList){
 					map.put(k, resultSet.getString(k) );
 				}
-				//设置json的key为唯一标识
-				JsonMap.put( resultSet.getString(primaryKey), map);
+				//设置json的key为联合标识
+				for(int i=0;i<uniqueKey.length;i++){
+					
+					uniqueKeyArr[i] = (resultSet.getString(uniqueKey[i]));
+				}
+				JsonMap.put( StringUtils.join(uniqueKeyArr, ","), map);
 			}
+			allJson = new JSONObject(new HashMap<String,Object>()).toJSONString();
 		allJson = new JSONObject(JsonMap).toJSONString();
 		} catch (SQLException e) {
-			return myResponse.failed("get data from db failed");
+			return myResponse.failed("get data from db for"+t+" failed");
 		}
 		SimpleDateFormat df  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		String time = df.format(new Date());
@@ -82,7 +107,7 @@ public class SaveTable {
 			writer.flush();
 			writer.close();
 		} catch (IOException e) {
-			return myResponse.failed("get data from db failed");
+			return myResponse.failed("get data from db for"+t+" failed");
 		}
 		return myResponse.success();
 	}

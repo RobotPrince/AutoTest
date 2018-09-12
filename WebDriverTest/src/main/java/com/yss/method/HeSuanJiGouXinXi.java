@@ -297,5 +297,6 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		 * 是否需要审核
 		 */
 		ISCHECKED
+		
 	}
 }
