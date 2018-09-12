@@ -20,6 +20,7 @@ public class Login {
 		Common.logInfo("login");
 
 		WebDriver driver = Common.driver;
+		//TODO：修改Tomcat的IP和端口
 		String url = "http://127.0.0.1:8080/sofa/sofa-portal/sofa-portal/homepage.ctrl";
 		//打开网址
 		driver.get(url);
