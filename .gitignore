@@ -1,6 +1,7 @@
 /.metadata/
 /WebDriverTest/test-output/screen-shot/
-/WebDriverTest/logs/
+*.log.*
+*.log
 /WebDriverTest/.settings/
 /WebDriverTest/target/classes/
 /WebDriverTest/target/test-classes/
