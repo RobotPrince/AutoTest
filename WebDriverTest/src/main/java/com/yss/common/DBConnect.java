@@ -26,7 +26,7 @@ public class DBConnect {
 		//获取数据库连接
 		try {
 			//TODO；参数分别为数据库IP，用户名，密码
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "yss_ta", "yss_ta");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.98.30:1521:orcl", "yss_ta", "yss_ta");
 		} catch (SQLException e) {
 			
 			Logger.getLogger(DBConnect.class).error("连接数据库失败");
