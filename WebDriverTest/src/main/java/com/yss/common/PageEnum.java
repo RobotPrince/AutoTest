@@ -24,6 +24,7 @@ public enum PageEnum {
 	/**
 	 *XIAOSHOUJIGOUXINXI, 
 	 */
+	XIAOSHOUJIGOUXINXI,
 	/**
 	 * 日常运营清算
 	 */

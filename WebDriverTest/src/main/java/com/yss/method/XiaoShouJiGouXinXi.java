@@ -44,7 +44,7 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 		}
 		Common.click((WebElement)jiGouCanShuResponse.get("ele"));
 	    //点击销售机构信息
-	    MyResponse xiaoShouJiGouXinXiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.XIAOSHOUJIGOUXINXI_2);
+	    MyResponse xiaoShouJiGouXinXiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.HESUANJIGOUXINXI_2);
 		if((int) xiaoShouJiGouXinXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
 			Common.logError("Double click of xiaoShouJigougingiResponse failed");
 			return false;
@@ -75,7 +75,7 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 					continue;
 				}
 				//获取add需要的元素
-				MyResponse xiaoShouJiGouXinXiResponse = Common.getWebElement(PageEnum.XIAOSHOUJIGOUXINXI,AllElementEnum.XiaoShouJiGouXinXiElement,eunm);
+			MyResponse xiaoShouJiGouXinXiResponse = Common.getWebElement(PageEnum.XIAOSHOUJIGOUXINXI,AllElementEnum.XiaoShouJiGouXinXiElement,eunm);
 				if ((int) xiaoShouJiGouXinXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
 					Common.logError("get element data of xiaoShouJiGouXinXiResponse failed");
 					return false;
