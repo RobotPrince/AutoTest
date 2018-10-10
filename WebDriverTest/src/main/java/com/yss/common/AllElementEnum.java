@@ -1,6 +1,7 @@
 package com.yss.common;
 import com.yss.common.Common.CommonElementEnum;
 import com.yss.method.CheckMenu.CheckMenuElement;
+import com.yss.method.GuanLianJiGouXinXi.GuanLianJiGouXinXiEnum;
 import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
 import com.yss.method.Login.LoginEnum;
 import com.yss.method.RiChangYunYingQingSuan.RiChangYunYingQingSuanEnum;
@@ -18,6 +19,7 @@ public enum AllElementEnum{
 	LoginElement(LoginEnum.class),
 	HeSuanJiGouXinXiElement(HeSuanJiGouXinXiEnum.class),
 	XiaoShouJiGouXinXiElement(XiaoShouJiGouXinXiEnum.class),
+	GuanLianJiGouXinXiElement(GuanLianJiGouXinXiEnum.class),
 	RiChangYunYingQingSuanElement(RiChangYunYingQingSuanEnum.class),
 	CommonElementEnum(CommonElementEnum.class);
 	

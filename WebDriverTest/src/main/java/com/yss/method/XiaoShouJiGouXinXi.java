@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.openqa.selenium.WebElement;
 
+import com.gargoylesoftware.htmlunit.javascript.host.dom.Document;
 import com.yss.common.AllElementEnum;
 import com.yss.common.BaseInterface;
 import com.yss.common.Common;
@@ -19,10 +20,12 @@ import com.yss.method.CheckMenu.CheckMenuElement;
 
 public class XiaoShouJiGouXinXi implements BaseInterface {
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean before() {
 		Common.logInfo("before");
 		
+		Common.driver.switchTo().defaultContent();
 		try {
 			Thread.sleep(Common.SLEEP_TIME);
 		} catch (InterruptedException e) {
@@ -44,7 +47,7 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 		}
 		Common.click((WebElement)jiGouCanShuResponse.get("ele"));
 	    //点击销售机构信息
-	    MyResponse xiaoShouJiGouXinXiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.HESUANJIGOUXINXI_2);
+	    MyResponse xiaoShouJiGouXinXiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.XIAOSHOUJIGOUXINXI_2);
 		if((int) xiaoShouJiGouXinXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
 			Common.logError("Double click of xiaoShouJigougingiResponse failed");
 			return false;
@@ -57,8 +60,7 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 	
 	@Override
 	public boolean add() {
-
-		Common.logInfo("addA");
+		Common.logInfo("add");
 
 		//循环所有数据
 		int sizeOfData = ReadFromExcel.dataForXiaoShouJIGouXinXiFromExcel.size();
@@ -75,7 +77,7 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 					continue;
 				}
 				//获取add需要的元素
-			MyResponse xiaoShouJiGouXinXiResponse = Common.getWebElement(PageEnum.XIAOSHOUJIGOUXINXI,AllElementEnum.XiaoShouJiGouXinXiElement,eunm);
+				MyResponse xiaoShouJiGouXinXiResponse = Common.getWebElement(PageEnum.XIAOSHOUJIGOUXINXI,AllElementEnum.XiaoShouJiGouXinXiElement,eunm);
 				if ((int) xiaoShouJiGouXinXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
 					Common.logError("get element data of xiaoShouJiGouXinXiResponse failed");
 					return false;
@@ -104,160 +106,97 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 			//点击确定
 			Common.clickYES();
 		}
-		
 		return true;
-	
 	}
 	@Override
-	public boolean review() {
-		Common.logInfo("reviewAFew");
-		
-		Common.driver.switchTo().defaultContent();
-		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
-		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("get element data of iframe1 failed");
-			return false;
-		}
-		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
-		
-		MyResponse itemCheckBoxResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ITEM_CHECKBOX);
-		if((int)itemCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("get Elements of"+CommonElementEnum.ITEM_CHECKBOX+"failed");
-			return false;
-		}
-		List<WebElement> itemList = (List<WebElement>)itemCheckBoxResponse.get("ele");
-		for(WebElement webElement : itemList){
-			MyResponse clickCheckBoxResponse = Common.click(webElement);
-			if((int)clickCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click checkbox of"+webElement+"failed");
-				return false;			
-			}
-		}
-		MyResponse unreviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.UNREVIEW_TOP);
-		if((int)unreviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("get element of unreivewtop failed");
-			return false;			
-		}
-		MyResponse clickUnreviewTopResponse = Common.click((WebElement)unreviewTopResponse.get("ele"));
-		if((int)unreviewTopResponse.get(clickUnreviewTopResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("Click checkbox of UnreviewTop failed");
-			return false;			
-		}
-		//点击确定
-		 MyResponse clickYesResponse = Common.clickYES();
-		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			//点击是
-			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
-			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("get element of popup yes failed");
-				return false;
-			}
-			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
-			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click element of popup yes failed");
-				return false;
-			}
-			//点击确定
-			MyResponse clickYesRes = Common.clickYES();
-			if((int)clickYesRes.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click Yes failed");
-				return false;
-			}
-		 }
-		 //去掉所有被勾上的复选框
-		itemCheckBoxResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ITEM_CHECKBOX);
-		itemList = (List<WebElement>)itemCheckBoxResponse.get("ele");
-		for(WebElement webElement : itemList){
-			MyResponse clickCheckBoxResponse = Common.click(webElement);
-			if((int)clickCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click checkbox of"+webElement+"failed");
-				return false;			
-			}
-		}
-	 
-		//循环所有数据
-		int sizeOfData = ReadFromExcel.dataForXiaoShouJIGouXinXiFromExcel.size();
-		for(int i = 0; i < sizeOfData; i++){
-			HashMap<XiaoShouJiGouXinXiEnum, String> data = ReadFromExcel.dataForXiaoShouJIGouXinXiFromExcel.get(i);
-			if("Y".equalsIgnoreCase(data.get(XiaoShouJiGouXinXiEnum.ISCHECKED))){
-				//点击复选框
-				MyResponse clickResponse = Common.click(itemList.get(i));
-				 if((int)clickResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-					 Common.logError("Click checkbox of "+itemList.get(i)+" failed");
-					 return false;
-				 }
-			}
-		}
-		//点击顶部的review
-		MyResponse reviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.REVIEW_TOP);
-		if( (int)reviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("get element of reviewTop failed");
-			return false;
-		}
-		MyResponse clickReviewTopResponse = Common.click((WebElement)reviewTopResponse.get("ele"));
-		if( (int)clickReviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("Click element of ReviewTop failed");
-			return false;
-		}
-		//点击确定
-		clickYesResponse = Common.clickYES();
-		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				//点击是
-			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
-			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("get element of popup yes failed");
-				return false;
-			}
-			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
-			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click element of popup yes failed");
-				return false;
-			}
-			//点击确定
-			MyResponse clickYesResponse2 = Common.clickYES();
-			if((int)clickYesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click yes failed");
-				return false;
-			}
-		 }
-		//去掉所有被勾上的复选框
-		itemCheckBoxResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ITEM_CHECKBOX);
-		itemList = (List<WebElement>)itemCheckBoxResponse.get("ele");
-		for(int i = 0; i < sizeOfData; i++){
-			HashMap<XiaoShouJiGouXinXiEnum, String> data = ReadFromExcel.dataForXiaoShouJIGouXinXiFromExcel.get(i);
-			if("Y".equalsIgnoreCase(data.get(XiaoShouJiGouXinXiEnum.ISCHECKED))){
-				//点击复选框
-				MyResponse clickResponse = Common.click(itemList.get(i));
-				if((int)clickResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-					Common.logError("Click checkbox of "+itemList.get(i)+" failed");
-					return false;
-				 }
-			}
-		}
-		return false;
+	public boolean review(){
+		Common.review();
+		return true;
 	}
-
 	@Override
-	public boolean unreviewed() {
-		return false;
+	public boolean unreview(){
+		Common.unreviewed();
+		return true;
 	}
-
-
-
-
 	@Override
 	public boolean delete() {
 		return false;
 	}
-
-
-
 	@Override
-	public Boolean after() {
-		return null;
+	public boolean after() {
+		Common.logInfo("after");
+		Common.driver.navigate().refresh();
+		return true;
 	}
 	
-
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean view() {
+		Common.logInfo("view");
+		//将driver切回到default
+		Common.driver.switchTo().defaultContent();
+		//将driver切到ifram1
+		MyResponse ifram1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+		Common.driver.switchTo().frame((WebElement)ifram1Response.get("ele"));
+		MyResponse myResponse = new MyResponse();
+		//获取页面中所有项目数目
+		myResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.VIEW);
+		List<WebElement> findElements = (List<WebElement>) myResponse.get("ele");
+		
+		//循环页面中所有项目
+		for(int i = 0; i < findElements.size(); i++){
+			myResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.VIEW);
+			findElements = (List<WebElement>) myResponse.get("ele");
+			//点击查看
+			Common.click(findElements.get(i));
+			//切换driver至ifram2
+			MyResponse webElement = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
+			Common.driver.switchTo().frame((WebElement)webElement.get("ele"));
+			//获取页面中的机构代码
+			myResponse = Common.getWebElement(PageEnum.XIAOSHOUJIGOUXINXI, AllElementEnum.XiaoShouJiGouXinXiElement, XiaoShouJiGouXinXiEnum.JIGOUDAIMA);
+			//找出在Excel中对应的项
+			int sizeOfData = ReadFromExcel.dataForXiaoShouJIGouXinXiFromExcel.size();
+			for(int j = 0; j < sizeOfData; j++){
+				//获取Excel此行的机构代码
+				String jigoudaima  = ReadFromExcel.dataForXiaoShouJIGouXinXiFromExcel.get(j).get(XiaoShouJiGouXinXiEnum.JIGOUDAIMA);
+				//比较找出对于此页面在Excel中的对应行
+				if(jigoudaima.equals(((WebElement)myResponse.get("ele")).getAttribute("value"))){
+					//比较页面中所涉及到项目的是否正确
+					HashMap<XiaoShouJiGouXinXiEnum, String> hashMap = ReadFromExcel.dataForXiaoShouJIGouXinXiFromExcel.get(j);
+					Set<XiaoShouJiGouXinXiEnum> keySet = hashMap.keySet();
+					Iterator<XiaoShouJiGouXinXiEnum> iterator = keySet.iterator();
+					while(iterator.hasNext()){
+						//从Excel中取出数据
+						XiaoShouJiGouXinXiEnum xiaoShouJiGouXinXiEnum = iterator.next();
+						if(xiaoShouJiGouXinXiEnum.equals(XiaoShouJiGouXinXiEnum.ISCHECKED)){
+							break;
+						}
+						String dataFromExcel = hashMap.get(xiaoShouJiGouXinXiEnum);
+						//从页面中取出数值
+						MyResponse xiaoshoujigouResponse = Common.getWebElement(PageEnum.XIAOSHOUJIGOUXINXI, AllElementEnum.XiaoShouJiGouXinXiElement, xiaoShouJiGouXinXiEnum);
+						if(MyResponse.FAILED == (int)xiaoshoujigouResponse.get(MyResponse.STATUS)){
+							Common.logError("get element of"+xiaoShouJiGouXinXiEnum+"failed from page");
+							return false;
+						}
+						String dataFromPage = ((WebElement)xiaoshoujigouResponse.get("ele")).getAttribute("value");
+						//比较两数值是否相等
+						if(!dataFromExcel.contains(dataFromPage)){
+							Common.logError("data not equal when compare, "+"dataFromExcel "+dataFromExcel+" dataFromPage "+dataFromPage);
+							return false;
+						}
+					}
+				}
+			}
+			//点击刷新，用来退出查看页面
+			Common.clickRefresh();
+			Common.driver.switchTo().defaultContent();
+			//将driver切到ifram1
+			ifram1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+			Common.driver.switchTo().frame((WebElement)ifram1Response.get("ele"));
+		}
+		return true;
+	}
+	
 	public enum XiaoShouJiGouXinXiEnum implements ElementEnum{
 		/**
 		 * 机构代码
@@ -272,29 +211,9 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 		 */
 		JIGOULEIXING,
 		/**
-		 *机构类型 0直销
-		 */
-		ZHIXIAO,
-		/**
-		 *机构类型 1代销 
-		 */
-		DAIXIAO,
-		/**
 		 * 机构状态
 		 */
 		JIGOUZHUANGTAI,
-		/**
-		 * 机构状态——正常
-		 */
-		ZHENGCHANG,
-		/**
-		 * 机构状态——注销
-		 */
-		ZHUXIAO,
-		/**
-		 * 机构状态——停用
-		 */
-		TINGYONG,
 		/**
 		 *机构传真
 		 */
@@ -304,9 +223,9 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 		 */
 		JIGOULIANXIREN,
 		/**
-		 * 机构联系电话
+		 * 电话
 		 */
-		JIGOULIANXIDIANHUA,
+		DIANHUA,
 		/**
 		 * 邮件编码
 		 */
@@ -324,53 +243,17 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 		 */
 		DUIZHANGFANGSHI,
 		/**
-		 * 全量对账
-		 */
-		QUANLIANGDUIZHANG,
-		/**
-		 * 增量对账
-		 */
-		ZENGLIANGDUIZHANG,
-		/**
 		 * 接口版本
 		 */
 		JIEKOUBANBEN,
 		/**
-		 * 接口版本2.0
-		 */
-		JIEKOU_2_0,
-		/**
-		 * 接口版本2.1
-		 */
-		JIEKOU_2_1,
-		/**
-		 * 接口版本2.x
-		 */
-		JIEKOU_2_X,
-		/**
-		 * 是否导出.ok
+		 * 是否导出.OK
 		 */
 		SHIFOUDAOCHU,
-		/**
-		 * 是否导出 否
-		 */
-		FOU,
-		/**
-		 * 是否导出 是
-		 */
-		SHI,
 		/**
 		 * 明细标识
 		 */
 		MINGXIBIAOSHI,
-		/**
-		 * 明细标识 非明细
-		 */
-		FEIMINGXI,
-		/**
-		 * 明细标识 明细
-		 */
-		MINGXI,
 		/**
 		 * 接口导入路径
 		 */
@@ -385,5 +268,4 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 		ISCHECKED
 		
 	}
-
 }

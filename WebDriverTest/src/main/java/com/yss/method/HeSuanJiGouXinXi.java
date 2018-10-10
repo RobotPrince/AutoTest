@@ -16,13 +16,16 @@ import com.yss.common.MyResponse;
 import com.yss.common.PageEnum;
 import com.yss.common.ReadFromExcel;
 import com.yss.method.CheckMenu.CheckMenuElement;
+import com.yss.method.XiaoShouJiGouXinXi.XiaoShouJiGouXinXiEnum;
 
 public class HeSuanJiGouXinXi implements BaseInterface {
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean before() {
 		Common.logInfo("before");
 		
+		Common.driver.switchTo().defaultContent();
 		try {
 			Thread.sleep(Common.SLEEP_TIME);
 		} catch (InterruptedException e) {
@@ -58,7 +61,7 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 
 	@Override
 	public boolean add() {
-		Common.logInfo("addA");
+		Common.logInfo("add");
 
 		//循环所有数据
 		int sizeOfData = ReadFromExcel.dataForHeSuanJiGouFromExcel.size();
@@ -106,144 +109,6 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 		}
 		return true;
 	}
-	
-	@Override
-	public boolean review() {
-		Common.logInfo("reviewAFew");
-		
-		//切换driver到default
-		Common.driver.switchTo().defaultContent();
-		// 切换driver到top
-		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
-		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("get element data of iframe1 failed");
-			return false;
-		}
-		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
-		//获取页面所有复选框数目
-		MyResponse itemCheckBoxResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ITEM_CHECKBOX);
-		if((int)itemCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("get Elements of"+CommonElementEnum.ITEM_CHECKBOX+"failed");
-			return false;
-		}
-		//第一步应是把所有项目变成反审核的状态
-		List<WebElement> itemList = (List<WebElement>)itemCheckBoxResponse.get("ele");
-		for(WebElement webElement : itemList){
-			MyResponse clickCheckBoxResponse = Common.click(webElement);
-			if((int)clickCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click checkbox of"+webElement+"failed");
-				return false;			
-			}
-		}
-		MyResponse unreviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.UNREVIEW_TOP);
-		if((int)unreviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("get element of unreivewtop failed");
-			return false;			
-		}
-		MyResponse clickUnreviewTopResponse = Common.click((WebElement)unreviewTopResponse.get("ele"));
-		if((int)unreviewTopResponse.get(clickUnreviewTopResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("Click checkbox of UnreviewTop failed");
-			return false;			
-		}
-
-		//点击确定
-		 MyResponse clickYesResponse = Common.clickYES();
-		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			//点击是
-			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
-			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("get element of popup yes failed");
-				return false;
-			}
-			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
-			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click element of popup yes failed");
-				return false;
-			}
-			//点击确定
-			MyResponse clickYesRes = Common.clickYES();
-			if((int)clickYesRes.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click Yes failed");
-				return false;
-			}
-		 }
-		 //去掉所有被勾上的复选框
-		itemCheckBoxResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ITEM_CHECKBOX);
-		itemList = (List<WebElement>)itemCheckBoxResponse.get("ele");
-		for(WebElement webElement : itemList){
-			MyResponse clickCheckBoxResponse = Common.click(webElement);
-			if((int)clickCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click checkbox of"+webElement+"failed");
-				return false;			
-			}
-		}
-	 
-		//循环所有数据
-		int sizeOfData = ReadFromExcel.dataForHeSuanJiGouFromExcel.size();
-		for(int i = 0; i < sizeOfData; i++){
-			HashMap<HeSuanJiGouXinXiEnum, String> data = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(i);
-			if("Y".equalsIgnoreCase(data.get(HeSuanJiGouXinXiEnum.ISCHECKED))){
-				//点击复选框
-				MyResponse clickResponse = Common.click(itemList.get(i));
-				 if((int)clickResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-					 Common.logError("Click checkbox of "+itemList.get(i)+" failed");
-					 return false;
-				 }
-			}
-		}
-		//点击顶部的review
-		MyResponse reviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.REVIEW_TOP);
-		if( (int)reviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("get element of reviewTop failed");
-			return false;
-		}
-		MyResponse clickReviewTopResponse = Common.click((WebElement)reviewTopResponse.get("ele"));
-		if( (int)clickReviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("Click element of ReviewTop failed");
-			return false;
-		}
-		//点击确定
-		clickYesResponse = Common.clickYES();
-		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				//点击是
-			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
-			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("get element of popup yes failed");
-				return false;
-			}
-			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
-			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click element of popup yes failed");
-				return false;
-			}
-			//点击确定
-			MyResponse clickYesResponse2 = Common.clickYES();
-			if((int)clickYesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click yes failed");
-				return false;
-			}
-		 }
-		//去掉所有被勾上的复选框
-		itemCheckBoxResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ITEM_CHECKBOX);
-		itemList = (List<WebElement>)itemCheckBoxResponse.get("ele");
-		for(int i = 0; i < sizeOfData; i++){
-			HashMap<HeSuanJiGouXinXiEnum, String> data = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(i);
-			if("Y".equalsIgnoreCase(data.get(HeSuanJiGouXinXiEnum.ISCHECKED))){
-				//点击复选框
-				MyResponse clickResponse = Common.click(itemList.get(i));
-				if((int)clickResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-					Common.logError("Click checkbox of "+itemList.get(i)+" failed");
-					return false;
-				 }
-			}
-		}
-		return true;
-	}
-
-	@Override
-	public boolean unreviewed() {
-		return false;
-	}
 
 	@Override
 	public boolean delete() {
@@ -251,11 +116,91 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 	}
 
 	@Override
-	public Boolean after() {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean after() {
+		Common.logInfo("after");
+		Common.driver.navigate().refresh();
+		return true;
 	}
 
+	@Override
+	public boolean review(){
+		Common.review();
+		return true;
+	}
+	@Override
+	public boolean unreview(){
+		Common.unreviewed();
+		return true;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean view() {
+		Common.logInfo("view");
+		//将driver切回到default
+		Common.driver.switchTo().defaultContent();
+		//将driver切到ifram1
+		MyResponse ifram1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+		Common.driver.switchTo().frame((WebElement)ifram1Response.get("ele"));
+		MyResponse myResponse = new MyResponse();
+		//获取页面中所有项目数目
+		myResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.VIEW);
+		List<WebElement> findElements = (List<WebElement>) myResponse.get("ele");
+		
+		//循环页面中所有项目
+		for(int i = 0; i < findElements.size(); i++){
+			myResponse = Common.getWebElements(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.VIEW);
+			findElements = (List<WebElement>) myResponse.get("ele");
+			//点击查看
+			Common.click(findElements.get(i));
+			//切换driver至ifram2
+			MyResponse webElement = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
+			Common.driver.switchTo().frame((WebElement)webElement.get("ele"));
+			//获取页面中的机构代码
+			myResponse = Common.getWebElement(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, HeSuanJiGouXinXiEnum.JIGOUDAIMA);
+			//找出在Excel中对应的项
+			int sizeOfData = ReadFromExcel.dataForHeSuanJiGouFromExcel.size();
+			for(int j = 0; j < sizeOfData; j++){
+				//获取Excel此行的机构代码
+				String jigoudaima  = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(j).get(HeSuanJiGouXinXiEnum.JIGOUDAIMA);
+				//比较找出对于此页面在Excel中的对应行
+				if(jigoudaima.equals(((WebElement)myResponse.get("ele")).getAttribute("value"))){
+					//比较页面中所涉及到项目的是否正确
+					HashMap<HeSuanJiGouXinXiEnum, String> hashMap = ReadFromExcel.dataForHeSuanJiGouFromExcel.get(j);
+					Set<HeSuanJiGouXinXiEnum> keySet = hashMap.keySet();
+					Iterator<HeSuanJiGouXinXiEnum> iterator = keySet.iterator();
+					while(iterator.hasNext()){
+						//从Excel中取出数据
+						HeSuanJiGouXinXiEnum heSuanJiGouXinXiEnum = iterator.next();
+						if(heSuanJiGouXinXiEnum.equals(HeSuanJiGouXinXiEnum.ISCHECKED)){
+							break;
+						}
+						String dataFromExcel = hashMap.get(heSuanJiGouXinXiEnum);
+						//从页面中取出数值
+						MyResponse hesuanjigouResponse = Common.getWebElement(PageEnum.HESUANJIGOUXINXI, AllElementEnum.HeSuanJiGouXinXiElement, heSuanJiGouXinXiEnum);
+						if(MyResponse.FAILED == (int)hesuanjigouResponse.get(MyResponse.STATUS)){
+							Common.logError("get element of"+heSuanJiGouXinXiEnum+"failed from page");
+							return false;
+						}
+						String dataFromPage = ((WebElement)hesuanjigouResponse.get("ele")).getAttribute("value");
+						//比较两数值是否相等
+						if(!dataFromExcel.contains(dataFromPage)){
+							Common.logError("data not equals when compare, "+"dataFromExcel "+dataFromExcel+" dataFromPage "+dataFromPage);
+							return false;
+						}
+					}
+				}
+			}
+			//点击刷新，用来退出查看页面
+			Common.clickRefresh();
+			Common.driver.switchTo().defaultContent();
+			//将driver切到ifram1
+			ifram1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+			Common.driver.switchTo().frame((WebElement)ifram1Response.get("ele"));
+		}
+		return true;
+	}
+	
 	public enum HeSuanJiGouXinXiEnum implements ElementEnum {
 		/**
 		 * 机构代码

@@ -26,6 +26,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
+
 public class Common {
 	public static WebDriver driver;
 	//单位毫秒
@@ -279,12 +281,17 @@ public class Common {
 		}
 		
 		return myRespnose.success();
-		
-		
 	}
-	//TODO:
+	/**
+	 * 获取该元素的值
+	 * @param webElement
+	 * @return
+	 */
 	public static MyResponse read(WebElement webElement){
-		return new MyResponse();
+		MyResponse myResponse = new MyResponse();
+		String text = webElement.getText();
+		myResponse.setMessage(text);
+		return myResponse;
 	}
 
 	/**
@@ -1078,6 +1085,148 @@ public class Common {
 			}
 			myResponse.successWithData("rem", remarkEnum);
 			return myResponse.successWithData("ele", findElements);
+	}
+	/**
+	 * 反审核全部项
+	 * @author tanglonglong
+	 */
+	public static boolean unreviewed() {
+		Common.logInfo("unreviewed");
+		
+		Common.driver.switchTo().defaultContent();
+		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get element data of iframe1 failed");
+			return false;
+		}
+		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+		
+		//选中所有的CheckBox
+		MyResponse allCheckBoxResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ALLCHECKBOX);
+		if((int)allCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("get element of allCheckBox failed");
+			return false;			
+		}
+		Common.click((WebElement)allCheckBoxResponse.get("ele"));
+		//点击Top上的反审核
+		MyResponse unreviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.UNREVIEW_TOP);
+		if((int)unreviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("get element of unreivewtop failed");
+			return false;			
+		}
+		MyResponse clickReviewTopResponse = Common.click((WebElement)unreviewTopResponse.get("ele"));
+		if((int)unreviewTopResponse.get(clickReviewTopResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("Click checkbox of UnreviewTop failed");
+			return false;			
+		}
+		//点击确定
+		 MyResponse clickYesResponse = Common.clickYES();
+		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			//点击是
+			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("get element of popup yes failed");
+				return false;
+			}
+			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
+			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click element of popup yes failed");
+				return false;
+			}
+			//点击确定
+			MyResponse clickYesResponse2 = Common.clickYES();
+			if((int)clickYesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click yes failed");
+				return false;
+			}
+		 }
+		Common.driver.switchTo().defaultContent();
+		iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get element data of iframe1 failed");
+			return false;
+		}
+		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+		//去掉选中所有的CheckBox
+		allCheckBoxResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ALLCHECKBOX);
+		if((int)allCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("get element of allCheckBox failed");
+			return false;			
+		}
+		Common.click((WebElement)allCheckBoxResponse.get("ele"));
+		Common.click((WebElement)allCheckBoxResponse.get("ele"));
+		return true;
+	}
+	/**
+	 * 审核全部项
+	 * @author tanglonglong
+	 */
+	public static boolean review() {
+		Common.logInfo("review");
+		
+		Common.driver.switchTo().defaultContent();
+		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get element data of iframe1 failed");
+			return false;
+		}
+		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+		
+		//选中所有的CheckBox
+		MyResponse allCheckBoxResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ALLCHECKBOX);
+		if((int)allCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("get element of allCheckBox failed");
+			return false;			
+		}
+		Common.click((WebElement)allCheckBoxResponse.get("ele"));
+		//点击Top上的审核
+		MyResponse reviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.REVIEW_TOP);
+		if((int)reviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("get element of reivewtop failed");
+			return false;			
+		}
+		MyResponse clickReviewTopResponse = Common.click((WebElement)reviewTopResponse.get("ele"));
+		if((int)reviewTopResponse.get(clickReviewTopResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("Click checkbox of UnreviewTop failed");
+			return false;			
+		}
+		//点击确定
+		 MyResponse clickYesResponse = Common.clickYES();
+		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			//点击是
+			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("get element of popup yes failed");
+				return false;
+			}
+			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
+			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click element of popup yes failed");
+				return false;
+			}
+			//点击确定
+			MyResponse clickYesResponse2 = Common.clickYES();
+			if((int)clickYesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click yes failed");
+				return false;
+			}
+		 }
+		Common.driver.switchTo().defaultContent();
+		iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("get element data of iframe1 failed");
+			return false;
+		}
+		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+		//	去掉选中所有的CheckBox
+		allCheckBoxResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ALLCHECKBOX);
+		if((int)allCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("get element of allCheckBox failed");
+			return false;			
+		}
+		Common.click((WebElement)allCheckBoxResponse.get("ele"));
+		Common.click((WebElement)allCheckBoxResponse.get("ele"));
+		return true;
 	}
 	/**
 	 * 定义所有的共有元素
