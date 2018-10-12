@@ -30,6 +30,10 @@ public enum PageEnum {
 	 */
 	GUANLIANJIGOUXINXI,
 	/**
+	 * 产品信息
+	 */
+	CHANPINXINXI,
+	/**
 	 * 日常运营清算
 	 */
 	RICHANGYUNYINGQINGSUAN

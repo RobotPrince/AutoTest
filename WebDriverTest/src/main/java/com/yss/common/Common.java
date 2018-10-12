@@ -178,13 +178,27 @@ public class Common {
 		
 		logInfo("select");
 		MyResponse myResponse = new MyResponse();
+//		/*这里切换的目的是将之前所有找到的元素清除掉*/
+//		//切换driver至default
+//		Common.driver.switchTo().defaultContent();
 //		
-//		if(!val.equals( elementEnum.toString()) ){
-//			logWarn(val+" is not "+elementEnum.toString()+" can't select");
-//			return myResponse.success();
+//		//切换driver到ifram1
+//		MyResponse iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+//		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			Common.logError("get element data of iframe1 failed");
+//			return iframe1Response.failed("get element data of iframe1 failed");
 //		}
+//		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+//		//切换driver到ifram2
+//		MyResponse iframe2Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
+//		if( (int)iframe2Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			Common.logError("get element data of iframe2 failed");
+//			return iframe2Response.failed("get element data of iframe1 failed");
+//		}
+//		Common.driver.switchTo().frame((WebElement)iframe2Response.get("ele"));
+//		
 		//点击进入到select列表
-		myResponse = click(element);
+		myResponse = Common.click(element);
 		if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
 			logError("get Webelement of"+element +"failed");
 			return myResponse.failed("getWebElement failed");
@@ -192,7 +206,8 @@ public class Common {
 		//下拉列表点击
 		String valArray[] = val.split("\\|");
 		for(String str : valArray ){
-			myResponse = Common.getWebElementOld(".//div[@class='x-combo-list-inner']//*[contains(text(),'"+str+"')]/..", "Xpath");
+		//	System.out.println("---------"+driver.findElement(By.xpath(".//div[@class='x-combo-list-inner']//*[contains(text(),'"+str+"')]/..")).toString());
+			myResponse = Common.getWebElementOld(".//*[contains(@style, 'visible')]//div[@class='x-combo-list-inner']//*[contains(text(),'"+str+"')]/..", "Xpath");
 			if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
 				logError("get Webelement of"+".//div[@class='x-combo-list-inner']//*[contains(text(),'"+str+"')]/.." +"failed");
 				return myResponse.failed("getWebElement failed");
@@ -204,23 +219,6 @@ public class Common {
 				return myResponse.failed("getWebElement failed");
 			}
 		}
-		
-//		//选择下拉列表，点击
-//		 ElementEnum[] enumConstants=elementEnum.getClass().getEnumConstants();
-//		 for(ElementEnum eEnum : enumConstants){
-//			 if(val.toLowerCase().equals(eEnum.toString().toLowerCase())){
-//				 //获取要点击的元素
-//				 myResponse= getWebElement(pageEnum, allElementEnum, eEnum);
-//				
-//				if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
-//					logError("get Webelement of"+eEnum +"failed");
-//					return myResponse.failed("getWebElement failed");
-//				}
-//				//点击
-//				myResponse = Common.click( (WebElement)myResponse.get("ele") );
-//				break;
-//			 }
-//		 }
 		return myResponse.success();
 	}
 	/**
