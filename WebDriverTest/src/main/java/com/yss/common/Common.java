@@ -58,8 +58,8 @@ public class Common {
 		FirefoxBinary firefoxBinary = new FirefoxBinary();
 		firefoxBinary.addCommandLineOptions("--headless"); 
 		firefoxBinary.addCommandLineOptions("--no-sandbox"); 
-		System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
-//		System.setProperty("webdriver.firefox.driver", "/usr/bin/geckodriver");
+	//	System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
+		System.setProperty("webdriver.firefox.driver", "/usr/bin/geckodriver");
 		System.setProperty("webdriver.firefox.bin", "/usr/local/firefox/firefox");
 		FirefoxDriver driver = new FirefoxDriver();
 	
