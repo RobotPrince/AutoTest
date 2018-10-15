@@ -20,13 +20,12 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
 
 public class Common {
 	public static WebDriver driver;
@@ -35,6 +34,19 @@ public class Common {
 	//单位秒
 	public static final long WAIT100PERCENT = 300l;
 	
+//	/**
+//	 * getFireFoxDriver
+//	 * 
+//	 * @return
+//	 * @author tanglonglong
+//	 */
+//	public static WebDriver getFFDriver() {
+//		String browserPath = "C:/Program Files/Mozilla Firefox/firefox.exe";
+//		System.setProperty("webdriver.firefox.bin", browserPath);
+//		driver = new FirefoxDriver();
+//		driver.manage().window().maximize();
+//		return driver;
+//	}
 	/**
 	 * getFireFoxDriver
 	 * 
@@ -42,11 +54,9 @@ public class Common {
 	 * @author tanglonglong
 	 */
 	public static WebDriver getFFDriver() {
-		String browserPath = "C:/Program Files/Mozilla Firefox/firefox.exe";
-		System.setProperty("webdriver.firefox.bin", browserPath);
-		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		return driver;
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--start-maximized","--test-type");
+        return new ChromeDriver(options);
 	}
 	
 	/**
