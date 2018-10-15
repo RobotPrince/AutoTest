@@ -20,8 +20,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -54,9 +53,9 @@ public class Common {
 	 * @author tanglonglong
 	 */
 	public static WebDriver getFFDriver() {
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--start-maximized","--test-type");
-        return new ChromeDriver(options);
+		driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		return driver;
 	}
 	
 	/**
