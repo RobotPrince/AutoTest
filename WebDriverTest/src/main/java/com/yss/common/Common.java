@@ -20,12 +20,12 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 public class Common {
 	public static WebDriver driver;
 	//单位毫秒
@@ -53,8 +53,30 @@ public class Common {
 	 * @author tanglonglong
 	 */
 	public static WebDriver getFFDriver() {
-		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
+		
+		
+		FirefoxBinary firefoxBinary = new FirefoxBinary();
+		firefoxBinary.addCommandLineOptions("--headless"); 
+		firefoxBinary.addCommandLineOptions("--no-sandbox"); 
+		System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
+		System.setProperty("webdriver.firefox.driver", "/usr/bin/geckodriver");
+		System.setProperty("webdriver.firefox.bin", "/usr/local/firefox/firefox");
+		FirefoxDriver driver = new FirefoxDriver();
+	
+		/* chrome
+		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+		System.setProperty("webdriver.chrome.bin", "/opt/google/chrome/chrome");
+		ChromeOptions options = new ChromeOptions();
+		
+		options.addArguments("headless");
+		options.addArguments("no-sandbox");
+		WebDriver driver2 = new ChromeDriver(options);
+		driver.get("http://www.baidu.com");
+		
+		System.out.println(driver.getTitle());
+		*/
+
+
 		return driver;
 	}
 	
