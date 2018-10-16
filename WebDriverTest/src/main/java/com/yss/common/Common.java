@@ -20,8 +20,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -54,17 +54,17 @@ public class Common {
 	 */
 	public static WebDriver getFFDriver() {
 		
-		
-		FirefoxBinary firefoxBinary = new FirefoxBinary(new File("/usr/local/firefox/firefox"));
-		firefoxBinary.addCommandLineOptions("--headless"); 
-		firefoxBinary.addCommandLineOptions("--no-sandbox"); 
-		System.setProperty("webdriver.firefox.driver", "/usr/bin/geckodriver");
-		System.setProperty("webdriver.firefox.bin", "/usr/local/firefox/firefox");
-		FirefoxDriver driver = new FirefoxDriver(firefoxBinary,null);
+//		
+//		FirefoxBinary firefoxBinary = new FirefoxBinary(new File("/usr/local/firefox/firefox"));
+//		firefoxBinary.addCommandLineOptions("--headless"); 
+//		firefoxBinary.addCommandLineOptions("--no-sandbox"); 
+//		System.setProperty("webdriver.firefox.driver", "/usr/bin/geckodriver");
+//		System.setProperty("webdriver.firefox.bin", "/usr/local/firefox/firefox");
+//		FirefoxDriver driver = new FirefoxDriver(firefoxBinary,null);
 	
-		/* chrome
+		/* chrome */
 		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		System.setProperty("webdriver.chrome.bin", "/opt/google/chrome/chrome");
+	//	System.setProperty("webdriver.chrome.bin", "/opt/google/chrome/chrome");
 		ChromeOptions options = new ChromeOptions();
 		
 		options.addArguments("headless");
@@ -73,7 +73,6 @@ public class Common {
 		driver.get("http://www.baidu.com");
 		
 		System.out.println(driver.getTitle());
-		*/
 
 
 		return driver;
