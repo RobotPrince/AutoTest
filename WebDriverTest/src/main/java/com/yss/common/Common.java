@@ -68,11 +68,11 @@ public class Common {
 		ChromeOptions options = new ChromeOptions();
 		
 		options.addArguments("headless");
-		options.addArguments("disable-extensions"); // disabling extensions
-		options.addArguments("disable-gpu"); // applicable to windows os only
-		options.addArguments("disable-dev-shm-usage"); // overcome limited resource problems
-		options.addArguments("no-sandbox"); // Bypass OS security model
-		options.addArguments("disable-infobars"); // disabling infobars
+//		options.addArguments("disable-extensions"); // disabling extensions
+//		options.addArguments("disable-gpu"); // applicable to windows os only
+//		options.addArguments("disable-dev-shm-usage"); // overcome limited resource problems
+//		options.addArguments("no-sandbox"); // Bypass OS security model
+//		options.addArguments("disable-infobars"); // disabling infobars
 		System.out.println("before driver");
 		WebDriver driver = new ChromeDriver(options);
 		driver.get("http://www.baidu.com");
