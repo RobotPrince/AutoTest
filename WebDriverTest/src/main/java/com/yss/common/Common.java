@@ -55,13 +55,12 @@ public class Common {
 	public static WebDriver getFFDriver() {
 		
 		
-		FirefoxBinary firefoxBinary = new FirefoxBinary();
+		FirefoxBinary firefoxBinary = new FirefoxBinary(new File("/usr/local/firefox/firefox"));
 		firefoxBinary.addCommandLineOptions("--headless"); 
 		firefoxBinary.addCommandLineOptions("--no-sandbox"); 
-	//	System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
 		System.setProperty("webdriver.firefox.driver", "/usr/bin/geckodriver");
 		System.setProperty("webdriver.firefox.bin", "/usr/local/firefox/firefox");
-		FirefoxDriver driver = new FirefoxDriver();
+		FirefoxDriver driver = new FirefoxDriver(firefoxBinary,null);
 	
 		/* chrome
 		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
