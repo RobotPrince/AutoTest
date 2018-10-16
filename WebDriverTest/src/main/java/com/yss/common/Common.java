@@ -68,7 +68,9 @@ public class Common {
 		ChromeOptions options = new ChromeOptions();
 		
 		options.addArguments("headless");
+		options.addArguments("--headless");
 		options.addArguments("no-sandbox");
+		options.addArguments("--no-sandbox");
 		options.addArguments("disable-dev-shm-usage");
 		WebDriver driver = new ChromeDriver(options);
 		driver.get("http://www.baidu.com");
