@@ -69,7 +69,7 @@ public class Common {
 		
 		options.addArguments("headless");
 		options.addArguments("no-sandbox");
-		WebDriver driver2 = new ChromeDriver(options);
+		WebDriver driver = new ChromeDriver(options);
 		driver.get("http://www.baidu.com");
 		
 		System.out.println(driver.getTitle());
