@@ -71,6 +71,7 @@ public class Common {
 		options.addArguments("no-sandbox");
         options.addArguments("disable-gpu");
 		options.addArguments("disable-dev-shm-usage");
+		options.addArguments("dump-dom");
 		WebDriver driver = new ChromeDriver(options);
 		driver.get("http://www.baidu.com");
 		
