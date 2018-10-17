@@ -97,19 +97,22 @@ public class ReadFromExcel {
 				String remark = null;
 				// 取出該元素的的element_name,type,value,remark
 				for (int j = 1; j < columns; j++) {
-						Common.logInfo(pageEnum+"-i: "+i+" j: "+j);
 					switch (sheet.getCell(j, 0).getContents()) {
 					case ELEMENT_NAME:
 						elementName = sheet.getCell(j, i).getContents();
+						Common.logInfo(pageEnum+"-i: "+i+" j: "+j);
 						break;
 					case TYPE:
 						type = sheet.getCell(j, i).getContents();
+						Common.logInfo(pageEnum+"-i: "+i+" j: "+j);
 						break;
 					case VALUE:
 						value = sheet.getCell(j, i).getContents();
+						Common.logInfo(pageEnum+"-i: "+i+" j: "+j);
 						break;
 					case REMARK:
 						remark = sheet.getCell(j, i).getContents();
+						Common.logInfo(pageEnum+"-i: "+i+" j: "+j);
 						break;
 					default:
 						break;
