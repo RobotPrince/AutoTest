@@ -71,7 +71,7 @@ public class GuanLianJiGouXinXi implements BaseInterface {
 			while( iterator.hasNext() ){
 				//isChecked在这里不需要做任何操作
 				GuanLianJiGouXinXiEnum eunm = iterator.next();
-				if(eunm.equals(GuanLianJiGouXinXiEnum.ISCHECKED)){
+				if(eunm.equals(GuanLianJiGouXinXiEnum.ISCHECKED)||data.get(eunm)==null||"".equals(data.get(eunm))){
 					continue;
 				}
 				//获取add需要的元素
@@ -130,15 +130,17 @@ public class GuanLianJiGouXinXi implements BaseInterface {
 			//切换driver至ifram2
 			MyResponse webElement = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
 			Common.driver.switchTo().frame((WebElement)webElement.get("ele"));
-			//获取页面中的机构代码
-			myResponse = Common.getWebElement(PageEnum.GUANLIANJIGOUXINXI, AllElementEnum.GuanLianJiGouXinXiElement, GuanLianJiGouXinXiEnum.JIGOUDAIMA);
+			//获取页面中的机构代码,机构类型
+			MyResponse JiGouDaiMaResponse = Common.getWebElement(PageEnum.GUANLIANJIGOUXINXI, AllElementEnum.GuanLianJiGouXinXiElement, GuanLianJiGouXinXiEnum.JIGOUDAIMA);
+			MyResponse JiGouLeiXingResponse = Common.getWebElement(PageEnum.GUANLIANJIGOUXINXI, AllElementEnum.GuanLianJiGouXinXiElement, GuanLianJiGouXinXiEnum.JIGOULEIXING);
 			//找出在Excel中对应的项
 			int sizeOfData = ReadFromExcel.dataForGuanLianJIGouXinXiFromExcel.size();
 			for(int j = 0; j < sizeOfData; j++){
 				//获取Excel此行的机构代码
 				String jigoudaima  = ReadFromExcel.dataForGuanLianJIGouXinXiFromExcel.get(j).get(GuanLianJiGouXinXiEnum.JIGOUDAIMA);
+				String jigouleixing  = ReadFromExcel.dataForGuanLianJIGouXinXiFromExcel.get(j).get(GuanLianJiGouXinXiEnum.JIGOULEIXING);
 				//比较找出对于此页面在Excel中的对应行
-				if(jigoudaima.equals(((WebElement)myResponse.get("ele")).getAttribute("value"))){
+				if(jigoudaima.equals(((WebElement)JiGouDaiMaResponse.get("ele")).getAttribute("value"))&& jigouleixing.equals((WebElement)JiGouLeiXingResponse.get("ele"))){
 					//比较页面中所涉及到项目的是否正确
 					HashMap<GuanLianJiGouXinXiEnum, String> hashMap = ReadFromExcel.dataForGuanLianJIGouXinXiFromExcel.get(j);
 					Set<GuanLianJiGouXinXiEnum> keySet = hashMap.keySet();
