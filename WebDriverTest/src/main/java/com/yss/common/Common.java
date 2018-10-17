@@ -41,13 +41,13 @@ public class Common {
 	 * @return
 	 * @author tanglonglong
 	 */
-//	public static WebDriver getFFDriver() {
-//		String browserPath = "C:/Program Files/Mozilla Firefox/firefox.exe";
-//		System.setProperty("webdriver.firefox.bin", browserPath);
-//		driver = new FirefoxDriver();
-//		driver.manage().window().maximize();
-//		return driver;
-//	}
+	public static WebDriver getFFDriver() {
+		String browserPath = "C:/Program Files/Mozilla Firefox/firefox.exe";
+		System.setProperty("webdriver.firefox.bin", browserPath);
+		driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		return driver;
+	}
 	/**
 	 * getFireFoxDriver
 	 * 
@@ -55,31 +55,31 @@ public class Common {
 	 * @return
 	 * @author tanglonglong
 	 */
-	public static WebDriver getFFDriver() {
-		
-	
-		/* chrome */
-		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		System.setProperty("webdriver.chrome.bin", "/usr/bin/google-chrome");
-		ChromeOptions options = new ChromeOptions();
-		
-		options.addArguments("--window-size=1920,1080");
-		options.addArguments("--headless");
-        options.addArguments("--disable-extensions"); // disabling extensions
-        options.addArguments("--disable-gpu"); // applicable to windows os only
-        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-        options.addArguments("--no-sandbox");
-		System.out.println("before driver");
-		driver = new ChromeDriver(options);
-		driver.get("http://www.baidu.com");
-		System.out.println("after driver");
-		
-		System.out.println(driver.getTitle());
-
-
-		return driver;
-	}
-	
+//	public static WebDriver getFFDriver() {
+//		
+//	
+//		/* chrome */
+//		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+//		System.setProperty("webdriver.chrome.bin", "/usr/bin/google-chrome");
+//		ChromeOptions options = new ChromeOptions();
+//		
+//		options.addArguments("--window-size=1920,1080");
+//		options.addArguments("--headless");
+//        options.addArguments("--disable-extensions"); // disabling extensions
+//        options.addArguments("--disable-gpu"); // applicable to windows os only
+//        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+//        options.addArguments("--no-sandbox");
+//		System.out.println("before driver");
+//		driver = new ChromeDriver(options);
+//		driver.get("http://www.baidu.com");
+//		System.out.println("after driver");
+//		
+//		System.out.println(driver.getTitle());
+//
+//
+//		return driver;
+//	}
+//	
 	/**
 	 * sleep 用来等待页面加载
 	 */
