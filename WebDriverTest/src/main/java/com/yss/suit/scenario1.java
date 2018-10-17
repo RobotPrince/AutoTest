@@ -27,11 +27,11 @@ public class scenario1 {
 	 * 如：1.登陆 2.开户 3.申购
 	 */
 	@Test(priority = 0)
-	@Parameters({"TA_address","user","password"})
-	public void login(String TA_address, String user, String password) {
+	@Parameters({"TA_address","username","password"})
+	public void login(String TA_address, String username, String password) {
 		try{
-		System.out.println(TA_address+"--"+user+"--"+password);
-			if(!new Login().login(TA_address, user, password)){
+		System.out.println(TA_address+"--"+username+"--"+password);
+			if(!new Login().login(TA_address, username, password)){
 				Reporter.log("登录失败");
 				Assert.fail("登录失败");
 			}

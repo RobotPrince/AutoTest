@@ -128,7 +128,7 @@
 		        <configuration>
 		          <systemPropertyVariables>
 		          	<testEnvironment>${TA_address}</testEnvironment>
-		          	<testEnvironment>${user}</testEnvironment>
+		          	<testEnvironment>${username}</testEnvironment>
 		          	<testEnvironment>${password}</testEnvironment>
 		          </systemPropertyVariables>
 		          <suiteXmlFiles>
