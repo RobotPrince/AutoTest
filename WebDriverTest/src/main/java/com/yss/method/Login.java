@@ -17,7 +17,7 @@ import com.yss.common.ReadFromExcel;
 public class Login {
 
 	@SuppressWarnings("unchecked")
-	@Parameters({"TA_address","user","password"})
+
 	public boolean login(String TA_address, String user, String password) {
 		Common.logInfo("login");
 		WebDriver driver = Common.driver;

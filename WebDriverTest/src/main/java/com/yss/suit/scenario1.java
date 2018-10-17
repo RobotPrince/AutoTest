@@ -30,7 +30,7 @@ public class scenario1 {
 	@Parameters({"TA_address","user","password"})
 	public void login(String TA_address, String user, String password) {
 		try{
-		
+		System.out.println(TA_address+"--"+user+"--"+password);
 			if(!new Login().login(TA_address, user, password)){
 				Reporter.log("登录失败");
 				Assert.fail("登录失败");
