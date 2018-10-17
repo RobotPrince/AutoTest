@@ -74,7 +74,8 @@ public class Common {
 //		options.addArguments("no-sandbox"); // Bypass OS security model
 //		options.addArguments("disable-infobars"); // disabling infobars
 		System.out.println("before driver");
-		WebDriver driver = new ChromeDriver(options);
+		WebDriver driver = new ChromeDriver();
+		//WebDriver driver = new ChromeDriver(options);
 		driver.get("http://www.baidu.com");
 		System.out.println("after driver");
 		
