@@ -6,6 +6,7 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
@@ -45,10 +46,11 @@ public class NewVersionScenario {
 	}
 
 	@Test(priority = 0)
-	public void login() {
+	@Parameters({"TA_address","user","password"})
+	public void login(String TA_address, String user, String password) {
 		try{
 		
-			if(!new Login().login()){
+			if(!new Login().login(TA_address, user, password)){
 				Reporter.log("登录失败");
 				Assert.fail("登录失败");
 			}
