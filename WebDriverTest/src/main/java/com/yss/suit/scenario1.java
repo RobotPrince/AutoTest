@@ -109,6 +109,7 @@ public class scenario1 {
 //	}
 	@Test(priority = 11)
 	public void ChanPinXinXiView() throws InterruptedException{
+		new ChanPinXinXi().before();
 		new ChanPinXinXi().view();
 		Reporter.log("产品信息-查看成功");
 	}
