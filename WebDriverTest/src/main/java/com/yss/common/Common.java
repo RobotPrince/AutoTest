@@ -22,6 +22,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,12 +34,12 @@ public class Common {
 	//单位秒
 	public static final long WAIT100PERCENT = 300l;
 	
-//	/**
-//	 * getFireFoxDriver
-//	 * 
-//	 * @return
-//	 * @author tanglonglong
-//	 */
+	/**
+	 * getFireFoxDriver
+	 * 
+	 * @return
+	 * @author tanglonglong
+	 */
 //	public static WebDriver getFFDriver() {
 //		String browserPath = "C:/Program Files/Mozilla Firefox/firefox.exe";
 //		System.setProperty("webdriver.firefox.bin", browserPath);
@@ -74,7 +75,7 @@ public class Common {
         options.addArguments("--no-sandbox");
 		System.out.println("before driver");
 //		WebDriver driver = new ChromeDriver();
-		WebDriver driver = new ChromeDriver(options);
+		driver = new ChromeDriver(options);
 		driver.get("http://www.baidu.com");
 		System.out.println("after driver");
 		
