@@ -22,8 +22,8 @@ public class Login {
 		Common.logInfo("login");
 		WebDriver driver = Common.driver;
 		//TODO：修改Tomcat的IP和端口
-		String url = "http://192.168.103.213:8088/sofa/sofa-portal/index.jsp";
-//		String url = TA_address;
+//		String url = "http://192.168.103.213:8088/sofa/sofa-portal/index.jsp";
+		String url = TA_address;
 		//打开网址
 		driver.get(url);
 		//获取页面元素
@@ -49,14 +49,14 @@ public class Login {
 		//获取用户名和密码
 		List<HashMap<LoginEnum, String>> dataForLoginPageFromExcel = ReadFromExcel.dataForLoginPageFromExcel;
 		//填写值，点击
-		MyResponse setUserResponse = Common.setParameter(userElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.USER));
-//		MyResponse setUserResponse = Common.setParameter(userElement, user);
+//		MyResponse setUserResponse = Common.setParameter(userElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.USER));
+		MyResponse setUserResponse = Common.setParameter(userElement, user);
 		if( (int)setUserResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
 			Common.logError("Set parameter "+ userElement+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.USER)+" failed");
 			return false;
 		}
-		MyResponse setPwdResponse = Common.setParameter(pwdElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD));
-//		MyResponse setPwdResponse = Common.setParameter(pwdElement, password);
+//		MyResponse setPwdResponse = Common.setParameter(pwdElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD));
+		MyResponse setPwdResponse = Common.setParameter(pwdElement, password);
 		if( (int)setPwdResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
 			Common.logError("Set parameter "+ pwdElement+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD)+" failed");
 			return false;
