@@ -18,17 +18,11 @@ public class Login {
 	@SuppressWarnings("unchecked")
 	public boolean login() {
 		Common.logInfo("login");
-Common.logInfo("21");
 		WebDriver driver = Common.driver;
-		System.out.println(driver);
-		driver.get("http://www.baidu.com");
-		Common.logInfo("23");
 		//TODO：修改Tomcat的IP和端口
 		String url = "http://192.168.103.213:8088/sofa/sofa-portal/index.jsp";
-		Common.logInfo("26");
 		//打开网址
 		driver.get(url);
-		Common.logInfo("30");
 		//获取页面元素
 		MyResponse userResponse = Common.getWebElement(PageEnum.LOGIN_PAGE,AllElementEnum.LoginElement,LoginEnum.USER);
 		if( userResponse.get(MyResponse.STATUS).equals(MyResponse.FAILED)){

@@ -37,54 +37,56 @@ public class Common {
 	/**
 	 * getFireFoxDriver
 	 * 
-	 * @return
-	 * @author tanglonglong
-	 */
-//	public static WebDriver getFFDriver() {
-//		String browserPath = "C:/Program Files/Mozilla Firefox/firefox.exe";
-//		System.setProperty("webdriver.firefox.bin", browserPath);
-//		driver = new FirefoxDriver();
-//		driver.manage().window().maximize();
-//		return driver;
-//	}
-	/**
-	 * getFireFoxDriver
-	 * 
+	 * for firefox
 	 * @return
 	 * @author tanglonglong
 	 */
 	public static WebDriver getFFDriver() {
-		
-//		
-//		FirefoxBinary firefoxBinary = new FirefoxBinary(new File("/usr/local/firefox/firefox"));
-//		firefoxBinary.addCommandLineOptions("--headless"); 
-//		firefoxBinary.addCommandLineOptions("--no-sandbox"); 
-//		System.setProperty("webdriver.firefox.driver", "/usr/bin/geckodriver");
-//		System.setProperty("webdriver.firefox.bin", "/usr/local/firefox/firefox");
-//		FirefoxDriver driver = new FirefoxDriver(firefoxBinary,null);
-	
-		/* chrome */
-		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		System.setProperty("webdriver.chrome.bin", "/usr/bin/google-chrome");
-		ChromeOptions options = new ChromeOptions();
-		
-        options.addArguments("--headless");
-        options.addArguments("--disable-extensions"); // disabling extensions
-        options.addArguments("--disable-gpu"); // applicable to windows os only
-        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-        options.addArguments("--no-sandbox");
-		System.out.println("before driver");
-//		WebDriver driver = new ChromeDriver();
-		driver = new ChromeDriver(options);
-		driver.get("http://www.baidu.com");
-		System.out.println("after driver");
-		
-		System.out.println(driver.getTitle());
-
-
+		String browserPath = "C:/Program Files/Mozilla Firefox/firefox.exe";
+		System.setProperty("webdriver.firefox.bin", browserPath);
+		driver = new FirefoxDriver();
+		driver.manage().window().maximize();
 		return driver;
 	}
-	
+	/**
+	 * getFireFoxDriver
+	 * 
+	 * for chrome
+	 * @return
+	 * @author tanglonglong
+	 */
+//	public static WebDriver getFFDriver() {
+//		
+////		
+////		FirefoxBinary firefoxBinary = new FirefoxBinary(new File("/usr/local/firefox/firefox"));
+////		firefoxBinary.addCommandLineOptions("--headless"); 
+////		firefoxBinary.addCommandLineOptions("--no-sandbox"); 
+////		System.setProperty("webdriver.firefox.driver", "/usr/bin/geckodriver");
+////		System.setProperty("webdriver.firefox.bin", "/usr/local/firefox/firefox");
+////		FirefoxDriver driver = new FirefoxDriver(firefoxBinary,null);
+//	
+//		/* chrome */
+//		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+//		System.setProperty("webdriver.chrome.bin", "/usr/bin/google-chrome");
+//		ChromeOptions options = new ChromeOptions();
+//		
+//        options.addArguments("--headless");
+//        options.addArguments("--disable-extensions"); // disabling extensions
+//        options.addArguments("--disable-gpu"); // applicable to windows os only
+//        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+//        options.addArguments("--no-sandbox");
+//		System.out.println("before driver");
+////		WebDriver driver = new ChromeDriver();
+//		driver = new ChromeDriver(options);
+//		driver.get("http://www.baidu.com");
+//		System.out.println("after driver");
+//		
+//		System.out.println(driver.getTitle());
+//
+//
+//		return driver;
+//	}
+//	
 	/**
 	 * sleep 用来等待页面加载
 	 */
