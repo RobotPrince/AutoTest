@@ -63,7 +63,7 @@ public class Common {
 		System.setProperty("webdriver.chrome.bin", "/usr/bin/google-chrome");
 		ChromeOptions options = new ChromeOptions();
 		
-		options.addArguments("start-maximized");
+		options.addArguments("--start-maximized");
         options.addArguments("--headless");
         options.addArguments("--disable-extensions"); // disabling extensions
         options.addArguments("--disable-gpu"); // applicable to windows os only
