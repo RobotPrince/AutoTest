@@ -64,7 +64,7 @@ public class Common {
 	
 		/* chrome */
 		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-	//	System.setProperty("webdriver.chrome.bin", "/opt/google/chrome/chrome");
+		System.setProperty("webdriver.chrome.bin", "/usr/bin/google-chrome");
 		ChromeOptions options = new ChromeOptions();
 		
 		options.addArguments("headless");
