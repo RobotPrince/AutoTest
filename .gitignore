@@ -1,8 +1,9 @@
 /.metadata/
-/WebDriverTest/test-output/screen-shot/
-/WebDriverTest/logs/
+/WebDriverTest/test-output/html/*.html/
+#/WebDriverTest/test-output/
+*.log.*
+*.log
+target/
 /WebDriverTest/.settings/
-/WebDriverTest/target/classes/
-/WebDriverTest/target/test-classes/
-/WebDriverTest/test-output/
-WebDriverTest/test-output/junitreports/TEST-com.yss.suit.scenario1.xml
+#/WebDriverTest/target/classes/
+#/WebDriverTest/target/test-classes/

@@ -19,8 +19,10 @@ public class DBInsertTest {
 		String allJson = new String();
 		Map<String, Object> JsonMap = new LinkedHashMap<String,Object>();
 		 Date date = new SimpleDateFormat("yyyy-MM-dd").parse("2018-09-04");
-		String[] arr = {"18090314165573418959","ffffff","2","1","ffffff","670b14728ad9902aecba32e22fa4f6bd","1","0","0","0","0","1","date","date","12345678901234567890","date","12345678901234567890","date","12345678901234567890","date","0","1","12345678901234567890","date","date","0","ffffff","0"};
-		 PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO t_User (FID,fname,fgender,ftype,flogin_code,fpwd,faccount_type,forigin_type,flogin_account_type,flock_state,forig_state,fstart_date,fend_date,fcreator_id,fcreate_time,flast_edit_time,fdelete_time,fdelete_state,fcheck_state,fchecker_id,fcheck_time"
+		String[] arr = {"18090314165573418959","ffffff","2","1","ffffff","670b14728ad9902aecba32e22fa4f6bd","1","0","0","0","0","1","date","date",
+				"12345678901234567890","date","12345678901234567890","date","12345678901234567890","date","0","1","12345678901234567890","date","date","0","ffffff","0"};
+		 PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO t_User (FID,fname,fgender,ftype,flogin_code,fpwd,faccount_type,"
+		 		+ "forigin_type,flogin_account_type,flock_state,forig_state,fstart_date,fend_date,fcreator_id,fcreate_time,flast_edit_time,fdelete_time,fdelete_state,fcheck_state,fchecker_id,fcheck_time"
 		 		+ ",fpwd_eff_date,faccount_state,fnamepy,fspecial_user_state) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		 for(int j=1;j>0;j++){
 			 

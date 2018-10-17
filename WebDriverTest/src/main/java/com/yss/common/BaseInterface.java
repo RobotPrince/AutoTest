@@ -12,6 +12,10 @@ public interface BaseInterface {
 	 */
 	boolean before();
 	/**
+	 * 查看
+	 */
+	boolean view();
+	/**
 	 * 审核
 	 * @return
 	 */
@@ -27,7 +31,7 @@ public interface BaseInterface {
 	 * 反审核
 	 * @return
 	 */
-	boolean unreviewed();
+	boolean unreview();
 //	/**
 //	 * 新增一个
 //	 * @return
@@ -50,5 +54,5 @@ public interface BaseInterface {
 	/**
 	 * 收尾操作
 	 */
-	Boolean after();
+	boolean after();
 }

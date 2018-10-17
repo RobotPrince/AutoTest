@@ -148,7 +148,15 @@ public class CheckMenu {
 		/**
 		 * 核算机构信息
 		 */
-		HESUANJIGOUXINXI_2
+		HESUANJIGOUXINXI_2,
+		/**
+		 * 销售机构信息
+		 */
+		XIAOSHOUJIGOUXINXI_2,
+		/**
+		 * 关联机构信息
+		 */
+		GUANLIANJIGOUXINXI_2
 //FIXME:下面的暂时用不上，格式设置同上。 一对一
 //		基金账户开户
 //		增开交易账户
@@ -194,8 +202,8 @@ public class CheckMenu {
 //		业绩报酬明细
 //		机构参数一级
 //		核算机构信息
-//		关联机构信息
-//		销售机构信息
+
+
 //		产品销售代理关系
 //		费用分成
 //		机构限额
@@ -265,8 +273,8 @@ public class CheckMenu {
 //		yejibaochoumingxi_2
 //		jigoucanshu_1
 //		hesuanjigouxinxi_2
-//		guanlianjigouxinxi_2
-//		xiaoshoujigouxinxi_2
+
+
 //		chanpinxiaoshoudailiguanxi_2
 //		feiyongfencheng_2
 //		jigouxine_2
