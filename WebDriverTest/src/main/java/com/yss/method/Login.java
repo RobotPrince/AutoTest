@@ -1,63 +1,93 @@
 package com.yss.method;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.yss.common.AllElementEnum;
 import com.yss.common.Common;
+import com.yss.common.ElementEnum;
+import com.yss.common.MyResponse;
 import com.yss.common.PageEnum;
 import com.yss.common.ReadFromExcel;
 
 public class Login {
 
+	@SuppressWarnings("unchecked")
 	public boolean login() {
 		Common.logInfo("login");
-
 		WebDriver driver = Common.driver;
-		String url = "http://127.0.0.1:8080/sofa/sofa-sso/validate";
+		//TODO：修改Tomcat的IP和端口
+		String url = "http://192.168.103.213:8088/sofa/sofa-portal/index.jsp";
 		//打开网址
 		driver.get(url);
-		String pageSource = driver.getPageSource();
 		//获取页面元素
-		List<String> listOfUser = new ArrayList<String>();
-		List<String> listOfPwd = new ArrayList<String>();
-		List<String> listOfLogin = new ArrayList<String>();
-		HashMap<String, List<String>> hashMap = ReadFromExcel.hashMapOfExcel.get(PageEnum.LOGIN_PAGE);
-		Set<String> keySet = hashMap.keySet();
-		for(String key : keySet){
-			switch(key)
-			{
-			case "user" : listOfUser = hashMap.get(key);
-			break;
-			case "pwd" : listOfPwd = hashMap.get(key);
-			break;
-			case "login" : listOfLogin = hashMap.get(key);
-			break;
-			default :Common.logError("WebElement name error,not supproted for "+key+" yet");
+		MyResponse userResponse = Common.getWebElement(PageEnum.LOGIN_PAGE,AllElementEnum.LoginElement,LoginEnum.USER);
+		if( userResponse.get(MyResponse.STATUS).equals(MyResponse.FAILED)){
+			Common.logError("Get User Name failed");
 			return false;
-			}
 		}
-			
+		WebElement userElement = (WebElement)userResponse.get("ele");
+//		List<String> userList = (List<String>)responseUser.get("list");
+//		WebElement findElement1 = (WebElement)Common.getWebElementOld(userList.get(1), userList.get(0)).get("ele");
+		
+		MyResponse pwdResponse = Common.getWebElement(PageEnum.LOGIN_PAGE,AllElementEnum.LoginElement,LoginEnum.PWD);
+		if( pwdResponse.get(MyResponse.STATUS).equals(MyResponse.FAILED)){
+			Common.logError("Get pwd failed");
+			return false;
+		}
+		WebElement pwdElement = (WebElement)pwdResponse.get("ele");
+		
+//		
+//		List<String> pwdList = (List<String>)responsePwd.get("list");
+//		WebElement findElement2 = Common.getWebElement(pwdList.get(1), pwdList.get(0));
+	
+		MyResponse loginResponse = Common.getWebElement(PageEnum.LOGIN_PAGE,AllElementEnum.LoginElement,LoginEnum.LOGIN);
+		if( loginResponse.get(MyResponse.STATUS).equals(MyResponse.FAILED)){
+			Common.logError("Get login failed");
+			return false;
+		}
+		WebElement loginElement = (WebElement)loginResponse.get("ele");
+//		List<String> loginList = (List<String>)responseLogin.get("list");
+//		WebElement findElement3 = Common.getWebElement(loginList.get(1), loginList.get(0));
+
+		//获取用户名和密码
+		List<HashMap<LoginEnum, String>> dataForLoginPageFromExcel = ReadFromExcel.dataForLoginPageFromExcel;
 		//填写值，点击
-		WebElement findElement1 = Common.getWebElement(listOfUser.get(1), listOfUser.get(0));
-		WebElement findElement2 = Common.getWebElement(listOfPwd.get(1), listOfPwd.get(0));
-		WebElement findElement3 = Common.getWebElement(listOfLogin.get(1), listOfLogin.get(0));
-		if( !Common.setParameter(findElement1, "tll") ){
-			Common.logError("Set parameter "+ findElement1+" to"+"admin"+" failed");
+		MyResponse setUserResponse = Common.setParameter(userElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.USER));
+		if( (int)setUserResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
+			Common.logError("Set parameter "+ userElement+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.USER)+" failed");
 			return false;
 		}
-		if( !Common.setParameter(findElement2, "000000") ){
-			Common.logError("Set parameter "+ findElement2+" to"+"000000"+" failed");
+		MyResponse setPwdResponse = Common.setParameter(pwdElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD));
+		if( (int)setPwdResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
+			Common.logError("Set parameter "+ pwdElement+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD)+" failed");
 			return false;
 		}
-		if( !Common.click(findElement3) ){
-			Common.logError("Click element of "+findElement3+" failed");
+		MyResponse clickLoginResponse = Common.click(loginElement) ;
+		if( (int)clickLoginResponse.get(MyResponse.STATUS)== MyResponse.FAILED ){
+			Common.logError("Click element of "+loginElement+" failed");
 			return false;
 		}
 		return true;
 	}
+	
+	public enum LoginEnum implements ElementEnum{
+		
+		/**
+		 * 用户名
+		 */
+		USER,
+		/**
+		 * 密码
+		 */
+		PWD,
+		/**
+		 * 登录
+		 */
+		LOGIN
+	}
 }
+

@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [test sofa]">
-  <test name="score1(failed)">
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  </listeners>
+  <test name="yss_auto_test(failed)">
     <classes>
-      <class name="com.yss.suit.scenario1">
+      <class name="com.yss.suit.scenario2">
         <methods>
           <include name="beforeClass"/>
           <include name="afterClass"/>
-          <include name="test2"/>
+          <include name="HeSuanJiGouXinXiAdd"/>
+          <include name="login"/>
+          <include name="getData"/>
         </methods>
-      </class> <!-- com.yss.suit.scenario1 -->
+      </class> <!-- com.yss.suit.scenario2 -->
     </classes>
-  </test> <!-- score1(failed) -->
+  </test> <!-- yss_auto_test(failed) -->
 </suite> <!-- Failed suite [test sofa] -->

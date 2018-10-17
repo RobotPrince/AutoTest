@@ -1,56 +1,42 @@
 package com.yss.method;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
 
+import com.yss.common.AllElementEnum;
 import com.yss.common.Common;
 import com.yss.common.ElementEnum;
+import com.yss.common.MyResponse;
 import com.yss.common.PageEnum;
 import com.yss.common.ReadFromExcel;
-
 public class CheckMenu {
 
-	private  final  String[]  ELEMENT_NAME = {
-		"richangyunying_1",
-		"richangyunying_2",
-		"chanpinjingzhi_2"
-	};
 	public boolean checkTAMenuText() {
 		Common.logInfo("checkTAMenuText");
 
 		// 点击TAB
-		List<String> TATabList = ReadFromExcel.hashMapOfExcel.get(PageEnum.TAB_MENU).get("TAdengjiguohu");
-		Common.getWebElement(TATabList.get(1), TATabList.get(0)).click();
-
-		// 获取页面元素
-		List<String> list = new ArrayList<String>();
+		List<String> TATabList = ReadFromExcel.elementsFromExcel.get(PageEnum.TAB_MENU).get("TAdengjiguohu");
+//		Common.getWebElement(TATabList.get(1), TATabList.get(0)).click();
 		
-		list = getElementData("richangyunying_1");
-		WebElement richangyunying1Ele = Common.getWebElement(list.get(1),
-				list.get(0));
-		richangyunying1Ele.getAttribute("ext:tree-node-id");
+	//	MyResponse myResponse = Common.getWebElement(TATabList.get(1), TATabList.get(0));
+//		if( (int)myResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			Common.logError("Get Element failed");
+//		}
+//		((WebElement)myResponse.get("ele")).click();
+
+		// 获取页面元素R
+		//方案一和方案二
+//		Common.getElementData(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,"richangyunying_1");
+	//	MyResponse response = Common.getElementData(PageEnum.TA_MENU,AllElementEnum.CheckMenuElement,CheckMenuElement.RICHANGYUNYING_1);
+		
+//		WebElement richangyunying1Ele = Common.getWebElement(list.get(1),
+//				list.get(0));
+//		richangyunying1Ele.getAttribute("ext:tree-node-id");
 		return true;
 	}
 
-	public List<String> getElementData(String key) {
-
-		HashMap<String, List<String>> hashMap = ReadFromExcel.hashMapOfExcel
-				.get(PageEnum.TA_MENU);
-		List<String> list = new ArrayList<String>();
-
-		try{
-//			Element.valueOf(key);
-		}
-		catch(Exception e){
-			Common.logError("ElementName not in excel");
-			return null;
-		}
-		list = hashMap.get(key);
-		return list;
-	}
 	
 	public enum CheckMenuElement implements ElementEnum{
 		
@@ -154,6 +140,23 @@ public class CheckMenu {
 		 * 业务申请一级
 		 */
 		YEWUSHENQING_1,
+		//FIXME:以下为临时增加
+		/**
+		 * 机构参数
+		 */
+		JIGOUCANSHU_1,
+		/**
+		 * 核算机构信息
+		 */
+		HESUANJIGOUXINXI_2,
+		/**
+		 * 销售机构信息
+		 */
+		XIAOSHOUJIGOUXINXI_2,
+		/**
+		 * 关联机构信息
+		 */
+		GUANLIANJIGOUXINXI_2
 //FIXME:下面的暂时用不上，格式设置同上。 一对一
 //		基金账户开户
 //		增开交易账户
@@ -199,8 +202,8 @@ public class CheckMenu {
 //		业绩报酬明细
 //		机构参数一级
 //		核算机构信息
-//		关联机构信息
-//		销售机构信息
+
+
 //		产品销售代理关系
 //		费用分成
 //		机构限额
@@ -270,8 +273,8 @@ public class CheckMenu {
 //		yejibaochoumingxi_2
 //		jigoucanshu_1
 //		hesuanjigouxinxi_2
-//		guanlianjigouxinxi_2
-//		xiaoshoujigouxinxi_2
+
+
 //		chanpinxiaoshoudailiguanxi_2
 //		feiyongfencheng_2
 //		jigouxine_2

@@ -1,1 +1,9 @@
-.metadata/
+/.metadata/
+/WebDriverTest/test-output/html/*.html/
+#/WebDriverTest/test-output/
+*.log.*
+*.log
+target/
+/WebDriverTest/.settings/
+#/WebDriverTest/target/classes/
+#/WebDriverTest/target/test-classes/
