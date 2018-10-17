@@ -74,7 +74,7 @@ public class HeSuanJiGouXinXi implements BaseInterface {
 			while( iterator.hasNext() ){
 				//isChecked在这里不需要做任何操作
 				HeSuanJiGouXinXiEnum eunm = iterator.next();
-				if(eunm.equals(HeSuanJiGouXinXiEnum.ISCHECKED)){
+				if(eunm.equals(HeSuanJiGouXinXiEnum.ISCHECKED)||data.get(eunm)==null||"".equals(data.get(eunm))){
 					continue;
 				}
 				//获取add需要的元素
