@@ -11,10 +11,8 @@ import org.testng.annotations.Test;
 
 import com.yss.common.Common;
 import com.yss.method.ChanPinXinXi;
-import com.yss.method.GuanLianJiGouXinXi;
-import com.yss.method.HeSuanJiGouXinXi;
+import com.yss.method.ChanPinFeiLv;
 import com.yss.method.Login;
-import com.yss.method.XiaoShouJiGouXinXi;
 
 public class scenario1 {
 	public static Logger logger = Logger.getLogger(scenario1.class);
@@ -107,18 +105,36 @@ public class scenario1 {
 //		new ChanPinXinXi().add();
 //		Reporter.log("产品信息-新增成功");
 //	}
-	@Test(priority = 11)
-	public void ChanPinXinXiView() throws InterruptedException{
-		new ChanPinXinXi().before();
-		new ChanPinXinXi().view();
-		Reporter.log("产品信息-查看成功");
+//	@Test(priority = 11)
+//	public void ChanPinXinXiView() throws InterruptedException{
+//		new ChanPinXinXi().before();
+//		new ChanPinXinXi().view();
+//		Reporter.log("产品信息-查看成功");
+//	}
+//	@Test(priority = 12)
+//	public void ChanPinXinXiReview() throws InterruptedException{
+//		new ChanPinXinXi().review();
+//		new ChanPinXinXi().after();
+//		Reporter.log("产品信息-审核成功");
+//	}
+	@Test(priority = 13)
+	public void ChanPinFeiLvAdd() throws InterruptedException{
+		new ChanPinFeiLv().before();
+		new ChanPinFeiLv().add();
+		Reporter.log("产品费率-新增成功");
 	}
-	@Test(priority = 12)
+	@Test(priority = 14)
+	public void ChanPinFeiLvView() throws InterruptedException{
+		new ChanPinFeiLv().view();
+		Reporter.log("产品费率-查看成功");
+	}
+	@Test(priority = 15)
 	public void ChanPinXinXiReview() throws InterruptedException{
-		new ChanPinXinXi().review();
-		new ChanPinXinXi().after();
-		Reporter.log("产品信息-审核成功");
+		new ChanPinFeiLv().review();
+		new ChanPinFeiLv().after();
+		Reporter.log("产品费率-审核成功");
 	}
+	
 	@BeforeClass
 	public void beforeClass() {
 
