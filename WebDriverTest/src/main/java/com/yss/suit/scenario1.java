@@ -10,9 +10,9 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
-import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
-import com.yss.method.FeiYongFenCheng;
 import com.yss.method.Login;
+import com.yss.method.ZheKouGuanLi;
+import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
 
 public class scenario1 {
 	public static Logger logger = Logger.getLogger(scenario1.class);
@@ -135,40 +135,58 @@ public class scenario1 {
 //		Reporter.log("产品费率-审核成功");
 //	}
 	
-//	@Test(priority = 16)
-//	public void ChanPinXiaoShouDaiLiGuanXiAdd() throws InterruptedException{
-//		new ChanPinXiaoShouDaiLiGuanXi().before();
-//		new ChanPinXiaoShouDaiLiGuanXi().add();
-//		Reporter.log("产品销售代理关系-新增成功");
-//	}
-//	@Test(priority = 17)
-//	public void ChanPinXiaoShouDaiLiGuanXiView() throws InterruptedException{
-//		new ChanPinXiaoShouDaiLiGuanXi().view();
-//		Reporter.log("产品销售代理关系-查看成功");
-//	}
+	@Test(priority = 16)
+	public void ChanPinXiaoShouDaiLiGuanXiAdd() throws InterruptedException{
+		new ChanPinXiaoShouDaiLiGuanXi().before();
+		new ChanPinXiaoShouDaiLiGuanXi().add();
+		Reporter.log("产品销售代理关系-新增成功");
+	}
+	@Test(priority = 17)
+	public void ChanPinXiaoShouDaiLiGuanXiView() throws InterruptedException{
+		new ChanPinXiaoShouDaiLiGuanXi().view();
+		Reporter.log("产品销售代理关系-查看成功");
+	}
 	@Test(priority = 18)
 	public void ChanPinXiaoShouDaiLiGuanXiReview() throws InterruptedException{
 		new ChanPinXiaoShouDaiLiGuanXi().review();
 		new ChanPinXiaoShouDaiLiGuanXi().after();
 		Reporter.log("产品销售代理关系-审核成功");
 	}
-	@Test(priority = 19)
-	public void FeiYongFenChengAdd() throws InterruptedException{
-		new FeiYongFenCheng().before();
-		new FeiYongFenCheng().add();
-		Reporter.log("费用分成-新增成功");
+//	@Test(priority = 19)
+//	public void FeiYongFenChengAdd() throws InterruptedException{
+//		new FeiYongFenCheng().before();
+//		new FeiYongFenCheng().add();
+//		Reporter.log("费用分成-新增成功");
+//	}
+//	@Test(priority = 20)
+//	public void FeiYongFenChengView() throws InterruptedException{
+//		new FeiYongFenCheng().before();
+//		new FeiYongFenCheng().view();
+//		Reporter.log("费用分成-查看成功");
+//	}
+//	@Test(priority = 21)
+//	public void FeiYongFenChengReview() throws InterruptedException{
+//		new FeiYongFenCheng().review();
+//		new FeiYongFenCheng().after();
+//		Reporter.log("费用分成-审核成功");
+//	}
+	@Test(priority = 22)
+	public void ZheKouGuanLiAdd() throws InterruptedException{
+		new ZheKouGuanLi().before();
+		new ZheKouGuanLi().add();
+		Reporter.log("折扣管理-新增成功");
 	}
-	@Test(priority = 20)
-	public void FeiYongFenChengView() throws InterruptedException{
-		new FeiYongFenCheng().before();
-		new FeiYongFenCheng().view();
-		Reporter.log("费用分成-查看成功");
+	@Test(priority = 23)
+	public void ZheKouGuanLiView() throws InterruptedException{
+		new ZheKouGuanLi().before();
+		new ZheKouGuanLi().view();
+		Reporter.log("折扣管理-查看成功");
 	}
-	@Test(priority = 21)
-	public void FeiYongFenChengReview() throws InterruptedException{
-		new FeiYongFenCheng().review();
-		new FeiYongFenCheng().after();
-		Reporter.log("费用分成-审核成功");
+	@Test(priority = 24)
+	public void ZheKouGuanLiReview() throws InterruptedException{
+		new ZheKouGuanLi().review();
+		new ZheKouGuanLi().after();
+		Reporter.log("折扣管理-审核成功");
 	}
 	
 	@BeforeClass
