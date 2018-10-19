@@ -221,6 +221,7 @@ public class FeiYongFenCheng implements BaseInterface {
 
 	@Override
 	public boolean after() {
+		Common.logInfo("After");
 		Common.driver.navigate().refresh();
 		return true;
 	}
