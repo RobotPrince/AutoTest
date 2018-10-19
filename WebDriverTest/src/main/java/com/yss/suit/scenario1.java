@@ -137,7 +137,6 @@ public class scenario1 {
 //	
 //	@Test(priority = 16)
 //	public void ChanPinXiaoShouDaiLiGuanXiAdd() throws InterruptedException{
-//		new ChanPinXiaoShouDaiLiGuanXi().before();
 //		new ChanPinXiaoShouDaiLiGuanXi().add();
 //		Reporter.log("产品销售代理关系-新增成功");
 //	}
@@ -148,6 +147,7 @@ public class scenario1 {
 //	}
 	@Test(priority = 18)
 	public void ChanPinXiaoShouDaiLiGuanXiReview() throws InterruptedException{
+		new ChanPinXiaoShouDaiLiGuanXi().before();
 		new ChanPinXiaoShouDaiLiGuanXi().review();
 		new ChanPinXiaoShouDaiLiGuanXi().after();
 		Reporter.log("产品销售代理关系-审核成功");
