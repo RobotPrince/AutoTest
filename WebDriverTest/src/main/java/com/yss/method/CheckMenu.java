@@ -160,7 +160,11 @@ public class CheckMenu {
 		/**
 		 *产品销售代理关系
 		 */
-		CHANPINXIAOSHOUDAILIGUANXI_2
+		CHANPINXIAOSHOUDAILIGUANXI_2,
+		/**
+		 * 费用分成
+		 */
+		FEIYONGFENCHENG_2
 //FIXME:下面的暂时用不上，格式设置同上。 一对一
 //		基金账户开户
 //		增开交易账户
@@ -209,7 +213,6 @@ public class CheckMenu {
 
 
 
-//		费用分成
 //		机构限额
 //		折扣管理
 //		机构账号
@@ -279,7 +282,7 @@ public class CheckMenu {
 //		hesuanjigouxinxi_2
 
 
-//		feiyongfencheng_2
+
 //		jigouxine_2
 //		zhekouguanli_2
 //		jigouzhanghao_2
