@@ -44,5 +44,9 @@ public enum PageEnum {
 	/**
 	 * 日常运营清算
 	 */
-	RICHANGYUNYINGQINGSUAN
+	RICHANGYUNYINGQINGSUAN,
+	/**
+	 * 费用分成
+	 */
+	FEIYONGFENCHENG
 }

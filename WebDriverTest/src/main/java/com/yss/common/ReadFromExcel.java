@@ -20,6 +20,7 @@ import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
 import com.yss.method.Login.LoginEnum;
 import com.yss.method.RiChangYunYingQingSuan.RiChangYunYingQingSuanEnum;
 import com.yss.method.XiaoShouJiGouXinXi.XiaoShouJiGouXinXiEnum;
+import com.yss.method.FeiYongFenCheng.FeiYongFenChengEnum;
 
 /**
  * Read WebElements from Excel
@@ -42,6 +43,7 @@ public class ReadFromExcel {
 	public static List<HashMap<ChanPinXinXiEnum, String>> dataForChanPinXinXiFromExcel = new ArrayList<HashMap<ChanPinXinXiEnum, String>>();
 	public static List<HashMap<ChanPinFeiLvEnum, String>> dataForChanPinFeiLvFromExcel = new ArrayList<HashMap<ChanPinFeiLvEnum, String>>();
 	public static List<HashMap<ChanPinXiaoShouDaiLiGuanXiEnum, String>> dataForChanPinXiaoShouDaiLiGuanXiFromExcel = new ArrayList<HashMap<ChanPinXiaoShouDaiLiGuanXiEnum, String>>();
+	public static List<HashMap<FeiYongFenChengEnum, String>> dataForFeiYongFenChengFromExcel = new ArrayList<HashMap<FeiYongFenChengEnum, String>>();
 	/**
 	 * !!!!!!!!!!!!!!!!!
 	 * 这个需要维护
@@ -62,6 +64,7 @@ public class ReadFromExcel {
 		readForRiChangYunYingQingSuan();
 		readForChanPinFeiLv();
 		readForChanPinXiaoShouDaiLiGuanXi();
+		readForFeiYongFenCheng();
 	}
 	/**
 	 * HashMap(PageEnum, HashMap(String, List(String))) hashMapOfExcel-所有页面元素
@@ -759,6 +762,66 @@ public class ReadFromExcel {
 				linkedHashMap.put(ChanPinXiaoShouDaiLiGuanXiEnum.ISCHECKED, ischecked);
 				// 放入全局变量dataForChanPinFeiLvFromExcel中
 				dataForChanPinXiaoShouDaiLiGuanXiFromExcel.add(linkedHashMap);
+			}
+		} catch (Exception e) {
+			Common.logError(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	/**
+	 * readForFeiYongFenCheng-费用分成
+	 * @return
+	 */
+	public boolean readForFeiYongFenCheng() {
+		Common.logInfo("readForFeiYongFenCheng");
+		
+		try {
+			Workbook book = Workbook.getWorkbook(new File(
+					"./testcase/TestCase.xls"));
+			// 获得ChanPinFeiLv工作表对象
+			Sheet[] sheets = book.getSheets();
+			Sheet sheet = null;
+			for (Sheet s : sheets) {
+				if ("feiyongfencheng".equals(s.getName())) {
+					sheet = s;
+				}
+			}
+			if (sheet == null) {
+				Common.logError("ReadForLogPage error,the feiyongfencheng sheet not exit!");
+				return false;
+			}
+			// 获取sheet的所有行数
+			int rows = sheet.getRows();
+			
+			for (int r = 2; r < rows; r++) {
+				LinkedHashMap<FeiYongFenChengEnum, String> linkedHashMap = new LinkedHashMap<FeiYongFenChengEnum, String>();
+				// 取出第一行数据的所有数据
+				String fenchengfanganmingcheng = sheet.getCell(1, r).getContents();
+				String fenchengfanganhao = sheet.getCell(2, r).getContents();
+				String jigoudaima = sheet.getCell(3, r).getContents();
+				String chanpindaima = sheet.getCell(4, r).getContents();
+				String yewuleixing = sheet.getCell(5, r).getContents();
+				String fenchengbili = sheet.getCell(6, r).getContents();
+				String jinexiaxian = sheet.getCell(7, r).getContents();
+				String jineshangxian = sheet.getCell(8, r).getContents();
+				String youxiaokaishishijian = sheet.getCell(9, r).getContents();
+				String youxiaojieshushijian = sheet.getCell(10, r).getContents();
+				String ischecked = sheet.getCell(11, r).getContents();
+				
+				linkedHashMap.put(FeiYongFenChengEnum.FENCHENGFANGANMINGCHENG, fenchengfanganmingcheng);
+				linkedHashMap.put(FeiYongFenChengEnum.FENCHENGFANGANHAO, fenchengfanganhao);
+				linkedHashMap.put(FeiYongFenChengEnum.JIGOUDAIMA, jigoudaima);
+				linkedHashMap.put(FeiYongFenChengEnum.CHANPINDAIMA, chanpindaima);
+				linkedHashMap.put(FeiYongFenChengEnum.YEWULEIXING, yewuleixing);
+				linkedHashMap.put(FeiYongFenChengEnum.FENCHENGBILI, fenchengbili);
+				linkedHashMap.put(FeiYongFenChengEnum.JINEXIAXIAN, jinexiaxian);
+				linkedHashMap.put(FeiYongFenChengEnum.JINESHANGXIAN, jineshangxian);
+				linkedHashMap.put(FeiYongFenChengEnum.YOUXIAOKAISHISHIJIAN, youxiaokaishishijian);
+				linkedHashMap.put(FeiYongFenChengEnum.YOUXIAOJIESHUSHIJIAN, youxiaojieshushijian);
+				linkedHashMap.put(FeiYongFenChengEnum.ISCHECKED, ischecked);
+				// 放入全局变量dataForFeiYongFenChengFromExcel中
+				dataForFeiYongFenChengFromExcel.add(linkedHashMap);
 			}
 		} catch (Exception e) {
 			Common.logError(e.getMessage());

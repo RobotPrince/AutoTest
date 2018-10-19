@@ -569,6 +569,95 @@ public class Common {
 		return myResponse.successWithData("ele", findElement);
 	}
 	/**
+	 * getWebElementForSelect(pageEnum,allElementEnum,elementEnum)
+	 * 获取元素定位的相关数据,需要在页面上先执行JS是元素显示出来，只能byId
+	 * @param pageEnum
+	 * @param allElementEnum
+	 * @param elementEnum
+	 * @return MyResponse<"ele",WebElement>
+	 */
+	@SuppressWarnings("finally")
+	public static MyResponse getWebElementForSelect(PageEnum pageEnum,AllElementEnum allElementEnum,ElementEnum elementEnum) {
+		Common.logInfo("getWebElementForSelect");
+		
+		MyResponse myResponse = new MyResponse();
+		List<String> list = new ArrayList<String>();
+		boolean isContains = false;
+		HashMap<String, List<String>> hashMap = ReadFromExcel.elementsFromExcel
+				.get(pageEnum);
+		//取出该页面对应的所有元素的名称
+		String[] str = AllElementEnum.valueOf(allElementEnum.toString()).valueToString();
+		for(String s : str){
+			if(!s.equalsIgnoreCase(elementEnum.toString())){
+				continue;
+			}
+			isContains = true;
+		}
+		//若elementString不存在于所有元素名称则报错
+		if(isContains == false){
+			Common.logError("ElementName not in excel");
+			return myResponse.failed("ElementName not in excel");
+		}
+		
+		list = hashMap.get(elementEnum.toString().toLowerCase());
+		
+		WebElement findElement = null;
+		String locatorType = list.get(0);
+		String locatorVal = list.get(1);
+		String locatorRemark = list.get(2);
+		
+		LocatorTypeEnum type = LocatorTypeEnum.valueOf(locatorType
+				.toUpperCase());
+		
+		switch (type) {
+		case ID:
+			((JavascriptExecutor)Common.driver).executeScript("document.getElementById('"+locatorVal+"').style.cssText='display:block !important';");
+			if(!Common.waitForElement(By.id(locatorVal))){
+				Common.logError("Element of " + locatorVal + " can't find");
+				myResponse.failed("Element of " + locatorVal + " can't find");
+				return myResponse;
+			}
+			try {
+				findElement = driver.findElement(By.id(locatorVal));
+			}
+			catch (org.openqa.selenium.NoSuchElementException ex) {
+				Common.logError("Element of " + locatorVal + " can't find,Some errors in code");
+				myResponse.failed("Element of " + locatorVal + " can't find,Some errors in code");
+				return myResponse;
+			}
+			finally{
+				break;
+			}
+		default:
+			logError("Not supported for " + type + " yet");
+			return myResponse.failed("Not supported for " + type + " yet");
+		}
+		//闪烁一下当前找到的元素
+		((JavascriptExecutor)driver).executeScript("arguments[0].style.border = '2px solid red'", findElement);
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		((JavascriptExecutor)driver).executeScript("arguments[0].style.border = 'none'", findElement);
+		RemarkEnum remarkEnum = null;
+		
+		switch(locatorRemark){
+		case "C":remarkEnum = RemarkEnum.CLICKABLE;break;
+		case "R":remarkEnum = RemarkEnum.READABLE;break;
+		case "W":remarkEnum = RemarkEnum.WRITABLE;break;
+		case "A":remarkEnum = RemarkEnum.ALLABLE;break;
+		case "N":remarkEnum = RemarkEnum.NONE;break;
+		case "S":remarkEnum = RemarkEnum.SELECTABLE;break;
+		default:
+			logError("Not support for "+locatorRemark+" yet!");
+			return myResponse.failed("Not support for "+locatorRemark+" yet!");
+		}
+		myResponse.successWithData("rem", remarkEnum);
+		return myResponse.successWithData("ele", findElement);
+	}
+	/**
 	 * getElemenstDate(pageEnum,allElementEnum,elementEnum)
 	 * 获取元素定位的相关数据
 	 * @param pageEnum
