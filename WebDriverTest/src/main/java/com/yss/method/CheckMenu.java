@@ -164,7 +164,11 @@ public class CheckMenu {
 		/**
 		 * 费用分成
 		 */
-		FEIYONGFENCHENG_2
+		FEIYONGFENCHENG_2,
+		/**
+		 * 折扣管理
+		 */
+		ZHEKOUGUANLI_2
 //FIXME:下面的暂时用不上，格式设置同上。 一对一
 //		基金账户开户
 //		增开交易账户
@@ -214,7 +218,6 @@ public class CheckMenu {
 
 
 //		机构限额
-//		折扣管理
 //		机构账号
 //		产品销售结转设置
 //		执行权限设置一级
@@ -284,7 +287,7 @@ public class CheckMenu {
 
 
 //		jigouxine_2
-//		zhekouguanli_2
+
 //		jigouzhanghao_2
 //		chanpinxiaoshoujiezhuanshezhi_2
 //		chanpinquanxianshezhi_1

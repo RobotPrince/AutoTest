@@ -48,5 +48,9 @@ public enum PageEnum {
 	/**
 	 * 费用分成
 	 */
-	FEIYONGFENCHENG
+	FEIYONGFENCHENG, 
+	/**
+	 * 折扣管理
+	 */
+	ZHEKOUGUANLI
 }
