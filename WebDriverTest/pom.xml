@@ -126,6 +126,11 @@
 		        <artifactId>maven-surefire-plugin</artifactId>
 		        <version>2.19</version>
 		        <configuration>
+		          <systemPropertyVariables>
+		          	<testEnvironment>${TA_address}</testEnvironment>
+		          	<testEnvironment>${username}</testEnvironment>
+		          	<testEnvironment>${password}</testEnvironment>
+		          </systemPropertyVariables>
 		          <suiteXmlFiles>
 		            <suiteXmlFile>testng.xml</suiteXmlFile>
 		          </suiteXmlFiles>

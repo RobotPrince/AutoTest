@@ -57,26 +57,19 @@ public class Common {
 	 */
 //	public static WebDriver getFFDriver() {
 //		
-////		
-////		FirefoxBinary firefoxBinary = new FirefoxBinary(new File("/usr/local/firefox/firefox"));
-////		firefoxBinary.addCommandLineOptions("--headless"); 
-////		firefoxBinary.addCommandLineOptions("--no-sandbox"); 
-////		System.setProperty("webdriver.firefox.driver", "/usr/bin/geckodriver");
-////		System.setProperty("webdriver.firefox.bin", "/usr/local/firefox/firefox");
-////		FirefoxDriver driver = new FirefoxDriver(firefoxBinary,null);
 //	
 //		/* chrome */
 //		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 //		System.setProperty("webdriver.chrome.bin", "/usr/bin/google-chrome");
 //		ChromeOptions options = new ChromeOptions();
 //		
-//        options.addArguments("--headless");
+//		options.addArguments("--window-size=1920,1080");
+//		options.addArguments("--headless");
 //        options.addArguments("--disable-extensions"); // disabling extensions
 //        options.addArguments("--disable-gpu"); // applicable to windows os only
 //        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
 //        options.addArguments("--no-sandbox");
 //		System.out.println("before driver");
-////		WebDriver driver = new ChromeDriver();
 //		driver = new ChromeDriver(options);
 //		driver.get("http://www.baidu.com");
 //		System.out.println("after driver");
@@ -236,7 +229,7 @@ public class Common {
 //		Common.driver.switchTo().frame((WebElement)iframe2Response.get("ele"));
 //		
 		//点击进入到select列表
-		myResponse = Common.click(element);
+  		myResponse = Common.click(element);
 		if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
 			logError("get Webelement of"+element +"failed");
 			return myResponse.failed("getWebElement failed");
@@ -1226,27 +1219,37 @@ public class Common {
 			Common.logError("Click checkbox of UnreviewTop failed");
 			return false;			
 		}
+		
+		//点击是
+		MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+		Common.click((WebElement)popupyesResponse.get("ele"));
 		//点击确定
-		 MyResponse clickYesResponse = Common.clickYES();
-		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			//点击是
-			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
-			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("get element of popup yes failed");
-				return false;
-			}
-			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
-			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click element of popup yes failed");
-				return false;
-			}
-			//点击确定
-			MyResponse clickYesResponse2 = Common.clickYES();
-			if((int)clickYesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("Click yes failed");
-				return false;
-			}
-		 }
+		MyResponse clickYesResponse2 = Common.clickYES();
+		if((int)clickYesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
+			Common.logError("Click yes failed");
+			return false;
+		}
+//		//点击确定
+//		 MyResponse clickYesResponse = Common.clickYES();
+//		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+//			//点击是
+//			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+//			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+//				Common.logError("get element of popup yes failed");
+//				return false;
+//			}
+//			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
+//			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
+//				Common.logError("Click element of popup yes failed");
+//				return false;
+//			}
+//			//点击确定
+//			MyResponse clickYesResponse2 = Common.clickYES();
+//			if((int)clickYesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
+//				Common.logError("Click yes failed");
+//				return false;
+//			}
+//		 }
 		Common.driver.switchTo().defaultContent();
 		iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
 		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){

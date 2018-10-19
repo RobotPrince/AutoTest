@@ -67,13 +67,15 @@ public class XiaoShouJiGouXinXi implements BaseInterface {
 		for(int i = 0; i < sizeOfData; i++){
 			//点击新增
 			Common.clickTopAdd();
+			MyResponse resetResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.RESET);
+			Common.click((WebElement)resetResponse.get("ele"));
 			HashMap<XiaoShouJiGouXinXiEnum, String> data = ReadFromExcel.dataForXiaoShouJIGouXinXiFromExcel.get(i);
 			Set<XiaoShouJiGouXinXiEnum> set = data.keySet();
 			Iterator<XiaoShouJiGouXinXiEnum> iterator = set.iterator();
 			while( iterator.hasNext() ){
 				//isChecked在这里不需要做任何操作
 				XiaoShouJiGouXinXiEnum eunm = iterator.next();
-				if(eunm.equals(XiaoShouJiGouXinXiEnum.ISCHECKED)){
+				if(eunm.equals(XiaoShouJiGouXinXiEnum.ISCHECKED)||data.get(eunm)==null||"".equals(data.get(eunm))){
 					continue;
 				}
 				//获取add需要的元素

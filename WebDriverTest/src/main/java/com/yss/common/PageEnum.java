@@ -34,6 +34,14 @@ public enum PageEnum {
 	 */
 	CHANPINXINXI,
 	/**
+	 * 产品费率
+	 */
+	CHANPINFEILV,
+	/**
+	 * 产品销售代理关系
+	 */
+	CHANPINXIAOSHOUDAILIGUANXI,
+	/**
 	 * 日常运营清算
 	 */
 	RICHANGYUNYINGQINGSUAN

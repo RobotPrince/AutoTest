@@ -1,18 +1,19 @@
 package com.yss.suit;
 
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
 import com.yss.method.ChanPinXinXi;
-import com.yss.method.GuanLianJiGouXinXi;
-import com.yss.method.HeSuanJiGouXinXi;
+import com.yss.method.ChanPinFeiLv;
+import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
 import com.yss.method.Login;
-import com.yss.method.XiaoShouJiGouXinXi;
 
 public class scenario1 {
 	public static Logger logger = Logger.getLogger(scenario1.class);
@@ -25,89 +26,135 @@ public class scenario1 {
 	 * 如：1.登陆 2.开户 3.申购
 	 */
 	@Test(priority = 0)
-	public void login() {
-
-		new Login().login();
-		Reporter.log("登录成功");
+	@Parameters({"TA_address","username","password"})
+	public void login(String TA_address, String username, String password) {
+		try{
+		System.out.println(TA_address+"--"+username+"--"+password);
+			if(!new Login().login(TA_address, username, password)){
+				Reporter.log("登录失败");
+				Assert.fail("登录失败");
+			}
+		}catch(Exception e){
+			Reporter.log("登录失败");
+			Assert.fail("登录失败");
+		}
 	}
 	
-	@Test(priority = 1)
-	public void HeSuanJiGouXinXiAdd() throws InterruptedException {
-		
-		new HeSuanJiGouXinXi().before();
-		new HeSuanJiGouXinXi().add();
-		Reporter.log("核算机构信息-新增成功");
+//	@Test(priority = 1)
+//	public void HeSuanJiGouXinXiAdd() throws InterruptedException {
+//		
+//		new HeSuanJiGouXinXi().before();
+//		new HeSuanJiGouXinXi().add();
+//		Reporter.log("核算机构信息-新增成功");
+//	}
+//	
+//	@Test(priority = 2)
+//	public void HeSuanJiGouXinXiView() throws InterruptedException {
+//		
+//		new HeSuanJiGouXinXi().view();
+//		Reporter.log("核算机构信息-查看成功");
+//	}
+//	
+//	@Test(priority = 3)
+//	public void HeSuanJiGouXinXiReview() throws InterruptedException {
+//		
+//		new HeSuanJiGouXinXi().review();
+//		new HeSuanJiGouXinXi().after();
+//		Reporter.log("核算机构信息-审核成功");
+//	}
+//	
+//	@Test(priority = 4)
+//	public void XiaoJiGouXinXiAdd() throws InterruptedException {
+//		
+//		new XiaoShouJiGouXinXi().before();
+//		new XiaoShouJiGouXinXi().add();
+//		Reporter.log("销售机构信息-新增成功");
+//	}
+//	
+//	@Test(priority = 5)	
+//	public void XiaoJiGouXinXiView() throws InterruptedException {
+//		new XiaoShouJiGouXinXi().view();
+//		Reporter.log("销售机构信息-查看成功");
+//	}
+//	
+//	@Test(priority = 6)	
+//	public void XiaoJiGouXinXiReview() throws InterruptedException {
+//		new XiaoShouJiGouXinXi().review();
+//		new XiaoShouJiGouXinXi().after();
+//		Reporter.log("销售机构信息-审核成功");
+//	}
+//	@Test(priority = 7)
+//	public void GuanLianJiGouXinXiAdd() throws InterruptedException{
+//		new GuanLianJiGouXinXi().before();
+//		new GuanLianJiGouXinXi().add();
+//		Reporter.log("关联机构信息-新增成功");
+//	}
+//	@Test(priority = 8)
+//	public void GuanLianJiGouXinXiView() throws InterruptedException{
+//		new GuanLianJiGouXinXi().view();
+//		Reporter.log("关联机构信息-查看成功");
+//	}
+//	@Test(priority = 9)
+//	public void GuanLianJiGouXinXiReview() throws InterruptedException{
+//		new GuanLianJiGouXinXi().review();
+//		new GuanLianJiGouXinXi().after();
+//		Reporter.log("关联机构信息-审核成功");
+//	}
+//	@Test(priority = 10)
+//	public void ChanPinXinXiAdd() throws InterruptedException{
+//		new ChanPinXinXi().before();
+//		new ChanPinXinXi().add();
+//		Reporter.log("产品信息-新增成功");
+//	}
+//	@Test(priority = 11)
+//	public void ChanPinXinXiView() throws InterruptedException{
+//		new ChanPinXinXi().before();
+//		new ChanPinXinXi().view();
+//		Reporter.log("产品信息-查看成功");
+//	}
+//	@Test(priority = 12)
+//	public void ChanPinXinXiReview() throws InterruptedException{
+//		new ChanPinXinXi().review();
+//		new ChanPinXinXi().after();
+//		Reporter.log("产品信息-审核成功");
+//	}
+//	@Test(priority = 13)
+//	public void ChanPinFeiLvAdd() throws InterruptedException{
+//		new ChanPinFeiLv().before();
+//		new ChanPinFeiLv().add();
+//		Reporter.log("产品费率-新增成功");
+//	}
+//	@Test(priority = 14)
+//	public void ChanPinFeiLvView() throws InterruptedException{
+//		new ChanPinFeiLv().view();
+//		Reporter.log("产品费率-查看成功");
+//	}
+//	@Test(priority = 15)
+//	public void ChanPinXinXiReview() throws InterruptedException{
+//		new ChanPinFeiLv().review();
+//		new ChanPinFeiLv().after();
+//		Reporter.log("产品费率-审核成功");
+//	}
+	
+//	@Test(priority = 16)
+//	public void ChanPinXiaoShouDaiLiGuanXiAdd() throws InterruptedException{
+//		new ChanPinXiaoShouDaiLiGuanXi().before();
+//		new ChanPinXiaoShouDaiLiGuanXi().add();
+//		Reporter.log("产品销售代理关系-新增成功");
+//	}
+	@Test(priority = 17)
+	public void ChanPinXiaoShouDaiLiGuanXiView() throws InterruptedException{
+		new ChanPinXiaoShouDaiLiGuanXi().before();
+		new ChanPinXiaoShouDaiLiGuanXi().view();
+		Reporter.log("产品销售代理关系-查看成功");
+	}
+	@Test(priority = 18)
+	public void ChanPinXiaoShouDaiLiGuanXiReview() throws InterruptedException{
+		new ChanPinXiaoShouDaiLiGuanXi().review();
+		new ChanPinXiaoShouDaiLiGuanXi().after();
+		Reporter.log("产品销售代理关系-审核成功");
 	}
 	
-	@Test(priority = 2)
-	public void HeSuanJiGouXinXiView() throws InterruptedException {
-		
-		new HeSuanJiGouXinXi().view();
-		Reporter.log("核算机构信息-查看成功");
-	}
-	
-	@Test(priority = 3)
-	public void HeSuanJiGouXinXiReview() throws InterruptedException {
-		
-		new HeSuanJiGouXinXi().review();
-		new HeSuanJiGouXinXi().after();
-		Reporter.log("核算机构信息-审核成功");
-	}
-	
-	@Test(priority = 4)
-	public void XiaoJiGouXinXiAdd() throws InterruptedException {
-		
-		new XiaoShouJiGouXinXi().before();
-		new XiaoShouJiGouXinXi().add();
-		Reporter.log("销售机构信息-新增成功");
-	}
-	
-	@Test(priority = 5)	
-	public void XiaoJiGouXinXiView() throws InterruptedException {
-		new XiaoShouJiGouXinXi().view();
-		Reporter.log("销售机构信息-查看成功");
-	}
-	
-	@Test(priority = 6)	
-	public void XiaoJiGouXinXiReview() throws InterruptedException {
-		new XiaoShouJiGouXinXi().review();
-		new XiaoShouJiGouXinXi().after();
-		Reporter.log("销售机构信息-审核成功");
-	}
-	@Test(priority = 7)
-	public void GuanLianJiGouXinXiAdd() throws InterruptedException{
-		new GuanLianJiGouXinXi().before();
-		new GuanLianJiGouXinXi().add();
-		Reporter.log("关联机构信息-新增成功");
-	}
-	@Test(priority = 8)
-	public void GuanLianJiGouXinXiView() throws InterruptedException{
-		new GuanLianJiGouXinXi().view();
-		Reporter.log("关联机构信息-查看成功");
-	}
-	@Test(priority = 9)
-	public void GuanLianJiGouXinXiReview() throws InterruptedException{
-		new GuanLianJiGouXinXi().review();
-		new GuanLianJiGouXinXi().after();
-		Reporter.log("关联机构信息-审核成功");
-	}
-	@Test(priority = 10)
-	public void ChanPinXinXiAdd() throws InterruptedException{
-		new ChanPinXinXi().before();
-		new ChanPinXinXi().add();
-		Reporter.log("产品信息-新增成功");
-	}
-	@Test(priority = 11)
-	public void ChanPinXinXiView() throws InterruptedException{
-		new ChanPinXinXi().view();
-		Reporter.log("产品信息-查看成功");
-	}
-	@Test(priority = 12)
-	public void ChanPinXinXiReview() throws InterruptedException{
-		new ChanPinXinXi().review();
-		new ChanPinXinXi().after();
-		Reporter.log("产品信息-审核成功");
-	}
 	@BeforeClass
 	public void beforeClass() {
 
