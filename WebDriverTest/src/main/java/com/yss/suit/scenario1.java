@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import com.yss.common.Common;
 import com.yss.method.ChanPinXinXi;
 import com.yss.method.ChanPinFeiLv;
+import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
 import com.yss.method.Login;
 
 public class scenario1 {
@@ -117,22 +118,41 @@ public class scenario1 {
 //		new ChanPinXinXi().after();
 //		Reporter.log("产品信息-审核成功");
 //	}
-	@Test(priority = 13)
-	public void ChanPinFeiLvAdd() throws InterruptedException{
-		new ChanPinFeiLv().before();
-		new ChanPinFeiLv().add();
-		Reporter.log("产品费率-新增成功");
+//	@Test(priority = 13)
+//	public void ChanPinFeiLvAdd() throws InterruptedException{
+//		new ChanPinFeiLv().before();
+//		new ChanPinFeiLv().add();
+//		Reporter.log("产品费率-新增成功");
+//	}
+//	@Test(priority = 14)
+//	public void ChanPinFeiLvView() throws InterruptedException{
+//		new ChanPinFeiLv().view();
+//		Reporter.log("产品费率-查看成功");
+//	}
+//	@Test(priority = 15)
+//	public void ChanPinXinXiReview() throws InterruptedException{
+//		new ChanPinFeiLv().review();
+//		new ChanPinFeiLv().after();
+//		Reporter.log("产品费率-审核成功");
+//	}
+	
+//	@Test(priority = 16)
+//	public void ChanPinXiaoShouDaiLiGuanXiAdd() throws InterruptedException{
+//		new ChanPinXiaoShouDaiLiGuanXi().before();
+//		new ChanPinXiaoShouDaiLiGuanXi().add();
+//		Reporter.log("产品销售代理关系-新增成功");
+//	}
+	@Test(priority = 17)
+	public void ChanPinXiaoShouDaiLiGuanXiView() throws InterruptedException{
+		new ChanPinXiaoShouDaiLiGuanXi().before();
+		new ChanPinXiaoShouDaiLiGuanXi().view();
+		Reporter.log("产品销售代理关系-查看成功");
 	}
-	@Test(priority = 14)
-	public void ChanPinFeiLvView() throws InterruptedException{
-		new ChanPinFeiLv().view();
-		Reporter.log("产品费率-查看成功");
-	}
-	@Test(priority = 15)
-	public void ChanPinXinXiReview() throws InterruptedException{
-		new ChanPinFeiLv().review();
-		new ChanPinFeiLv().after();
-		Reporter.log("产品费率-审核成功");
+	@Test(priority = 18)
+	public void ChanPinXiaoShouDaiLiGuanXiReview() throws InterruptedException{
+		new ChanPinXiaoShouDaiLiGuanXi().review();
+		new ChanPinXiaoShouDaiLiGuanXi().after();
+		Reporter.log("产品销售代理关系-审核成功");
 	}
 	
 	@BeforeClass

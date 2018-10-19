@@ -229,7 +229,7 @@ public class Common {
 //		Common.driver.switchTo().frame((WebElement)iframe2Response.get("ele"));
 //		
 		//点击进入到select列表
-		myResponse = Common.click(element);
+  		myResponse = Common.click(element);
 		if((int)myResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
 			logError("get Webelement of"+element +"failed");
 			return myResponse.failed("getWebElement failed");
