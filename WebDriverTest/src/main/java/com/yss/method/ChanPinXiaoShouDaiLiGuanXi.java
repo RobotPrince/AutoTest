@@ -84,7 +84,8 @@ public class ChanPinXiaoShouDaiLiGuanXi implements BaseInterface {
 				//:TODO 此处可能会随页面变化
 				//需要将display none 改为 dispaly inline-block
 				if(eunm.equals(ChanPinXiaoShouDaiLiGuanXiEnum.CHANPINDAIMA)){
-					((JavascriptExecutor)Common.driver).executeScript("document.getElementById('pdCode').style.cssText='display:inline-block !important';");
+				//	((JavascriptExecutor)Common.driver).executeScript("document.getElementById('pdCode').style.cssText='display:inline-block !important';");
+					Common.getWebElementForSelect(PageEnum.CHANPINXIAOSHOUDAILIGUANXI,AllElementEnum.ChanPinXiaoShouDaiLiGuanXiElement,eunm);
 					Common.logInfo("Change display to inline-block success");
 				}
 				//获取add需要的元素
@@ -150,8 +151,8 @@ public class ChanPinXiaoShouDaiLiGuanXi implements BaseInterface {
 			//获取页面中的产品代码
 			//:TODO 此处可能会随页面变化
 			//需要将display none 改为 dispaly inline-block
-			((JavascriptExecutor)Common.driver).executeScript("document.getElementById('pdCode').style.cssText='display:inline-block !important';");
-			MyResponse chanPinDaiMaResponse = Common.getWebElement(PageEnum.CHANPINXIAOSHOUDAILIGUANXI, AllElementEnum.ChanPinXiaoShouDaiLiGuanXiElement, ChanPinXiaoShouDaiLiGuanXiEnum.CHANPINDAIMA);
+			//((JavascriptExecutor)Common.driver).executeScript("document.getElementById('pdCode').style.cssText='display:inline-block !important';");
+			MyResponse chanPinDaiMaResponse = Common.getWebElementForSelect(PageEnum.CHANPINXIAOSHOUDAILIGUANXI, AllElementEnum.ChanPinXiaoShouDaiLiGuanXiElement, ChanPinXiaoShouDaiLiGuanXiEnum.CHANPINDAIMA);
 			
 			//找出在Excel中对应的项
 			int sizeOfData = ReadFromExcel.dataForChanPinXiaoShouDaiLiGuanXiFromExcel.size();
