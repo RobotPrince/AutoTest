@@ -1349,14 +1349,18 @@ public class Common {
 		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
 		//等待页面加载完成
 		Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.VIEW);
-		//	去掉选中所有的CheckBox
-		allCheckBoxResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ALLCHECKBOX);
-		if((int)allCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("get element of allCheckBox failed");
-			return false;			
+		try{
+			//	去掉选中所有的CheckBox
+			allCheckBoxResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ALLCHECKBOX);
+			if((int)allCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("get element of allCheckBox failed");
+				return false;			
+			}
+			Common.click((WebElement)allCheckBoxResponse.get("ele"));
+			Common.click((WebElement)allCheckBoxResponse.get("ele"));
+		}catch(Exception e){
+			Common.logError("Some error happend when Click");
 		}
-		Common.click((WebElement)allCheckBoxResponse.get("ele"));
-		Common.click((WebElement)allCheckBoxResponse.get("ele"));
 		return true;
 	}
 	/**
