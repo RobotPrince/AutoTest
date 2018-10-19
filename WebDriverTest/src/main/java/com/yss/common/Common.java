@@ -1200,7 +1200,8 @@ public class Common {
 			return false;
 		}
 		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
-		
+		//等待页面加载完成
+		Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.VIEW);
 		//选中所有的CheckBox
 		MyResponse allCheckBoxResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ALLCHECKBOX);
 		if((int)allCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
