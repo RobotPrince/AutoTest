@@ -115,7 +115,6 @@ public class scenario1 {
 	}
 	@Test(priority = 11)
 	public void ChanPinXinXiView() throws InterruptedException{
-		new ChanPinXinXi().before();
 		new ChanPinXinXi().view();
 		Reporter.log("产品信息-查看成功");
 	}
@@ -145,6 +144,7 @@ public class scenario1 {
 	
 	@Test(priority = 16)
 	public void ChanPinXiaoShouDaiLiGuanXiAdd() throws InterruptedException{
+		new ChanPinXiaoShouDaiLiGuanXi().before();
 		new ChanPinXiaoShouDaiLiGuanXi().add();
 		Reporter.log("产品销售代理关系-新增成功");
 	}
@@ -155,7 +155,6 @@ public class scenario1 {
 	}
 	@Test(priority = 18)
 	public void ChanPinXiaoShouDaiLiGuanXiReview() throws InterruptedException{
-		new ChanPinXiaoShouDaiLiGuanXi().before();
 		new ChanPinXiaoShouDaiLiGuanXi().review();
 		new ChanPinXiaoShouDaiLiGuanXi().after();
 		Reporter.log("产品销售代理关系-审核成功");
@@ -168,7 +167,6 @@ public class scenario1 {
 	}
 	@Test(priority = 20)
 	public void FeiYongFenChengView() throws InterruptedException{
-		new FeiYongFenCheng().before();
 		new FeiYongFenCheng().view();
 		Reporter.log("费用分成-查看成功");
 	}
@@ -186,7 +184,6 @@ public class scenario1 {
 	}
 	@Test(priority = 23)
 	public void ZheKouGuanLiView() throws InterruptedException{
-		new ZheKouGuanLi().before();
 		new ZheKouGuanLi().view();
 		Reporter.log("折扣管理-查看成功");
 	}
