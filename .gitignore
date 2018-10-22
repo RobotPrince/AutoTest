@@ -1,5 +1,5 @@
 /.metadata/
-/WebDriverTest/test-output/html/*.html/
+/WebDriverTest/test-output/html/
 #/WebDriverTest/test-output/
 *.log.*
 *.log
