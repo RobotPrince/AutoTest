@@ -520,7 +520,53 @@ public class RiChangYunYingQingSuan{
 			Common.logError("Get Element of 100% failed");
 			return false;
 		}
-		
+		//通过判断全选框是否存在，判断是否进行下一步操作，如比例审批，产品成立
+		MyResponse iframe2Res = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
+		if((int)iframe2Res.get(MyResponse.STATUS)==MyResponse.SUCCESS){
+			Common.driver.switchTo().frame((WebElement)iframe2Res.get("ele"));
+			//等待页面加载完成
+			Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.VIEW);
+			//选中所有的CheckBox
+			MyResponse allCheckBoxResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ALLCHECKBOX);
+			if((int)allCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("get element of allCheckBox failed");
+				return false;			
+			}
+			Common.click((WebElement)allCheckBoxResponse.get("ele"));
+			//点击Top上的审核
+			MyResponse reviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.REVIEW_TOP);
+			if((int)reviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("get element of reivewtop failed");
+				return false;			
+			}
+			MyResponse clickReviewTopResponse = Common.click((WebElement)reviewTopResponse.get("ele"));
+			if((int)reviewTopResponse.get(clickReviewTopResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("Click checkbox of UnreviewTop failed");
+				return false;			
+			}
+			
+			//点击是
+			popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+			Common.click((WebElement)popupyesResponse.get("ele"));
+			//点击确定
+			MyResponse webOKElement = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_OK);
+			if((int)webOKElement.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("click button of"+webOKElement.get("ele")+"failed");
+				return false;
+			}
+			MyResponse clickYesResponse = Common.click((WebElement)webOKElement.get("ele"));
+			if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+				Common.logError("click button of"+webOKElement.get("ele")+"failed");
+				return false;
+			}
+			Common.driver.switchTo().defaultContent();
+			iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
+			if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+				Common.logError("get element data of iframe1 failed");
+				return false;
+			}
+		}
+		Common.clickRefresh();
 		return true;
 	}
 	/*
@@ -808,9 +854,5 @@ public class RiChangYunYingQingSuan{
 		 * 辅助净值导入
 		 */
 		IFRAM4
-
-		
 	}
-
-
 }

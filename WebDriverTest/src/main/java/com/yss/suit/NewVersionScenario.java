@@ -45,12 +45,12 @@ public class NewVersionScenario {
 		
 	}
 
-	@Test(priority = 0)
-	@Parameters({"TA_address","user","password"})
-	public void login(String TA_address, String user, String password) {
+	//@Test(priority = 0)
+	@Parameters({"TA_address","username","password"})
+	public void login(String TA_address, String username, String password) {
 		try{
-		
-			if(!new Login().login(TA_address, user, password)){
+		System.out.println(TA_address+"--"+username+"--"+password);
+			if(!new Login().login(TA_address, username, password)){
 				Reporter.log("登录失败");
 				Assert.fail("登录失败");
 			}
@@ -59,7 +59,8 @@ public class NewVersionScenario {
 			Assert.fail("登录失败");
 		}
 	}
-	@Test(priority = 1)
+	
+	//@Test(priority = 1)
 	public void autoPage(){
 		
 		
@@ -69,7 +70,7 @@ public class NewVersionScenario {
 				this.before();
 			}
 			this.qingsuanriqi();
-			this.jingzhiguanli();
+//			this.jingzhiguanli();
 			this.jingzhidaochu();
 			this.shenqingshujudaoru();
 			this.zhanghujiancha();
@@ -259,7 +260,7 @@ public class NewVersionScenario {
 			Assert.fail("日常运营清算-日终确认自动化页面程序失败");
 		}
 	}
-	@Test(priority = 2 )
+	//@Test(priority = 2 )
 	public void save(){
 		String errorMes = "";
 		MyResponse myResponse = new SaveTable().saveAllTables();

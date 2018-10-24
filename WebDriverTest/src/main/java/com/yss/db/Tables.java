@@ -152,13 +152,13 @@ public enum Tables {
 	**/
 	T_TA_ACKFDACBLOTTER(Keys.T_TA_ACKFDACBLOTTER_keys,"FAPPNO"),
 	/**
-	*交易确认(申请流水号,原申请流水号)
+	*交易确认(申请流水号,||||||,业务类型,交易账号)
 	**/
-	T_TA_ACKTRADEBLOTTER(Keys.T_TA_ACKTRADEBLOTTER_keys,"FAPPNO","FORIGINALAPPNO"),
+	T_TA_ACKTRADEBLOTTER(Keys.T_TA_ACKTRADEBLOTTER_keys,"FAPPNO","FAPKIND","FCUSTNO"),
 	/**
 	*申请号确认号对应关系表(申请单号,确认单号)
 	**/
-	T_TA_APPNOACKNOREF(Keys.T_TA_APPNOACKNOREF_keys,"FAPPNO"),
+//	T_TA_APPNOACKNOREF(Keys.T_TA_APPNOACKNOREF_keys,"FAPPNO"),
 	
 	//FIXME:数据库里不存在这张表
 //	/**

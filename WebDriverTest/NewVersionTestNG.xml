@@ -5,6 +5,9 @@
 			<listener class-name="org.uncommons.reportng.HTMLReporter" />
 			<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 		</listeners>
+		<parameter name="TA_address" value="${TA_address}"/>
+		<parameter name="username" value="${username}"/>
+		<parameter name="password" value="${password}"/>
 	<test name="yss_auto_test" enabled="true" >
 		<classes >
 			<class name="com.yss.suit.NewVersionScenario" />

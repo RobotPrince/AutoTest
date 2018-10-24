@@ -1319,27 +1319,6 @@ public class Common {
 			Common.logError("Click yes failed");
 			return false;
 		}
-//		//点击确定
-//		 MyResponse clickYesResponse = Common.clickYES();
-//		 if((int)clickYesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-//			//点击是
-//			MyResponse popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
-//			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-//				Common.logError("get element of popup yes failed");
-//				return false;
-//			}
-//			MyResponse clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
-//			if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
-//				Common.logError("Click element of popup yes failed");
-//				return false;
-//			}
-//			//点击确定
-//			MyResponse clickYesResponse2 = Common.clickYES();
-//			if((int)clickYesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
-//				Common.logError("Click yes failed");
-//				return false;
-//			}
-//		 }
 		Common.driver.switchTo().defaultContent();
 		iframe1Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM1);
 		if( (int)iframe1Response.get(MyResponse.STATUS) == MyResponse.FAILED){
