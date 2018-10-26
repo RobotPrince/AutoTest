@@ -84,17 +84,17 @@ public enum Tables {
 	**/
 	T_PD_I_C2_OUT(Keys.T_PD_I_C2_OUT_keys,"FUNDCODE","DISTRIBUTORCODE","BRANCHCODE"),
 	/**
-	*基金转换关系C3导出表,(基金代码,转换时的目标基金代码,销售人代码)
+	*基金转换关系C3导出表,(基金代码,转换时的目标基金代码)
 	**/
-	T_PD_I_C3_OUT(Keys.T_PD_I_C3_OUT_keys,"FUNDCODE","CODEOFTARGETFUND","DISTRIBUTORCODE"),
+	T_PD_I_C3_OUT(Keys.T_PD_I_C3_OUT_keys,"FUNDCODE","CODEOFTARGETFUND"),
 	/**
 	*基金分红方案C4导出表，(基金代码,权益登记日期)
 	**/
 	T_PD_I_C4_OUT(Keys.T_PD_I_C4_OUT_keys,"FUNDCODE","REGISTRATIONDATE"),
 	/**
-	*基金费率C5导出表,(基金代码,业务代码,份额上限,金额下限,金额上限,天数下限,天数上限费率)
+	*基金费率C5导出表,(基金代码,业务代码,份额上限,金额下限,金额上限,天数下限,天数上限费率) 由于开发代码实现时该表不保存全部数据，只保留最新导出的销售机构的，导致无法比对
 	**/
-	T_PD_I_C5_OUT(Keys.T_PD_I_C5_OUT_keys,"FUNDCODE","BUSINESSCODE","VOLUPPERLIMIT","AMOUNTLOWERLIMIT","AMOUNTUPPERLIMIT","DAYSLOWERLIMIT","DAYSUPPERLIMIT"),
+	///T_PD_I_C5_OUT(Keys.T_PD_I_C5_OUT_keys,"FUNDCODE","BUSINESSCODE","VOLUPPERLIMIT","AMOUNTLOWERLIMIT","AMOUNTUPPERLIMIT","DAYSLOWERLIMIT","DAYSUPPERLIMIT"),
 	/**
 	*转托管数据导出表,(日期,基金代码,销售商代码)
 	**/
@@ -152,9 +152,13 @@ public enum Tables {
 	**/
 	T_TA_ACKFDACBLOTTER(Keys.T_TA_ACKFDACBLOTTER_keys,"FAPPNO"),
 	/**
-	*交易确认(申请流水号,||||||,业务类型,交易账号)
+	*交易确认(申请流水号,业务类型,交易账号)
 	**/
 	T_TA_ACKTRADEBLOTTER(Keys.T_TA_ACKTRADEBLOTTER_keys,"FAPPNO","FAPKIND","FCUSTNO"),
+	/**
+	 *交易确认(业务类型,交易账号,基金代码)
+	 **/
+	T_TA_ACKTRADEBLOTTER2(Keys.T_TA_ACKTRADEBLOTTER2_keys,"FAPKIND","FCUSTNO","FFUNDID"),
 	/**
 	*申请号确认号对应关系表(申请单号,确认单号)
 	**/
@@ -166,9 +170,9 @@ public enum Tables {
 //	**/
 //	T_TA_BALCONS(Keys.T_TA_BALCONS_keys,"FID"),
 	/**
-	*余额构成流水(申请流水号)
+	*余额构成流水(申请流水号,实际份额，清算日期)
 	**/
-	T_TA_BALCONSBLOTTER(Keys.T_TA_BALCONSBLOTTER_keys,"FAPPNO"),
+	T_TA_BALCONSBLOTTER(Keys.T_TA_BALCONSBLOTTER_keys,"FAPPNO","FNETQUTY","FCLEARDT"),
 	
 	//FIXME:数据库里不存在这张表
 //	/**
@@ -176,17 +180,18 @@ public enum Tables {
 //	**/
 //	T_TA_DEFAULTPARAM,
 	/**
-	*份额余额(基金账号,交易账号,清算日期)
+	*份额余额(产品代码,交易账号,清算日期,实际余额)
 	**/
-	T_TA_FUNDBALANCE(Keys.T_TA_FUNDBALANCE_keys,"FFUNDACCT","FCUSTNO","FCLEARDT"),
+	T_TA_FUNDBALANCE(Keys.T_TA_FUNDBALANCE_keys,"FPD_CODE","FCUSTNO","FCLEARDT","FBALANCE"),
 	/**
-	*权益登记信息(基金账号,交易账号,权益登记日)
+	*权益登记信息(交易账号,权益登记日,产品代码，分红处理状态)
 	**/
-	T_TA_RIGHTSREG(Keys.T_TA_RIGHTSREG_keys,"FFUNDACCT","FCUSTNO","FREG_DATE"),
+	T_TA_RIGHTSREG(Keys.T_TA_RIGHTSREG_keys,"FCUSTNO","FREG_DATE","FPD_CODE","FBONUSTATE"),
 	/**
-	*权益登记详单表(基金账号,交易账号,红利发放日)
+	*权益登记详单表(交易账号,红利发放日)
 	**/
-	T_TA_RIGHTSREGDETIAL(Keys.T_TA_RIGHTSREGDETIAL_keys,"FFUNDACCT","FCUSTNO","FDEAL_DATE"),
+	T_TA_RIGHTSREGDETIAL(Keys.T_TA_RIGHTSREGDETIAL_keys,"FCUSTNO","FDEAL_DATE","FACKNO1", "FACKNO2", "FACKNO3", "FACKNO4", "FACKNO5",
+			"FAPKIND1", "FAPKIND2", "FAPKIND3", "FAPKIND4", "FAPKIND5"),
 	/**
 	*销售服务费明细
 	**/
