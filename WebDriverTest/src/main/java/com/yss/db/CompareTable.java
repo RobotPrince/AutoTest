@@ -105,21 +105,15 @@ public class CompareTable {
 				Common.logInfo(table+"比较成功");
 				return myResponse.success();
 			}
-			//String 转Json
 			String oldString = new String(charOld,0,oldLength);
 			oldString = new String(oldString.getBytes("utf-8"),"utf-8");
-			System.out.println("oldString"+oldString);
-			JSONObject oldJson = new JSONObject();
+			String newString = new String(charNew,0,newLength);
+			newString = new String(newString.getBytes("utf-8"),"utf-8");
 			LinkedHashMap<String, Object> oldMap = new LinkedHashMap<String,Object>();
-            oldJson = JSONObject.fromObject(oldString);
-            
-            String newString = new String(charNew,0,newLength);
-            newString = new String(newString.getBytes("utf-8"),"utf-8");
-            System.out.println("newString"+newString);
-            LinkedHashMap<String, Object> newMap = new LinkedHashMap<String,Object>();
-            JSONObject newJson = new JSONObject();
-            newJson = JSONObject.fromObject(newString);
-				
+			LinkedHashMap<String, Object> newMap = new LinkedHashMap<String,Object>();
+			//String 转Json
+            JSONObject oldJson = JSONObject.fromObject(oldString);
+            JSONObject newJson = JSONObject.fromObject(newString);
             //循环外层Map，取出Primary对应的交易
             for (Object k : oldJson.keySet()) {
                 Map v = (Map) oldJson.get(k);

@@ -45,7 +45,7 @@ public class NewVersionScenario {
 		
 	}
 
-//	@Test(priority = 0)
+	//@Test(priority = 0)
 	@Parameters({"TA_address","username","password"})
 	public void login(String TA_address, String username, String password) {
 		try{
@@ -60,7 +60,7 @@ public class NewVersionScenario {
 		}
 	}
 	
-//	@Test(priority = 1)
+	//@Test(priority = 1)
 	public void autoPage(){
 		
 		

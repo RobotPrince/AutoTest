@@ -36,13 +36,12 @@ public class SaveTable {
 			Tables[] values = Tables.values();
 			for(Tables t : values){
 				//特殊处理数据表T_TA_ACKTRADEBLOTTER
-				if(Tables.T_TA_ACKTRADEBLOTTER.equals(t)||Tables.T_TA_ACKTRADEBLOTTER2.equals(t)){
+				if(Tables.T_TA_ACKTRADEBLOTTER.equals(t)){
 					MyResponse saveTableRes = saveTableT_TA_ACKTRADEBLOTTER(t);
 					 if((int)saveTableRes.get(MyResponse.STATUS)==MyResponse.FAILED){
 						 //获取表的错误信息
 						 errorMes += (String)saveTableRes.getMessage();
 					 }
-					 continue;
 				}
 				MyResponse saveTableRes = saveTable(t);
 				 if((int)saveTableRes.get(MyResponse.STATUS)==MyResponse.FAILED){
@@ -120,8 +119,7 @@ public class SaveTable {
 		}
 		return myResponse.success();
 	}
-	private MyResponse saveTableT_TA_ACKTRADEBLOTTER( Tables t ){
-		//Tables t = Tables.T_TA_ACKTRADEBLOTTER;
+	private MyResponse saveTableT_TA_ACKTRADEBLOTTER(Tables t){
 		Common.logInfo("SaveTable-"+t);
 		
 		MyResponse myResponse = new MyResponse();
@@ -136,56 +134,28 @@ public class SaveTable {
 		String allJson = new String();
 		Map<String, Object> JsonMap = new LinkedHashMap<String,Object>();
 		try {
-			ResultSet resultSet =  con.prepareStatement("select * from T_TA_ACKTRADEBLOTTER t").executeQuery();
-			//标识是否加入了这条数据
-			boolean flagOfAdd = false;
-			
+			ResultSet resultSet = con.prepareStatement("select * from "+tableName+" t").executeQuery();
 			while(resultSet.next()){
 				String[] uniqueKeyArr = new String[uniqueKey.length];
 				Map<String, Object> map = new LinkedHashMap<String,Object>();
-				boolean flagOfTable = false;
 				for(String k : keyList){
-					//将所有需要取的数据在这里一次性取出，相同字段只能取一次
-					String valueOfKey = resultSet.getString(k);
-					//判断下当前的数据表是否属于分红·成立.清盘的数据表，判断当前字段是否是业务代码
-					if(Tables.T_TA_ACKTRADEBLOTTER2.equals(t) && "FAPKIND".equals(k)){
-						//判断下业务代码是否属于分红.成立.清盘
-						if(("143".equals(valueOfKey)||"150".equals(valueOfKey))){
-							//赋值为true，表示当前数据表和数据是分红.成立.清盘
-							flagOfTable = true;
+					//判断下业务代码是否属于分红，成立，清盘
+					if("FAPKIND".equals(k)){
+						if("130".equals(resultSet.getString(k))||"143".equals(resultSet.getString(k))||"150".equals(resultSet.getString(k))){
+							
 						}
 					}
-					//判断下当前的数据表是否不属于分红·成立.清盘的数据表，判断当前字段是否是业务代码
-					if((Tables.T_TA_ACKTRADEBLOTTER.equals(t)) && "FAPKIND".equals(k)){
-						//判断下业务代码是否不属于分红.成立.清盘
-						if(!("143".equals(valueOfKey)||"150".equals(valueOfKey))){
-							//赋值为true，表示当前数据表和数据不是分红.成立.清盘
-							flagOfTable = true;
-						}
-					}
-				}
-				//若当前数据符合条件
-				if(flagOfTable){
-				
-					
-					for(String k : keyList){
-						map.put(k, resultSet.getString(k));
-					}
-				}else{
-					//不合符则直接退出这笔确认
-					flagOfAdd = true;
-					continue;					
+					map.put(k, resultSet.getString(k) );
 				}
 				//设置json的key为联合标识
 				for(int i=0;i<uniqueKey.length;i++){
+					
 					uniqueKeyArr[i] = (resultSet.getString(uniqueKey[i]));
 				}
 				JsonMap.put( StringUtils.join(uniqueKeyArr, ","), map);
 			}
-			//System.out.println(count);
-				allJson = new JSONObject(new HashMap<String,Object>()).toJSONString();
-				allJson = new JSONObject(JsonMap).toJSONString();
-			
+			allJson = new JSONObject(new HashMap<String,Object>()).toJSONString();
+			allJson = new JSONObject(JsonMap).toJSONString();
 		} catch (SQLException e) {
 			return myResponse.failed("get data from db for"+t+" failed");
 		}
