@@ -33,6 +33,8 @@ public class Common {
 	public static final long SLEEP_TIME = 2000l;
 	//单位秒
 	public static final long WAIT100PERCENT = 300l;
+	//等待元素时间-单位秒
+	public static final long WAITELEMENTTIME = 5;
 	
 	/**
 	 * getFireFoxDriver
@@ -941,7 +943,7 @@ public class Common {
 	public static boolean waitForElement( final By elementLocator) {
 		Common.logInfo("waitForElement");
         try {
-            WebDriverWait driverWait = (WebDriverWait) new WebDriverWait(driver, 20, 500).ignoring(StaleElementReferenceException.class).withMessage("元素在10秒内没有出现!");
+            WebDriverWait driverWait = (WebDriverWait) new WebDriverWait(driver, WAITELEMENTTIME, 500).ignoring(StaleElementReferenceException.class).withMessage("元素在10秒内没有出现!");
             return driverWait.until(new ExpectedCondition<Boolean>() {
 
                 public Boolean apply(WebDriver driver) {

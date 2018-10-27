@@ -149,91 +149,92 @@ public class RiChangYunYingQingSuan{
 			Common.logError("Click element of popup insert failed");
 			return false;
 		}
-		//点击刷新
-		Common.clickRefresh();
-		Common.driver.switchTo().defaultContent();
-		// 切换driver到top
-		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
-		//获取元素
-		jingZhiGuanLiResponse = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, RiChangYunYingQingSuanEnum.JINGZHIGUANLI);
-		if((int)jingZhiGuanLiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("get Element of"+RiChangYunYingQingSuanEnum.JINGZHIGUANLI+"failed");
-			return false;
-		}
-		//点击元素
-		jingZhiGuanLiElementClickResponse = Common.click((WebElement)jingZhiGuanLiResponse.get("ele"));
-		if((int)jingZhiGuanLiElementClickResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("click Element of"+jingZhiGuanLiElement+"failed");
-			return false;
-		}
-		//点击popup‘是’
-		 popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
-			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-				Common.logError("get element of popup yes failed");
-				return false;
-			}
-		clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
-		if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("Click element of popup yes failed");
-			return false;
-		}
-		try {
-			Thread.sleep(Common.SLEEP_TIME);
-		} catch (InterruptedException e) {
-			Common.logError("Sleep error happend");
-			e.printStackTrace();
-		}
-		Common.driver.switchTo().defaultContent();
-		// 切换driver到top
-		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
-		
-		//切换driver到iframe2
-		iframe2Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
-		if( (int)iframe2Response.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("get element data of iframe2 failed");
-			return false;
-		}
-		Common.driver.switchTo().frame((WebElement)iframe2Response.get("ele"));
-		//切换driver到iframe3
-		iframe3Response = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, RiChangYunYingQingSuanEnum.IFRAM3);
-		if( (int)iframe3Response.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("get element data of iframe3 failed");
-			return false;
-		}
-		Common.driver.switchTo().frame((WebElement)iframe3Response.get("ele"));
-		//选中所有的CheckBox
-		MyResponse allCheckBoxResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ALLCHECKBOX);
-		if((int)allCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("get element of allCheckBox failed");
-			return false;			
-		}
-		Common.click((WebElement)allCheckBoxResponse.get("ele"));
-		//点击Top上的审核
-		MyResponse reviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.REVIEW_TOP);
-		if((int)reviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("get element of unreivewtop failed");
-			return false;			
-		}
-		MyResponse clickReviewTopResponse = Common.click((WebElement)reviewTopResponse.get("ele"));
-		if((int)reviewTopResponse.get(clickReviewTopResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("Click checkbox of UnreviewTop failed");
-			return false;			
-		}
-
-		//点击是
-		MyResponse popupyesResponse2 = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
-		if((int)popupyesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("get element of popup yes failed");
-			return false;
-		}
-		MyResponse clickPopupYes2 = Common.click((WebElement)popupyesResponse2.get("ele"));
-		//点击确定
-		MyResponse webOKElement = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_OK);
-		if((int)webOKElement.get(MyResponse.STATUS)==MyResponse.FAILED){
-			Common.logError("click button of"+webOKElement.get("ele")+"failed");
-			return false;
-		}
-		MyResponse clickYesResponse = Common.click((WebElement)webOKElement.get("ele"));
+		//:TODO 由于需求变更，页面上的净值导入后直接是已审核的状态
+//		//点击刷新
+//		Common.clickRefresh();
+//		Common.driver.switchTo().defaultContent();
+//		// 切换driver到top
+//		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+//		//获取元素
+//		jingZhiGuanLiResponse = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, RiChangYunYingQingSuanEnum.JINGZHIGUANLI);
+//		if((int)jingZhiGuanLiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			Common.logError("get Element of"+RiChangYunYingQingSuanEnum.JINGZHIGUANLI+"failed");
+//			return false;
+//		}
+//		//点击元素
+//		jingZhiGuanLiElementClickResponse = Common.click((WebElement)jingZhiGuanLiResponse.get("ele"));
+//		if((int)jingZhiGuanLiElementClickResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			Common.logError("click Element of"+jingZhiGuanLiElement+"failed");
+//			return false;
+//		}
+//		//点击popup‘是’
+//		 popupyesResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+//			if((int)popupyesResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+//				Common.logError("get element of popup yes failed");
+//				return false;
+//			}
+//		clickPopupYes = Common.click((WebElement)popupyesResponse.get("ele"));
+//		if((int)clickPopupYes.get(MyResponse.STATUS)==MyResponse.FAILED){
+//			Common.logError("Click element of popup yes failed");
+//			return false;
+//		}
+//		try {
+//			Thread.sleep(Common.SLEEP_TIME);
+//		} catch (InterruptedException e) {
+//			Common.logError("Sleep error happend");
+//			e.printStackTrace();
+//		}
+//		Common.driver.switchTo().defaultContent();
+//		// 切换driver到top
+//		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));
+//		
+//		//切换driver到iframe2
+//		iframe2Response = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
+//		if( (int)iframe2Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			Common.logError("get element data of iframe2 failed");
+//			return false;
+//		}
+//		Common.driver.switchTo().frame((WebElement)iframe2Response.get("ele"));
+//		//切换driver到iframe3
+//		iframe3Response = Common.getWebElement(PageEnum.RICHANGYUNYINGQINGSUAN, AllElementEnum.RiChangYunYingQingSuanElement, RiChangYunYingQingSuanEnum.IFRAM3);
+//		if( (int)iframe3Response.get(MyResponse.STATUS) == MyResponse.FAILED){
+//			Common.logError("get element data of iframe3 failed");
+//			return false;
+//		}
+//		Common.driver.switchTo().frame((WebElement)iframe3Response.get("ele"));
+//		//选中所有的CheckBox
+//		MyResponse allCheckBoxResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.ALLCHECKBOX);
+//		if((int)allCheckBoxResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+//			Common.logError("get element of allCheckBox failed");
+//			return false;			
+//		}
+//		Common.click((WebElement)allCheckBoxResponse.get("ele"));
+//		//点击Top上的审核
+//		MyResponse reviewTopResponse = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.REVIEW_TOP);
+//		if((int)reviewTopResponse.get(MyResponse.STATUS)==MyResponse.FAILED){
+//			Common.logError("get element of unreivewtop failed");
+//			return false;			
+//		}
+//		MyResponse clickReviewTopResponse = Common.click((WebElement)reviewTopResponse.get("ele"));
+//		if((int)reviewTopResponse.get(clickReviewTopResponse.STATUS)==MyResponse.FAILED){
+//			Common.logError("Click checkbox of UnreviewTop failed");
+//			return false;			
+//		}
+//
+//		//点击是
+//		MyResponse popupyesResponse2 = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_YES);
+//		if((int)popupyesResponse2.get(MyResponse.STATUS)==MyResponse.FAILED){
+//			Common.logError("get element of popup yes failed");
+//			return false;
+//		}
+//		MyResponse clickPopupYes2 = Common.click((WebElement)popupyesResponse2.get("ele"));
+//		//点击确定
+//		MyResponse webOKElement = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.POPUP_OK);
+//		if((int)webOKElement.get(MyResponse.STATUS)==MyResponse.FAILED){
+//			Common.logError("click button of"+webOKElement.get("ele")+"failed");
+//			return false;
+//		}
+//		MyResponse clickYesResponse = Common.click((WebElement)webOKElement.get("ele"));
 //		 }
 
 //		Common.driver.switchTo().frame((WebElement)iframe1Response.get("ele"));

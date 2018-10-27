@@ -70,7 +70,7 @@ public class NewVersionScenario {
 				this.before();
 			}
 			this.qingsuanriqi();
-//			this.jingzhiguanli();
+			this.jingzhiguanli();
 			this.jingzhidaochu();
 			this.shenqingshujudaoru();
 			this.zhanghujiancha();
