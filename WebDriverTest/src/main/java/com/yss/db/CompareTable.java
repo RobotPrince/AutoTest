@@ -115,6 +115,7 @@ public class CompareTable {
 			newString = new String(newString.getBytes("utf-8"),"utf-8");
 			LinkedHashMap<String, Object> oldMap = new LinkedHashMap<String,Object>();
 			LinkedHashMap<String, Object> newMap = new LinkedHashMap<String,Object>();
+			//FIXME:这里偶尔会报出错误，需要修改
 			//String 转Json
             JSONObject oldJson = JSONObject.fromObject(oldString);
             JSONObject newJson = JSONObject.fromObject(newString);
