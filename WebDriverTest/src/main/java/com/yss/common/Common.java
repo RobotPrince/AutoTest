@@ -20,8 +20,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -35,7 +33,31 @@ public class Common {
 	public static final long WAIT100PERCENT = 300l;
 	//等待元素时间-单位秒
 	public static final long WAITELEMENTTIME = 5;
+	public static HashMap<XMLParameterEnum, String> XMLMap = new HashMap<XMLParameterEnum, String>();
 	
+	
+	/**
+	 * getParamFromXML
+	 * 从XML中获取值
+	 * @author tanglonglong
+	 */
+	public static void getParamFromXML(String TA_address,String username,
+			String password, String DB_address,String DB_username, String DB_password,
+			String save_place){
+		Common.logInfo("getParamFromXML");
+		XMLParameterEnum[] xmlParameterEnums = XMLParameterEnum.values();
+		for(XMLParameterEnum eunm : xmlParameterEnums){
+			switch (eunm){
+			case TAADDRESS:XMLMap.put(XMLParameterEnum.TAADDRESS, TA_address);break;
+			case USERNAME:XMLMap.put(XMLParameterEnum.USERNAME, username);break;
+			case PASSWORD:XMLMap.put(XMLParameterEnum.PASSWORD, password);break;
+			case DBADDRESS:XMLMap.put(XMLParameterEnum.DBADDRESS, DB_address);break;
+			case DBUSERNAME:XMLMap.put(XMLParameterEnum.DBUSERNAME, DB_username);break;
+			case DBPASSWORD:XMLMap.put(XMLParameterEnum.DBPASSWORD, DB_password);break;
+			case SAVEPLACE:XMLMap.put(XMLParameterEnum.SAVEPLACE, save_place);break;
+			}
+		}
+	}
 	/**
 	 * getFireFoxDriver
 	 * 

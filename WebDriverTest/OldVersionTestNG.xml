@@ -5,6 +5,20 @@
 			<listener class-name="org.uncommons.reportng.HTMLReporter" />
 			<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 		</listeners>
+		<!--此处Value为TA的地址-->
+		<parameter name="TA_address" value="http://localhost:8080/sofa/sofa-portal/index.jsp"/>
+		<!-- 此处Value为TA的用户名 -->
+		<parameter name="username" value="tll"/>
+		<!-- 此处Value为TA的密码 -->
+		<parameter name="password" value="000000"/>
+		<!-- 此处value为数据库的地址 -->
+		<parameter name="DB_address" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+		<!-- 此处value为数据库的TA用户的用户名 -->
+		<parameter name="DB_username" value="yss_ta1"/>
+		<!-- 此处value为数据库的TA用户的密码 -->
+		<parameter name="DB_password" value="yss_ta1"/>
+		<!-- 此处value为文件的保存地址 -->
+		<parameter name="save_place" value="E://DB_Save/"/>
 	<test name="yss_auto_test" enabled="true" >
 		<classes >
 			<class name="com.yss.suit.OldVersionScenario" />

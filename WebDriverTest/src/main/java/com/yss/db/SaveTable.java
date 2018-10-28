@@ -21,6 +21,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.yss.common.Common;
 import com.yss.common.DBConnect;
 import com.yss.common.MyResponse;
+import com.yss.common.XMLParameterEnum;
 
 public class SaveTable {
 
@@ -62,6 +63,7 @@ public class SaveTable {
 	private MyResponse saveTable(Tables t){
 		Common.logInfo("SaveTable-"+t);
 		
+		String savePlace = Common.XMLMap.get(XMLParameterEnum.SAVEPLACE);
 		MyResponse myResponse = new MyResponse();
 		//获取数据表名称
 		String tableName = t.name();
@@ -96,16 +98,16 @@ public class SaveTable {
 		SimpleDateFormat df  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		String time = df.format(new Date());
 		//判断文件夹是否存在
-		File fileDir = new File("E://DB_Save/");
+		File fileDir = new File(savePlace);
 		if(!fileDir.exists()){
 			fileDir.mkdir();
 		}
 		//判断文件夹是否存在
-		File fileDir2 = new File("E://DB_Save/"+tableName);
+		File fileDir2 = new File(savePlace+tableName);
 		if(!fileDir2.exists()){
 			fileDir2.mkdir();
 		}
-		File file = new File("E://DB_Save/"+tableName+"/"+tableName+"-"+time+".json");
+		File file = new File(savePlace+tableName+"/"+tableName+"-"+time+".json");
 		try {
 			//默认是GBK,万恶的GBK->UTF-8,并不能实现
 			String allJsonGBK = new String(new String(allJson).getBytes("GBk"),"GBK");
@@ -123,6 +125,7 @@ public class SaveTable {
 		Common.logInfo("SaveTable-"+t);
 		
 		MyResponse myResponse = new MyResponse();
+		String savePlace = Common.XMLMap.get(XMLParameterEnum.SAVEPLACE);
 		//获取数据表名称
 		String tableName = t.name();
 		//获取所有的字段名称
@@ -162,16 +165,16 @@ public class SaveTable {
 		SimpleDateFormat df  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		String time = df.format(new Date());
 		//判断文件夹是否存在
-		File fileDir = new File("E://DB_Save/");
+		File fileDir = new File(savePlace);
 		if(!fileDir.exists()){
 			fileDir.mkdir();
 		}
 		//判断文件夹是否存在
-		File fileDir2 = new File("E://DB_Save/"+tableName);
+		File fileDir2 = new File(savePlace+tableName);
 		if(!fileDir2.exists()){
 			fileDir2.mkdir();
 		}
-		File file = new File("E://DB_Save/"+tableName+"/"+tableName+"-"+time+".json");
+		File file = new File(savePlace+tableName+"/"+tableName+"-"+time+".json");
 		try {
 			//默认是GBK,万恶的GBK->UTF-8,并不能实现
 			String allJsonGBK = new String(new String(allJson).getBytes("GBk"),"GBK");

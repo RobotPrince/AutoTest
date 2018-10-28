@@ -21,6 +21,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.yss.common.Common;
 import com.yss.common.MyResponse;
+import com.yss.common.XMLParameterEnum;
 
 public class CompareTable {
 	
@@ -54,12 +55,15 @@ public class CompareTable {
 
 	private MyResponse compare(Tables table){ 
 		Common.logInfo("compare-"+table);
+		
+		String savePlace = Common.XMLMap.get(XMLParameterEnum.SAVEPLACE);
+
 		//将String数组拼接成A,B,C的形式
 		MyResponse myResponse = new MyResponse();
 		String primaryKey = StringUtils.join(table.getUnique(), ",");
 		List<String> keyList = table.getList();
 		SimpleDateFormat sdf  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-		File dir = new File("E://DB_Save/"+table+"/");
+		File dir = new File(savePlace+table+"/");
 		//获取文件夹下所有文件名称
 		String[] fileList = dir.list();
 		long[] fileTimeList = new long[fileList.length];
@@ -85,8 +89,8 @@ public class CompareTable {
 		String oldTime = sdf.format(dateOld);
 		String newTime = sdf.format(dateNew);
 		
-		File oldFile = new File("E://DB_Save/"+table+"/"+table+"-"+oldTime+".json");
-		File newFile = new File("E://DB_Save/"+table+"/"+table+"-"+newTime+".json");
+		File oldFile = new File(savePlace+table+"/"+table+"-"+oldTime+".json");
+		File newFile = new File(savePlace+table+"/"+table+"-"+newTime+".json");
 		
 		BufferedReader oldReader = null;
 		BufferedReader newReader = null;

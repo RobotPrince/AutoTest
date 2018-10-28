@@ -6,6 +6,7 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
@@ -29,7 +30,10 @@ public class OldVersionScenario {
 	String qingsuanriqiArr[] ;
 	String xuanzedaoruriqiArr[];
 	@BeforeTest
-	public void getData(){
+	@Parameters({ "TA_address", "username", "password", "DB_address", "DB_username", "DB_password", "save_place"})
+	public void getData(String TA_address,String username,
+			String password, String DB_address,String DB_username, String DB_password,
+			String save_place){
 		new com.yss.common.ReadFromExcel().allReadMethod();
 		qingsuanriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.QINGSUANRIQI);
 		xuanzedaoruriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI);
@@ -39,7 +43,8 @@ public class OldVersionScenario {
 			Reporter.log("清算日期和选择导入日期个数不匹配");
 			Assert.fail("清算日期和选择导入日期个数不匹配");
 		}
-		
+		//从XML中获取数据
+		Common.getParamFromXML(TA_address, username, password, DB_address, DB_username, DB_password, save_place);
 	}
 	@Test(priority = 1 )
 	public void save(){

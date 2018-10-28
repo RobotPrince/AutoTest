@@ -1,6 +1,8 @@
 package com.yss.common;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
@@ -12,6 +14,7 @@ public class DBConnect {
 	private DBConnect(){
 	}
 	
+	//public static Connection getConnection(){
 	public static Connection getConnection(){
 		if(con != null){
 			return con;
@@ -26,7 +29,7 @@ public class DBConnect {
 		//获取数据库连接
 		try {
 			//TODO；参数分别为数据库IP，用户名，密码
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "yss_ta1", "yss_ta1");
+			con = DriverManager.getConnection(Common.XMLMap.get(XMLParameterEnum.DBADDRESS), Common.XMLMap.get(XMLParameterEnum.DBUSERNAME), Common.XMLMap.get(XMLParameterEnum.DBPASSWORD));
 		} catch (SQLException e) {
 			
 			Logger.getLogger(DBConnect.class).error("连接数据库失败");

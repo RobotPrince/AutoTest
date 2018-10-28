@@ -31,9 +31,11 @@ public class NewVersionScenario {
 	String qingsuanriqiArr[] ;
 	String xuanzedaoruriqiArr[];
 	@BeforeTest
-	public void getData(){
+	@Parameters({ "TA_address", "username", "password", "DB_address", "DB_username", "DB_password", "save_place"})
+	public void getData(String TA_address,String username,
+			String password, String DB_address,String DB_username, String DB_password,
+			String save_place){
 		new com.yss.common.ReadFromExcel().allReadMethod();
-		
 		qingsuanriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.QINGSUANRIQI);
 		xuanzedaoruriqi = ReadFromExcel.dataForRiChangYunYingFromExcel.get(0).get(RiChangYunYingQingSuanEnum.XUANZEDAORURIQI);
 		qingsuanriqiArr = qingsuanriqi.split(",");
@@ -42,10 +44,11 @@ public class NewVersionScenario {
 			Reporter.log("清算日期和选择导入日期个数不匹配");
 			Assert.fail("清算日期和选择导入日期个数不匹配");
 		}
-		
+		//从XML中获取数据
+		Common.getParamFromXML(TA_address, username, password, DB_address, DB_username, DB_password, save_place);
 	}
 
-	//@Test(priority = 0)
+	@Test(priority = 0)
 	@Parameters({"TA_address","username","password"})
 	public void login(String TA_address, String username, String password) {
 		try{
