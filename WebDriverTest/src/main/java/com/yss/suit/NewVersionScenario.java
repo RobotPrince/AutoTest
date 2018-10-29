@@ -63,7 +63,7 @@ public class NewVersionScenario {
 		}
 	}
 	
-	//@Test(priority = 1)
+	@Test(priority = 1)
 	public void autoPage(){
 		
 		

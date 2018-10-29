@@ -13,6 +13,7 @@ import com.yss.common.ElementEnum;
 import com.yss.common.MyResponse;
 import com.yss.common.PageEnum;
 import com.yss.common.ReadFromExcel;
+import com.yss.common.XMLParameterEnum;
 
 public class Login {
 
@@ -22,7 +23,7 @@ public class Login {
 		Common.logInfo("login");
 		WebDriver driver = Common.driver;
 		//TODO：修改Tomcat的IP和端口
-		String url = "http://localhost:8080/sofa/sofa-portal/index.jsp";
+		String url =  Common.XMLMap.get(XMLParameterEnum.TAADDRESS);
 //		String url = TA_address;
 		//打开网址
 		driver.get(url);
@@ -49,16 +50,16 @@ public class Login {
 		//获取用户名和密码
 		List<HashMap<LoginEnum, String>> dataForLoginPageFromExcel = ReadFromExcel.dataForLoginPageFromExcel;
 		//填写值，点击
-		MyResponse setUserResponse = Common.setParameter(userElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.USER));
+		MyResponse setUserResponse = Common.setParameter(userElement, Common.XMLMap.get(XMLParameterEnum.USERNAME));
 //		MyResponse setUserResponse = Common.setParameter(userElement, user);
 		if( (int)setUserResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
-			Common.logError("Set parameter "+ userElement+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.USER)+" failed");
+			Common.logError("Set parameter "+ userElement+" to"+Common.XMLMap.get(XMLParameterEnum.USERNAME)+" failed");
 			return false;
 		}
-		MyResponse setPwdResponse = Common.setParameter(pwdElement, dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD));
+		MyResponse setPwdResponse = Common.setParameter(pwdElement, Common.XMLMap.get(XMLParameterEnum.PASSWORD));
 //		MyResponse setPwdResponse = Common.setParameter(pwdElement, password);
 		if( (int)setPwdResponse.get(MyResponse.STATUS)== MyResponse.FAILED){
-			Common.logError("Set parameter "+ pwdElement+" to"+dataForLoginPageFromExcel.get(0).get(LoginEnum.PWD)+" failed");
+			Common.logError("Set parameter "+ pwdElement+" to"+Common.XMLMap.get(XMLParameterEnum.PASSWORD)+" failed");
 			return false;
 		}
 		MyResponse clickLoginResponse = Common.click(loginElement) ;
