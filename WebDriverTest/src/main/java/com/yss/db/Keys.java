@@ -486,7 +486,7 @@ public class Keys {
 					"FSHARE_LEVEL", "FCLEARDATE" });
 
 	public static List<String> T_TA_RIGHTSREGDETIAL_keys = Arrays
-			.asList(new String[] { "FPJNO", "FOLDBALACKNO", "FBALACKNO",
+			.asList(new String[] { "FPJNO", "FBALACKNO",
 					"FACKNO1", "FACKNO2", "FACKNO3", "FACKNO4", "FACKNO5",
 					"FAPKIND1", "FAPKIND2", "FAPKIND3", "FAPKIND4", "FAPKIND5",
 					"FFUNDACCT", "FSEATNO", "FCUSTNO", "FPD_CODE", "FINVNAME",

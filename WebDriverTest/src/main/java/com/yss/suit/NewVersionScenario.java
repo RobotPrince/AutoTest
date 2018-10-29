@@ -263,7 +263,7 @@ public class NewVersionScenario {
 			Assert.fail("日常运营清算-日终确认自动化页面程序失败");
 		}
 	}
-	//@Test(priority = 2 )
+	@Test(priority = 2 )
 	public void save(){
 		String errorMes = "";
 		MyResponse myResponse = new SaveTable().saveAllTables();
