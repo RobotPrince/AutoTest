@@ -19,6 +19,7 @@ import com.yss.method.GuanLianJiGouXinXi;
 import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
 import com.yss.method.XiaoShouJiGouXinXi;
+import com.yss.method.YongHuZhiXingRenGuanXi;
 import com.yss.method.ZheKouGuanLi;
 
 public class scenario1 {
