@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import com.yss.common.Common;
 import com.yss.method.Login;
+import com.yss.method.YongHuZhiXingRenGuanXi;
 import com.yss.method.ZheKouGuanLi;
 import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
 
@@ -188,6 +189,31 @@ public class scenario1 {
 		new ZheKouGuanLi().after();
 		Reporter.log("折扣管理-审核成功");
 	}
+	
+	/**
+	 * 
+	 * @author yuanpeihong25,26,27
+	 *
+	 */	
+	@Test(priority = 25)
+	public void YongHuZhiXingRenGuanXiAdd() throws InterruptedException{
+		new YongHuZhiXingRenGuanXi().before();
+		new YongHuZhiXingRenGuanXi().add();
+		Reporter.log("用户执行人关系-新增成功");
+	}
+	@Test(priority = 26)
+	public void  YongHuZhiXingRenGuanXiView() throws InterruptedException{
+		new YongHuZhiXingRenGuanXi().before();
+		new YongHuZhiXingRenGuanXi().view();
+		Reporter.log("用户执行人关系-查看成功");
+	}
+	@Test(priority = 27)
+	public void  YongHuZhiXingRenGuanXiReview() throws InterruptedException{
+		new YongHuZhiXingRenGuanXi().review();
+		new YongHuZhiXingRenGuanXi().after();
+		Reporter.log("用户执行人关系-审核成功");
+	}
+	
 	
 	@BeforeClass
 	public void beforeClass() {
