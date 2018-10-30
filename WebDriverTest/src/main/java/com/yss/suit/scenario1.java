@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import com.yss.common.Common;
 import com.yss.method.Login;
+import com.yss.method.YongHuZhiXingRenGuanXi;
 import com.yss.method.ZheKouGuanLi;
 import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
 
@@ -170,24 +171,49 @@ public class scenario1 {
 //		new FeiYongFenCheng().after();
 //		Reporter.log("费用分成-审核成功");
 //	}
-	@Test(priority = 22)
-	public void ZheKouGuanLiAdd() throws InterruptedException{
-		new ZheKouGuanLi().before();
-		new ZheKouGuanLi().add();
-		Reporter.log("折扣管理-新增成功");
+//	@Test(priority = 22)
+//	public void ZheKouGuanLiAdd() throws InterruptedException{
+//		new ZheKouGuanLi().before();
+//		new ZheKouGuanLi().add();
+//		Reporter.log("折扣管理-新增成功");
+//	}
+//	@Test(priority = 23)
+//	public void ZheKouGuanLiView() throws InterruptedException{
+//		new ZheKouGuanLi().before();
+//		new ZheKouGuanLi().view();
+//		Reporter.log("折扣管理-查看成功");
+//	}
+//	@Test(priority = 24)
+//	public void ZheKouGuanLiReview() throws InterruptedException{
+//		new ZheKouGuanLi().review();
+//		new ZheKouGuanLi().after();
+//		Reporter.log("折扣管理-审核成功");
+//	}
+	
+	/**
+	 * 
+	 * @author yuanpeihong25,26,27
+	 *
+	 */	
+	@Test(priority = 25)
+	public void YongHuZhiXingRenGuanXiAdd() throws InterruptedException{
+		new YongHuZhiXingRenGuanXi().before();
+		new YongHuZhiXingRenGuanXi().add();
+		Reporter.log("用户执行人关系-新增成功");
 	}
-	@Test(priority = 23)
+	@Test(priority = 26)
 	public void ZheKouGuanLiView() throws InterruptedException{
-		new ZheKouGuanLi().before();
-		new ZheKouGuanLi().view();
-		Reporter.log("折扣管理-查看成功");
+		new YongHuZhiXingRenGuanXi().before();
+		new YongHuZhiXingRenGuanXi().view();
+		Reporter.log("用户执行人关系-查看成功");
 	}
-	@Test(priority = 24)
+	@Test(priority = 27)
 	public void ZheKouGuanLiReview() throws InterruptedException{
-		new ZheKouGuanLi().review();
-		new ZheKouGuanLi().after();
-		Reporter.log("折扣管理-审核成功");
+		new YongHuZhiXingRenGuanXi().review();
+		new YongHuZhiXingRenGuanXi().after();
+		Reporter.log("用户执行人关系-审核成功");
 	}
+	
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -200,7 +226,7 @@ public class scenario1 {
 	@AfterClass
 	public void afterClass() {
 		System.out.println("afterClass");
-		Common.driver.quit();
+		//Common.driver.quit();
         logger.info("----------   "+"测试用例执行结束"+"    ----------------");        
 	}
 

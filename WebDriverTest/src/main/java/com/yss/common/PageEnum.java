@@ -52,5 +52,9 @@ public enum PageEnum {
 	/**
 	 * 折扣管理
 	 */
-	ZHEKOUGUANLI
+	ZHEKOUGUANLI, 
+	/**
+	 * 用户执行人关系
+	 */
+	YONGHUZHIXINGRENGUANXI,
 }
