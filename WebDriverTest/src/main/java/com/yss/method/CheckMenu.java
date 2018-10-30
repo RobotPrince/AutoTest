@@ -169,6 +169,7 @@ public class CheckMenu {
 		 * 折扣管理
 		 */
 		ZHEKOUGUANLI_2,
+
 		/**
 		 * 参数设置
 		 */
@@ -176,8 +177,18 @@ public class CheckMenu {
 		/**
 		 * 产品清算周期
 		 */
-		CHANPINQINGSUANZHOUQI_2
+		CHANPINQINGSUANZHOUQI_2,
+		/*
+		 * 执行权限设置
+		 */
+		CHANPINQUANXIANSHEZHI_1,
+		/*
+		 * 用户执行人关系
+		 */
+		GONGHUZHIXINGRENGUANXI_2
 		
+
+
 //FIXME:下面的暂时用不上，格式设置同上。 一对一
 //		基金账户开户
 //		增开交易账户
@@ -223,6 +234,7 @@ public class CheckMenu {
 //		业绩报酬明细
 //		机构参数一级
 //		核算机构信息
+
 
 
 

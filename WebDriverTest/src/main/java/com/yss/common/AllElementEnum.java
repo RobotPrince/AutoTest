@@ -11,6 +11,7 @@ import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
 import com.yss.method.Login.LoginEnum;
 import com.yss.method.RiChangYunYingQingSuan.RiChangYunYingQingSuanEnum;
 import com.yss.method.XiaoShouJiGouXinXi.XiaoShouJiGouXinXiEnum;
+import com.yss.method.YongHuZhiXingRenGuanXi.YongHuZhiXingRenGuanXiEnum;
 import com.yss.method.ZheKouGuanLi.ZheKouGuanLiEnum;
 
 
@@ -33,7 +34,8 @@ public enum AllElementEnum{
 	ChanPinXiaoShouDaiLiGuanXiElement(ChanPinXiaoShouDaiLiGuanXiEnum.class),
 	FeiYongFenChengElement(FeiYongFenChengEnum.class),
 	ZheKouGuanLiElement(ZheKouGuanLiEnum.class),
-	ChanPinQingSuanZhouQiElement(ChanPinQingSuanZhouQiEnum.class);
+	ChanPinQingSuanZhouQiElement(ChanPinQingSuanZhouQiEnum.class),
+	YongHuZhiXingRenGuanXiElement(YongHuZhiXingRenGuanXiEnum.class);
 	
 	private ElementEnum[] elementEnums;
 	private AllElementEnum( Class<? extends ElementEnum> e){
