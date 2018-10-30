@@ -52,5 +52,9 @@ public enum PageEnum {
 	/**
 	 * 折扣管理
 	 */
-	ZHEKOUGUANLI
+	ZHEKOUGUANLI,
+	/**
+	 * 产品清算周期
+	 */
+	CHANPINQINGSUANZHOUQI
 }

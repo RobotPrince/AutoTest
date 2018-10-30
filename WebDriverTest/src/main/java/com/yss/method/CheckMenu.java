@@ -168,7 +168,16 @@ public class CheckMenu {
 		/**
 		 * 折扣管理
 		 */
-		ZHEKOUGUANLI_2
+		ZHEKOUGUANLI_2,
+		/**
+		 * 参数设置
+		 */
+		CANSHUSHEZHI_1,
+		/**
+		 * 产品清算周期
+		 */
+		CHANPINQINGSUANZHOUQI_2
+		
 //FIXME:下面的暂时用不上，格式设置同上。 一对一
 //		基金账户开户
 //		增开交易账户

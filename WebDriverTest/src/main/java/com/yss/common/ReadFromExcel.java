@@ -22,6 +22,7 @@ import com.yss.method.Login.LoginEnum;
 import com.yss.method.RiChangYunYingQingSuan.RiChangYunYingQingSuanEnum;
 import com.yss.method.XiaoShouJiGouXinXi.XiaoShouJiGouXinXiEnum;
 import com.yss.method.ZheKouGuanLi.ZheKouGuanLiEnum;
+import com.yss.method.ChanPinQingSuanZhouQi.ChanPinQingSuanZhouQiEnum;
 
 /**
  * Read WebElements from Excel
@@ -46,6 +47,7 @@ public class ReadFromExcel {
 	public static List<HashMap<ChanPinXiaoShouDaiLiGuanXiEnum, String>> dataForChanPinXiaoShouDaiLiGuanXiFromExcel = new ArrayList<HashMap<ChanPinXiaoShouDaiLiGuanXiEnum, String>>();
 	public static List<HashMap<FeiYongFenChengEnum, String>> dataForFeiYongFenChengFromExcel = new ArrayList<HashMap<FeiYongFenChengEnum, String>>();
 	public static List<HashMap<ZheKouGuanLiEnum, String>> dataForZheKouGuanLiFromExcel = new ArrayList<HashMap<ZheKouGuanLiEnum, String>>();
+	public static List<HashMap<ChanPinQingSuanZhouQiEnum, String>> dataForChanPinQingSuanZhouQiFromExcel = new ArrayList<HashMap<ChanPinQingSuanZhouQiEnum, String>>();
 	/**
 	 * !!!!!!!!!!!!!!!!!
 	 * 这个需要维护
@@ -68,6 +70,7 @@ public class ReadFromExcel {
 		readForChanPinXiaoShouDaiLiGuanXi();
 		readForFeiYongFenCheng();
 		readForZheKouGuanLi();
+		readForChanPinQingSuanZhouQi();
 	}
 	/**
 	 * HashMap(PageEnum, HashMap(String, List(String))) hashMapOfExcel-所有页面元素
@@ -889,6 +892,52 @@ public class ReadFromExcel {
 				linkedHashMap.put(ZheKouGuanLiEnum.ISCHECKED, ischecked);
 				// 放入全局变量dataForZheKouGuanLiFromExcel中
 				dataForZheKouGuanLiFromExcel.add(linkedHashMap);
+			}
+		} catch (Exception e) {
+			Common.logError(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	/**
+	 * readForChanPinQingSuanZhouQi-产品清算周期
+	 * @return
+	 */
+	public boolean readForChanPinQingSuanZhouQi() {
+		Common.logInfo("readForChanPinQingSuanZhouQi");
+		
+		try {
+			Workbook book = Workbook.getWorkbook(new File(
+					"./testcase/TestCase.xls"));
+			// 获得ChanPinFeiLv工作表对象
+			Sheet[] sheets = book.getSheets();
+			Sheet sheet = null;
+			for (Sheet s : sheets) {
+				if ("chanpinqingsuanzhouqi".equals(s.getName())) {
+					sheet = s;
+				}
+			}
+			if (sheet == null) {
+				Common.logError("ReadForLogPage error,the chanpinqingsuanzhouqi sheet not exist!");
+				return false;
+			}
+			// 获取sheet的所有行数
+			int rows = sheet.getRows();
+			
+			for (int r = 2; r < rows; r++) {
+				LinkedHashMap<ChanPinQingSuanZhouQiEnum, String> linkedHashMap = new LinkedHashMap<ChanPinQingSuanZhouQiEnum, String>();
+				// 取出第一行数据的所有数据
+				String chanpindaima = sheet.getCell(1, r).getContents();
+				String chanpinqingsuanzhouqi = sheet.getCell(2, r).getContents();
+				String miaoshu = sheet.getCell(3, r).getContents();
+				String ischecked = sheet.getCell(4, r).getContents();
+				
+				linkedHashMap.put(ChanPinQingSuanZhouQiEnum.CHANPINDAIMA, chanpindaima);
+				linkedHashMap.put(ChanPinQingSuanZhouQiEnum.CHANPINQINGSUANZHOUQI, chanpinqingsuanzhouqi);
+				linkedHashMap.put(ChanPinQingSuanZhouQiEnum.MIAOSHU, miaoshu);
+				linkedHashMap.put(ChanPinQingSuanZhouQiEnum.ISCHECKED, ischecked);
+				// 放入全局变量dataForZheKouGuanLiFromExcel中
+				dataForChanPinQingSuanZhouQiFromExcel.add(linkedHashMap);
 			}
 		} catch (Exception e) {
 			Common.logError(e.getMessage());

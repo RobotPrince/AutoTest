@@ -10,6 +10,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
+import com.yss.method.ChanPinQingSuanZhouQi;
 import com.yss.method.Login;
 import com.yss.method.ZheKouGuanLi;
 import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
@@ -170,25 +171,41 @@ public class scenario1 {
 //		new FeiYongFenCheng().after();
 //		Reporter.log("费用分成-审核成功");
 //	}
-	@Test(priority = 22)
-	public void ZheKouGuanLiAdd() throws InterruptedException{
-		new ZheKouGuanLi().before();
-		new ZheKouGuanLi().add();
-		Reporter.log("折扣管理-新增成功");
+//	@Test(priority = 22)
+//	public void ZheKouGuanLiAdd() throws InterruptedException{
+//		new ZheKouGuanLi().before();
+//		new ZheKouGuanLi().add();
+//		Reporter.log("折扣管理-新增成功");
+//	}
+//	@Test(priority = 23)
+//	public void ZheKouGuanLiView() throws InterruptedException{
+//		new ZheKouGuanLi().before();
+//		new ZheKouGuanLi().view();
+//		Reporter.log("折扣管理-查看成功");
+//	}
+//	@Test(priority = 24)
+//	public void ZheKouGuanLiReview() throws InterruptedException{
+//		new ZheKouGuanLi().review();
+//		new ZheKouGuanLi().after();
+//		Reporter.log("折扣管理-审核成功");
+//	}
+	@Test(priority = 1)
+	public void ChanPinQingSuanZhouQiAdd() throws InterruptedException{
+		new ChanPinQingSuanZhouQi().before();
+		new ChanPinQingSuanZhouQi().add();
+		Reporter.log("产品清算周期-新增成功");
 	}
-	@Test(priority = 23)
-	public void ZheKouGuanLiView() throws InterruptedException{
-		new ZheKouGuanLi().before();
-		new ZheKouGuanLi().view();
-		Reporter.log("折扣管理-查看成功");
+	@Test(priority = 2)
+	public void ChanPinQingSuanZhouQiView() throws InterruptedException{
+		new ChanPinQingSuanZhouQi().view();
+		Reporter.log("产品清算周期-查看成功");
 	}
-	@Test(priority = 24)
-	public void ZheKouGuanLiReview() throws InterruptedException{
-		new ZheKouGuanLi().review();
-		new ZheKouGuanLi().after();
-		Reporter.log("折扣管理-审核成功");
+	@Test(priority = 3)
+	public void ChanPinQingSuanZhouQiReview() throws InterruptedException{
+		new ChanPinQingSuanZhouQi().review();
+		new ChanPinQingSuanZhouQi().after();
+		Reporter.log("产品清算周期-审核成功");
 	}
-	
 	@BeforeClass
 	public void beforeClass() {
 
