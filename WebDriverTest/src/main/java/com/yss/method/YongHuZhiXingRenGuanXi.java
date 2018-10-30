@@ -47,14 +47,14 @@ public class YongHuZhiXingRenGuanXi implements BaseInterface {
 		}
 		Common.click((WebElement)TAdengjiguohuResponse.get("ele"));
 		//点击执行权限设置
-		MyResponse zhiXingQianXianSheZhiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.chanpinquanxianshezhi_1);
+		MyResponse zhiXingQianXianSheZhiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.CHANPINQUANXIANSHEZHI_1);
 		if((int) zhiXingQianXianSheZhiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
 			Common.logError("Double click of chanpinquanxianshezhi1 failed");
 			return false;
 		}
 		Common.click((WebElement)zhiXingQianXianSheZhiResponse.get("ele"));
 	    //点击用户执行人关系
-	    MyResponse YongHuZhiXingRenGuanXiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.gonghuzhixingrenguanxi_2);
+	    MyResponse YongHuZhiXingRenGuanXiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.GONGHUZHIXINGRENGUANXI_2);
 		if((int) YongHuZhiXingRenGuanXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
 			Common.logError("Double click of yonghuzhixingrenguanxiResponse failed");
 			return false;
