@@ -217,11 +217,11 @@ public class CheckMenu {
 		/*
 		 * 执行权限设置
 		 */
-		chanpinquanxianshezhi_1, 
+		CHANPINQUANXIANSHEZHI_1,
 		/*
 		 * 用户执行人关系
 		 */
-		gonghuzhixingrenguanxi_2
+		GONGHUZHIXINGRENGUANXI_2,
 
 
 
