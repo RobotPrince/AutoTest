@@ -48,7 +48,7 @@ public class ChanPinZhiXingRenGuanXi implements BaseInterface  {
 		}
 		Common.click((WebElement)TAdengjiguohuResponse.get("ele"));
 		//点击执行权限设置
-		MyResponse zhiXingQuanXianSheZhiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.ZHIXINGQUANXIANSHEZHI_1);
+		MyResponse zhiXingQuanXianSheZhiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.CHANPINQUANXIANSHEZHI_1);
 		if((int) zhiXingQuanXianSheZhiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
 			Common.logError("Double click of zhiXingQuanXianSheZhiResponse failed");
 			return false;
