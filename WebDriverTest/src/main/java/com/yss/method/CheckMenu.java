@@ -111,7 +111,7 @@ public class CheckMenu {
 		/**
 		 * 固定收益利率
 		 */
-		GUDINGSHOUYILILU_2,
+		GUDINGSHOUYILILV_2,
 		/**
 		 * 业绩报酬方案
 		 */
