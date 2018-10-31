@@ -22,6 +22,7 @@ import com.yss.method.Login;
 import com.yss.method.XiaoShouJiGouXinXi;
 import com.yss.method.YongHuZhiXingRenGuanXi;
 import com.yss.method.ZheKouGuanLi;
+import com.yss.method.ZhiXingQuanXianRenXinXi;
 
 public class scenario1 {
 	public static Logger logger = Logger.getLogger(scenario1.class);
@@ -243,7 +244,7 @@ public class scenario1 {
 
 	@Test(priority = 32)
 	public void ChanPinZhiXingRenGuanXiView() throws InterruptedException{
-//		new ChanPinZhiXingRenGuanXi().before();
+		new ChanPinZhiXingRenGuanXi().before();
 		new ChanPinZhiXingRenGuanXi().view();
 		Reporter.log("产品执行人关系-查看成功");
 	}
@@ -254,7 +255,29 @@ public class scenario1 {
 		new ChanPinZhiXingRenGuanXi().after();
 		Reporter.log("产品执行人关系-审核成功");
 	}
-	
+	/**
+	 * 
+	 * @author yanglei
+	 *
+	 */	
+	@Test(priority = 34)
+	public void ZhiXingQuanXianRenXinXiAdd() throws InterruptedException{
+		new ZhiXingQuanXianRenXinXi().before();
+		new ZhiXingQuanXianRenXinXi().add();
+		Reporter.log("执行权限人信息-新增成功");
+	}
+	@Test(priority = 35)
+	public void ZhiXingQuanXianRenXinXiView() throws InterruptedException{
+		new ZhiXingQuanXianRenXinXi().before();
+		new ZhiXingQuanXianRenXinXi().view();
+		Reporter.log("执行权限人信息-查看成功");
+	}
+	@Test(priority = 36)
+	public void ZhiXingQuanXianRenXinXiReview() throws InterruptedException{
+		new ZhiXingQuanXianRenXinXi().review();
+		new ZhiXingQuanXianRenXinXi().after();
+		Reporter.log("执行权限人信息-审核成功");
+	}
 
 	@BeforeClass
 	public void beforeClass() {
