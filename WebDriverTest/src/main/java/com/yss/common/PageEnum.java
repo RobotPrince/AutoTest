@@ -68,7 +68,9 @@ public enum PageEnum {
 	/**
 	 * 固定收益利率
 	 */
-	GUDINGSHOUYILILV
-
-
+	GUDINGSHOUYILILV,
+	/**
+	 * 执行权限人信息
+	 */
+	ZHIXINGQUANXIANRENXINXI
 }
