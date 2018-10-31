@@ -1059,7 +1059,7 @@ public class ReadFromExcel {
 		return true;
 	}
 	/**
-	 * readForZhiXingQuanXianRenXinXi-折扣管理
+	 * readForZhiXingQuanXianRenXinXi-执行权限人信息
 	 * @return
 	 */
 	public boolean readForZhiXingQuanXianRenXinXi() {
@@ -1068,7 +1068,7 @@ public class ReadFromExcel {
 		try {
 			Workbook book = Workbook.getWorkbook(new File(
 					"./testcase/TestCase.xls"));
-			// 获得ChanPinFeiLv工作表对象
+			// 获得执行权限设置工作表对象
 			Sheet[] sheets = book.getSheets();
 			Sheet sheet = null;
 			for (Sheet s : sheets) {
