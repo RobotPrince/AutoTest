@@ -14,6 +14,7 @@ import com.yss.method.ChanPinFeiLv;
 import com.yss.method.ChanPinQingSuanZhouQi;
 import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
 import com.yss.method.ChanPinXinXi;
+import com.yss.method.ChanPinZhiXingRenGuanXi;
 import com.yss.method.FeiYongFenCheng;
 import com.yss.method.GuanLianJiGouXinXi;
 import com.yss.method.HeSuanJiGouXinXi;
@@ -213,11 +214,10 @@ public class scenario1 {
 		new ChanPinQingSuanZhouQi().after();
 		Reporter.log("产品清算周期-审核成功");
 	}
-
 	
 	/**
 	 * 
-	 * @author yuanpeihong25,26,27
+	 * @author yuanpeihong
 	 *
 	 */	
 	@Test(priority = 28)
@@ -239,6 +239,27 @@ public class scenario1 {
 		Reporter.log("用户执行人关系-审核成功");
 	}
 	
+	
+	@Test(priority = 31)
+	public void ChanPinZhiXingRenGuanXiAdd() throws InterruptedException{
+		new ChanPinZhiXingRenGuanXi().before();
+		new ChanPinZhiXingRenGuanXi().add();
+		Reporter.log("产品执行人关系-新增成功");
+	}
+
+	@Test(priority = 32)
+	public void ChanPinZhiXingRenGuanXiView() throws InterruptedException{
+//		new ChanPinZhiXingRenGuanXi().before();
+		new ChanPinZhiXingRenGuanXi().view();
+		Reporter.log("产品执行人关系-查看成功");
+	}
+	
+	@Test(priority = 33)
+	public void ChanPinZhiXingRenGuanXiReview() throws InterruptedException{
+		new ChanPinZhiXingRenGuanXi().review();
+		new ChanPinZhiXingRenGuanXi().after();
+		Reporter.log("产品执行人关系-审核成功");
+	}
 	
 
 	@BeforeClass
