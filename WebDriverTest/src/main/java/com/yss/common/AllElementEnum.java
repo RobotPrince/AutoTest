@@ -6,6 +6,7 @@ import com.yss.method.ChanPinXiaoShouDaiLiGuanXi.ChanPinXiaoShouDaiLiGuanXiEnum;
 import com.yss.method.ChanPinXinXi.ChanPinXinXiEnum;
 import com.yss.method.CheckMenu.CheckMenuElement;
 import com.yss.method.FeiYongFenCheng.FeiYongFenChengEnum;
+import com.yss.method.GuDingShouYiLiLv.GuDingShouYiLiLvEnum;
 import com.yss.method.GuanLianJiGouXinXi.GuanLianJiGouXinXiEnum;
 import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
 import com.yss.method.Login.LoginEnum;
@@ -35,6 +36,7 @@ public enum AllElementEnum{
 	FeiYongFenChengElement(FeiYongFenChengEnum.class),
 	ZheKouGuanLiElement(ZheKouGuanLiEnum.class),
 	ChanPinQingSuanZhouQiElement(ChanPinQingSuanZhouQiEnum.class),
+	GuDingShouYiLiLvElement(GuDingShouYiLiLvEnum.class),
 	YongHuZhiXingRenGuanXiElement(YongHuZhiXingRenGuanXiEnum.class);
 	
 	private ElementEnum[] elementEnums;

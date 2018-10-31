@@ -63,5 +63,10 @@ public enum PageEnum {
 	 * 用户执行人关系
 	 */
 	YONGHUZHIXINGRENGUANXI,
+	/**
+	 * 固定收益利率
+	 */
+	GUDINGSHOUYILILV
+
 
 }
