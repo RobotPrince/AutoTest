@@ -69,12 +69,20 @@ public enum PageEnum {
 	 * 用户执行人关系
 	 */
 	YONGHUZHIXINGRENGUANXI,
-	/**
+	/*
 	 * 固定收益利率
 	 */
 	GUDINGSHOUYILILV,
 	/**
 	 * 执行权限人信息
 	 */
-	ZHIXINGQUANXIANRENXINXI
+	ZHIXINGQUANXIANRENXINXI,
+	/**
+	 * 产品动态
+	 */
+	CHANPINDONGTAI,
+	/**
+	 * 银行基本信息
+	 */
+	YINHANGJIBENXINXI,
 }
