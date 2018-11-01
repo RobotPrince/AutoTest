@@ -21,6 +21,7 @@ import com.yss.method.GuanLianJiGouXinXi;
 import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
 import com.yss.method.XiaoShouJiGouXinXi;
+import com.yss.method.YinHangJiBenXinXi;
 import com.yss.method.YongHuZhiXingRenGuanXi;
 import com.yss.method.ChanPinDongTai;
 import com.yss.method.ZheKouGuanLi;
@@ -298,18 +299,36 @@ public class scenario1 {
 
 	}
 	@Test(priority = 40)
+	public void YinHangJiBenXinXiAdd() throws InterruptedException{
+		new YinHangJiBenXinXi().before();
+		new YinHangJiBenXinXi().add();
+		Reporter.log("银行基本信息-新增成功");
+	}
+	@Test(priority = 41)
+	public void YinHangJiBenXinXiView() throws InterruptedException{
+		new YinHangJiBenXinXi().view();
+		Reporter.log("银行基本信息-查看成功");
+	}
+	@Test(priority = 42)
+	public void YinHangJiBenXinXiReview() throws InterruptedException{
+		new YinHangJiBenXinXi().review();
+		new YinHangJiBenXinXi().after();
+		Reporter.log("银行基本信息-审核成功");
+
+	}
+	@Test(priority = 43)
 	public void ChanPinDongTai() throws InterruptedException{
 		new ChanPinDongTai().before();
 		new ChanPinDongTai().add();
 		Reporter.log("产品动态-新增成功");
 	}
-	@Test(priority = 41)
+	@Test(priority = 44)
 	public void  ChanPinDongTaiView() throws InterruptedException{
 		new ChanPinDongTai().before();
 		new ChanPinDongTai().view();
 		Reporter.log("产品动态-查看成功");
 	}
-	@Test(priority = 42)
+	@Test(priority = 45)
 	public void  ChanPinDongTaiReview() throws InterruptedException{
 		new ChanPinDongTai().review();
 		new ChanPinDongTai().after();

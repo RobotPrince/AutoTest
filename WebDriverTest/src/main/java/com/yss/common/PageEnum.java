@@ -77,4 +77,8 @@ public enum PageEnum {
 	 * 产品动态
 	 */
 	CHANPINDONGTAI,
+	/**
+	 * 银行基本信息
+	 */
+	YINHANGJIBENXINXI,
 }
