@@ -181,6 +181,10 @@ public class CheckMenu {
 		 */
 		CANSHUSHEZHI_1,
 		/**
+		 * 账户类参数
+		 */
+		 ZHANGHULEICANSHU_2,
+		/**
 		 * 产品清算周期
 		 */
 		CHANPINQINGSUANZHOUQI_2,
@@ -188,11 +192,11 @@ public class CheckMenu {
 		 * 执行权限设置
 		 */
 		CHANPINQUANXIANSHEZHI_1,
-		/*
+		/**
 		 * 用户执行人关系
 		 */
 		GONGHUZHIXINGRENGUANXI_2,
-		/*
+		/**
 		 * 银行基本信息
 		 */
 		YINHANGJIBENXINXI_2
@@ -263,6 +267,7 @@ public class CheckMenu {
 //		yejibaochoumingxi_2
 //		jigoucanshu_1
 //		hesuanjigouxinxi_2
+
 
 
 

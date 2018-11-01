@@ -27,6 +27,7 @@ import com.yss.method.RiChangYunYingQingSuan.RiChangYunYingQingSuanEnum;
 import com.yss.method.XiaoShouJiGouXinXi.XiaoShouJiGouXinXiEnum;
 import com.yss.method.YinHangJiBenXinXi.YinHangJiBenXinXiEnum;
 import com.yss.method.YongHuZhiXingRenGuanXi.YongHuZhiXingRenGuanXiEnum;
+import com.yss.method.ZhangHuLeiCanShu.ZhangHuLeiCanShuEnum;
 import com.yss.method.ZheKouGuanLi.ZheKouGuanLiEnum;
 import com.yss.method.ZhiXingQuanXianRenXinXi.ZhiXingQuanXianRenXinXiEnum;
 
@@ -60,6 +61,7 @@ public class ReadFromExcel {
 	public static List<HashMap<GuDingShouYiLiLvEnum, String>> dataForGuDingShouYiLiLvFromExcel = new ArrayList<HashMap<GuDingShouYiLiLvEnum, String>>();
 	public static List<HashMap<ZhiXingQuanXianRenXinXiEnum, String>> dataForZhiXingQuanXianRenXinXiFromExcel = new ArrayList<HashMap<ZhiXingQuanXianRenXinXiEnum, String>>();
 	public static List<HashMap<ChanPinDongTaiEnum, String>> dataForChanPinDongTaiFromExcel = new ArrayList<HashMap<ChanPinDongTaiEnum, String>>();
+	public static List<HashMap<ZhangHuLeiCanShuEnum, String>> dataForZhangHuLeiCanShuFromExcel = new ArrayList<HashMap<ZhangHuLeiCanShuEnum, String>>();
 	
 	
 	public static List<HashMap<YinHangJiBenXinXiEnum, String>> dataForYinHangJiBenXinXiFromExcel = new ArrayList<HashMap<YinHangJiBenXinXiEnum, String>>();
@@ -74,8 +76,7 @@ public class ReadFromExcel {
 		}
 		Common.logInfo("allReadMethod");
 		boolean flag = true;
-
-		
+			
 		
 		flag = readForWebElements()&&flag;
 		flag = readForHeSuanJiGouXinXi()&&flag;
@@ -95,6 +96,7 @@ public class ReadFromExcel {
 		flag = readForGuDingShouYiLiLv()&&flag;
 		flag = readForZhiXingQuanXianRenXinXi()&&flag;
 		flag = readForChanPinZhiXingRenGuanXi()&&flag;
+		flag = readForZhangHuLeiCanShu()&&flag;
 		
 		flag = readForYinHangJiBenXinXi()&&flag;
 		flag = readForChanPinDongTai()&&flag;
@@ -111,6 +113,8 @@ public class ReadFromExcel {
 
 	}
 	
+	
+
 	/**
 	 * readForChanPinZhiXingRenGuanXi-产品执行人关系
 	 * @return
@@ -1022,18 +1026,10 @@ public class ReadFromExcel {
 				// 取出第一行数据的所有数据
 				String dengruyonghuming = sheet.getCell(1, r).getContents();
 				String zhixingrendaima = sheet.getCell(2, r).getContents();
-				String jinexiaxian = sheet.getCell(3, r).getContents();
-				String jineshangxian = sheet.getCell(4, r).getContents();
-				String youxiaokaishishijian = sheet.getCell(5, r).getContents();
-				String youxiaojieshushijian = sheet.getCell(6, r).getContents();
-				String ischecked = sheet.getCell(7, r).getContents();
+				String ischecked = sheet.getCell(3, r).getContents();
 				
 				linkedHashMap.put(YongHuZhiXingRenGuanXiEnum.DENGRUYONGHUMING, dengruyonghuming);
 				linkedHashMap.put(YongHuZhiXingRenGuanXiEnum.ZHIXINGRENDAIMA, zhixingrendaima);
-				linkedHashMap.put(YongHuZhiXingRenGuanXiEnum.JINEXIAXIAN, jinexiaxian);
-				linkedHashMap.put(YongHuZhiXingRenGuanXiEnum.JINESHANGXIAN, jineshangxian);
-				linkedHashMap.put(YongHuZhiXingRenGuanXiEnum.YOUXIAOKAISHISHIJIAN, youxiaokaishishijian);
-				linkedHashMap.put(YongHuZhiXingRenGuanXiEnum.YOUXIAOJIESHUSHIJIAN, youxiaojieshushijian);
 				linkedHashMap.put(YongHuZhiXingRenGuanXiEnum.ISCHECKED, ischecked);
 				// 放入全局变量dataForZheKouGuanLiFromExcel中
 				dataForYongHuZhiXingRenGuanXiFromExcel.add(linkedHashMap);
@@ -1229,7 +1225,7 @@ public class ReadFromExcel {
 				}
 			}
 			if (sheet == null) {
-				Common.logError("ReadForLogPage error,the zhixinguanxianrenxinxi sheet not exit!");
+				Common.logError("ReadForLogPage error,the ZhangHuLeiCanShu sheet not exit!");
 				return false;
 			}
 			// 获取sheet的所有行数
@@ -1247,7 +1243,7 @@ public class ReadFromExcel {
 				linkedHashMap.put(ZhiXingQuanXianRenXinXiEnum.ZHIXINGQUANXIANRENMINGCHENG, zhixingquanxianrenmingcheng);
 				linkedHashMap.put(ZhiXingQuanXianRenXinXiEnum.ZHIXINGQUANXIANRENMIAOSHU, zhixingquanxianrenmiaoshu);
 				linkedHashMap.put(ZhiXingQuanXianRenXinXiEnum.ISCHECKED, ischecked);
-				// 放入全局变量dataForZhiXingQuanXianRenXinXiFromExcel中
+				// 放入全局变量dataForZhangHuLeiCanShuFromExcel中
 				dataForZhiXingQuanXianRenXinXiFromExcel.add(linkedHashMap);
 			}
 		} catch (Exception e) {
@@ -1307,5 +1303,57 @@ public class ReadFromExcel {
 			return false;
 		}
 		return true;
+	}
+	
+	/**
+	 * readForZhangHuLeiCanShu-账户类参数
+	 * @return
+	 */
+	private boolean readForZhangHuLeiCanShu() {
+
+
+		Common.logInfo("readForZhangHuLeiCanShu");
+		
+		try {
+			Workbook book = Workbook.getWorkbook(new File(
+					"./testcase/TestCase.xls"));
+			// 获得执行权限设置工作表对象
+			Sheet[] sheets = book.getSheets();
+			Sheet sheet = null;
+			for (Sheet s : sheets) {
+				if ("zhanghuleicanshu".equals(s.getName())) {
+					sheet = s;
+				}
+			}
+			if (sheet == null) {
+				Common.logError("ReadForLogPage error,the ZhangHuLeiCanShu sheet not exit!");
+				return false;
+			}
+			// 获取sheet的所有行数
+			int rows = sheet.getRows();
+			
+			for (int r = 2; r < rows; r++) {
+				LinkedHashMap<ZhangHuLeiCanShuEnum, String> linkedHashMap = new LinkedHashMap<ZhangHuLeiCanShuEnum, String>();
+				// 取出第一行数据的所有数据
+				String jigoudaima = sheet.getCell(1, r).getContents();
+				String jijinzhanghaoshengchengguize = sheet.getCell(2, r).getContents();
+				String zhanghudongjiequanyichulifangshi = sheet.getCell(3, r).getContents();
+				String tongxiaoshou = sheet.getCell(4, r).getContents();
+				String ischecked = sheet.getCell(5, r).getContents();
+				
+				linkedHashMap.put(ZhangHuLeiCanShuEnum.JIGOUDAIMA, jigoudaima);
+				linkedHashMap.put(ZhangHuLeiCanShuEnum.JIJINZHANGHAOSHENGCHENGGUIZE, jijinzhanghaoshengchengguize);
+				linkedHashMap.put(ZhangHuLeiCanShuEnum.ZHANGHUDONGJIEQUANYICHULIFANGSHI, zhanghudongjiequanyichulifangshi);
+				linkedHashMap.put(ZhangHuLeiCanShuEnum.TONGXIAOSHOU, tongxiaoshou);
+				linkedHashMap.put(ZhangHuLeiCanShuEnum.ISCHECKED, ischecked);
+				// 放入全局变量dataForZhangHuLeiCanShuFromExcel中
+				dataForZhangHuLeiCanShuFromExcel.add(linkedHashMap);
+			}
+		} catch (Exception e) {
+			Common.logError(e.getMessage());
+			return false;
+		}
+		return true;
+		
 	}
 }

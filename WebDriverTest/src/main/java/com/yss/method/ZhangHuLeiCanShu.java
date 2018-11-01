@@ -16,16 +16,9 @@ import com.yss.common.PageEnum;
 import com.yss.common.ReadFromExcel;
 import com.yss.common.Common.CommonElementEnum;
 import com.yss.method.CheckMenu.CheckMenuElement;
-import com.yss.method.YongHuZhiXingRenGuanXi.YongHuZhiXingRenGuanXiEnum;
 
-/**
- * 
- * @author yuanpeihong
- *
- */
+public class ZhangHuLeiCanShu implements BaseInterface{
 
-public class YongHuZhiXingRenGuanXi implements BaseInterface {
-	
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean before() {
@@ -46,39 +39,40 @@ public class YongHuZhiXingRenGuanXi implements BaseInterface {
 			return false;
 		}
 		Common.click((WebElement)TAdengjiguohuResponse.get("ele"));
-		//点击执行权限设置
-		MyResponse zhiXingQianXianSheZhiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.CHANPINQUANXIANSHEZHI_1);
-		if((int) zhiXingQianXianSheZhiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("Double click of chanpinquanxianshezhi1 failed");
+		//点击机构参数
+		MyResponse jiGouCanShuResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.CANSHUSHEZHI_1);
+		if((int) jiGouCanShuResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("Double click of chanpinshezhi1 failed");
 			return false;
 		}
-		Common.click((WebElement)zhiXingQianXianSheZhiResponse.get("ele"));
-	    //点击用户执行人关系
-	    MyResponse YongHuZhiXingRenGuanXiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.GONGHUZHIXINGRENGUANXI_2);
-		if((int) YongHuZhiXingRenGuanXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("Double click of yonghuzhixingrenguanxiResponse failed");
+		Common.click((WebElement)jiGouCanShuResponse.get("ele"));
+	    //点击折扣管理
+	    MyResponse ZhangHuLeiCanShuResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.ZHANGHULEICANSHU_2);
+		if((int) ZhangHuLeiCanShuResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("Double click of ZhangHuLeiCanShuResponse failed");
 			return false;
 		}
-		Common.click((WebElement)YongHuZhiXingRenGuanXiResponse.get("ele"));
+		Common.click((WebElement)ZhangHuLeiCanShuResponse.get("ele"));
 		return false;
 	}
-	
+
 	@Override
 	public boolean add() {
 		Common.logInfo("add");
-		
+
 		//循环所有数据
-		int sizeOfData = ReadFromExcel.dataForYongHuZhiXingRenGuanXiFromExcel.size();
+		int sizeOfData = ReadFromExcel.dataForZhangHuLeiCanShuFromExcel.size();
 		for(int i = 0; i < sizeOfData; i++){
 			//点击新增
 			Common.clickTopAdd();
-			HashMap<YongHuZhiXingRenGuanXiEnum, String> data = ReadFromExcel.dataForYongHuZhiXingRenGuanXiFromExcel.get(i);
-			Set<YongHuZhiXingRenGuanXiEnum> set = data.keySet();
-			Iterator<YongHuZhiXingRenGuanXiEnum> iterator = set.iterator();
+			HashMap<ZhangHuLeiCanShuEnum, String> data = ReadFromExcel.dataForZhangHuLeiCanShuFromExcel.get(i);
+			Set<ZhangHuLeiCanShuEnum> set = data.keySet();
+			Iterator<ZhangHuLeiCanShuEnum> iterator = set.iterator();
+			
 			while( iterator.hasNext() ){
 				//isChecked在这里不需要做任何操作
-				YongHuZhiXingRenGuanXiEnum eunm = iterator.next();
-				if(eunm.equals(YongHuZhiXingRenGuanXiEnum.ISCHECKED)){
+				ZhangHuLeiCanShuEnum eunm = iterator.next();
+				if(eunm.equals(ZhangHuLeiCanShuEnum.ISCHECKED)){
 					continue;
 				}
 				//若Excel中取出的数值为空，则不需要设置这一项
@@ -86,17 +80,17 @@ public class YongHuZhiXingRenGuanXi implements BaseInterface {
 					continue;
 				}
 				//获取add需要的元素
-				MyResponse YongHuZhiXingRenGuanXiResponse = Common.getWebElement(PageEnum.YONGHUZHIXINGRENGUANXI,AllElementEnum.YongHuZhiXingRenGuanXiElement,eunm);
-				if ((int)  YongHuZhiXingRenGuanXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
-					Common.logError("get element data of  YongHuZhiXingRenGuanXiResponse failed");
+				MyResponse ZhangHuLeiCanShuResponse = Common.getWebElement(PageEnum.ZHANGHULEICANSHU,AllElementEnum.ZhangHuLeiCanShuElement,eunm);
+				if ((int) ZhangHuLeiCanShuResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
+					Common.logError("get element data of ZhangHuLeiCanShuResponse failed");
 					return false;
 				}
 				//processTable
 				//将数据填到表单中
-				WebElement ele = (WebElement)YongHuZhiXingRenGuanXiResponse.get("ele");
-				String remark = YongHuZhiXingRenGuanXiResponse.get("rem").toString();
-				MyResponse setYongHuZhiXingRenGuanXiResponse = Common.proccessTable( ele, data.get(eunm),  remark );
-				if( (int)setYongHuZhiXingRenGuanXiResponse.get(MyResponse.STATUS) == MyResponse.FAILED ){		
+				WebElement ele = (WebElement)ZhangHuLeiCanShuResponse.get("ele");
+				String remark = ZhangHuLeiCanShuResponse.get("rem").toString();
+				MyResponse setZhangHuLeiCanShuResponse = Common.proccessTable( ele, data.get(eunm),  remark );
+				if( (int)setZhangHuLeiCanShuResponse.get(MyResponse.STATUS) == MyResponse.FAILED ){		
 					Common.logError("set parameter of"+eunm+"failed");
 					return false;
 				}
@@ -118,8 +112,8 @@ public class YongHuZhiXingRenGuanXi implements BaseInterface {
 			Common.clickRefresh();
 		}
 		return true;
-	}	
-	
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean view() {
@@ -144,51 +138,51 @@ public class YongHuZhiXingRenGuanXi implements BaseInterface {
 			MyResponse webElement = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
 			Common.driver.switchTo().frame((WebElement)webElement.get("ele"));
 			//需要将display none 改为 dispaly inline-block
-			//获取页面中的登入用户名
-			MyResponse dengRuYongHuMingResponse = Common.getWebElementForSelect(PageEnum.YONGHUZHIXINGRENGUANXI, AllElementEnum.YongHuZhiXingRenGuanXiElement, YongHuZhiXingRenGuanXiEnum.DENGRUYONGHUMING);
+			//获取页面中的机构代码     
+			MyResponse jiGouDaiMaResponse = Common.getWebElementForSelect(PageEnum.ZHANGHULEICANSHU, AllElementEnum.ZhangHuLeiCanShuElement, ZhangHuLeiCanShuEnum.JIGOUDAIMA);
 			//找出在Excel中对应的项
-			int sizeOfData = ReadFromExcel.dataForYongHuZhiXingRenGuanXiFromExcel.size();
+			int sizeOfData = ReadFromExcel.dataForZhangHuLeiCanShuFromExcel.size();
 			for(int j = 0; j < sizeOfData; j++){
-				//获取Excel此行的机构代码
-				String dengruyonghuming = ReadFromExcel.dataForYongHuZhiXingRenGuanXiFromExcel.get(j).get(YongHuZhiXingRenGuanXiEnum.DENGRUYONGHUMING);
+				//获取Excel此行的机构代码 
+				String jigoudaima = ReadFromExcel.dataForZhangHuLeiCanShuFromExcel.get(j).get(ZhangHuLeiCanShuEnum.JIGOUDAIMA);
 				//比较找出对于此页面在Excel中的对应行
-				if(((WebElement)dengRuYongHuMingResponse.get("ele")).getAttribute("value").contains(dengruyonghuming)){
+				if(((WebElement)jiGouDaiMaResponse.get("ele")).getAttribute("value").contains(jigoudaima)){
 					//比较页面中所涉及到项目的是否正确
-					HashMap<YongHuZhiXingRenGuanXiEnum, String> hashMap = ReadFromExcel.dataForYongHuZhiXingRenGuanXiFromExcel.get(j);
-					Set<YongHuZhiXingRenGuanXiEnum> keySet = hashMap.keySet();
-					Iterator<YongHuZhiXingRenGuanXiEnum> iterator = keySet.iterator();
+					HashMap<ZhangHuLeiCanShuEnum, String> hashMap = ReadFromExcel.dataForZhangHuLeiCanShuFromExcel.get(j);
+					Set<ZhangHuLeiCanShuEnum> keySet = hashMap.keySet();
+					Iterator<ZhangHuLeiCanShuEnum> iterator = keySet.iterator();
 					while(iterator.hasNext()){
 						//从Excel中取出数据
-						YongHuZhiXingRenGuanXiEnum YongHuZhiXingRenGuanXiEnum = iterator.next();
-						if(YongHuZhiXingRenGuanXiEnum.equals(YongHuZhiXingRenGuanXiEnum.ISCHECKED)){
+						ZhangHuLeiCanShuEnum ZhangHuLeiCanShuEnum = iterator.next();
+						if(ZhangHuLeiCanShuEnum.equals(ZhangHuLeiCanShuEnum.ISCHECKED)){
 							break;
 						}
-						String dataFromExcel = hashMap.get(YongHuZhiXingRenGuanXiEnum);
+						String dataFromExcel = hashMap.get(ZhangHuLeiCanShuEnum);
 						////若Excel中取出的数值为空,说明该项不存在或不需要比较
 						if(dataFromExcel.equals("")||dataFromExcel==null){
 							continue;
 						}
 						//从页面中取出数值
-						MyResponse YongHuZhiXingRenGuanXiResponse = Common.getWebElement(PageEnum.YONGHUZHIXINGRENGUANXI, AllElementEnum.YongHuZhiXingRenGuanXiElement, YongHuZhiXingRenGuanXiEnum);
-						if(MyResponse.FAILED == (int)YongHuZhiXingRenGuanXiResponse.get(MyResponse.STATUS)){
-							Common.logError("get element of"+YongHuZhiXingRenGuanXiEnum+"failed from page");
+						MyResponse ZhangHuLeiCanShuResponse = Common.getWebElement(PageEnum.ZHANGHULEICANSHU, AllElementEnum.ZhangHuLeiCanShuElement, ZhangHuLeiCanShuEnum);
+						if(MyResponse.FAILED == (int)ZhangHuLeiCanShuResponse.get(MyResponse.STATUS)){
+							Common.logError("get element of"+ZhangHuLeiCanShuEnum+"failed from page");
 							return false;
 						}
-						Common.click((WebElement)YongHuZhiXingRenGuanXiResponse.get("ele"));
-						YongHuZhiXingRenGuanXiResponse = Common.getWebElement(PageEnum.YONGHUZHIXINGRENGUANXI, AllElementEnum.YongHuZhiXingRenGuanXiElement, YongHuZhiXingRenGuanXiEnum);
-						String dataFromPage = ((WebElement)YongHuZhiXingRenGuanXiResponse.get("ele")).getAttribute("value");
+						Common.click((WebElement)ZhangHuLeiCanShuResponse.get("ele"));
+						ZhangHuLeiCanShuResponse = Common.getWebElement(PageEnum.ZHANGHULEICANSHU, AllElementEnum.ZhangHuLeiCanShuElement, ZhangHuLeiCanShuEnum);
+						String dataFromPage = ((WebElement)ZhangHuLeiCanShuResponse.get("ele")).getAttribute("value");
 						//比较两数值是否相等
 						if(!dataFromExcel.contains(dataFromPage)){
 							//再点击之后这里做个延时，使页面发生响应变化。如999,999,999->999999
 							try {
 								Thread.sleep(1000);
-								Common.click((WebElement)YongHuZhiXingRenGuanXiResponse.get("ele"));
+								Common.click((WebElement)ZhangHuLeiCanShuResponse.get("ele"));
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-							YongHuZhiXingRenGuanXiResponse = Common.getWebElement(PageEnum.YONGHUZHIXINGRENGUANXI, AllElementEnum.YongHuZhiXingRenGuanXiElement, YongHuZhiXingRenGuanXiEnum);
-							dataFromPage = ((WebElement)YongHuZhiXingRenGuanXiResponse.get("ele")).getAttribute("value");
+							ZhangHuLeiCanShuResponse = Common.getWebElement(PageEnum.ZHANGHULEICANSHU, AllElementEnum.ZhangHuLeiCanShuElement, ZhangHuLeiCanShuEnum);
+							dataFromPage = ((WebElement)ZhangHuLeiCanShuResponse.get("ele")).getAttribute("value");
 						}
 						if(!dataFromExcel.contains(dataFromPage)){
 							Common.logError("data not equals when compare, "+"dataFromExcel "+dataFromExcel+" dataFromPage "+dataFromPage);
@@ -205,7 +199,6 @@ public class YongHuZhiXingRenGuanXi implements BaseInterface {
 			Common.driver.switchTo().frame((WebElement)ifram1Response.get("ele"));
 		}
 		return true;
-
 	}
 
 	@Override
@@ -216,18 +209,12 @@ public class YongHuZhiXingRenGuanXi implements BaseInterface {
 	@Override
 	public boolean after() {
 		Common.logInfo("After");
-		
 		Common.driver.navigate().refresh();
-		
 		return true;
 	}
 
 	@Override
 	public boolean review(){
-		//小刷新
-		Common.clickRefresh();
-		Common.driver.switchTo().defaultContent();
-		
 		Common.review();
 		return true;
 	}
@@ -237,18 +224,27 @@ public class YongHuZhiXingRenGuanXi implements BaseInterface {
 		return true;
 	}
 	
-	public enum YongHuZhiXingRenGuanXiEnum implements ElementEnum{
+	public enum ZhangHuLeiCanShuEnum implements ElementEnum {
 		/**
-		 * 登入用户名
-		 */
-		DENGRUYONGHUMING,
+		 * 机构代码
+		*/
+		JIGOUDAIMA,
 		/**
-		 * 执行人代码
-		 */
-		ZHIXINGRENDAIMA,
+		 * 基金账号生成规则
+		*/
+		JIJINZHANGHAOSHENGCHENGGUIZE,
+		/**
+		 * 账户冻结权益处理方式
+		*/
+		ZHANGHUDONGJIEQUANYICHULIFANGSHI,
+		/**
+		 * 同销售机构是否允许增开多个交易账号
+		*/
+		TONGXIAOSHOU,
 		/**
 		 * 是否需要审核
 		*/
 		ISCHECKED
+
 	}
 }
