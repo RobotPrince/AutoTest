@@ -72,5 +72,9 @@ public enum PageEnum {
 	/**
 	 * 执行权限人信息
 	 */
-	ZHIXINGQUANXIANRENXINXI
+	ZHIXINGQUANXIANRENXINXI,
+	/**
+	 * 募集率设置
+	 */
+	MUJILILUSHEZHI
 }

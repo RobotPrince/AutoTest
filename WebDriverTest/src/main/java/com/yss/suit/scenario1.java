@@ -10,20 +10,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
-import com.yss.method.ChanPinFeiLv;
-import com.yss.method.ChanPinQingSuanZhouQi;
-import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
-import com.yss.method.ChanPinXinXi;
-import com.yss.method.ChanPinZhiXingRenGuanXi;
-import com.yss.method.FeiYongFenCheng;
-import com.yss.method.GuDingShouYiLiLv;
-import com.yss.method.GuanLianJiGouXinXi;
-import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
-import com.yss.method.XiaoShouJiGouXinXi;
-import com.yss.method.YongHuZhiXingRenGuanXi;
-import com.yss.method.ZheKouGuanLi;
-import com.yss.method.ZhiXingQuanXianRenXinXi;
+import com.yss.method.MuJiLiLuSheZhi;
 
 public class scenario1 {
 	public static Logger logger = Logger.getLogger(scenario1.class);
@@ -283,18 +271,36 @@ public class scenario1 {
 //		new ZhiXingQuanXianRenXinXi().add();
 //		Reporter.log("执行权限人信息-新增成功");
 //	}
-	@Test(priority = 38)
-	public void ZhiXingQuanXianRenXinXiView() throws InterruptedException{
-		new ZhiXingQuanXianRenXinXi().before();
-		new ZhiXingQuanXianRenXinXi().view();
-		Reporter.log("执行权限人信息-查看成功");
+//	@Test(priority = 38)
+//	public void ZhiXingQuanXianRenXinXiView() throws InterruptedException{
+//		new ZhiXingQuanXianRenXinXi().before();
+//		new ZhiXingQuanXianRenXinXi().view();
+//		Reporter.log("执行权限人信息-查看成功");
+//	}
+//	@Test(priority = 39)
+//	public void ZhiXingQuanXianRenXinXiReview() throws InterruptedException{
+//		new ZhiXingQuanXianRenXinXi().review();
+//		new ZhiXingQuanXianRenXinXi().after();
+//		Reporter.log("执行权限人信息-审核成功");
+//
+//	}
+//	@Test(priority = 40)
+//	public void MuJiLiLuSheZhiAdd() throws InterruptedException{
+//		new MuJiLiLuSheZhi().before();
+//		new MuJiLiLuSheZhi().add();
+//		Reporter.log("募集利率设置-新增成功");
+//	}
+	@Test(priority = 41)
+	public void MuJiLiLuSheZhiView() throws InterruptedException{
+		new MuJiLiLuSheZhi().before();
+		new MuJiLiLuSheZhi().view();
+		Reporter.log("募集利率设置-查看成功");
 	}
-	@Test(priority = 39)
+	@Test(priority = 42)
 	public void ZhiXingQuanXianRenXinXiReview() throws InterruptedException{
-		new ZhiXingQuanXianRenXinXi().review();
-		new ZhiXingQuanXianRenXinXi().after();
-		Reporter.log("执行权限人信息-审核成功");
-
+		new MuJiLiLuSheZhi().review();
+		new MuJiLiLuSheZhi().after();
+		Reporter.log("募集利率设置-审核成功");
 	}
 
 	@BeforeClass
