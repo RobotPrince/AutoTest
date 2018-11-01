@@ -1,5 +1,6 @@
 package com.yss.common;
 import com.yss.common.Common.CommonElementEnum;
+import com.yss.method.ChanPinDongTai.ChanPinDongTaiEnum;
 import com.yss.method.ChanPinFeiLv.ChanPinFeiLvEnum;
 import com.yss.method.ChanPinQingSuanZhouQi.ChanPinQingSuanZhouQiEnum;
 import com.yss.method.ChanPinXiaoShouDaiLiGuanXi.ChanPinXiaoShouDaiLiGuanXiEnum;
@@ -41,10 +42,11 @@ public enum AllElementEnum{
 
 	ChanPinZhiXingRenGuanXiElement(ChanPinZhiXingRenGuanXiEnum.class),
 	ChanPinQingSuanZhouQiElement(ChanPinQingSuanZhouQiEnum.class),
-	GuDingShouYiLiLvElement(GuDingShouYiLiLvEnum.class),
-	YongHuZhiXingRenGuanXiElement(YongHuZhiXingRenGuanXiEnum.class),
+	YongHuZhiXingRenGuanXiElement(YongHuZhiXingRenGuanXiEnum.class),		
 	ZhiXingQuanXianRenXinXiElement(ZhiXingQuanXianRenXinXiEnum.class),
 	MuJiLiLuSheZhiElement(MuJiLiLuSheZhiEnum.class),
+	GuDingShouYiLiLvElement(GuDingShouYiLiLvEnum.class),
+	ChanPinDongTaiElement(ChanPinDongTaiEnum.class) ,
 	YinHangJiBenXinXiElement(YinHangJiBenXinXiEnum.class);
 	
 	private ElementEnum[] elementEnums;
