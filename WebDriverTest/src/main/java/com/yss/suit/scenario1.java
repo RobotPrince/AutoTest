@@ -10,6 +10,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
+import com.yss.method.ChanPinDongTai;
 import com.yss.method.ChanPinFeiLv;
 import com.yss.method.ChanPinQingSuanZhouQi;
 import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
@@ -23,7 +24,7 @@ import com.yss.method.Login;
 import com.yss.method.XiaoShouJiGouXinXi;
 import com.yss.method.YinHangJiBenXinXi;
 import com.yss.method.YongHuZhiXingRenGuanXi;
-import com.yss.method.ChanPinDongTai;
+import com.yss.method.ZhangHuLeiCanShu;
 import com.yss.method.ZheKouGuanLi;
 import com.yss.method.ZhiXingQuanXianRenXinXi;
 
@@ -227,7 +228,7 @@ public class scenario1 {
 	}
 	@Test(priority = 29)
 	public void  YongHuZhiXingRenGuanXiView() throws InterruptedException{
-	//	new YongHuZhiXingRenGuanXi().before();
+		new YongHuZhiXingRenGuanXi().before();
 		new YongHuZhiXingRenGuanXi().view();
 		Reporter.log("用户执行人关系-查看成功");
 	}
@@ -237,6 +238,7 @@ public class scenario1 {
 		new YongHuZhiXingRenGuanXi().after();
 		Reporter.log("用户执行人关系-审核成功");
 	}
+	
 	
 	@Test(priority = 31)
 	public void ChanPinZhiXingRenGuanXiAdd() throws InterruptedException{
@@ -334,7 +336,24 @@ public class scenario1 {
 		new ChanPinDongTai().after();
 		Reporter.log("产品动态-审核成功");
 	}
-	
+	@Test(priority = 43)
+	public void ZhangHuLeiCanShu() throws InterruptedException{
+		new ZhangHuLeiCanShu().before();
+		new ZhangHuLeiCanShu().add();
+		Reporter.log("账户类参数-新增成功");
+	}
+	@Test(priority = 44)
+	public void  ZhangHuLeiCanShuView() throws InterruptedException{
+		new ZhangHuLeiCanShu().before();
+		new ZhangHuLeiCanShu().view();
+		Reporter.log("账户类参数-查看成功");
+	}
+	@Test(priority = 45)
+	public void  ZhangHuLeiCanShuReview() throws InterruptedException{
+		new ZhangHuLeiCanShu().review();
+		new ZhangHuLeiCanShu().after();
+		Reporter.log("账户类参数-审核成功");
+	}
 
 	@BeforeClass
 	public void beforeClass() {

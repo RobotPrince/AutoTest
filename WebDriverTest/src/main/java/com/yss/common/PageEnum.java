@@ -65,7 +65,7 @@ public enum PageEnum {
 	 * 用户执行人关系
 	 */
 	YONGHUZHIXINGRENGUANXI,
-	/*
+	/**
 	 * 固定收益利率
 	 */
 	GUDINGSHOUYILILV,
@@ -81,4 +81,8 @@ public enum PageEnum {
 	 * 银行基本信息
 	 */
 	YINHANGJIBENXINXI,
+	/**
+	 * 账户类参数
+	 */
+	ZHANGHULEICANSHU,
 }
