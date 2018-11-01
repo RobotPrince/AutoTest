@@ -22,6 +22,7 @@ import com.yss.method.GuanLianJiGouXinXi.GuanLianJiGouXinXiEnum;
 import com.yss.method.HeSuanJiGouXinXi.HeSuanJiGouXinXiEnum;
 import com.yss.method.Login.LoginEnum;
 import com.yss.method.RiChangYunYingQingSuan.RiChangYunYingQingSuanEnum;
+import com.yss.method.WeiYueShuHuiFeiLu.WeiYueShuHuiFeiLuEnum;
 import com.yss.method.XiaoShouJiGouXinXi.XiaoShouJiGouXinXiEnum;
 import com.yss.method.YongHuZhiXingRenGuanXi.YongHuZhiXingRenGuanXiEnum;
 import com.yss.method.ZheKouGuanLi.ZheKouGuanLiEnum;
@@ -53,7 +54,8 @@ public class ReadFromExcel {
 
 	public static List<HashMap<ChanPinQingSuanZhouQiEnum, String>> dataForChanPinQingSuanZhouQiFromExcel = new ArrayList<HashMap<ChanPinQingSuanZhouQiEnum, String>>();
 	public static List<HashMap<YongHuZhiXingRenGuanXiEnum, String>> dataForYongHuZhiXingRenGuanXiFromExcel = new ArrayList<HashMap<YongHuZhiXingRenGuanXiEnum, String>>();
-
+	public static List<HashMap<WeiYueShuHuiFeiLuEnum, String>> dataForWeiYueShuHuiFeiLuFromExcel = new ArrayList<HashMap<WeiYueShuHuiFeiLuEnum, String>>();
+	
 	/**
 	 * !!!!!!!!!!!!!!!!!
 	 * 这个需要维护
@@ -79,8 +81,71 @@ public class ReadFromExcel {
 		readForChanPinZhiXingRenGuanXi();
 		readForChanPinQingSuanZhouQi();
 		readForYongHuZhiXingRenGuanXi();
+		readForWeiYueShuHuiFeiLu();
 	}
 	
+	/**
+	 * readForWeiYueShuHuiFeiLu-违约赎回费率
+	 * @return 
+	 * @return
+	 */
+	
+	private boolean readForWeiYueShuHuiFeiLu() {
+		
+		Common.logInfo("readForWeiYueShuHuiFeiLu");
+		
+		try {
+			Workbook book = Workbook.getWorkbook(new File(
+					"./testcase/TestCase.xls"));
+			// 获得ChanPinFeiLv工作表对象
+			Sheet[] sheets = book.getSheets();
+			Sheet sheet = null;
+			for (Sheet s : sheets) {
+				if ("weiyueshuhuifeilu".equals(s.getName())) {
+					sheet = s;
+				}
+			}
+			if (sheet == null) {
+				Common.logError("ReadForLogPage error,the weiyueshuhuifeilu sheet not exit!");
+				return false;
+			}
+			// 获取sheet的所有行数
+			int rows = sheet.getRows();
+			
+			for (int r = 2; r < rows; r++) {
+				LinkedHashMap<WeiYueShuHuiFeiLuEnum, String> linkedHashMap = new LinkedHashMap<WeiYueShuHuiFeiLuEnum, String>();
+				// 取出第一行数据的所有数据
+				String  chanpindaima= sheet.getCell(1, r).getContents();
+				String gerenjigoubiaozhi = sheet.getCell(2, r).getContents();
+				String tianshuxiaxian = sheet.getCell(3, r).getContents();
+				String tianshushangxian = sheet.getCell(4, r).getContents();
+				String weiyuezuidishoufei = sheet.getCell(5, r).getContents();
+				String weiyuezuigaoshoufei = sheet.getCell(6, r).getContents();
+				String weiyueshuhuifeilu = sheet.getCell(7, r).getContents();
+				String weiyuejinjisuangongshi = sheet.getCell(8, r).getContents();
+				String ischecked = sheet.getCell(9, r).getContents();
+				
+				linkedHashMap.put(WeiYueShuHuiFeiLuEnum.CHANPINDAIMA, chanpindaima);
+				linkedHashMap.put(WeiYueShuHuiFeiLuEnum.GERENJIGOUBIAOZHI, gerenjigoubiaozhi);
+				linkedHashMap.put(WeiYueShuHuiFeiLuEnum.TIANSHUXIAXIAN, tianshuxiaxian);
+				linkedHashMap.put(WeiYueShuHuiFeiLuEnum.TIANSHUSHANGXIAN, tianshushangxian);
+				linkedHashMap.put(WeiYueShuHuiFeiLuEnum.WEIYUEZUIDISHOUFEI,weiyuezuidishoufei);
+				linkedHashMap.put(WeiYueShuHuiFeiLuEnum.WEIYUEZUIGAOSHOUFEI, weiyuezuigaoshoufei);
+				linkedHashMap.put(WeiYueShuHuiFeiLuEnum.WEIYUESHUHUIFEILU, weiyueshuhuifeilu);
+				linkedHashMap.put(WeiYueShuHuiFeiLuEnum.WEIYUEJINJISUANGONGSHI, weiyuejinjisuangongshi);
+				linkedHashMap.put(WeiYueShuHuiFeiLuEnum.ISCHECKED, ischecked);
+				
+				// 放入全局变量dataForZheKouGuanLiFromExcel中
+				dataForWeiYueShuHuiFeiLuFromExcel.add(linkedHashMap);
+			}
+		} catch (Exception e) {
+			Common.logError(e.getMessage());
+			return false;
+		}
+		return true;
+		
+	}
+
 	/**
 	 * readForChanPinZhiXingRenGuanXi-产品执行人关系
 	 * @return

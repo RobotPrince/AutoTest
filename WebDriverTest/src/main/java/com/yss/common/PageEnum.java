@@ -46,6 +46,10 @@ public enum PageEnum {
 	 */
 	RICHANGYUNYINGQINGSUAN,
 	/**
+	 * 违约赎回费率
+	 */
+	WEIYUESHUHUIFEILU,
+	/**
 	 * 费用分成
 	 */
 	FEIYONGFENCHENG, 
