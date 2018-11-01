@@ -218,18 +218,18 @@ public class scenario1 {
 //		new ChanPinQingSuanZhouQi().after();
 //		Reporter.log("产品清算周期-审核成功");
 //	}
-	@Test(priority = 28)
+	//@Test(priority = 28)
 	public void YongHuZhiXingRenGuanXiAdd() throws InterruptedException{
 		new YongHuZhiXingRenGuanXi().before();
 		new YongHuZhiXingRenGuanXi().add();
 		Reporter.log("用户执行人关系-新增成功");
 	}
-	@Test(priority = 29)
+//	@Test(priority = 29)
 	public void  YongHuZhiXingRenGuanXiView() throws InterruptedException{
 		new YongHuZhiXingRenGuanXi().view();
 		Reporter.log("用户执行人关系-查看成功");
 	}
-	@Test(priority = 30)
+//	@Test(priority = 30)
 	public void  YongHuZhiXingRenGuanXiReview() throws InterruptedException{
 		new YongHuZhiXingRenGuanXi().review();
 		new YongHuZhiXingRenGuanXi().after();
