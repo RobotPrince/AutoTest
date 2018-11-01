@@ -111,6 +111,7 @@ public class CheckMenu {
 		/**
 		 * 固定收益利率
 		 */
+		GUDINGSHOUYILILV_2,
 		GUDINGSHOUYILILU_2,
 		/**
 		 * 业绩报酬方案
@@ -169,10 +170,6 @@ public class CheckMenu {
 		 */
 		ZHEKOUGUANLI_2,
 		/**
-		 * 执行权限设置
-		 */
-		ZHIXINGQUANXIANSHEZHI_1,
-		/**
 		 * 执行权限人信息
 		 */
 		ZHIXINGQUANXIANRENXINXI_2,
@@ -188,7 +185,7 @@ public class CheckMenu {
 		 * 产品清算周期
 		 */
 		CHANPINQINGSUANZHOUQI_2,
-		/*
+		/**
 		 * 执行权限设置
 		 */
 		CHANPINQUANXIANSHEZHI_1,
