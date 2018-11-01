@@ -72,5 +72,9 @@ public enum PageEnum {
 	/**
 	 * 执行权限人信息
 	 */
-	ZHIXINGQUANXIANRENXINXI
+	ZHIXINGQUANXIANRENXINXI,
+	/**
+	 * 银行基本信息
+	 */
+	YINHANGJIBENXINXI	
 }
