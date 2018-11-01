@@ -241,8 +241,11 @@ public class scenario1 {
 //		new YongHuZhiXingRenGuanXi().after();
 //		Reporter.log("用户执行人关系-审核成功");
 //	}
+<<<<<<< HEAD
 	
 	
+=======
+>>>>>>> da0038c3af08ad73e0b62356cf66450333403d60
 //	@Test(priority = 31)
 //	public void ChanPinZhiXingRenGuanXiAdd() throws InterruptedException{
 //		new ChanPinZhiXingRenGuanXi().before();
@@ -307,6 +310,18 @@ public class scenario1 {
 		Reporter.log("违约赎回费率-新增成功");
 	}
 
+<<<<<<< HEAD
+=======
+	}
+
+	@Test(priority = 40)
+	public void WeiYueShuHuiFeiLuAdd() throws InterruptedException{
+		new WeiYueShuHuiFeiLu().before();
+		new WeiYueShuHuiFeiLu().add();
+		Reporter.log("违约赎回费率-新增成功");
+	}
+
+>>>>>>> da0038c3af08ad73e0b62356cf66450333403d60
 	@Test(priority = 41)
 	public void WeiYueShuHuiFeiLuView() throws InterruptedException{
 		new WeiYueShuHuiFeiLu().before();
@@ -319,6 +334,10 @@ public class scenario1 {
 		new WeiYueShuHuiFeiLu().review();
 		new WeiYueShuHuiFeiLu().after();
 		Reporter.log("违约赎回费率-审核成功");
+<<<<<<< HEAD
+=======
+
+>>>>>>> da0038c3af08ad73e0b62356cf66450333403d60
 	}
 
 	@BeforeClass

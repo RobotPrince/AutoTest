@@ -40,9 +40,16 @@ public enum AllElementEnum{
 
 	ChanPinZhiXingRenGuanXiElement(ChanPinZhiXingRenGuanXiEnum.class),
 	ChanPinQingSuanZhouQiElement(ChanPinQingSuanZhouQiEnum.class),
+<<<<<<< HEAD
 	WeiYueShuHuiFeiLuElement(WeiYueShuHuiFeiLuEnum.class),
 	GuDingShouYiLiLvElement(GuDingShouYiLiLvEnum.class),
+=======
+
+>>>>>>> da0038c3af08ad73e0b62356cf66450333403d60
 	YongHuZhiXingRenGuanXiElement(YongHuZhiXingRenGuanXiEnum.class),
+	WeiYueShuHuiFeiLuElement(WeiYueShuHuiFeiLuEnum.class),
+
+	GuDingShouYiLiLvElement(GuDingShouYiLiLvEnum.class),
 	ZhiXingQuanXianRenXinXiElement(ZhiXingQuanXianRenXinXiEnum.class);
 	
 	private ElementEnum[] elementEnums;
