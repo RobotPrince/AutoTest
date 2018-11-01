@@ -10,21 +10,9 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.yss.common.Common;
-import com.yss.method.ChanPinFeiLv;
-import com.yss.method.ChanPinQingSuanZhouQi;
-import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
-import com.yss.method.ChanPinXinXi;
-import com.yss.method.ChanPinZhiXingRenGuanXi;
-import com.yss.method.FeiYongFenCheng;
-import com.yss.method.GuDingShouYiLiLv;
-import com.yss.method.GuanLianJiGouXinXi;
-import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
-import com.yss.method.XiaoShouJiGouXinXi;
-import com.yss.method.YinHangJiBenXinXi;
-import com.yss.method.YongHuZhiXingRenGuanXi;
 import com.yss.method.ZheKouGuanLi;
-import com.yss.method.ZhiXingQuanXianRenXinXi;
+import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
 
 public class scenario1 {
 	public static Logger logger = Logger.getLogger(scenario1.class);
@@ -51,7 +39,6 @@ public class scenario1 {
 		}
 	}
 	
-
 //	@Test(priority = 1)
 //	public void HeSuanJiGouXinXiAdd() throws InterruptedException {
 //		
@@ -142,12 +129,12 @@ public class scenario1 {
 //		Reporter.log("产品费率-查看成功");
 //	}
 //	@Test(priority = 15)
-//	public void ChanPinFeiLvReview() throws InterruptedException{
+//	public void ChanPinXinXiReview() throws InterruptedException{
 //		new ChanPinFeiLv().review();
 //		new ChanPinFeiLv().after();
 //		Reporter.log("产品费率-审核成功");
 //	}
-//	
+	
 //	@Test(priority = 16)
 //	public void ChanPinXiaoShouDaiLiGuanXiAdd() throws InterruptedException{
 //		new ChanPinXiaoShouDaiLiGuanXi().before();
@@ -183,134 +170,25 @@ public class scenario1 {
 //		new FeiYongFenCheng().after();
 //		Reporter.log("费用分成-审核成功");
 //	}
-//	@Test(priority = 22)
-//	public void ZheKouGuanLiAdd() throws InterruptedException{
-//		new ZheKouGuanLi().before();
-//		new ZheKouGuanLi().add();
-//		Reporter.log("折扣管理-新增成功");
-//	}
-//	@Test(priority = 23)
-//	public void ZheKouGuanLiView() throws InterruptedException{
-//		new ZheKouGuanLi().before();
-//		new ZheKouGuanLi().view();
-//		Reporter.log("折扣管理-查看成功");
-//	}
-//	@Test(priority = 24)
-//	public void ZheKouGuanLiReview() throws InterruptedException{
-//		new ZheKouGuanLi().review();
-//		new ZheKouGuanLi().after();
-//		Reporter.log("折扣管理-审核成功");
-//	}
-//	@Test(priority = 25)
-//	public void ChanPinQingSuanZhouQiAdd() throws InterruptedException{
-//		new ChanPinQingSuanZhouQi().before();
-//		new ChanPinQingSuanZhouQi().add();
-//		Reporter.log("产品清算周期-新增成功");
-//	}
-//	@Test(priority = 26)
-//	public void ChanPinQingSuanZhouQiView() throws InterruptedException{
-//		new ChanPinQingSuanZhouQi().view();
-//		Reporter.log("产品清算周期-查看成功");
-//	}
-//	@Test(priority = 27)
-//	public void ChanPinQingSuanZhouQiReview() throws InterruptedException{
-//		new ChanPinQingSuanZhouQi().review();
-//		new ChanPinQingSuanZhouQi().after();
-//		Reporter.log("产品清算周期-审核成功");
-//	}
-	//@Test(priority = 28)
-	public void YongHuZhiXingRenGuanXiAdd() throws InterruptedException{
-		new YongHuZhiXingRenGuanXi().before();
-		new YongHuZhiXingRenGuanXi().add();
-		Reporter.log("用户执行人关系-新增成功");
+	@Test(priority = 22)
+	public void ZheKouGuanLiAdd() throws InterruptedException{
+		new ZheKouGuanLi().before();
+		new ZheKouGuanLi().add();
+		Reporter.log("折扣管理-新增成功");
 	}
-//	@Test(priority = 29)
-	public void  YongHuZhiXingRenGuanXiView() throws InterruptedException{
-		new YongHuZhiXingRenGuanXi().view();
-		Reporter.log("用户执行人关系-查看成功");
+	@Test(priority = 23)
+	public void ZheKouGuanLiView() throws InterruptedException{
+		new ZheKouGuanLi().before();
+		new ZheKouGuanLi().view();
+		Reporter.log("折扣管理-查看成功");
 	}
-//	@Test(priority = 30)
-	public void  YongHuZhiXingRenGuanXiReview() throws InterruptedException{
-		new YongHuZhiXingRenGuanXi().review();
-		new YongHuZhiXingRenGuanXi().after();
-		Reporter.log("用户执行人关系-审核成功");
-	}
-	@Test(priority = 31)
-	public void ChanPinZhiXingRenGuanXiAdd() throws InterruptedException{
-		new ChanPinZhiXingRenGuanXi().before();
-		new ChanPinZhiXingRenGuanXi().add();
-		Reporter.log("产品执行人关系-新增成功");
-	}
-
-	@Test(priority = 32)
-	public void ChanPinZhiXingRenGuanXiView() throws InterruptedException{
-		new ChanPinZhiXingRenGuanXi().view();
-		Reporter.log("产品执行人关系-查看成功");
+	@Test(priority = 24)
+	public void ZheKouGuanLiReview() throws InterruptedException{
+		new ZheKouGuanLi().review();
+		new ZheKouGuanLi().after();
+		Reporter.log("折扣管理-审核成功");
 	}
 	
-	@Test(priority = 33)
-	public void ChanPinZhiXingRenGuanXiReview() throws InterruptedException{
-		new ChanPinZhiXingRenGuanXi().review();
-		new ChanPinZhiXingRenGuanXi().after();
-		Reporter.log("产品执行人关系-审核成功");
-	}
-
-	@Test(priority = 34)
-	public void  GuDingShouYiLiLvAdd() throws InterruptedException{
-		new GuDingShouYiLiLv().before();
-		new GuDingShouYiLiLv().add();
-		Reporter.log("固定收益利率-新增成功");
-	}
-	@Test(priority = 35)
-	public void  GuDingShouYiLiLvview() throws InterruptedException{
-		new GuDingShouYiLiLv().view();
-		Reporter.log("固定收益利率-查看成功");
-	}
-	@Test(priority = 36)
-
-	public void  GuDingShouYiLiLvReview() throws InterruptedException{
-		new GuDingShouYiLiLv().review();
-		new GuDingShouYiLiLv().after();
-		Reporter.log("固定收益利率-审核成功");
-	}
-
-	@Test(priority = 37)
-	public void ZhiXingQuanXianRenXinXiAdd() throws InterruptedException{
-		new ZhiXingQuanXianRenXinXi().before();
-		new ZhiXingQuanXianRenXinXi().add();
-		Reporter.log("执行权限人信息-新增成功");
-	}
-	@Test(priority = 38)
-	public void ZhiXingQuanXianRenXinXiView() throws InterruptedException{
-		new ZhiXingQuanXianRenXinXi().view();
-		Reporter.log("执行权限人信息-查看成功");
-	}
-	@Test(priority = 39)
-	public void ZhiXingQuanXianRenXinXiReview() throws InterruptedException{
-		new ZhiXingQuanXianRenXinXi().review();
-		new ZhiXingQuanXianRenXinXi().after();
-		Reporter.log("执行权限人信息-审核成功");
-
-	}
-	@Test(priority = 51)
-	public void YinHangJiBenXinXiAdd() throws InterruptedException{
-		new YinHangJiBenXinXi().before();
-		new YinHangJiBenXinXi().add();
-		Reporter.log("银行基本信息-新增成功");
-	}
-	@Test(priority = 52)
-	public void YinHangJiBenXinXiView() throws InterruptedException{
-		new YinHangJiBenXinXi().view();
-		Reporter.log("银行基本信息-查看成功");
-	}
-	@Test(priority = 53)
-	public void YinHangJiBenXinXiReview() throws InterruptedException{
-		new YinHangJiBenXinXi().review();
-		new YinHangJiBenXinXi().after();
-		Reporter.log("银行基本信息-审核成功");
-
-	}
-
 	@BeforeClass
 	public void beforeClass() {
 
