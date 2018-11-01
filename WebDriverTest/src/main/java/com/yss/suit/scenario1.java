@@ -21,6 +21,7 @@ import com.yss.method.GuanLianJiGouXinXi;
 import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
 import com.yss.method.XiaoShouJiGouXinXi;
+import com.yss.method.YinHangJiBenXinXi;
 import com.yss.method.YongHuZhiXingRenGuanXi;
 import com.yss.method.ZheKouGuanLi;
 import com.yss.method.ZhiXingQuanXianRenXinXi;
@@ -283,17 +284,35 @@ public class scenario1 {
 //		new ZhiXingQuanXianRenXinXi().add();
 //		Reporter.log("执行权限人信息-新增成功");
 //	}
-	@Test(priority = 38)
-	public void ZhiXingQuanXianRenXinXiView() throws InterruptedException{
-		new ZhiXingQuanXianRenXinXi().before();
-		new ZhiXingQuanXianRenXinXi().view();
-		Reporter.log("执行权限人信息-查看成功");
+//	@Test(priority = 38)
+//	public void ZhiXingQuanXianRenXinXiView() throws InterruptedException{
+//		new ZhiXingQuanXianRenXinXi().before();
+//		new ZhiXingQuanXianRenXinXi().view();
+//		Reporter.log("执行权限人信息-查看成功");
+//	}
+//	@Test(priority = 39)
+//	public void ZhiXingQuanXianRenXinXiReview() throws InterruptedException{
+//		new ZhiXingQuanXianRenXinXi().review();
+//		new ZhiXingQuanXianRenXinXi().after();
+//		Reporter.log("执行权限人信息-审核成功");
+//
+//	}
+	@Test(priority = 51)
+	public void YinHangJiBenXinXiAdd() throws InterruptedException{
+		new YinHangJiBenXinXi().before();
+		new YinHangJiBenXinXi().add();
+		Reporter.log("银行基本信息-新增成功");
 	}
-	@Test(priority = 39)
-	public void ZhiXingQuanXianRenXinXiReview() throws InterruptedException{
-		new ZhiXingQuanXianRenXinXi().review();
-		new ZhiXingQuanXianRenXinXi().after();
-		Reporter.log("执行权限人信息-审核成功");
+//	@Test(priority = 52)
+//	public void YinHangJiBenXinXiView() throws InterruptedException{
+//		new YinHangJiBenXinXi().view();
+//		Reporter.log("银行基本信息-查看成功");
+//	}
+	@Test(priority = 53)
+	public void YinHangJiBenXinXiReview() throws InterruptedException{
+		new YinHangJiBenXinXi().review();
+		new YinHangJiBenXinXi().after();
+		Reporter.log("银行基本信息-审核成功");
 
 	}
 
