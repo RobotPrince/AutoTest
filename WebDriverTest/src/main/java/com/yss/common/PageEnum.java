@@ -74,7 +74,11 @@ public enum PageEnum {
 	 */
 	ZHIXINGQUANXIANRENXINXI,
 	/**
-	 * 募集率设置
+	 * 募集利率设置
 	 */
-	MUJILILUSHEZHI
+	MUJILILUSHEZHI,
+	/**
+	 * 银行基本信息
+	 */
+	YINHANGJIBENXINXI	
 }
