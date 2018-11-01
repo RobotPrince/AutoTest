@@ -16,12 +16,14 @@ import com.yss.method.ChanPinXiaoShouDaiLiGuanXi;
 import com.yss.method.ChanPinXinXi;
 import com.yss.method.ChanPinZhiXingRenGuanXi;
 import com.yss.method.FeiYongFenCheng;
+import com.yss.method.GuDingShouYiLiLv;
 import com.yss.method.GuanLianJiGouXinXi;
 import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
 import com.yss.method.XiaoShouJiGouXinXi;
 import com.yss.method.YongHuZhiXingRenGuanXi;
 import com.yss.method.ZheKouGuanLi;
+import com.yss.method.ZhiXingQuanXianRenXinXi;
 
 
 public class scenario1 {
@@ -48,7 +50,7 @@ public class scenario1 {
 			Assert.fail("登录失败");
 		}
 	}
-	
+
 //	@Test(priority = 1)
 //	public void HeSuanJiGouXinXiAdd() throws InterruptedException {
 //		
@@ -253,7 +255,45 @@ public class scenario1 {
 		new ChanPinZhiXingRenGuanXi().after();
 		Reporter.log("产品执行人关系-审核成功");
 	}
-	
+
+	@Test(priority = 34)
+	public void  GuDingShouYiLiLvAdd() throws InterruptedException{
+		new GuDingShouYiLiLv().before();
+		new GuDingShouYiLiLv().add();
+		Reporter.log("固定收益利率-新增成功");
+	}
+	@Test(priority = 35)
+	public void  GuDingShouYiLiLvview() throws InterruptedException{
+		new GuDingShouYiLiLv().view();
+		Reporter.log("固定收益利率-查看成功");
+	}
+	@Test(priority = 36)
+
+	public void  GuDingShouYiLiLvReview() throws InterruptedException{
+		new GuDingShouYiLiLv().review();
+		new GuDingShouYiLiLv().after();
+		Reporter.log("固定收益利率-审核成功");
+	}
+
+	@Test(priority = 37)
+	public void ZhiXingQuanXianRenXinXiAdd() throws InterruptedException{
+		new ZhiXingQuanXianRenXinXi().before();
+		new ZhiXingQuanXianRenXinXi().add();
+		Reporter.log("执行权限人信息-新增成功");
+	}
+	@Test(priority = 38)
+	public void ZhiXingQuanXianRenXinXiView() throws InterruptedException{
+//		new ZhiXingQuanXianRenXinXi().before();
+		new ZhiXingQuanXianRenXinXi().view();
+		Reporter.log("执行权限人信息-查看成功");
+	}
+	@Test(priority = 39)
+	public void ZhiXingQuanXianRenXinXiReview() throws InterruptedException{
+		new ZhiXingQuanXianRenXinXi().review();
+		new ZhiXingQuanXianRenXinXi().after();
+		Reporter.log("执行权限人信息-审核成功");
+
+	}
 
 	@BeforeClass
 	public void beforeClass() {

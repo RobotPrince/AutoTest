@@ -17,13 +17,13 @@ import com.yss.common.ReadFromExcel;
 import com.yss.method.CheckMenu.CheckMenuElement;
 import com.yss.common.ElementEnum;
 import org.openqa.selenium.JavascriptExecutor;
-
 /**
  * 
  * @author anqi
  *
  */	
-public class ChanPinQingSuanZhouQi implements BaseInterface {
+
+public class GuDingShouYiLiLv implements BaseInterface {
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -45,20 +45,20 @@ public class ChanPinQingSuanZhouQi implements BaseInterface {
 			return false;
 		}
 		Common.click((WebElement)TAdengjiguohuResponse.get("ele"));
-		//点击参数设置
-		MyResponse canShuSheZhiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.CANSHUSHEZHI_1);
-		if((int) canShuSheZhiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+		//点击产品设置
+		MyResponse chanPinSheZhiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.CHANPINSHEZHI_1);
+		if((int) chanPinSheZhiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
 			Common.logError("Double click of chanpinshezhi1 failed");
 			return false;
 		}
-		Common.click((WebElement)canShuSheZhiResponse.get("ele"));
-	    //点击产品清算周期
-	    MyResponse chanPinQingSuanZhouQiResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.CHANPINQINGSUANZHOUQI_2);
-		if((int) chanPinQingSuanZhouQiResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
-			Common.logError("Double click of chanPinQingSuanZhouQiResponse failed");
+		Common.click((WebElement)chanPinSheZhiResponse.get("ele"));
+	    //点击固定收益利率
+	    MyResponse GuDingShouYiLiLvResponse = Common.getWebElement(PageEnum.TA_MENU, AllElementEnum.CheckMenuElement, CheckMenuElement.GUDINGSHOUYILILV_2);
+		if((int) GuDingShouYiLiLvResponse.get(MyResponse.STATUS) == MyResponse.FAILED){
+			Common.logError("Double click of GuDingShouYiLiLvResponse failed");
 			return false;
 		}
-		Common.click((WebElement)chanPinQingSuanZhouQiResponse.get("ele"));
+		Common.click((WebElement)GuDingShouYiLiLvResponse.get("ele"));
 		return false;
 	}
 
@@ -67,18 +67,18 @@ public class ChanPinQingSuanZhouQi implements BaseInterface {
 		Common.logInfo("add");
 
 		//循环所有数据
-		int sizeOfData = ReadFromExcel.dataForChanPinQingSuanZhouQiFromExcel.size();
+		int sizeOfData = ReadFromExcel.dataForGuDingShouYiLiLvFromExcel.size();
 		for(int i = 0; i < sizeOfData; i++){
 			//点击新增
 			Common.clickTopAdd();
-			HashMap<ChanPinQingSuanZhouQiEnum, String> data = ReadFromExcel.dataForChanPinQingSuanZhouQiFromExcel.get(i);
-			Set<ChanPinQingSuanZhouQiEnum> set = data.keySet();
-			Iterator<ChanPinQingSuanZhouQiEnum> iterator = set.iterator();
+			HashMap<GuDingShouYiLiLvEnum, String> data = ReadFromExcel.dataForGuDingShouYiLiLvFromExcel.get(i);
+			Set<GuDingShouYiLiLvEnum> set = data.keySet();
+			Iterator<GuDingShouYiLiLvEnum> iterator = set.iterator();
 			
 			while( iterator.hasNext() ){
 				//isChecked在这里不需要做任何操作
-				ChanPinQingSuanZhouQiEnum eunm = iterator.next();
-				if(eunm.equals(ChanPinQingSuanZhouQiEnum.ISCHECKED)){
+				GuDingShouYiLiLvEnum eunm = iterator.next();
+				if(eunm.equals(GuDingShouYiLiLvEnum.ISCHECKED)){
 					continue;
 				}
 				//若Excel中取出的数值为空，则不需要设置这一项
@@ -86,23 +86,23 @@ public class ChanPinQingSuanZhouQi implements BaseInterface {
 					continue;
 				}
 				
-				// 此处可能会随页面需要将display:none转为display:inline-block
-				if(eunm.equals(ChanPinQingSuanZhouQiEnum.CHANPINDAIMA)||eunm.equals(ChanPinQingSuanZhouQiEnum.CHANPINQINGSUANZHOUQI) || eunm.equals(ChanPinQingSuanZhouQiEnum.MIAOSHU)){
-					Common.getWebElementForSelect(PageEnum.CHANPINQINGSUANZHOUQI,AllElementEnum.ChanPinQingSuanZhouQiElement,eunm);
-					Common.logInfo("Change display to inline-block success");
-     			} 
+//				// 此处可能会随页面需要将display:none转为display:inline-block
+//				if(eunm.equals(GuDingShouYiLiLvEnum.XIAOSHOUJIGOU)||eunm.equals(GuDingShouYiLiLvEnum.CHANPINDAIMA) || eunm.equals(GuDingShouYiLiLvEnum.QISHU)){
+//					Common.getWebElementForSelect(PageEnum.GUDINGSHOUYILILV,AllElementEnum.GuDingShouYiLiLvElement,eunm);
+//					Common.logInfo("Change display to inline-block success");
+//				}
 				//获取add需要的元素
-				MyResponse ChanPinQingSuanZhouQiResponse = Common.getWebElement(PageEnum.CHANPINQINGSUANZHOUQI,AllElementEnum.ChanPinQingSuanZhouQiElement,eunm);
-				if ((int) ChanPinQingSuanZhouQiResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
-					Common.logError("get element data of ChanPinQingSuanZhouQiResponse failed");
+				MyResponse GuDingShouYiLiLvResponse = Common.getWebElement(PageEnum.GUDINGSHOUYILILV,AllElementEnum.GuDingShouYiLiLvElement,eunm);
+				if ((int) GuDingShouYiLiLvResponse.get(MyResponse.STATUS) == MyResponse.FAILED) {
+					Common.logError("get element data of GuDingShouYiLiLvResponse failed");
 					return false;
 				}
 				//processTable
 				//将数据填到表单中
-				WebElement ele = (WebElement)ChanPinQingSuanZhouQiResponse.get("ele");
-				String remark = ChanPinQingSuanZhouQiResponse.get("rem").toString();
-				MyResponse setChanPinQingSuanZhouQiResponse = Common.proccessTable( ele, data.get(eunm),  remark );
-				if( (int)setChanPinQingSuanZhouQiResponse.get(MyResponse.STATUS) == MyResponse.FAILED ){		
+				WebElement ele = (WebElement)GuDingShouYiLiLvResponse.get("ele");
+				String remark = GuDingShouYiLiLvResponse.get("rem").toString();
+				MyResponse setGuDingShouYiLiLvResponse = Common.proccessTable( ele, data.get(eunm),  remark );
+				if( (int)setGuDingShouYiLiLvResponse.get(MyResponse.STATUS) == MyResponse.FAILED ){		
 					Common.logError("set parameter of"+eunm+"failed");
 					return false;
 				}
@@ -150,61 +150,61 @@ public class ChanPinQingSuanZhouQi implements BaseInterface {
 			MyResponse webElement = Common.getWebElement(PageEnum.COMMON, AllElementEnum.CommonElementEnum, CommonElementEnum.IFRAM2);
 			Common.driver.switchTo().frame((WebElement)webElement.get("ele"));
 			//需要将display none 改为 dispaly inline-block
+			//获取页面中的销售机构
+			MyResponse xiaoShouJiGouResponse = Common.getWebElementForSelect(PageEnum.GUDINGSHOUYILILV, AllElementEnum.GuDingShouYiLiLvElement, GuDingShouYiLiLvEnum.XIAOSHOUJIGOU);
 			//获取页面中的产品代码
-			MyResponse chanPinDaiMaResponse = Common.getWebElementForSelect(PageEnum.CHANPINQINGSUANZHOUQI, AllElementEnum.ChanPinQingSuanZhouQiElement, ChanPinQingSuanZhouQiEnum.CHANPINDAIMA);
-			//获取页面中的产品清算周期
-			MyResponse chanPinQingSuanZhouQiResponse = Common.getWebElementForSelect(PageEnum.CHANPINQINGSUANZHOUQI, AllElementEnum.ChanPinQingSuanZhouQiElement, ChanPinQingSuanZhouQiEnum.CHANPINQINGSUANZHOUQI);
-			//获取页面中的描述
-			MyResponse miaoShuResponse = Common.getWebElementForSelect(PageEnum.CHANPINQINGSUANZHOUQI, AllElementEnum.ChanPinQingSuanZhouQiElement, ChanPinQingSuanZhouQiEnum.MIAOSHU);
+			MyResponse chanPinDaiMaResponse = Common.getWebElementForSelect(PageEnum.GUDINGSHOUYILILV, AllElementEnum.GuDingShouYiLiLvElement, GuDingShouYiLiLvEnum.CHANPINDAIMA);
+			//获取页面中的期数
+			MyResponse qiShuResponse = Common.getWebElementForSelect(PageEnum.GUDINGSHOUYILILV, AllElementEnum.GuDingShouYiLiLvElement, GuDingShouYiLiLvEnum.QISHU);
 			//找出在Excel中对应的项
-			int sizeOfData = ReadFromExcel.dataForChanPinQingSuanZhouQiFromExcel.size();
+			int sizeOfData = ReadFromExcel.dataForGuDingShouYiLiLvFromExcel.size();
 			for(int j = 0; j < sizeOfData; j++){
+				//获取Excel此行的销售机构
+				String xiaoshoujigou = ReadFromExcel.dataForGuDingShouYiLiLvFromExcel.get(j).get(GuDingShouYiLiLvEnum.XIAOSHOUJIGOU);
 				//获取Excel此行的产品代码
-				String chanpindaima = ReadFromExcel.dataForChanPinQingSuanZhouQiFromExcel.get(j).get(ChanPinQingSuanZhouQiEnum.CHANPINDAIMA);
-				//获取Excel此行的产品清算周期
-				String chanpinqingsuanzhouqi  = ReadFromExcel.dataForChanPinQingSuanZhouQiFromExcel.get(j).get(ChanPinQingSuanZhouQiEnum.CHANPINQINGSUANZHOUQI);
-				//获取Excel此行的描述
-				String miaoshu  = ReadFromExcel.dataForChanPinQingSuanZhouQiFromExcel.get(j).get(ChanPinQingSuanZhouQiEnum.MIAOSHU);
+				String chanpindaima  = ReadFromExcel.dataForGuDingShouYiLiLvFromExcel.get(j).get(GuDingShouYiLiLvEnum.CHANPINDAIMA);
+				//获取Excel此行的期数
+				String qishu  = ReadFromExcel.dataForGuDingShouYiLiLvFromExcel.get(j).get(GuDingShouYiLiLvEnum.QISHU);
 				//比较找出对于此页面在Excel中的对应行
-				if(((WebElement)chanPinDaiMaResponse.get("ele")).getAttribute("value").contains(chanpindaima)
-						&&((WebElement)chanPinQingSuanZhouQiResponse.get("ele")).getAttribute("value").contains(chanpinqingsuanzhouqi)
-						&&((WebElement)miaoShuResponse.get("ele")).getAttribute("value").contains(miaoshu)){
+				if(((WebElement)xiaoShouJiGouResponse.get("ele")).getAttribute("value").contains(xiaoshoujigou)
+						&&((WebElement)chanPinDaiMaResponse.get("ele")).getAttribute("value").contains(chanpindaima)
+						&&((WebElement)qiShuResponse.get("ele")).getAttribute("value").contains(qishu)){
 					//比较页面中所涉及到项目的是否正确
-					HashMap<ChanPinQingSuanZhouQiEnum, String> hashMap = ReadFromExcel.dataForChanPinQingSuanZhouQiFromExcel.get(j);
-					Set<ChanPinQingSuanZhouQiEnum> keySet = hashMap.keySet();
-					Iterator<ChanPinQingSuanZhouQiEnum> iterator = keySet.iterator();
+					HashMap<GuDingShouYiLiLvEnum, String> hashMap = ReadFromExcel.dataForGuDingShouYiLiLvFromExcel.get(j);
+					Set<GuDingShouYiLiLvEnum> keySet = hashMap.keySet();
+					Iterator<GuDingShouYiLiLvEnum> iterator = keySet.iterator();
 					while(iterator.hasNext()){
 						//从Excel中取出数据
-						ChanPinQingSuanZhouQiEnum ChanPinQingSuanZhouQiEnum = iterator.next();
-						if(ChanPinQingSuanZhouQiEnum.equals(ChanPinQingSuanZhouQiEnum.ISCHECKED)){
+						GuDingShouYiLiLvEnum GuDingShouYiLiLvEnum = iterator.next();
+						if(GuDingShouYiLiLvEnum.equals(GuDingShouYiLiLvEnum.ISCHECKED)){
 							break;
 						}
-						String dataFromExcel = hashMap.get(ChanPinQingSuanZhouQiEnum);
+						String dataFromExcel = hashMap.get(GuDingShouYiLiLvEnum);
 						////若Excel中取出的数值为空,说明该项不存在或不需要比较
 						if(dataFromExcel.equals("")||dataFromExcel==null){
 							continue;
 						}
 						//从页面中取出数值
-						MyResponse ChanPinQingSuanZhouQiResponse = Common.getWebElement(PageEnum.CHANPINQINGSUANZHOUQI, AllElementEnum.ChanPinQingSuanZhouQiElement, ChanPinQingSuanZhouQiEnum);
-						if(MyResponse.FAILED == (int)ChanPinQingSuanZhouQiResponse.get(MyResponse.STATUS)){
-							Common.logError("get element of"+ChanPinQingSuanZhouQiEnum+"failed from page");
+						MyResponse GuDingShouYiLiLvResponse = Common.getWebElement(PageEnum.GUDINGSHOUYILILV, AllElementEnum.GuDingShouYiLiLvElement, GuDingShouYiLiLvEnum);
+						if(MyResponse.FAILED == (int)GuDingShouYiLiLvResponse.get(MyResponse.STATUS)){
+							Common.logError("get element of"+GuDingShouYiLiLvEnum+"failed from page");
 							return false;
 						}
-						Common.click((WebElement)ChanPinQingSuanZhouQiResponse.get("ele"));
-						ChanPinQingSuanZhouQiResponse = Common.getWebElement(PageEnum.CHANPINQINGSUANZHOUQI, AllElementEnum.ChanPinQingSuanZhouQiElement, ChanPinQingSuanZhouQiEnum);
-						String dataFromPage = ((WebElement)ChanPinQingSuanZhouQiResponse.get("ele")).getAttribute("value");
+						Common.click((WebElement)GuDingShouYiLiLvResponse.get("ele"));
+						GuDingShouYiLiLvResponse = Common.getWebElement(PageEnum.GUDINGSHOUYILILV, AllElementEnum.GuDingShouYiLiLvElement, GuDingShouYiLiLvEnum);
+						String dataFromPage = ((WebElement)GuDingShouYiLiLvResponse.get("ele")).getAttribute("value");
 						//比较两数值是否相等
 						if(!dataFromExcel.contains(dataFromPage)){
 							//再点击之后这里做个延时，使页面发生响应变化。如999,999,999->999999
 							try {
 								Thread.sleep(1000);
-								Common.click((WebElement)ChanPinQingSuanZhouQiResponse.get("ele"));
+								Common.click((WebElement)GuDingShouYiLiLvResponse.get("ele"));
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-							ChanPinQingSuanZhouQiResponse = Common.getWebElement(PageEnum.CHANPINQINGSUANZHOUQI, AllElementEnum.ChanPinQingSuanZhouQiElement, ChanPinQingSuanZhouQiEnum);
-							dataFromPage = ((WebElement)ChanPinQingSuanZhouQiResponse.get("ele")).getAttribute("value");
+							GuDingShouYiLiLvResponse = Common.getWebElement(PageEnum.GUDINGSHOUYILILV, AllElementEnum.GuDingShouYiLiLvElement, GuDingShouYiLiLvEnum);
+							dataFromPage = ((WebElement)GuDingShouYiLiLvResponse.get("ele")).getAttribute("value");
 						}
 						if(!dataFromExcel.contains(dataFromPage)){
 							Common.logError("data not equals when compare, "+"dataFromExcel "+dataFromExcel+" dataFromPage "+dataFromPage);
@@ -246,19 +246,63 @@ public class ChanPinQingSuanZhouQi implements BaseInterface {
 		return true;
 	}
 	
-	public enum ChanPinQingSuanZhouQiEnum implements ElementEnum {
+	public enum GuDingShouYiLiLvEnum implements ElementEnum {
+		/**
+		 * 销售机构
+		*/
+		XIAOSHOUJIGOU,
 		/**
 		 * 产品代码
 		*/
 		CHANPINDAIMA,
 		/**
-		 * 产品清算周期
+		 * 固收明细流水号
 		*/
-		CHANPINQINGSUANZHOUQI,
+		GUSHOUMINGXILIUSHUIHAO,
 		/**
-		 * 描述
+		 * 年化收益率
 		*/
-		MIAOSHU,
+		NIANHUASHOUYILV,
+		/**
+		 * 金额下限(元)
+		*/
+		JINEXIAXIAN,
+		/**
+		 * 金额上限(元)
+		*/
+		JINESHANGXIAN,
+		/**
+		 * 持有时间下限(日)
+		*/
+		CHIYOUSHIJIANXIAXIAN,
+		/**
+		 * 持有时间上限(日)
+		*/
+		CHIYOUSHIJIANSHANGXIAN,
+		/**
+		 * 最低收益(元)
+		*/
+		ZUIDISHOUYI,
+		/**
+		 * 最高收益(元)
+		*/
+		ZUIGAOSHOUYI,
+		/**
+		 * 开放起始日期
+		*/
+		KAIFANGQISHIRIQI,
+		/**
+		 * 开放截止日期
+		*/
+		KAIFANGJIEZHIRIQI,
+		/**
+		 * 期数
+		*/
+		QISHU,
+		/**
+		 * 利息结算日期
+		*/
+		LIXIJIESUANRIQI,
 		/**
 		 * 是否需要审核
 		*/

@@ -21,9 +21,10 @@ public class Login {
 	public boolean login(String TA_address, String user, String password) {
 		Common.logInfo("login");
 		WebDriver driver = Common.driver;
-		//TODO：修改Tomcat的IP和端口
+
 //		String url = "http://192.168.103.213:8088/sofa/sofa-portal/index.jsp";
 		String url = TA_address;
+
 		//打开网址
 		driver.get(url);
 		//获取页面元素
