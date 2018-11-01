@@ -12,6 +12,7 @@ import jxl.Workbook;
 
 import org.testng.annotations.Test;
 
+import com.yss.method.ChanPinDongTai.ChanPinDongTaiEnum;
 import com.yss.method.ChanPinFeiLv.ChanPinFeiLvEnum;
 import com.yss.method.ChanPinQingSuanZhouQi.ChanPinQingSuanZhouQiEnum;
 import com.yss.method.ChanPinXiaoShouDaiLiGuanXi.ChanPinXiaoShouDaiLiGuanXiEnum;
@@ -53,6 +54,9 @@ public class ReadFromExcel {
 
 	public static List<HashMap<ChanPinQingSuanZhouQiEnum, String>> dataForChanPinQingSuanZhouQiFromExcel = new ArrayList<HashMap<ChanPinQingSuanZhouQiEnum, String>>();
 	public static List<HashMap<YongHuZhiXingRenGuanXiEnum, String>> dataForYongHuZhiXingRenGuanXiFromExcel = new ArrayList<HashMap<YongHuZhiXingRenGuanXiEnum, String>>();
+	public static List<HashMap<ChanPinDongTaiEnum, String>> dataForChanPinDongTaiFromExcel = new ArrayList<HashMap<ChanPinDongTaiEnum, String>>();
+
+	
 
 	/**
 	 * !!!!!!!!!!!!!!!!!
@@ -79,6 +83,7 @@ public class ReadFromExcel {
 		readForChanPinZhiXingRenGuanXi();
 		readForChanPinQingSuanZhouQi();
 		readForYongHuZhiXingRenGuanXi();
+		readForChanPinDongTai();
 	}
 	
 	/**
@@ -1055,5 +1060,53 @@ public class ReadFromExcel {
 			return false;
 		}
 		return true;
+	}
+	
+	/**
+	 *readForChanPinDongTai-产品动态    原佩宏
+	 * @return	
+	 */
+	private boolean readForChanPinDongTai() {
+		Common.logInfo("readFoChanPinDongTai");
+		
+		try {
+			Workbook book = Workbook.getWorkbook(new File(
+					"./testcase/TestCase.xls"));
+			// 获得ChanPinFeiLv工作表对象
+			Sheet[] sheets = book.getSheets();
+			Sheet sheet = null;
+			for (Sheet s : sheets) {
+				if ("chanpindongtai".equals(s.getName())) {
+					sheet = s;
+				}
+			}
+			if (sheet == null) {
+				Common.logError("ReadForLogPage error,the chanpindongtai sheet not exist!");
+				return false;
+			}
+			// 获取sheet的所有行数
+			int rows = sheet.getRows();
+			
+			for (int r = 2; r < rows; r++) {
+				LinkedHashMap<ChanPinDongTaiEnum, String> linkedHashMap = new LinkedHashMap<ChanPinDongTaiEnum, String>();
+				// 取出第一行数据的所有数据
+				String chanpindaima = sheet.getCell(1, r).getContents();
+				String chanpinzhuangtai = sheet.getCell(2, r).getContents();
+				String biandongriqi = sheet.getCell(3, r).getContents();
+				String ischecked = sheet.getCell(4, r).getContents();
+				
+				linkedHashMap.put(ChanPinDongTaiEnum.CHANPINDAIMA, chanpindaima);
+				linkedHashMap.put(ChanPinDongTaiEnum.CHANPINZHUANGTAI, chanpinzhuangtai);
+				linkedHashMap.put(ChanPinDongTaiEnum.BIANDONGRIQI, biandongriqi);
+				linkedHashMap.put(ChanPinDongTaiEnum.ISCHECKED, ischecked);
+				// 放入全局变量dataFoChanPinDongTaiFromExcel中
+				dataForChanPinDongTaiFromExcel.add(linkedHashMap);
+			}
+		} catch (Exception e) {
+			Common.logError(e.getMessage());
+			return false;
+		}
+		return true;
+		
 	}
 }

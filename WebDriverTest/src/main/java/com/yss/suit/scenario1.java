@@ -21,6 +21,7 @@ import com.yss.method.HeSuanJiGouXinXi;
 import com.yss.method.Login;
 import com.yss.method.XiaoShouJiGouXinXi;
 import com.yss.method.YongHuZhiXingRenGuanXi;
+import com.yss.method.ChanPinDongTai;
 import com.yss.method.ZheKouGuanLi;
 
 public class scenario1 {
@@ -126,24 +127,24 @@ public class scenario1 {
 		new ChanPinXinXi().after();
 		Reporter.log("产品信息-审核成功");
 	}
-//	@Test(priority = 13)
-//	public void ChanPinFeiLvAdd() throws InterruptedException{
-//		new ChanPinFeiLv().before();
-//		new ChanPinFeiLv().add();
-//		Reporter.log("产品费率-新增成功");
-//	}
-//	@Test(priority = 14)
-//	public void ChanPinFeiLvView() throws InterruptedException{
-//		new ChanPinFeiLv().view();
-//		Reporter.log("产品费率-查看成功");
-//	}
-//	@Test(priority = 15)
-//	public void ChanPinFeiLvReview() throws InterruptedException{
-//		new ChanPinFeiLv().review();
-//		new ChanPinFeiLv().after();
-//		Reporter.log("产品费率-审核成功");
-//	}
-//	
+	@Test(priority = 13)
+	public void ChanPinFeiLvAdd() throws InterruptedException{
+		new ChanPinFeiLv().before();
+		new ChanPinFeiLv().add();
+		Reporter.log("产品费率-新增成功");
+	}
+	@Test(priority = 14)
+	public void ChanPinFeiLvView() throws InterruptedException{
+		new ChanPinFeiLv().view();
+		Reporter.log("产品费率-查看成功");
+	}
+	@Test(priority = 15)
+	public void ChanPinFeiLvReview() throws InterruptedException{
+		new ChanPinFeiLv().review();
+		new ChanPinFeiLv().after();
+		Reporter.log("产品费率-审核成功");
+	}
+	
 	@Test(priority = 16)
 	public void ChanPinXiaoShouDaiLiGuanXiAdd() throws InterruptedException{
 		new ChanPinXiaoShouDaiLiGuanXi().before();
@@ -161,42 +162,42 @@ public class scenario1 {
 		new ChanPinXiaoShouDaiLiGuanXi().after();
 		Reporter.log("产品销售代理关系-审核成功");
 	}
-//	@Test(priority = 19)
-//	public void FeiYongFenChengAdd() throws InterruptedException{
-//		new FeiYongFenCheng().before();
-//		new FeiYongFenCheng().add();
-//		Reporter.log("费用分成-新增成功");
-//	}
-//	@Test(priority = 20)
-//	public void FeiYongFenChengView() throws InterruptedException{
-//		new FeiYongFenCheng().before();
-//		new FeiYongFenCheng().view();
-//		Reporter.log("费用分成-查看成功");
-//	}
-//	@Test(priority = 21)
-//	public void FeiYongFenChengReview() throws InterruptedException{
-//		new FeiYongFenCheng().review();
-//		new FeiYongFenCheng().after();
-//		Reporter.log("费用分成-审核成功");
-//	}
-//	@Test(priority = 22)
-//	public void ZheKouGuanLiAdd() throws InterruptedException{
-//		new ZheKouGuanLi().before();
-//		new ZheKouGuanLi().add();
-//		Reporter.log("折扣管理-新增成功");
-//	}
-//	@Test(priority = 23)
-//	public void ZheKouGuanLiView() throws InterruptedException{
-//		new ZheKouGuanLi().before();
-//		new ZheKouGuanLi().view();
-//		Reporter.log("折扣管理-查看成功");
-//	}
-//	@Test(priority = 24)
-//	public void ZheKouGuanLiReview() throws InterruptedException{
-//		new ZheKouGuanLi().review();
-//		new ZheKouGuanLi().after();
-//		Reporter.log("折扣管理-审核成功");
-//	}
+	@Test(priority = 19)
+	public void FeiYongFenChengAdd() throws InterruptedException{
+		new FeiYongFenCheng().before();
+		new FeiYongFenCheng().add();
+		Reporter.log("费用分成-新增成功");
+	}
+	@Test(priority = 20)
+	public void FeiYongFenChengView() throws InterruptedException{
+		new FeiYongFenCheng().before();
+		new FeiYongFenCheng().view();
+		Reporter.log("费用分成-查看成功");
+	}
+	@Test(priority = 21)
+	public void FeiYongFenChengReview() throws InterruptedException{
+		new FeiYongFenCheng().review();
+		new FeiYongFenCheng().after();
+		Reporter.log("费用分成-审核成功");
+	}
+	@Test(priority = 22)
+	public void ZheKouGuanLiAdd() throws InterruptedException{
+		new ZheKouGuanLi().before();
+		new ZheKouGuanLi().add();
+		Reporter.log("折扣管理-新增成功");
+	}
+	@Test(priority = 23)
+	public void ZheKouGuanLiView() throws InterruptedException{
+		new ZheKouGuanLi().before();
+		new ZheKouGuanLi().view();
+		Reporter.log("折扣管理-查看成功");
+	}
+	@Test(priority = 24)
+	public void ZheKouGuanLiReview() throws InterruptedException{
+		new ZheKouGuanLi().review();
+		new ZheKouGuanLi().after();
+		Reporter.log("折扣管理-审核成功");
+	}
 	@Test(priority = 25)
 	public void ChanPinQingSuanZhouQiAdd() throws InterruptedException{
 		new ChanPinQingSuanZhouQi().before();
@@ -253,6 +254,24 @@ public class scenario1 {
 		new ChanPinZhiXingRenGuanXi().review();
 		new ChanPinZhiXingRenGuanXi().after();
 		Reporter.log("产品执行人关系-审核成功");
+	}
+	@Test(priority = 31)
+	public void ChanPinDongTai() throws InterruptedException{
+		new ChanPinDongTai().before();
+		new ChanPinDongTai().add();
+		Reporter.log("产品动态-新增成功");
+	}
+	@Test(priority = 32)
+	public void  ChanPinDongTaiView() throws InterruptedException{
+		new ChanPinDongTai().before();
+		new ChanPinDongTai().view();
+		Reporter.log("产品动态-查看成功");
+	}
+	@Test(priority = 33)
+	public void  ChanPinDongTaiReview() throws InterruptedException{
+		new ChanPinDongTai().review();
+		new ChanPinDongTai().after();
+		Reporter.log("产品动态-审核成功");
 	}
 	
 
