@@ -46,6 +46,10 @@ public enum PageEnum {
 	 */
 	RICHANGYUNYINGQINGSUAN,
 	/**
+	 * 违约赎回费率
+	 */
+	WEIYUESHUHUIFEILU,
+	/**
 	 * 费用分成
 	 */
 	FEIYONGFENCHENG, 
@@ -65,5 +69,20 @@ public enum PageEnum {
 	 * 用户执行人关系
 	 */
 	YONGHUZHIXINGRENGUANXI,
-
+	/*
+	 * 固定收益利率
+	 */
+	GUDINGSHOUYILILV,
+	/**
+	 * 执行权限人信息
+	 */
+	ZHIXINGQUANXIANRENXINXI,
+	/**
+	 * 产品动态
+	 */
+	CHANPINDONGTAI,
+	/**
+	 * 银行基本信息
+	 */
+	YINHANGJIBENXINXI,
 }

@@ -111,7 +111,7 @@ public class CheckMenu {
 		/**
 		 * 固定收益利率
 		 */
-		GUDINGSHOUYILILU_2,
+		GUDINGSHOUYILILV_2,
 		/**
 		 * 业绩报酬方案
 		 */
@@ -191,7 +191,11 @@ public class CheckMenu {
 		/*
 		 * 用户执行人关系
 		 */
-		GONGHUZHIXINGRENGUANXI_2
+		GONGHUZHIXINGRENGUANXI_2,
+		/*
+		 * 银行基本信息
+		 */
+		YINHANGJIBENXINXI_2
 		//FIXME:以下为临时增加
 //		机构限额
 //		机构账号
@@ -285,6 +289,6 @@ public class CheckMenu {
 //		shengchengshenqing_2
 //		shengchengchaixi_2
 //		shoucangjia_1
-
+//      yinhangjibenxinxi_2
 	}
 }
